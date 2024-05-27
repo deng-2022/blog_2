@@ -1,0 +1,1108 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍟 介绍Typora的主要特性和界面，从基础到实践，帮助你快速上手并提升Markdown写作技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="美轮美奂的文档艺术：Typora的使用技巧和实践">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/06/20/Typora%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="🍟 介绍Typora的主要特性和界面，从基础到实践，帮助你快速上手并提升Markdown写作技巧">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/warm3.jpg">
+<meta property="article:published_time" content="2023-06-20T13:10:50.000Z">
+<meta property="article:modified_time" content="2023-12-02T06:26:22.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="项目">
+<meta property="article:tag" content="开发经验">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/warm3.jpg">
+  
+  
+  
+  <title>美轮美奂的文档艺术：Typora的使用技巧和实践 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="美轮美奂的文档艺术：Typora的使用技巧和实践"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-20 21:10" pubdate>
+          2023年6月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          714 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          2 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+        aria-expanded="true"
+      >
+        项目
+        <span class="list-group-count">(6)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="开发经验"
+        id="heading-bfd19ce0478d81a44ceb5a9a1aa94202" role="tab" data-toggle="collapse" href="#collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+        aria-expanded="true"
+      >
+        开发经验
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+           role="tabpanel" aria-labelledby="heading-bfd19ce0478d81a44ceb5a9a1aa94202">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/03/17/Memory%20%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83%E7%B3%BB%E7%BB%9F-%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="Memory 用户中心中心-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Memory 用户中心中心-开发文档</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/20/Typora%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/" title="美轮美奂的文档艺术：Typora的使用技巧和实践"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">美轮美奂的文档艺术：Typora的使用技巧和实践</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/02/PicMemories%20%E5%A3%81%E7%BA%B8%E5%88%86%E4%BA%AB%E5%B0%8F%E7%A8%8B%E5%BA%8F%20-%20%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="PicMemories-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">PicMemories-开发文档</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/07/TaskMemories%20-%20%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="TaskMemories-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">TaskMemories-开发文档</span>
+        </a>
+      
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Elasticsearch"
+        id="heading-45e23a169652aaf95ce80da844f3df0d" role="tab" data-toggle="collapse" href="#collapse-45e23a169652aaf95ce80da844f3df0d"
+        aria-expanded="false"
+      >
+        Elasticsearch
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-45e23a169652aaf95ce80da844f3df0d"
+           role="tabpanel" aria-labelledby="heading-45e23a169652aaf95ce80da844f3df0d">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Logstash"
+        id="heading-65859d7d6b0c6a5327b8f0b0c09653ad" role="tab" data-toggle="collapse" href="#collapse-65859d7d6b0c6a5327b8f0b0c09653ad"
+        aria-expanded="false"
+      >
+        Logstash
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-65859d7d6b0c6a5327b8f0b0c09653ad"
+           role="tabpanel" aria-labelledby="heading-65859d7d6b0c6a5327b8f0b0c09653ad">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Kibana"
+        id="heading-5228fdd6f613af63fc73ee7c02ef8fb5" role="tab" data-toggle="collapse" href="#collapse-5228fdd6f613af63fc73ee7c02ef8fb5"
+        aria-expanded="false"
+      >
+        Kibana
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-5228fdd6f613af63fc73ee7c02ef8fb5"
+           role="tabpanel" aria-labelledby="heading-5228fdd6f613af63fc73ee7c02ef8fb5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/26/MemorySearch%20%E5%BF%86%E6%90%9C%E9%98%81-%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="MemorySearch 忆搜阁-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">MemorySearch 忆搜阁-开发文档</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目部署"
+        id="heading-50be5e3b1697e929a38352262896962e" role="tab" data-toggle="collapse" href="#collapse-50be5e3b1697e929a38352262896962e"
+        aria-expanded="false"
+      >
+        项目部署
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-50be5e3b1697e929a38352262896962e"
+           role="tabpanel" aria-labelledby="heading-50be5e3b1697e929a38352262896962e">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="开发经验"
+        id="heading-bfd19ce0478d81a44ceb5a9a1aa94202" role="tab" data-toggle="collapse" href="#collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+        aria-expanded="false"
+      >
+        开发经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+           role="tabpanel" aria-labelledby="heading-bfd19ce0478d81a44ceb5a9a1aa94202">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="网站"
+        id="heading-beb6c0bd8a66cea600c8ce40167eeb57" role="tab" data-toggle="collapse" href="#collapse-beb6c0bd8a66cea600c8ce40167eeb57"
+        aria-expanded="false"
+      >
+        网站
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-beb6c0bd8a66cea600c8ce40167eeb57"
+           role="tabpanel" aria-labelledby="heading-beb6c0bd8a66cea600c8ce40167eeb57">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/04/%E6%8F%AD%E7%A7%98%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF%E4%B9%8B%E8%B7%AF%EF%BC%9A%E6%B5%81%E7%A8%8B%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="揭秘项目部署上线之路：流程、挑战与解决方案"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">揭秘项目部署上线之路：流程、挑战与解决方案</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">美轮美奂的文档艺术：Typora的使用技巧和实践</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：6 个月前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>Typora是一款简洁、易用的Markdown编辑器，专注于提供流畅的写作体验。Markdown是一种轻量级的标记语言，用于通过简单的符号和格式化规则来创建富文本内容。</li>
+</ul>
+<h3 id="Typora的主要特点和使用技巧如下："><a href="#Typora的主要特点和使用技巧如下：" class="headerlink" title="Typora的主要特点和使用技巧如下："></a>Typora的主要特点和使用技巧如下：</h3><ul>
+<li>🏒<strong>所见即所得</strong>：Typora以所见即所得的方式<strong>显示Markdown文档</strong>，让你可以直接在编辑器中预览最终的渲染效果，无需切换模式或预览窗口。</li>
+<li>🥍<strong>实时自动保存</strong>：Typora自动保存你的文档，确保你的内容不会丢失。你可以专注于写作，而无需担心手动保存。</li>
+<li>🏏<strong>格式和样式快速设置</strong>：Typora提供了一些快捷的方式来设置文本格式和样式，比如用<strong>符号标记标题</strong>、<strong>列表</strong>、<strong>引用</strong>、<strong>粗体</strong>、<strong>斜体</strong>等。你也可以通过<strong>自定义CSS样式</strong>来美化文档外观。</li>
+<li><strong>🏸多种导出选项</strong>：Typora支持将Markdown<strong>文档导出</strong>为<strong>HTML、PDF、Word、纯文本</strong>等多种格式，方便你在不同场景下使用。</li>
+<li>🏓<strong>快捷键支持</strong>：Typora提供了丰富的快捷键支持，可以帮助你提高写作效率。比如，通过快捷键可以<strong>快速插入链接</strong>、<strong>插入表格</strong>、<strong>设置标题级别</strong>等。</li>
+<li>🏑<strong>嵌入数学公式和流程图</strong>：Typora支持使用LaTeX语法插入数学公式，并且集成了<strong>流程图</strong>和<strong>时序图</strong>的绘制功能，方便与技术文档或学术论文的写作。</li>
+<li>🎯<strong>多平台支持</strong>：Typora可供<strong>Windows、Mac和Linux用户</strong>使用，你可以在不同的操作系统上保持一致的写作体验。</li>
+</ul>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h2><blockquote>
+<p>🥣 推荐阅读：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40818172/article/details/126260661">手把手教会你使用Markdown【从入门到精通一篇就够了】-CSDN博客</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.itmind.net/20343.html">Typora2022最新破解教程 完美永久激活Typora (itmind.net)</a></p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>跟着一步步操作就行了，激活成功！<strong>（2023/12/02午）</strong></li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231202142555666.png" alt="image-20231202142555666"></p>
+<h2 id="做好配置"><a href="#做好配置" class="headerlink" title="做好配置"></a>做好配置</h2><h3 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h3><h2 id="操作技巧"><a href="#操作技巧" class="headerlink" title="操作技巧"></a>操作技巧</h2><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><h3 id="常用功能"><a href="#常用功能" class="headerlink" title="常用功能"></a>常用功能</h3><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E9%A1%B9%E7%9B%AE/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="category-chain-item">开发经验</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/%E9%A1%B9%E7%9B%AE/">#项目</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">#开发经验</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>美轮美奂的文档艺术：Typora的使用技巧和实践</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/06/20/Typora操作技巧/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月20日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年12月2日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/22/Nginx%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%EF%BC%9A%E7%90%86%E8%A7%A3%E3%80%81%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BC%98%E5%8C%96/" title="Nginx 入门指南：理解、配置和优化">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Nginx 入门指南：理解、配置和优化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%EF%BC%9A%E8%A7%A3%E6%94%BE%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="宝塔面板：解放手动配置，轻松管理你的服务器">
+                        <span class="hidden-mobile">宝塔面板：解放手动配置，轻松管理你的服务器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

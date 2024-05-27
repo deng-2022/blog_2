@@ -1,0 +1,1170 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="牛客的刷题笔记(随手记)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客-刷题">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/04/09/%E7%89%9B%E5%AE%A2-%E5%88%B7%E9%A2%98/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="牛客的刷题笔记(随手记)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/deng-2022/pictures/raw/master/images/4846014_1521723853172_FF523AF3E7DA7B365BEA995386A30039">
+<meta property="og:image" content="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230518090644092.png">
+<meta property="og:image" content="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230526173031485.png">
+<meta property="og:image" content="c:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230526173038011.png">
+<meta property="og:image" content="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230609220413734.png">
+<meta property="og:image" content="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230609220455513.png">
+<meta property="og:image" content="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230609220519656.png">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20190921/242025553_1569075361009_BA9669C5826A238ACEC0BD86755FA5DB">
+<meta property="article:published_time" content="2023-04-09T14:45:55.000Z">
+<meta property="article:modified_time" content="2023-12-22T03:24:42.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/deng-2022/pictures/raw/master/images/4846014_1521723853172_FF523AF3E7DA7B365BEA995386A30039">
+  
+  
+  
+  <title>牛客-刷题 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="牛客-刷题"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-09 22:45" pubdate>
+          2023年4月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          25k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          62 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Java"
+        id="heading-d52387880e1ea22817a72d3759213819" role="tab" data-toggle="collapse" href="#collapse-d52387880e1ea22817a72d3759213819"
+        aria-expanded="true"
+      >
+        Java
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-d52387880e1ea22817a72d3759213819"
+           role="tabpanel" aria-labelledby="heading-d52387880e1ea22817a72d3759213819">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/10/24/Java%E7%BB%88%E6%9E%81%E5%86%92%E9%99%A9%EF%BC%9A%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E5%AE%9E%E6%88%98%EF%BC%8C%E8%A7%A3%E9%94%81Java%E7%9A%84%E7%A5%9E%E7%A7%98%E5%AF%86%E7%A0%81/" title="Java终极冒险：从基础到实战，解锁Java的神秘密码"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Java终极冒险：从基础到实战，解锁Java的神秘密码</span>
+        </a>
+      
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="基础知识"
+        id="heading-8453e91e9011ab99dfbb3b16f56ac222" role="tab" data-toggle="collapse" href="#collapse-8453e91e9011ab99dfbb3b16f56ac222"
+        aria-expanded="true"
+      >
+        基础知识
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-8453e91e9011ab99dfbb3b16f56ac222"
+           role="tabpanel" aria-labelledby="heading-8453e91e9011ab99dfbb3b16f56ac222">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/04/09/Java%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/" title="Java泛型：赋予灵活性的利器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Java泛型：赋予灵活性的利器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/04/09/%E7%89%9B%E5%AE%A2-%E5%88%B7%E9%A2%98/" title="牛客-刷题"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">牛客-刷题</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="算法"
+        id="heading-046a899ee7a6ec88d370211a518c9e80" role="tab" data-toggle="collapse" href="#collapse-046a899ee7a6ec88d370211a518c9e80"
+        aria-expanded="false"
+      >
+        算法
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-046a899ee7a6ec88d370211a518c9e80"
+           role="tabpanel" aria-labelledby="heading-046a899ee7a6ec88d370211a518c9e80">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/04/14/%E7%AE%97%E6%B3%95%E7%9B%9B%E5%AE%B4%EF%BC%9A%E7%BB%8F%E5%85%B8%E9%A2%98%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98%E7%AD%96%E7%95%A5/" title="算法盛宴：经典题解与实战策略"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">算法盛宴：经典题解与实战策略</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="设计模式"
+        id="heading-301a19970448f8e4f27ddae7a7d415fe" role="tab" data-toggle="collapse" href="#collapse-301a19970448f8e4f27ddae7a7d415fe"
+        aria-expanded="false"
+      >
+        设计模式
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-301a19970448f8e4f27ddae7a7d415fe"
+           role="tabpanel" aria-labelledby="heading-301a19970448f8e4f27ddae7a7d415fe">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="false"
+      >
+        经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/09/17/%E6%94%B9%E5%8F%98%E7%BC%96%E7%A0%81%E6%B8%B8%E6%88%8F%E8%A7%84%E5%88%99%EF%BC%9A%E6%8F%AD%E7%A7%9823%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%AD%85%E5%8A%9B%E5%92%8C%E5%AE%9E%E7%94%A8%E6%80%A7/" title="改变编码游戏规则：揭秘23种设计模式的魅力和实用性"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">改变编码游戏规则：揭秘23种设计模式的魅力和实用性</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">牛客-刷题</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：5 个月前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li><h5 id="都是刷题时看到的一些精彩的题解和Java基础知识，随手复制粘贴就扔这儿了"><a href="#都是刷题时看到的一些精彩的题解和Java基础知识，随手复制粘贴就扔这儿了" class="headerlink" title="都是刷题时看到的一些精彩的题解和Java基础知识，随手复制粘贴就扔这儿了"></a>都是刷题时看到的一些精彩的题解和Java基础知识，随手复制粘贴就扔这儿了</h5></li>
+<li><p>就这部分内容，九月底考 Java 二级的时候过了一遍的，还是相当有用的<strong>（2023/12/22早）</strong></p>
+</li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">final</span>修饰的方法，不允许被子类覆盖。<br><span class="hljs-keyword">final</span>修饰的类，不能被继承。<br><span class="hljs-keyword">final</span>修饰的变量，不能改变值。<br><span class="hljs-keyword">final</span>修饰的引用类型，不能再指向别的东西，但是可以改变其中的内容。<br><span class="hljs-keyword">final</span>修饰的成员变量在赋值时可以有三种方式。<span class="hljs-number">1</span>、在声明时直接赋值。<span class="hljs-number">2</span>、在构造器中赋值。<span class="hljs-number">3</span>、在初始代码块中进行赋值。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">关于抽象类 <br>JDK <span class="hljs-number">1.8</span>以前，抽象类的方法默认访问权限为<span class="hljs-keyword">protected</span> <br>JDK <span class="hljs-number">1.8</span>时，抽象类的方法默认访问权限变为<span class="hljs-keyword">default</span> <br><br>关于接口 <br>JDK <span class="hljs-number">1.8</span>以前，接口中的方法必须是<span class="hljs-keyword">public</span>的 <br>JDK <span class="hljs-number">1.8</span>时，接口中的方法可以是<span class="hljs-keyword">public</span>的，也可以是<span class="hljs-keyword">default</span>的 <br>JDK <span class="hljs-number">1.9</span>时，接口中的方法可以是<span class="hljs-keyword">private</span>的<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">写法顺序：<span class="hljs-keyword">select</span>--<span class="hljs-keyword">from</span>--<span class="hljs-keyword">where</span>--<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>--<span class="hljs-keyword">having</span>--<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <br><br>执行顺序：<span class="hljs-keyword">from</span>--<span class="hljs-keyword">where</span>--<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>--<span class="hljs-keyword">having</span>--<span class="hljs-keyword">select</span>--<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <br>就是<span class="hljs-keyword">select</span>要放后面，如果有<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span>，则<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span>放最后，因为<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> 是对结果进行排序<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">可串行化调度：所有的事物依次逐个执行，这样事物之间就完全不可能有干扰，防止脏读、不可重复读、幻读。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css">客户端对象:Socket s = new <span class="hljs-built_in">Socket</span>(<span class="hljs-string">&quot;127.0.0.1&quot;</span>,<span class="hljs-number">6666</span>); <br>服务端对象:ServerSocket ss = new <span class="hljs-built_in">ServerSocket</span>(<span class="hljs-number">6666</span>); <br>监听服务器的连接: <br>    s=ss.<span class="hljs-built_in">accept</span>()<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">s</span>.getBytes(<span class="hljs-string">&quot;GBK&quot;</span>).length就是求的字节数。如果是GBK，一个中文字符占<span class="hljs-number">2</span>字节，如果是UTF-<span class="hljs-number">8</span>则是<span class="hljs-number">3</span>个字节，<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs ocaml"><span class="hljs-type">Java</span>一维数组有两种初始化方法 <br><span class="hljs-number">1</span>、静态初始化 <br><span class="hljs-built_in">int</span> <span class="hljs-built_in">array</span><span class="hljs-literal">[]</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span><span class="hljs-literal">[]</span>&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>&#125;<br>或者<br><span class="hljs-built_in">int</span> <span class="hljs-built_in">array</span><span class="hljs-literal">[]</span> = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>&#125;<br>需要注意的是，写成如下形式也是错误的<br><span class="hljs-built_in">int</span> <span class="hljs-built_in">array</span><span class="hljs-literal">[]</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">5</span>]&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>&#125;<br><span class="hljs-number">2</span>、动态初始化 <br><span class="hljs-built_in">int</span> <span class="hljs-built_in">array</span><span class="hljs-literal">[]</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">5</span>];<br><span class="hljs-built_in">array</span>[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-built_in">array</span>[<span class="hljs-number">1</span>] = <span class="hljs-number">2</span>;<br><span class="hljs-built_in">array</span>[<span class="hljs-number">2</span>] = <span class="hljs-number">3</span>;<br><span class="hljs-built_in">array</span>[<span class="hljs-number">3</span>] = <span class="hljs-number">4</span>;<br><span class="hljs-built_in">array</span>[<span class="hljs-number">4</span>] = <span class="hljs-number">5</span>;<br>静态与动态初始化的区别就在于，前者是声明的时候就初始化，后者是先声明，再动态初始化<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arduino">小到大算自动类型转换<br>就是隐式转换（自动类型转换）：<br>数值型数据的转换：<span class="hljs-type">byte</span>→<span class="hljs-type">short</span>→<span class="hljs-type">int</span>→<span class="hljs-type">long</span>→<span class="hljs-type">float</span>→<span class="hljs-type">double</span>。<br>字符型转换为整型：<span class="hljs-type">char</span>→<span class="hljs-type">int</span>。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">Java一个源程序只能有一个<span class="hljs-keyword">public</span>类存在，且类名与文件名相同。Java程序是从main方法开始执行的，<span class="hljs-keyword">public</span>为类加载器提供入口，然后找到<span class="hljs-keyword">public</span>类中的main方法开始执行。如果存在多个<span class="hljs-keyword">public</span>类，程序将不知道该从哪里执行。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">ava分为基本数据据类型和引用数据类型，基本数据类型又分为数值型（整数类型（<span class="hljs-keyword">byte</span>、<span class="hljs-keyword">short</span>、<span class="hljs-keyword">int</span>、<span class="hljs-keyword">long</span>）和浮点型（<span class="hljs-keyword">float</span>、<span class="hljs-keyword">double</span>））、字符型（<span class="hljs-keyword">char</span>）和布尔型（<span class="hljs-keyword">boolean</span>），引用数据类型包括类（<span class="hljs-keyword">class</span>）、接口（<span class="hljs-keyword">interface</span>）、数组和一些特殊的<span class="hljs-keyword">null</span>类型。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">JDK</span>=JRE+编译、运行等命令工具<br>      <span class="hljs-attr">JRE</span>=JVM+Java系统类库<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Servlet</span>的生命周期分为<span class="hljs-number">5</span>个阶段：加载、创建、初始化、处理客户请求、卸载。 (<span class="hljs-number">1</span>)加载：容器通过类加载器使用servlet类对应的文件加载servlet (<span class="hljs-number">2</span>)创建：通过调用servlet构造函数创建一个servlet对象 (<span class="hljs-number">3</span>)初始化：调用init方法初始化 (<span class="hljs-number">4</span>)处理客户请求：每当有一个客户请求，容器会创建一个线程来处理客户请求 (<span class="hljs-number">5</span>)卸载：调用destroy方法让servlet自己释放其占用的资源<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">Spring 框架是一个分层架构，由 <span class="hljs-number">7</span> 个定义良好的模块组成。 <br><br>核心容器，Spring上下文，Spring AOP， Spring DAO， Spring <span class="hljs-keyword">ORM， </span>Spring Web， Spring MVC<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs delphi">方法重载（<span class="hljs-keyword">overload</span>）： <br><span class="hljs-number">1</span>.必须是同一个类 <br><span class="hljs-number">2</span>方法名（也可以叫函数）一样 <br><span class="hljs-number">3</span>参数类型不一样或参数数量不一样 <br><br>方法的重写（<span class="hljs-keyword">override</span>）两同两小一大原则： <br>方法名相同，参数类型相同 <br>子类返回类型小于等于父类方法返回类型， <br>子类抛出异常小于等于父类方法抛出异常， <br>子类访问权限大于等于父类方法访问权限<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Jdbc</span>六大步骤: <span class="hljs-number">1</span>.注册驱动 <span class="hljs-number">2</span>.获取连接 <span class="hljs-number">3</span>.创建语句对象 <span class="hljs-number">4</span>.执行sql <span class="hljs-number">5</span>.处理语句集 <span class="hljs-number">6</span>关闭连接<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">按照流是否直接与特定的地方（如磁盘、内存、设备等）相连，分为节点流和处理流两类。 <br>节点流：可以从或向一个特定的地方（节点）读写数据。如FileReader. <br>处理流：是对一个已存在的流的连接和封装，通过所封装的流的功能调用实现数据读写。如<span class="hljs-keyword">BufferedReader.处理流的构造方法总是要带一个其他的流对象做参数。一个流对象经过其他流的多次包装，称为流的链接。 </span><br><span class="hljs-keyword">JAVA常用的节点流： </span><br>文 件 FileInputStream FileOutputStrean FileReader FileWriter 文件进行处理的节点流。 <br>字符串 StringReader StringWriter 对字符串进行处理的节点流。 <br>数 组 <span class="hljs-keyword">ByteArrayInputStream </span><span class="hljs-keyword">ByteArrayOutputStreamCharArrayReader </span>CharArrayWriter 对数组进行处理的节点流（对应的不再是文件，而是内存中的一个数组）。 <br>管 道 PipedInputStream PipedOutputStream PipedReaderPipedWriter对管道进行处理的节点流。 <br>常用处理流（关闭处理流使用关闭里面的节点流） <br>缓冲流：<span class="hljs-keyword">BufferedInputStrean </span><span class="hljs-keyword">BufferedOutputStream </span><span class="hljs-keyword">BufferedReader </span><span class="hljs-keyword">BufferedWriter </span> 增加缓冲功能，避免频繁读写硬盘。 <br>转换流：InputStreamReader OutputStreamReader 实现字节流和字符流之间的转换。 <br>数据流 DataInputStream DataOutputStream  等-提供将基础数据类型写入到文件中，或者读取出来. <br>流的关闭顺序 <br>一般情况下是：先打开的后关闭，后打开的先关闭 <br>另一种情况：看依赖关系，如果流a依赖流<span class="hljs-keyword">b，应该先关闭流a，再关闭流b。例如，处理流a依赖节点流b，应该先关闭处理流a，再关闭节点流b </span><br>可以只关闭处理流，不用关闭节点流。处理流关闭的时候，会调用其处理的节点流的关闭方法。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">Integer对象的方法 <br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span>parse<span class="hljs-constructor">Int(<span class="hljs-string">&quot;&quot;</span>)</span>;是将字符串类型转换为<span class="hljs-built_in">int</span>的基础数据类型 <br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span>value<span class="hljs-constructor">Of(<span class="hljs-string">&quot;&quot;</span>)</span>是将字符串类型数据转换为Integer对象 <br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span><span class="hljs-built_in">int</span><span class="hljs-constructor">Value()</span>;是将Integer对象中的数据取出，返回一个基础数据类型<span class="hljs-built_in">int</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">在这里帮大家总结一下hashMap和hashtable方面的知识点吧： <span class="hljs-number">1.</span>  关于HashMap的一些说法： a)  HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。HashMap的底层结构是一个数组，数组中的每一项是一条链表。 b)  HashMap的实例有俩个参数影响其性能： “初始容量” 和 装填因子。 c)  HashMap实现不同步，线程不安全。  HashTable线程安全 d)  HashMap中的key-value都是存储在Entry中的。 e)  HashMap可以存<span class="hljs-literal">null</span>键和<span class="hljs-literal">null</span>值，不保证元素的顺序恒久不变，它的底层使用的是数组和链表，通过hashCode()方法和equals方法保证键的唯一性 f)  解决冲突主要有三种方法：定址法，拉链法，再散列法。HashMap是采用拉链法解决哈希冲突的。 注：链表法是将相同hash值的对象组成一个链表放在hash值对应的槽位；    用开放定址法解决冲突的做法是：当冲突发生时，使用某种探查(亦称探测)技术在散列表中形成一个探查(测)序列。沿此序列逐个单元地查找，直到找到给定的关键字，或者碰到一个开放的地址(即该地址单元为空)为止（若要插入，在探查到开放的地址，则可将待插入的新结点存人该地址单元）。   拉链法解决冲突的做法是： 将所有关键字为同义词的结点链接在同一个单链表中。若选定的散列表长度为m，则可将散列表定义为一个由m个头指针组成的指针数组T[<span class="hljs-number">0.</span>.m<span class="hljs-number">-1</span>]。凡是散列地址为i的结点，均插入到以T[i]为头指针的单链表中。T中各分量的初值均应为空指针。在拉链法中，装填因子α可以大于<span class="hljs-number">1</span>，但一般均取α≤<span class="hljs-number">1</span>。拉链法适合未规定元素的大小。     <span class="hljs-number">2.</span>  Hashtable和HashMap的区别： a)   继承不同。  <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Hashtable</span> <span class="hljs-symbol">extends</span> <span class="hljs-symbol">Dictionary</span> <span class="hljs-symbol">implements</span> <span class="hljs-symbol">Map</span> <span class="hljs-symbol">public</span> <span class="hljs-symbol">class</span> <span class="hljs-symbol">HashMap</span> <span class="hljs-symbol">extends</span>  <span class="hljs-symbol">AbstractMap</span> <span class="hljs-symbol">implements</span> <span class="hljs-symbol">Map</span> <span class="hljs-symbol">b</span>)  <span class="hljs-symbol">Hashtable</span>中的方法是同步的，而<span class="hljs-symbol">HashMap</span>中的方法在缺省情况下是非同步的。在多线程并发的环境下，可以直接使用<span class="hljs-symbol">Hashtable</span>，但是要使用<span class="hljs-symbol">HashMap</span>的话就要自己增加同步处理了。 <span class="hljs-symbol">c</span>)  <span class="hljs-symbol">Hashtable</span> 中， <span class="hljs-symbol">key</span> 和 <span class="hljs-symbol">value</span> 都不允许出现 <span class="hljs-symbol">null</span> 值。 在 <span class="hljs-symbol">HashMap</span> 中， <span class="hljs-symbol">null</span> 可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为 <span class="hljs-symbol">null</span> 。当 <span class="hljs-symbol">get</span>() 方法返回 <span class="hljs-symbol">null</span> 值时，即可以表示 <span class="hljs-symbol">HashMap</span> 中没有该键，也可以表示该键所对应的值为 <span class="hljs-symbol">null</span> 。因此，在 <span class="hljs-symbol">HashMap</span> 中不能由 <span class="hljs-symbol">get</span>() 方法来判断 <span class="hljs-symbol">HashMap</span> 中是否存在某个键， 而应该用 <span class="hljs-symbol">containsKey</span>() 方法来判断。 <span class="hljs-symbol">d</span>)  两个遍历方式的内部实现上不同。<span class="hljs-symbol">Hashtable</span>、<span class="hljs-symbol">HashMap</span>都使用了<span class="hljs-symbol">Iterator</span>。而由于历史原因，<span class="hljs-symbol">Hashtable</span>还使用了<span class="hljs-symbol">Enumeration</span>的方式。 <span class="hljs-symbol">e</span>)  哈希值的使用不同，<span class="hljs-symbol">HashTable</span>直接使用对象的<span class="hljs-symbol">hashCode</span>。而<span class="hljs-symbol">HashMap</span>重新计算<span class="hljs-symbol">hash</span>值。 <span class="hljs-symbol">f</span>)  <span class="hljs-symbol">Hashtable</span>和<span class="hljs-symbol">HashMap</span>它们两个内部实现方式的数组的初始大小和扩容的方式。<span class="hljs-symbol">HashTable</span>中<span class="hljs-symbol">hash</span>数组默认大小是<span class="hljs-symbol">11</span>，增加的方式是<span class="hljs-symbol">old</span>*<span class="hljs-symbol">2</span>+<span class="hljs-symbol">1</span>。<span class="hljs-symbol">HashMap</span>中<span class="hljs-symbol">hash</span>数组的默认大小是<span class="hljs-symbol">16</span>，而且一定是<span class="hljs-symbol">2</span>的指数。   注：  <span class="hljs-symbol">HashSet</span>子类依靠<span class="hljs-symbol">hashCode</span>()和<span class="hljs-symbol">equal</span>()方法来区分重复元素。      <span class="hljs-symbol">HashSet</span>内部使用<span class="hljs-symbol">Map</span>保存数据，即将<span class="hljs-symbol">HashSet</span>的数据作为<span class="hljs-symbol">Map</span>的<span class="hljs-symbol">key</span>值保存，这也是<span class="hljs-symbol">HashSet</span>中元素不能重复的原因。而<span class="hljs-symbol">Map</span>中保存<span class="hljs-symbol">key</span>值的,会去判断当前<span class="hljs-symbol">Map</span>中是否含有该<span class="hljs-symbol">Key</span>对象，内部是先通过<span class="hljs-symbol">key</span>的<span class="hljs-symbol">hashCode,</span>确定有相同的<span class="hljs-symbol">hashCode</span>之后，再通过<span class="hljs-symbol">equals</span>方法判断是否相同。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css">重写 要求两同两小一大原则， 方法名相同，参数类型相同，子类返回类型小于等于父类方法返回类型， 子类抛出异常小于等于父类方法抛出异常， 子类访问权限大于等于父类方法访问权限。［注意：这里的返回类型必须要在有继承关系的前提下比较］ <br>重载 方法名必须相同，参数类型必须不同，包括但不限于一项，参数数目，参数类型，参数顺序<br>再来说说这道题 <span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">B</span> 都是方法名和参数相同，是重写，但是返回类型没与父类返回类型有继承关系，错误 D 返回一个类错误 c的参数类型与父类不同，所以不是重写，可以理解为广义上的重载访问权限小于父类，都会显示错误<br>虽然题目没点明一定要重载或者重写，但是当你的方法名与参数类型与父类相同时，已经是重写了，这时候如果返回类型或者异常类型比父类大，或者访问权限比父类小都会编译错误<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp">难道我们只能单纯的背java的那个类是线程安全的，那个类不是线程安全的么？<br>这和授人以鱼有何区别呢？难道就没有一种方法授人以渔？直接教我们如何去判断一个类是否是线程安全的？<br>java中的线程安全是什么：<br>就是线程同步的意思，就是当一个程序对一个线程安全的方法或者语句进行访问的时候，其他的不能再对他进行操作了，必须等到这次访问结束以后才能对这个线程安全的方法进行访问<br>什么叫线程安全：<br>如果你的代码所在的进程中有多个线程在同时运行，而这些线程可能会同时运行这段代码。如果每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，就是线程安全的。 <br>或者说:一个类或者程序所提供的接口对于线程来说是原子操作或者多个线程之间的切换不会导致该接口的执行结果存在二义性,也就是说我们不用考虑同步的问题。<br>线程安全问题都是由全局变量及静态变量引起的。<br>若每个线程中对全局变量、静态变量只有读操作，而无写操作，一般来说，这个全局变量是线程安全的；若有多个线程同时执行写操作，一般都需要考虑线程同步，否则就可能影响线程安全。<br>看过vector源码的同学就会知道他的许多操作都是加了<span class="hljs-keyword">synchronized</span>修饰的比如他的添加元素。(不知道<span class="hljs-keyword">synchronized</span>是什么意思的自行百度！)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">只要是被子类重写的方法，不被<span class="hljs-keyword">super</span>调用都是调用子类方法<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">一旦在<span class="hljs-keyword">finally</span>块中使用了<span class="hljs-keyword">return</span>或<span class="hljs-keyword">throw</span>语句，将会导致<span class="hljs-keyword">try</span>块，<span class="hljs-keyword">catch</span>块中的<span class="hljs-keyword">return</span>，<span class="hljs-keyword">throw</span>语句失效<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk">链接：https:<span class="hljs-regexp">//</span>www.nowcoder.com<span class="hljs-regexp">/questionTerminal/</span><span class="hljs-number">073</span>fe9f1e5c84a689bcdb9ea899d295e?<br>来源：牛客网<br><br>对于管道，有下面这几种类型：<br>①普通管道（PIPE）：通常有两种限制，一是单工，即只能单向传输；二是血缘，即常用于父子进程间（或有血缘关系的进程间）。<br>②流管道（s_pipe）：去除了上述的第一种限制，实现了双向传输。<br><br>③命名管道（name_pipe）：去除了上述的第二种限制，实现了无血缘关系的不同进程间通信。<br>显然，要求是对于不同的服务器之间的通信，是要要求全双工形式的，而管道只能是半双工，虽然可以双向，但是同一时间只能有一个方向传输，全双工和半双工的区别可以如下图示理解：<br></code></pre></td></tr></table></figure>
+
+<p>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/073fe9f1e5c84a689bcdb9ea899d295e">https://www.nowcoder.com/questionTerminal/073fe9f1e5c84a689bcdb9ea899d295e</a>?<br>来源：牛客网<img src="https://gitee.com/deng-2022/pictures/raw/master/images/4846014_1521723853172_FF523AF3E7DA7B365BEA995386A30039" alt="img">**</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">is-<span class="hljs-keyword">a</span>:继承关系 has-<span class="hljs-keyword">a</span>:从属关系 like-<span class="hljs-keyword">a</span>:组合关系<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus">链接：https:<span class="hljs-comment">//www.nowcoder.com/questionTerminal/049085c1e4204b20b6171a0c13dfbfe7?</span><br>来源：牛客网<br><br>java<span class="hljs-selector-class">.lang</span>.NullPoninterException：变量未被初始化、对象未赋值、对象为空（俗称的空指针异常）<br>java<span class="hljs-selector-class">.lang</span>.NumberFormatException：数据格式转换失败（integer的取值范围为：-<span class="hljs-number">128</span>~<span class="hljs-number">127</span>，超过范围都会访问false）<br>java<span class="hljs-selector-class">.lang</span>.RuntimeException：运行时异常<br>java<span class="hljs-selector-class">.lang</span>.ArrayindexOutOfBoundsException：数组下标越界<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs gradle">链接：https:<span class="hljs-comment">//www.nowcoder.com/questionTerminal/22a7fd3328124530be8ced520a9eaceb?</span><br>来源：牛客网<br><br>接口是一种特殊的抽象类，先说明抽象类中的抽象方法，再说明接口<br><br>抽象类中的抽象方法(其前有 abstract1修饰)不能用 <span class="hljs-keyword">private</span>、 <span class="hljs-keyword">static</span>、 <span class="hljs-keyword">synchronized</span>、na<br>tive访回修饰符修饰。原因如下:<br><span class="hljs-number">1</span>. <span class="hljs-keyword">private</span><br>抽象方法没有方法体,是用来被继承的,所以不能用 <span class="hljs-keyword">private</span>修饰;<br><span class="hljs-number">2</span>.<span class="hljs-keyword">static</span><br><span class="hljs-keyword">static</span>修饰的方法可以通过类名来访间该方法(即该方法的方法体),抽象方法用sttic修饰没有意义;<br><span class="hljs-number">3</span>. <span class="hljs-keyword">synchronized</span><br>该关键字是为该方法加一个锁。而如果该关键字修饰的方法是 <span class="hljs-keyword">static</span>方法。则使用的锁就是<span class="hljs-keyword">class</span>变量的锁。如果是修饰类方法。则用<span class="hljs-keyword">this</span>变量锁。<br>但是抽象类不能实例化对象,因为该方法不是在该抽象类中实现的。是在其子类实现的。所以，锁应该归其子类所有。所以，抽象方法也就不能用 <span class="hljs-keyword">synchronized</span>关键字修饰了;<br><span class="hljs-number">3</span>. <span class="hljs-keyword">native</span><br><span class="hljs-keyword">native</span>这个东西本身就和 <span class="hljs-keyword">abstract</span>冲突,他们都是方法的声明,只是一个把方法实现移交给子类,另一个是移交给本地操作系统。如果同时出现,就相当于即把实现移交给子类,又把实现移交给本地操作系统,那到底谁来实现具体方法呢<br><br>终于说到了接口！<br>接口是一种特殊的抽象类,接口中的方法全部是抽象方法(但其前的 <span class="hljs-keyword">abstract</span>可以省略),所以抽象类中的抽象方法不能用的访间修饰符这里也不能用。同时额外说明一下protect关键词<br><span class="hljs-number">4</span>. protect<br><span class="hljs-keyword">protected</span>访同修饰符也不能使用,因为接口可以让所有的类去实现(非继承),不只是其子类,但是要用<span class="hljs-keyword">public</span>去修饰。接口可以去继承一个已有的接口。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arduino">我们一般使用thread都是<span class="hljs-keyword">new</span>一个线程，然后调用start方法启动，使用start方法才真正实现了多线程运行，thread线程有<span class="hljs-number">5</span>种状态，创建-就绪-运行-阻塞-死亡，我们的start方法呢就是就绪这一步，因为这个时候我们的线程并没有立即的执行，而是得等待，等到我们的cpu有空闲的时候，才会执行线程里面的run方法，等run方法执行完了，线程就结束了。 <br> <br>  直接使用thread执行run方***咋样呢？因为run方法是thread里面的一个普通的方法，所以我们直接调用run方法，这个时候它是会运行在我们的主线程中的，因为这个时候我们的程序中只有主线程一个线程，所以这样并没有做到多线程的这种目的。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-keyword">volatile</span>关键字有两个作用：<br><span class="hljs-number">1.</span>并发环境可见性：<span class="hljs-keyword">volatile</span>修饰后的变量能够保证该变量在线程间的可见性，线程进行数据的读写操作时将绕开工作内存（CPU缓存）而直接跟主内存进行数据交互，即线程进行读操作时直接从主内存中读取，写操作时直接将修改后端变量刷新到主内存中，这样就能保证其他线程访问到的数据是最新数据<br><span class="hljs-number">2.</span>并发环境有序性：通过对<span class="hljs-keyword">volatile</span>变量采取内存屏障（Memory barrier）的方式来防止编译重排序和CPU指令重排序，具体方式是通过在操作<span class="hljs-keyword">volatile</span>变量的指令前后加入内存屏障，来实现happens-before关系，保证在多线程环境下的数据交互不会出现紊乱。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">中间件位于操作系统之上，应用软件之下，而不是操作系统内核中<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">&gt;为带符号右移，右移后左边的空位被填充为符号位</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">&gt;&gt;为不带符号右移，右移后左边的空位被填充为0</span><br><br>没有&lt;&lt;&lt; 因为&lt;&lt;后右边总是补0<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vim">java.<span class="hljs-keyword">exe</span>是java虚拟机<br><br>javadoc.<span class="hljs-keyword">exe</span>用来制作java文档<br><br>jdb.<span class="hljs-keyword">exe</span>是java的调试器<br><br>javaprof,<span class="hljs-keyword">exe</span>是剖析工具<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-variable">@Autowired</span><br>注入声明的SpringBean对象,根据一定的规则首先按照注入的类型去查找，如果没有找到安装注入的名称去匹配你要注入的属性名称，如果都没有找到启动项目时抛出异常，<span class="hljs-variable">@Autowired</span>(required = false) 表示没有找到注入对象时，不抛异常，注入null。<br><br><br><span class="hljs-variable">@Primary</span><br>如果有多个相同类型的SpringBean,我们可以使用<span class="hljs-variable">@Primary</span>注解,优先注入带该注解标识的类,<span class="hljs-variable">@Primary</span>可以在多个类上标注，那就会抛异常。<br><span class="hljs-variable">@Quelifier</span><br>使用SpringBean的名称(SpringBean的名称都是唯一的)进行注入<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">序列化：将数据结构转换称为二进制数据流或者文本流的过程。序列化后的数据方便在网络上传输和在硬盘上存储。<br>反序列化：与序列化相反，是将二进制数据流或者文本流转换称为易于处理和阅读的数据结构的过程。<br><br>本质其实还是一种协议，一种数据格式，方便数据的存储和传输。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-type">int</span>和<span class="hljs-type">int</span>之间，用==比较，肯定为<span class="hljs-keyword">true</span>。基本数据类型没有equals方法<br><span class="hljs-type">int</span>和<span class="hljs-type">Integer</span>比较，<span class="hljs-type">Integer</span>会自动拆箱，== 和 equals都肯定为<span class="hljs-keyword">true</span><br><span class="hljs-type">int</span>和<span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span>比较，<span class="hljs-type">Integer</span>会自动拆箱，调用intValue方法, 所以 == 和 equals都肯定为<span class="hljs-keyword">true</span><br><span class="hljs-type">Integer</span>和<span class="hljs-type">Integer</span>比较的时候，由于直接赋值的话会进行自动的装箱。所以当值在[<span class="hljs-number">-128</span>,<span class="hljs-number">127</span>]中的时候，由于值缓存在IntegerCache中，那么当赋值在这个区间的时候，不会创建新的<span class="hljs-type">Integer</span>对象，而是直接从缓存中获取已经创建好的<span class="hljs-type">Integer</span>对象。而当大于这个区间的时候，会直接<span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span>。<br>当<span class="hljs-type">Integer</span>和<span class="hljs-type">Integer</span>进行==比较的时候，在[<span class="hljs-number">-128</span>,<span class="hljs-number">127</span>]区间的时候，为<span class="hljs-keyword">true</span>。不在这个区间，则为<span class="hljs-keyword">false</span><br>当<span class="hljs-type">Integer</span>和<span class="hljs-type">Integer</span>进行equals比较的时候，由于<span class="hljs-type">Integer</span>的equals方法进行了重写，比较的是内容，所以为<span class="hljs-keyword">true</span><br><br><span class="hljs-type">Integer</span>和<span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span> ： <span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span>会创建对象，存储在堆中。而<span class="hljs-type">Integer</span>在[<span class="hljs-number">-128</span>,<span class="hljs-number">127</span>]中，从缓存中取，否则会<span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span>.<br>所以 <span class="hljs-type">Integer</span>和<span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span> 进行==比较的话，肯定为<span class="hljs-keyword">false</span> ; <span class="hljs-type">Integer</span>和<span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span> 进行equals比较的话，肯定为<span class="hljs-keyword">true</span><br><br><span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span>和<span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span>进行==比较的时候，肯定为<span class="hljs-keyword">false</span> ; 进行equals比较的时候，肯定为<span class="hljs-keyword">true</span><br>原因是<span class="hljs-built_in">new</span>的时候，会在堆中创建对象，分配的地址不同，==比较的是内存地址，所以肯定不同<br><br>装箱过程是通过调用包装器的valueOf方法实现的<br>拆箱过程是通过调用包装器的xxxValue方法实现的（xxx表示对应的基本数据类型）<br><br>总结：Byte、Short、<span class="hljs-type">Integer</span>、Long这几个类的valueOf方法实现类似的。所以在[<span class="hljs-number">-128</span>,<span class="hljs-number">127</span>]区间内，==比较的时候，值总是相等的（指向的是同一对象），在这个区间外是不等的。<br>而<span class="hljs-type">Float</span>和<span class="hljs-type">Double</span>则不相等， <span class="hljs-type">Boolean</span>的值总是相等的<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs csharp">File类的一下常用方法和说明<br><br><span class="hljs-number">1.</span>访问文件名相关方法：<br><br><span class="hljs-function">String <span class="hljs-title">getName</span>()</span>; 返回此File对象所表示的文件名和路径名（如果是路径，则返回最后一级子路径名）。<br><br><span class="hljs-function">String <span class="hljs-title">getPath</span>()</span>; 返回此File对象所对应的路径名。<br><br><span class="hljs-function">File <span class="hljs-title">getAbsolutePath</span>()</span>; 返回此File对象所对应的绝对路径名。<br><br><span class="hljs-function">String <span class="hljs-title">getParent</span>()</span>; 返回此File对象所对应目录（最后一级子目录）的父路径名。<br><br><span class="hljs-function">boolean <span class="hljs-title">renameTo</span>(<span class="hljs-params">File newName</span>)</span>; 重命名此File对象所对应的文件或目录，如果重命名成功，则返回<span class="hljs-literal">true</span>:否则返回<span class="hljs-literal">false</span>.（A）<br><br><span class="hljs-number">2.</span>文件检测相关方法<br><br><span class="hljs-function">boolean <span class="hljs-title">exists</span>()</span>; 判断File对象所对应的文件或目录是否存在。<br><br><span class="hljs-function">boolean <span class="hljs-title">canWrite</span>()</span>; 判断File对象所对应的目录或文件是否可写。<br><br><span class="hljs-function">boolean <span class="hljs-title">canRead</span>()</span>; 判断File对象所对应的目录或文件是否可读。<br><br><span class="hljs-function">boolean <span class="hljs-title">isFile</span>()</span>; 判断File对象所对应的是否是文件，而不是目录。<br><br><span class="hljs-function">boolean <span class="hljs-title">isDirectory</span>()</span>; 判断File对象所对应的是否是目录，而不是文件。<br><br><span class="hljs-function">boolean <span class="hljs-title">isAbsolute</span>()</span>; 判断File对象所对应的文件或目录是否是绝对路径。该方法消除了不同平台的差异，可以直接判断File对象是否为绝对路径。在UNIX/Linux/BSD等系统上，如果路径名开头是一条斜线（/）,则表明该File对象对应一个绝对路径；在Windows等系统上，如果路径开头是盘符，则说明它是绝对路径。<br><br><span class="hljs-number">3.</span>获取常规文件信息<br><br><span class="hljs-function"><span class="hljs-built_in">long</span> <span class="hljs-title">lastModified</span>()</span>; 返回文件最后修改时间。<br><br><span class="hljs-function"><span class="hljs-built_in">long</span> <span class="hljs-title">length</span>()</span>; 返回文件内容的长度。<br><br><span class="hljs-number">4.</span>文件操作相关的方法<br><br><span class="hljs-function">boolean <span class="hljs-title">createNewFile</span>()</span>; 当此File对象所对应的文件不存在时，该方法将新建的一个该File对象所指定的新文件，如果创建成功则返回<span class="hljs-literal">true</span>；否则返回<span class="hljs-literal">false</span>.(C)<br><br><span class="hljs-function">boolean <span class="hljs-title">delete</span>()</span>; 删除File对象所对应的文件或路径。<br><br><span class="hljs-function"><span class="hljs-keyword">static</span> File <span class="hljs-title">CreateTempFile</span>(<span class="hljs-params">String prefix,String suffix</span>)</span>;在默认的临时文件目录创建一个临时空文件，使用给定前缀、系统生成的随机数和给定后缀作为文件名。这是一个静态方法，可以直接通过File来调用。preFix参数必须至少是<span class="hljs-number">3</span>个字节长。建议前缀使用一个短的、有意义的字符串。建议前缀使用一个短的、有意义的字符串，比如”hjb“ 或”main”. suffix参数可以为<span class="hljs-literal">null</span>,在这种情况下，将使用默认的后缀”.tmp”.<br><br><span class="hljs-function"><span class="hljs-keyword">static</span> File <span class="hljs-title">CreateTempFile</span>(<span class="hljs-params">String prefix,String suffix,File directory</span>)</span>;在directory所指定的目录中创建一个临时空文件，使用给定前缀、系统生成的随机数和给定后缀作为文件名。这是一个静态方法，可以直接通过File来调用。<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteOnExit</span>()</span>; 注册一个删除钩子，指定当Java虚拟机退出时，删除File对象随对应的文件和目录。<br><br><span class="hljs-number">5.</span>目录操作相关方法（D）<br><br><span class="hljs-function">boolean <span class="hljs-title">mkdir</span>()</span>; 试图创建一个File对象所对应的目录，如果创建成功，则返回<span class="hljs-literal">true</span>;否则返回<span class="hljs-literal">false</span>. 调用该方法时File对象必须对应一个路径，而不是一个文件。<br><br><span class="hljs-function">String[] <span class="hljs-title">list</span>()</span>; 列出File对象的所有子文件名和路径名，返回String数组。<br><br><span class="hljs-function">File[] <span class="hljs-title">listFiles</span>()</span>; 列出File对象的所有子文件和路径，返回File数组。<br><br><span class="hljs-function"><span class="hljs-keyword">static</span> File[] <span class="hljs-title">listRoots</span>()</span>; 列出系统所有的根路径。这是一个静态方法，可以直接通过File类来调用。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">基本上我们平常用到的都是非线程安全的集合类，因为要使线程安全，是要加锁来实现的，势必造成性能降低。如hashset、hashmap、<span class="hljs-built_in">array</span>list、linkedlist、treemap、treeset、<span class="hljs-built_in">string</span>bulider等。 <br>像<span class="hljs-built_in">string</span>buffer、vector、hashtable这些都是专用于多线程的，再者以concurrent（意为：同时发生的）为前缀的集合类大多是线程安全的。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Servlet的生命周期一般可以用三个方法来表示： <br><span class="hljs-function"><span class="hljs-title">init</span><span class="hljs-params">()</span></span>：仅执行一次，负责在装载Servlet时初始化Servlet对象 <br><span class="hljs-function"><span class="hljs-title">service</span><span class="hljs-params">()</span></span> ：核心方法，一般HttpServlet中会有get,post两种处理方式。在调用doGet和doPost方法时会构造servletRequest和servletResponse请求和响应对象作为参数。 <br><span class="hljs-function"><span class="hljs-title">destory</span><span class="hljs-params">()</span></span>：在停止并且卸载Servlet时执行，负责释放资源 <br>初始化阶段：Servlet启动，会读取配置文件中的信息，构造指定的Servlet对象，创建ServletConfig对象，将ServletConfig作为参数来调用<span class="hljs-built_in">init</span>()方法。所以选ACD。B是在调用service方法时才构造的<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs arduino">JAVA语言中定义了<span class="hljs-number">8</span>种基本的数据类型，来保存变量。JAVA要求程序中的每一个变量都规定自己的类型。正因为如此，JAVA属于强类型语言，从而不同于JavaScript这样的弱类型脚本语言。 <br><br>  下面我们来看看这<span class="hljs-number">8</span>种类型：  <br><span class="hljs-type">byte</span>：<span class="hljs-number">8</span>位，最大存储数据量是<span class="hljs-number">255</span>，存放的数据范围是<span class="hljs-number">-128</span>~<span class="hljs-number">127</span>之间。 <br><span class="hljs-type">short</span>：<span class="hljs-number">16</span>位，最大数据存储量是<span class="hljs-number">65536</span>，数据范围是<span class="hljs-number">-32768</span>~<span class="hljs-number">32767</span>之间。 <br><span class="hljs-type">int</span>：<span class="hljs-number">32</span>位，最大数据存储容量是<span class="hljs-number">2</span>的<span class="hljs-number">32</span>次方减<span class="hljs-number">1</span>，数据范围是负的<span class="hljs-number">2</span>的<span class="hljs-number">31</span>次方到正的<span class="hljs-number">2</span>的<span class="hljs-number">31</span>次方减<span class="hljs-number">1</span>。 <br><span class="hljs-type">long</span>：<span class="hljs-number">64</span>位，最大数据存储容量是<span class="hljs-number">2</span>的<span class="hljs-number">64</span>次方减<span class="hljs-number">1</span>，数据范围为负的<span class="hljs-number">2</span>的<span class="hljs-number">63</span>次方到正的<span class="hljs-number">2</span>的<span class="hljs-number">63</span>次方减<span class="hljs-number">1</span>。 <br><span class="hljs-type">float</span>：<span class="hljs-number">32</span>位，数据范围在<span class="hljs-number">3.4e-45</span>~<span class="hljs-number">1.4e38</span>，直接赋值时必须在数字后加上f或F。 <br><span class="hljs-type">double</span>：<span class="hljs-number">64</span>位，数据范围在<span class="hljs-number">4.9e-324</span>~<span class="hljs-number">1.8e308</span>，赋值时可以加d或D也可以不加。 <br><span class="hljs-type">boolean</span>：只有<span class="hljs-literal">true</span>和<span class="hljs-literal">false</span>两个取值。 <br><span class="hljs-type">char</span>：<span class="hljs-number">16</span>位，存储Unicode码，用单引号赋值。<br>注：一个字节=<span class="hljs-number">8</span>位。<br>所以，整型数据类型中，需要内存空间最多的是<span class="hljs-type">long</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">修饰一个方法被修饰的方法称为同步方法，其作用的范围是整个方法，作用的对象是调用这个方法的对象； 修饰一个静态的方法其作用的范围是整个静态方法，作用的对象是这个类的所有对象； 修饰一个代码块被修饰的代码块称为同步语句块，其作用的范围是大括号&#123;&#125;括起来的代码，作用的对象是调用这个代码块的对象； 修饰一个类其作用的范围是<span class="hljs-keyword">synchronized</span>后面括号括起来的部分，作用主的对象是这个类的所有对象。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs aspectj">(<span class="hljs-number">1</span>)<span class="hljs-keyword">throw</span>是语句抛出一个异常，一般是在代码块的内部，当程序出现某种逻辑错误时由程序员主动抛出某种特定类型的异常<br>(<span class="hljs-number">2</span>)当某个方法可能会抛出某种异常时用于<span class="hljs-keyword">throws</span> 声明可能抛出的异常，然后交给上层调用它的方法程序处理<br>(<span class="hljs-number">3</span>)<span class="hljs-keyword">throws</span>出现在方法函数头；而<span class="hljs-keyword">throw</span>出现在函数体.<span class="hljs-keyword">throws</span>表示出现异常的一种可能性，并不一定会发生这些异常；<span class="hljs-keyword">throw</span>则是抛出了异常，执行<span class="hljs-keyword">throw</span>则一定抛出了某种异常对象。两者都是消极处理异常的方式（这里的消极并不是说这种方式不好），只是抛出或者可能抛出异常，但是不会由函数去处理异常，真正的处理异常由函数的上层调用处理。 <br>(<span class="hljs-number">4</span>)如果<span class="hljs-keyword">try</span>快中抛出了一个在<span class="hljs-keyword">catch</span>子句中说明的异常类，那么程序将跳过<span class="hljs-keyword">try</span>语句的其余代码,执行<span class="hljs-keyword">catch</span>子句中的处理器代码。<br>(<span class="hljs-number">5</span>)如果方法中的任何代码抛出了一个在<span class="hljs-keyword">catch</span>子句中都有声明的异常类型，那么方***立即退出。<br>(<span class="hljs-number">6</span>)无论是否抛出异常<span class="hljs-keyword">finally</span>语句块最终都会执行。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs abnf">比如表达式<br>byte a<span class="hljs-operator">=</span><span class="hljs-number">2</span><span class="hljs-comment">;</span><br><span class="hljs-attribute">a</span><span class="hljs-operator">=</span>a-<span class="hljs-number">10</span>；<br>由于<span class="hljs-number">10</span>是整型int，因此表达式a-<span class="hljs-number">10</span>；将自动转换成int类型，int类型在赋值给byte，会编译错误<br>byte a<span class="hljs-operator">=</span><span class="hljs-number">2</span><span class="hljs-comment">;</span><br><span class="hljs-attribute">a-</span><span class="hljs-operator">=</span><span class="hljs-number">10</span><span class="hljs-comment">;</span><br>不会发生编译错误，因为复合运算符是一个带有隐式转换的运算符，将右侧表达式类型自动转换成左侧表达式类型<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">成员变量和局部变量的区别<br><span class="hljs-number">1</span>、成员变量是独立于方法外的变量，是类的方法中的变量<br><span class="hljs-number">1</span>）、成员变量：包括和，用<span class="hljs-keyword">static</span>修饰的是，不用<span class="hljs-keyword">static</span>修饰的是，所有类的成员变量可以通过<span class="hljs-keyword">this</span>来引用。<br><span class="hljs-number">2</span>）、局部变量：包括形参，方法局部变量，代码块局部变量，存在于方法的参数列表和方法定义中以及代码块中。<br><span class="hljs-number">2</span>、成员变量可以被<span class="hljs-keyword">public</span>，protect，<span class="hljs-keyword">private</span>，<span class="hljs-keyword">static</span>等修饰符修饰，而局部变量不能被控制修饰符及 <span class="hljs-keyword">static</span>修饰；两者都可以定义成<span class="hljs-keyword">final</span>型。<br><span class="hljs-number">3</span>、成员变量存储在堆，局部变量存储在栈。局部变量的作用域仅限于定义它的方法，在该方法的外部无法访问它。成员变量的作用域在整个类内部都是可见的，所有成员方法都可以使用它。如果允许，还可以在类的外部使用成员变量。<br><span class="hljs-number">4</span>、局部变量的生存周期与方法的执行期相同。当方法执行到定义局部变量的语句时，局部变量被创建；执行到它所在的作用域的最后一条语句时，局部变量被销毁。类的成员变量，如果是实例成员变量，它和对象的生存期相同。而的生存期是整个程序运行期。<br><span class="hljs-number">5</span>、成员变量在累加载或实例被创建时，系统自动空间，并在分配空间后自动为成员变量指定初始化值，初始化值为默认值，基本类型的默认值为<span class="hljs-number">0</span>，复合类型的默认值为<span class="hljs-literal">null</span>。（被<span class="hljs-keyword">final</span>修饰且没有<span class="hljs-keyword">static</span>的必须显式赋值），局部变量在定义后必须经过显式初始化后才能使用，系统不会为局部变量执行初始化。<br><span class="hljs-number">6</span>、局部变量可以和成员变量 同名，且在使用时，局部变量具有更高的优先级，直接使用同名访问，访问的是局部变量，如需要访问成员变量可以用<span class="hljs-keyword">this</span>.变量名访问<br>本例中i为成员变量，有默认的初始值，如果定义在方法内部，就没有初始值<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">编译器将Java源代码编译成字节码<span class="hljs-keyword">class</span>文件<br>类加载到<span class="hljs-symbol">JVM</span>里面后，执行引擎把字节码转为可执行代码<br>执行的过程，再把可执行代码转为机器码，由底层的操作系统完成执行。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs arduino">本题易错点是A选项，<span class="hljs-keyword">volatile</span>关键字对任意单个<span class="hljs-keyword">volatile</span>变量的的读写操作可以保证原子性，但类似于<span class="hljs-keyword">volatile</span>++这种复合操作就无法保证原子性了。如果需要对这种复合操作保证原子性，最好用<span class="hljs-keyword">synchronized</span>关键字。即<span class="hljs-keyword">synchronized</span>保证三大性，原子性，有序性，可见性，<span class="hljs-keyword">volatile</span>保证有序性，可见性，不能保证原子性。<br><br>B选项，为了实现<span class="hljs-keyword">volatile</span>的内存语义，编译器在生成字节码时会在指令序列中插入内存屏障来禁止特定类型的处理器重排序，以此来保证有序性。<br><br>C选项，可见性是指当多个线程并发访问共享变量时，一个线程对共享变量的修改，其它线程能够立即看到。对于一个<span class="hljs-keyword">volatile</span>变量的读，总是能看到对这个<span class="hljs-keyword">volatile</span>变量最后的写入，保证了可见性。<br><br>D选项为干扰选项。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">以前我是堆，你是栈<br><br>你总是能精准的找到我，给我指明出路<br><br>后来有一天我明白了<br><br>我变成了栈，你却隐身堆海<br><br>我却找不到你了，空指针了<br><br>我不愿意如此，在下一轮<span class="hljs-keyword">full</span> gc前<br><br>我找到了<span class="hljs-keyword">object</span>家的finalize<br><br>又找到了你，这次我不会放手<br><br>在世界重启前，一边躲着<span class="hljs-keyword">full</span> gc一边老去<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs arduino">在Java中，可以将一个类定义在另一个类里面或者一个方法里边，这样的类称为内部类，广泛意义上的内部类一般包括四种：成员内部类，局部内部类，匿名内部类，静态内部类 。<br><br><span class="hljs-number">1.</span>成员内部类<br><br>（<span class="hljs-number">1</span>）该类像是外部类的一个成员，可以无条件的访问外部类的所有成员属性和成员方法（包括<span class="hljs-keyword">private</span>成员和静态成员）；<br><br>（<span class="hljs-number">2</span>）成员内部类拥有与外部类同名的成员变量时，会发生隐藏现象，即默认情况下访问的是成员内部类中的成员。如果要访问外部类中的成员，需要以下形式访问：【外部类.<span class="hljs-keyword">this</span>.成员变量  或  外部类.<span class="hljs-keyword">this</span>.成员方法】；<br><br>（<span class="hljs-number">3</span>）在外部类中如果要访问成员内部类的成员，必须先创建一个成员内部类的对象，再通过指向这个对象的引用来访问；<br><br>（<span class="hljs-number">4</span>）成员内部类是依附外部类而存在的，也就是说，如果要创建成员内部类的对象，前提是必须存在一个外部类的对象；<br><br>（<span class="hljs-number">5</span>）内部类可以拥有<span class="hljs-keyword">private</span>访问权限、<span class="hljs-keyword">protected</span>访问权限、<span class="hljs-keyword">public</span>访问权限及包访问权限。如果成员内部类用<span class="hljs-keyword">private</span>修饰，则只能在外部类的内部访问；如果用<span class="hljs-keyword">public</span>修饰，则任何地方都能访问；如果用<span class="hljs-keyword">protected</span>修饰，则只能在同一个包下或者继承外部类的情况下访问；如果是默认访问权限，则只能在同一个包下访问。外部类只能被<span class="hljs-keyword">public</span>和包访问两种权限修饰。<br><br><span class="hljs-number">2.</span>局部内部类<br><br>（<span class="hljs-number">1</span>）局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内；<br><br>（<span class="hljs-number">2</span>）局部内部类就像是方法里面的一个局部变量一样，是不能有<span class="hljs-keyword">public</span>、<span class="hljs-keyword">protected</span>、<span class="hljs-keyword">private</span>以及<span class="hljs-type">static</span>修饰符的。<br><br><span class="hljs-number">3.</span>匿名内部类<br><br>（<span class="hljs-number">1</span>）一般使用匿名内部类的方法来编写事件监听代码；<br><br>（<span class="hljs-number">2</span>）匿名内部类是不能有访问修饰符和<span class="hljs-type">static</span>修饰符的；<br><br>（<span class="hljs-number">3</span>）匿名内部类是唯一一种没有构造器的类；<br><br>（<span class="hljs-number">4</span>）匿名内部类用于继承其他类或是实现接口，并不需要增加额外的方法，只是对继承方法的实现或是重写。<br><br><span class="hljs-number">4.</span>内部静态类<br><br>（<span class="hljs-number">1</span>）静态内部类是不需要依赖于外部类的，这点和类的静态成员属性有点类似；<br><br>（<span class="hljs-number">2</span>）不能使用外部类的非<span class="hljs-type">static</span>成员变量或者方法。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs processing"><span class="hljs-built_in">HashMap</span>和Hashtable都是典型的Map实现，选项A正确。<br><br>Hashtable在实现Map接口时保证了线程安全性，而<span class="hljs-built_in">HashMap</span>则是非线程安全的。所以，Hashtable的性能不如<span class="hljs-built_in">HashMap</span>，因为为了保证线程安全它牺牲了一些性能。因此选项B错误<br><br>Hashtable不允许存入<span class="hljs-literal">null</span>，无论是以<span class="hljs-literal">null</span>作为<span class="hljs-built_in">key</span>或value，都会引发异常。而<span class="hljs-built_in">HashMap</span>是允许存入<span class="hljs-literal">null</span>的，无论是以<span class="hljs-literal">null</span>作为<span class="hljs-built_in">key</span>或value，<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">Collection<br><br>    <span class="hljs-comment">-----List</span><br><br>               <span class="hljs-comment">-----LinkedList    非同步</span><br><br>                <span class="hljs-comment">----ArrayList      非同步，实现了可变大小的元素数组</span><br><br>                <span class="hljs-comment">----Vector          同步           </span><br><br>    <span class="hljs-comment">-----Set   不允许有相同的元素</span><br><br> <span class="hljs-keyword">Map</span><br><br>    <span class="hljs-comment">-----HashTable        同步，实现一个key--value映射的哈希表，key和value都不允许出现null值</span><br><br>    <span class="hljs-comment">-----HashMap          非同步，</span><br><br>    <span class="hljs-comment">-----WeakHashMap   改进的HashMap，实现了“弱引用”，如果一个key不被引用，则被GC回收</span><br>注：<br>List接口中的对象按一定顺序排列，允许重复 <br>Set接口中的对象没有顺序，但是不允许重复 <br><span class="hljs-keyword">Map</span>接口中的对象是key、value的映射关系，key不允许重复<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haxe">Java参数，不管是原始类型还是引用类型，传递的都是副本(有另外一种说法是传值，但是说传副本更好理解吧，传值通常是相对传址而言)。 如果参数类型是原始类型，那么传过来的就是这个参数的一个副本，也就是这个原始参数的值，这个跟之前所谈的传值是一样的。如果在函数中改变了副本的 值不会改变原始的值. 如果参数类型是引用类型，那么传过来的就是这个引用参数的副本，这个副本存放的是参数的地址。如果在函数中没有改变这个副本的地址，而是改变了地址中的 值，那么在函数内的改变会影响到传入的参数。如果在函数中改变了副本的地址，如<span class="hljs-keyword">new</span><span class="hljs-type"></span>一个，那么副本就指向了一个新的地址，此时传入的参数还是指向原来的 地址，所以不会改变参数的值。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gradle">堆可以分为两部分：新生代，老年代。 <br>新生代：<span class="hljs-number">1</span><span class="hljs-regexp">/3的堆空间 老年代：2/</span><span class="hljs-number">3</span>的堆空间 <br>而新生代可以细分：<span class="hljs-number">8</span><span class="hljs-regexp">/10的Eden区。2/</span><span class="hljs-number">10</span>的Survivor区 <br>Suivivor又可以细分为<span class="hljs-keyword">From</span>区和To区，各占一半。 <br> <br>注意： <br><span class="hljs-number">1</span>.永久代MetaData在jdk1.<span class="hljs-number">8</span>之前属于堆，现在属于物理内存，与堆完全隔开了 <br><span class="hljs-number">2</span>.方法区只是逻辑概念，MetaData永久代和元空间是实实在在存在的，不能混为一体，元空间是方法区的具体实现。 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">静态方法的使用不依靠对象，只看类型，在编译时就确定了 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">application对象是共享的，多个用户共享一个，以此实现数据共享和通信<br><br>JSP内置对象和属性列举如下： <br><span class="hljs-number">1.</span>request对象 <br>     客户端的请求信息被封装在request对象中，通过它才能了解到客户的需求，然后做出响应。它是HttpServletRequest类的实例。 <br><span class="hljs-number">2.</span>response对象 <br>     response对象包含了响应客户请求的有关信息，但在JSP中很少直接用到它。它是HttpServletResponse类的实例。 <br><span class="hljs-number">3.</span><span class="hljs-keyword">session</span>对象 <br>     <span class="hljs-keyword">session</span>对象指的是客户端与服务器的一次会话，从客户连到服务器的一个WebApplication开始，直到客户端与服务器断开连接为止。它是HttpSession类的实例. <br><span class="hljs-number">4.</span><span class="hljs-keyword">out</span>对象 <br>     <span class="hljs-keyword">out</span>对象是JspWriter类的实例,是向客户端输出内容常用的对象 <br><span class="hljs-number">5.</span>page对象 <br>     page对象就是指向当前JSP页面本身，有点象类中的this指针，它是java.lang.<span class="hljs-keyword">Object</span>类的实例 <br><span class="hljs-number">6.</span>application对象 <br>     application对象实现了用户间数据的共享，可存放全局变量。它开始于服务器的启动，直到服务器的关闭，在此期间，此对象将一直存在；这样在用户的前后连接或不同用户之间的连接中，可以对此对象的同一属性进行操作；在任何地方对此对象属性的操作，都将影响到其他用户对此的访问。服务器的启动和关闭决定了application对象的生命。它是ServletContext类的实例。 <br><span class="hljs-number">7.</span><span class="hljs-keyword">exception</span>对象 <br>   <span class="hljs-keyword">exception</span>对象是一个例外对象，当一个页面在运行过程中发生了例外，就产生这个对象。如果一个JSP页面要应用此对象，就必须把isErrorPage设为<span class="hljs-keyword">true</span>，否则无法编译。他实际上是java.lang.Throwable的对象 <br><span class="hljs-number">8.</span>pageContext对象 <br>pageContext对象提供了对JSP页面内所有的对象及名字空间的访问，也就是说他可以访问到本页所在的<span class="hljs-keyword">SESSION</span>，也可以取本页面所在的application的某一属性值，他相当于页面中所有功能的集大成者，它的本 类名也叫pageContext。 <br><span class="hljs-number">9.</span>config对象 <br>config对象是在一个Servlet初始化时，JSP引擎向它传递信息用的，此信息包括Servlet初始化时所要用到的参数（通过属性名和属性值构成）以及服务器的有关信息（通过传递一个ServletContext对象） <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">父类的静态代码块 子类的静态代码块 父类的普通代码块 父类的构造方法 子类的普通代码块 子类的构造方法 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">不会初始化子类的几种 <br><span class="hljs-number">1.</span> 调用的是父类的<span class="hljs-keyword">static</span>方法或者字段 <br><span class="hljs-number">2.</span>调用的是父类的<span class="hljs-keyword">final</span>方法或者字段 <br><span class="hljs-number">3.</span> 通过数组来引用 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-built_in">new</span> <span class="hljs-built_in">URL</span>()时必须捕获检查异常，但这个异常是由于字符串格式和<span class="hljs-built_in">URL</span>不符导致的，与网址是否存在无关。<span class="hljs-built_in">URL</span>的toString方法返回字符串，无论网址是否存在。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scss">服务器端，首先是服务器初始化Socket，然后是与端口进行绑定(blind()),端口创建ServerSocket进行监听(listen()),然后调用阻塞(accept()),等待客户端连接。<br>与客户端发生连接后，会进行相关的读写操作(read(),<span class="hljs-built_in">write</span>())，最后调用<span class="hljs-built_in">close</span>()关闭连接。博客上看的，不知道全面不全面，大神轻喷。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-number">1</span><span class="hljs-selector-class">.clone</span>()：创建并返回此对象的一个副本。 <br><span class="hljs-number">2</span><span class="hljs-selector-class">.equals</span>(Object obj)：指示一个对象是否与此对象&quot;相等&quot;。<br><span class="hljs-number">3</span><span class="hljs-selector-class">.finalize</span>()：当垃圾回收器确定不存在该对象的引用时，有对象的垃圾回收器进行调用，可以人工调用，但是不确定什么时候执行。<br><span class="hljs-number">4</span><span class="hljs-selector-class">.getClass</span>()：返回此<span class="hljs-selector-tag">Object</span>的运行时的类。 <br><span class="hljs-number">5</span><span class="hljs-selector-class">.hashCode</span>()：返回该对象的哈希码值，此方法是为了提高哈希表的性能。<br><span class="hljs-number">6</span><span class="hljs-selector-class">.notify</span>()：唤醒在此对象监视器上等待的单个线程。 <br><span class="hljs-number">7</span><span class="hljs-selector-class">.notifyAll</span>()：则是唤醒在此对象监视器上等待的所有线程。<br><span class="hljs-number">8</span><span class="hljs-selector-class">.toString</span>()：返回该对象的字符串表示。 <br><span class="hljs-number">9</span><span class="hljs-selector-class">.wait</span>()：在其他线程调用此对象的<span class="hljs-built_in">notify</span>()方法或<span class="hljs-built_in">notifyAll</span>()方法前，导致当前线程等待。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">散列表之开放定址法 在前面的文章中我们介绍过《散列表之链接法》，在链接法中，如果不同键值却将有相同的映射值，即有不同键值的元素却映射到散列表中的同一位置，那么就采用链表的方法，将映射到同一位置的元素插入到同一个链表之中，当需要删除， 查询元素时，只需要遍历该链表即可，链接法在最坏情况下删除和查询元素的时间代价为<span class="hljs-constructor">O(<span class="hljs-params">n</span>)</span><span class="hljs-constructor">O(<span class="hljs-params">n</span>)</span> 今天我们来讲散列表中另外一种解决冲突的方法，那就是开放定址法(<span class="hljs-keyword">open</span> addressing)。 假如你在外面旅游时，吃坏东西，急需上厕所，当你好不容易找到一件洗手间的时候，发现排了好多人，这时你会怎么做？ 如果是链接法:排队不就行了，我就在外面等，迟早会排到我的 如果是开放定址法:直接放弃现有厕所，去寻找新的厕所 没错，放弃已被占用的位置，寻找新的插入位置就是开放定址法的思想，开放定址法中的开放二字指的是没有被占用的位置，定址指的是确定位置。开放定址法中，所有的元素都放在散列表中(链接法放在链表中)。也就是说散列表中的每一个位置，要么有元素，要么没有元素。当需要删除，查询元素时，我们从某一个位置开始，按照某种特定的确定下一个位置的方法来检查所有表项，直到找到目标元素，或者没有找到。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haxe">构造函数的作用是完成对象的初始化。当程序执行到<span class="hljs-keyword">new</span><span class="hljs-type"></span>操作符时， 首先去看<span class="hljs-keyword">new</span><span class="hljs-type"></span>操作符后面的类型，因为知道了类型，才能知道要分配多大的内存空间。分配完内存之后，再调用构造函数，填充对象的各个域，这一步叫做对象的初始化。而选项B、D中，对象的初始化并不是通过构造函数完成的，而是读取别的内存区域中的对象的各个域来完成。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-number">1</span>. <span class="hljs-keyword">java.awt：提供了绘图和图像类，主要用于编写GUI程序，包括按钮、标签等常用组件以及相应的事件类。</span><br><span class="hljs-keyword"></span><span class="hljs-number">2</span>. <span class="hljs-keyword">java.lang：java的语言包，是核心包，默认导入到用户程序，包中有object类，数据类型包装类，数学类，字符串类，系统和运行时类，操作类，线程类，错误和异常处理类，过程类。</span><br><span class="hljs-keyword"></span><span class="hljs-number">3</span>. <span class="hljs-keyword">java.io：包含提供多种输出输入功能的类。</span><br><span class="hljs-keyword"></span><span class="hljs-number">4</span>. <span class="hljs-keyword">java.net： </span>包含执行与网络有关的类，如URL，<span class="hljs-keyword">SCOKET，SEVERSOCKET等。</span><br><span class="hljs-keyword"></span><span class="hljs-number">5</span>. <span class="hljs-keyword">java.applet：包含java小应用程序的类。</span><br><span class="hljs-keyword"></span><span class="hljs-number">6</span>. <span class="hljs-keyword">java.util：包含集合框架、遗留的 </span>collection 类、事件模型、日期和时间设施、国际化和各种实用工具类（字符串标记生成器、随机数生成器和位数组、日期Date类、堆栈Stack类、向量Vector类等）。集合类、时间处理模式、日期时间工具等各类常用工具包。<br><span class="hljs-number">7</span>. <span class="hljs-keyword">java.sql：提供使用 </span><span class="hljs-keyword">JavaTM </span>编程语言访问并处理存储在数据源（通常是一个关系数据库）中的数据的 API。<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230518090644092.png" alt="image-20230518090644092"></p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs excel">三元操作符类型的转换规则： <br><span class="hljs-number">1</span>.若两个操作数不可转换，则不做转换，返回值为Object类型 <br><span class="hljs-number">2</span>.若两个操作数是明确类型的表达式（比如变量），则按照正常的二进制数字来转换，<span class="hljs-built_in">int</span>类型转换为long类型，long类型转换为float类型等 <span class="hljs-number">3</span>.若两个操作数中有一个是数字S,另外一个是表达式，且其类型标示为<span class="hljs-built_in">T</span>，那么，若数字S在<span class="hljs-built_in">T</span>的范围内，则转换为<span class="hljs-built_in">T</span>类型；若S超出了<span class="hljs-built_in">T</span>类型的范围，则<span class="hljs-built_in">T</span>转换为S类型。<br><span class="hljs-number">4</span>.若两个操作数都是直接量数字，则返回值类型为范围较大者 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Object</span> a = <span class="hljs-keyword">true</span> ? <span class="hljs-built_in">new</span> <span class="hljs-type">Boolean</span>(<span class="hljs-keyword">false</span>) : <span class="hljs-built_in">new</span> <span class="hljs-type">Character</span>(<span class="hljs-string">&#x27;1&#x27;</span>).getClass(); // java.lang.Boolean <span class="hljs-keyword">Object</span> b = <span class="hljs-keyword">true</span> ? <span class="hljs-built_in">new</span> Byte((byte) <span class="hljs-number">1</span>) : <span class="hljs-built_in">new</span> <span class="hljs-type">Character</span>(<span class="hljs-string">&#x27;1&#x27;</span>); // java.lang.Integer <span class="hljs-keyword">Object</span> c = <span class="hljs-keyword">true</span> ? <span class="hljs-built_in">new</span> Byte((byte) <span class="hljs-number">1</span>) : <span class="hljs-built_in">new</span> Short((short) <span class="hljs-number">1</span>); // java.lang.Short <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs awk">兄弟们，记得住吗？ <br>byte b = <span class="hljs-number">1</span>;<br>char c = <span class="hljs-number">1</span>;<br>short s = <span class="hljs-number">1</span>;<br>int i = <span class="hljs-number">1</span>;<br><br><span class="hljs-regexp">//</span> 三目，一边为byte另一边为char，结果为int<br><span class="hljs-regexp">//</span> 其它情况结果为两边中范围大的。适用包装类型<br>i = true ? b : c; <span class="hljs-regexp">//</span> int<br>b = true ? b : b; <span class="hljs-regexp">//</span> byte<br>s = true ? b : s; <span class="hljs-regexp">//</span> short<br><br><span class="hljs-regexp">//</span> 表达式，两边为byte,short,char，结果为int型<br><span class="hljs-regexp">//</span> 其它情况结果为两边中范围大的。适用包装类型<br>i = b + c; <span class="hljs-regexp">//</span> int<br>i = b + b; <span class="hljs-regexp">//</span> int<br>i = b + s; <span class="hljs-regexp">//</span> int<br><br><span class="hljs-regexp">//</span> 当 a 为基本数据类型时，a += b，相当于 a = (a) (a + b)<br><span class="hljs-regexp">//</span> 当 a 为包装类型时， a += b 就是 a = a + b<br>b += s; <span class="hljs-regexp">//</span> 没问题<br>c += i; <span class="hljs-regexp">//</span> 没问题<br><br><span class="hljs-regexp">//</span> 常量任君搞，long以上不能越<br>b = (char) <span class="hljs-number">1</span> + (short) <span class="hljs-number">1</span> + (int) <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 没问题<br><span class="hljs-regexp">//</span> i = (long) <span class="hljs-number">1</span> <span class="hljs-regexp">//</span> 错误<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-number">1.</span>抽象类可以有构造方法，接口中不能有构造方法。  <br><span class="hljs-number">2.</span>抽象类中可以有普通成员变量，接口中没有普通成员变量  <br><span class="hljs-number">3.</span>抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的普通方法。  <br><span class="hljs-number">4.</span>抽象类中的抽象方法的访问类型可以是<span class="hljs-keyword">public</span>，<span class="hljs-keyword">protected</span>和（默认类型,虽然  eclipse下不报错，但应该也不行），但接口中的抽象方法只能是<span class="hljs-keyword">public</span>类型的，并且默认即为<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span>类型。  <br><span class="hljs-number">5.</span>抽象类中可以包含静态方法，接口中不能包含静态方法  <br><span class="hljs-number">6.</span>抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span>类型，并且默认即为<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span>类型。  <br><span class="hljs-number">7.</span>一个类可以实现多个接口，但只能继承一个抽象类。 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs delphi"><span class="hljs-keyword">static</span>修饰的为类成员,会随着类的加载而加载,比如静态代码块,静态成员,静态方法(这里只是加载,并没有调用)等等,可以想象一下,如果把一个<span class="hljs-keyword">Class</span>文件中的外部类设为<span class="hljs-keyword">static</span>,目的难道是让这个类随着应用的启动而加载吗？如果在这次使用过程中根本没有使用过这个类,那么是不是就会浪费内存。这样来说设计不合理,总而言之,设计不合理的地方,Java是不会让它存在的。<br>而为什么内部类可以使用<span class="hljs-keyword">static</span>修饰呢,因为内部类算是类的成员了,如果没有使用静态来修饰,那么在创建内部类的时候就需要先有一个外部类的对象,如果我们一直在使用内部类,那么内存中就会一直存在外部类的引用,而我们有时候只需要使用内部类,不需要外部类,那么还是会浪费内存,甚至会造成内存溢出。使用<span class="hljs-keyword">static</span>修饰内部类之后,内部类在创建对象时就不需要有外部类对象的引用了。<br>最终结论就是:<span class="hljs-keyword">static</span>可以用来修饰内部类,但是不可以用来修饰外部类 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">run</span>()相当于线程的任务处理逻辑的入口方法，它由Java虚拟机在运行相应线程时直接调用，而不是由应用代码进行调用。 <br>而<span class="hljs-built_in">start</span>()的作用是启动相应的线程。启动一个线程实际是请求Java虚拟机运行相应的线程，而这个线程何时能够运行是由线程调度器决定的。<span class="hljs-built_in">start</span>()调用结束并不表示相应线程已经开始运行，这个线程可能稍后运行，也可能永远也不会运行。 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss">hashCode方法本质就是一个哈希函数，这是<span class="hljs-selector-tag">Object</span>类的作者说明的。<span class="hljs-selector-tag">Object</span>类的作者在注释的最后一段的括号中写道：将对象的地址值映射为integer类型的哈希值。但<span class="hljs-built_in">hashCode</span>()并不完全可靠的，有时候不同的对象他们生成的hashcode也会一样，因此<span class="hljs-built_in">hashCode</span>()只能说是大部分时候可靠。<br>因此我们也需要重写<span class="hljs-built_in">equals</span>()方法，但因为重写的<span class="hljs-built_in">equals</span>()比较全面比较复杂，会造成程序效率低下，而利用<span class="hljs-built_in">hashCode</span>()进行对比，则只要生成一个hash值进行比较就可以了，效率很高。因此，正常的操作流程是先用<span class="hljs-built_in">hashCode</span>()去对比两个对象，如果<span class="hljs-built_in">hashCode</span>()不一样，则表示这两个对象肯定不相等，直接返回false,如果<span class="hljs-built_in">hashCode</span>()相同，再对比他们的<span class="hljs-built_in">equals</span>()。<br>综上所述：<br><span class="hljs-built_in">equals</span>()相等的两个对象<span class="hljs-built_in">hashCode</span>()一定相等。<br><span class="hljs-built_in">hashCode</span>()相等的两个对象<span class="hljs-built_in">equal</span>()不一定相等。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">String</span> split 这个方法默认返回一个数组， 如果没有找到分隔符， 会把整个字符串当成一个长度为<span class="hljs-number">1</span>的字符串数组返回到结果， 所以此处结果就是<span class="hljs-number">1</span> <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">既然是实现接口，就要实现接口的所以方法，相当于重写方法，方法的重写需要满足：三同一大一小（方法名、返回值类型、形参相同；访问权限&gt;<span class="hljs-operator">=</span>重写前；抛出异常&lt;<span class="hljs-operator">=</span>重写前） <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-keyword">switch</span>支持 <span class="hljs-type">int</span>及以下（<span class="hljs-type">char</span>， <span class="hljs-type">short</span>， <span class="hljs-type">byte</span>），<span class="hljs-type">String</span>， Enum<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230526173031485.png" alt="image-20230526173031485"></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230526173038011.png" alt="image-20230526173038011"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">出现多个<span class="hljs-keyword">catch</span>块时，应该先处理小异常，再处理大异常，也就是将处理父类异常的<span class="hljs-keyword">catch</span>块放在处理子类异常的<span class="hljs-keyword">catch</span>块之后。<br><span class="hljs-built_in">Exception</span>是所有异常的父类，如果处理<span class="hljs-built_in">Exception</span>的<span class="hljs-keyword">catch</span>语句块放在前面，会导致任何异常在这个<span class="hljs-keyword">catch</span>块都能被匹配，后续<span class="hljs-keyword">catch</span>块将变得没有意义。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">当一个类的一个或多个方法是抽象方法时<br>当类是一个抽象类的子类，并且不能为任何抽象方法提供任何实现细节或方法体时<br>当一个类实现一个接口，并且不能为任何抽象方法提供实现细节或方法体时<br>该类一定为抽象类<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">int</span> 是八大基本数据类型之一（<span class="hljs-keyword">byte</span>,<span class="hljs-keyword">char</span>,<span class="hljs-keyword">short</span>,<span class="hljs-keyword">int</span>,<span class="hljs-keyword">long</span>,<span class="hljs-keyword">float</span>,<span class="hljs-keyword">double</span>,<span class="hljs-keyword">boolean</span>）<br>Integer 是 <span class="hljs-keyword">int</span> 包装类;<br><span class="hljs-keyword">int</span>是基本数据类型，默认值为<span class="hljs-number">0</span>,<br>Integer 是类，默认值为<span class="hljs-keyword">null</span>；<br>Integer 表示的是对象，用一个引用指向这个对象<br><span class="hljs-keyword">int</span>是基本数据类型，直接存储数值。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vbnet"><span class="hljs-type">String</span>重写后的<span class="hljs-keyword">equals</span>底层源码:<br><span class="hljs-number">1</span>、判断比较的内容是否为<span class="hljs-type">Object</span>对象<br><span class="hljs-number">2</span>、判断是否为<span class="hljs-type">String</span>对象<br>符合以上条件才能开始比较，否则直接返回<span class="hljs-literal">false</span>，所以拿<span class="hljs-type">String</span>字符串对象 <span class="hljs-keyword">equals</span> <span class="hljs-type">char</span>数组对象，结果一定为<span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Spring</span> 支持 <span class="hljs-number">7</span> 种事务传播行为： <br><span class="hljs-attribute">PROPAGATION_REQUIRED</span> 如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是最常见的选择。 PROPAGATION_SUPPORTS 支持当前事务，如果当前没有事务，就以非事务方式执行。 <br><span class="hljs-attribute">PROPAGATION_MANDATORY</span> 使用当前的事务，如果当前没有事务，就抛出异常。 <br><span class="hljs-attribute">PROPAGATION_REQUIRES_NEW</span> 新建事务，如果当前存在事务，把当前事务挂起。 <br><span class="hljs-attribute">PROPAGATION_NOT_SUPPORTED</span> 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。 <br><span class="hljs-attribute">PROPAGATION_NEVER</span> 以非事务方式执行，如果当前存在事务，则抛出异常。 <br><span class="hljs-attribute">PROPAGATION_NESTED</span> 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与 PROPAGATION_REQUIRED 类似的操作。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">事务的传播性一般用在事务嵌套的场景，比如一个事务方法里面调用了另外一个事务方法，那么两个方法是各自作为独立的方法提交还是内层的事务合并到外层的事务一起提交，这就是需要事务传播机制的配置来确定怎么样执行。 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">checked <span class="hljs-keyword">exception</span>：指的是编译时异常，该类异常需要本函数必须处理的，用<span class="hljs-keyword">try</span>和catch处理，或者用throws抛出异常，然后交给调用者去处理异常。 <br>runtime <span class="hljs-keyword">exception</span>：指的是运行时异常，该类异常不必须本函数必须处理，当然也可以处理。 <br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Thread</span>.</span></span>sleep<span class="hljs-literal">()</span>抛出的InterruptException属于checked <span class="hljs-keyword">exception</span>；IllegalArgumentException属于Runtime <span class="hljs-keyword">exception</span>;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">A</span><span class="hljs-operator">.</span>文件分为文本文件和二进制文件，计算机只认识二进制，所以实际上都是二进制的不同解释方式。文本文件是以不同编码格式显示的字符，例如<span class="hljs-variable">Ascii</span>、<span class="hljs-variable">Unicode</span>等，<span class="hljs-variable">window</span>中文本文件的后缀名有<span class="hljs-string">&quot;.txt&quot;</span><span class="hljs-operator">,</span><span class="hljs-string">&quot;.log&quot;</span><span class="hljs-operator">,</span>各种编程语言的源码文件等；二进制文件就是用文本文档打开是看不懂乱码，只要能用文本打开的文件都可以算是文本文件，只是显示的结果不是你想要的，二进制文件只有用特殊的应用才能读懂的文件，例如<span class="hljs-string">&quot;.png&quot;</span><span class="hljs-operator">,</span><span class="hljs-string">&quot;.bmp&quot;</span>等，计算机中大部分的文件还是二进制文件。 <br><span class="hljs-variable">B</span><span class="hljs-operator">.</span><span class="hljs-built_in">File</span>类是对文件整体或者文件属性操作的类，例如创建文件、删除文件、查看文件是否存在等功能，不能操作文件内容；文件内容是用<span class="hljs-variable">IO</span>流操作的。 <br><span class="hljs-built_in">C</span><span class="hljs-operator">.</span>当输入过程中意外到达文件或流的末尾时，抛出<span class="hljs-variable">EOFException</span>异常<span class="hljs-operator">,</span>正常情况下读取到文件末尾时，返回一个特殊值表示文件读取完成，例如<span class="hljs-variable">read</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>返回<span class="hljs-operator">-</span><span class="hljs-number">1</span>表示文件读取完成。 <br><span class="hljs-built_in">D</span><span class="hljs-operator">.</span>上面<span class="hljs-variable">A</span>选项已经说了，不论是文本文件还是二进制文件，在计算机中都是以二进制形式存储的，所以都当做二进制文件读取。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs processing">数组长度在创建时就确定了，要改变数组长度只能重新创建新的数组，将原有数组复制到新的数组之中。<br>这也是<span class="hljs-built_in">ArrayList</span>扩容时候的效率低于LinkedList的原因。<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230609220413734.png" alt="image-20230609220413734"></p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs isbl">下面的方法可用在 <span class="hljs-variable">Servlet</span> 程序中读取 <span class="hljs-variable">HTTP</span> 头。这些方法通过 <span class="hljs-variable">HttpServletRequest</span> 对象可用： <br><span class="hljs-number">1</span>）<span class="hljs-variable">Cookie</span>[] <span class="hljs-function"><span class="hljs-title">getCookies</span>()</span><br>返回一个数组，包含客户端发送该请求的所有的 <span class="hljs-variable">Cookie</span> 对象。<br><span class="hljs-number">2</span>）<span class="hljs-variable"><span class="hljs-class">Object</span></span> <span class="hljs-function"><span class="hljs-title">getAttribute</span>(<span class="hljs-variable">String</span> <span class="hljs-variable">name</span>)</span><br>以对象形式返回已命名属性的值，如果没有给定名称的属性存在，则返回 <span class="hljs-variable"><span class="hljs-literal">null</span></span><br><span class="hljs-number">3</span>）<span class="hljs-variable">String</span> <span class="hljs-function"><span class="hljs-title">getHeader</span>(<span class="hljs-variable">String</span> <span class="hljs-variable">name</span>)</span><br>以字符串形式返回指定的请求头的值。<span class="hljs-variable">Cookie</span>也是头的一种；<br><span class="hljs-number">4</span>）<span class="hljs-variable">String</span> <span class="hljs-function"><span class="hljs-title">getParameter</span>(<span class="hljs-variable">String</span> <span class="hljs-variable">name</span>)</span><br>以字符串形式返回请求参数的值，或者如果参数不存在则返回 <span class="hljs-variable"><span class="hljs-literal">null</span></span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">HttpServlet容器响应Web客户请求流程如下： <br><span class="hljs-number">1</span>）Web客户向Servlet容器发出Http请求； <br><span class="hljs-number">2</span>）Servlet容器解析Web客户的Http请求； <br><span class="hljs-number">3</span>）Servlet容器创建一个HttpRequest对象，在这个对象中封装Http请求信息； <br><span class="hljs-number">4</span>）Servlet容器创建一个HttpResponse对象； <br><span class="hljs-number">5</span>）Servlet容器调用HttpServlet的service方法，这个方法中会根据request的<span class="hljs-keyword">Method</span>来判断具体是执行<span class="hljs-title function_">doGet</span>还是<span class="hljs-title function_">doPost</span>，把<span class="hljs-title function_">HttpRequest</span>和<span class="hljs-title function_">HttpResponse</span>对象作为<span class="hljs-title function_">service</span>方法的参数传给<span class="hljs-title function_">HttpServlet</span>对象； <br>6）<span class="hljs-title function_">HttpServlet</span>调用<span class="hljs-title function_">HttpRequest</span>的有关方法，获取<span class="hljs-title function_">HTTP</span>请求信息； <br>7）<span class="hljs-title function_">HttpServlet</span>调用<span class="hljs-title function_">HttpResponse</span>的有关方法，生成响应数据； <br>8）<span class="hljs-title function_">Servlet</span>容器把<span class="hljs-title function_">HttpServlet</span>的响应结果传给<span class="hljs-title function_">Web</span>客户。<br><br><span class="hljs-title function_">doGet</span><span class="hljs-params">()</span> 或 <span class="hljs-title function_">doPost</span><span class="hljs-params">()</span> 是创建<span class="hljs-title function_">HttpServlet</span>时需要覆盖的方法.<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">通过ServletConfig接口的get<span class="hljs-constructor">InitParameter(<span class="hljs-params">java</span>.<span class="hljs-params">lang</span>.String <span class="hljs-params">name</span>)</span>方法 ServletContext对象：servlet容器在启动时会加载web应用，并为每个web应用创建唯一的servlet context对象，可以把ServletContext看成是一个Web应用的服务器端组件的共享内存，在ServletContext中可以存放共享数据。ServletContext对象是真正的一个全局对象，凡是web容器中的Servlet都可以访问。    整个web应用只有唯一的一个ServletContext对象 servletConfig对象：用于封装servlet的配置信息。从一个servlet被实例化后，对任何客户端在任何时候访问有效，但仅对servlet自身有效，一个servlet的ServletConfig对象不能被另一个servlet访问。 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">常见的代码优化技术：复写传播（代码外提）、删除死代码、强度削弱、归纳变量删除 <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">set</span>Daemon（）可以把线程设置为守护线程（也叫精灵线程，后台线程），它必须在线程启动前调用。<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230609220455513.png" alt="image-20230609220455513"></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">java</span>源文件的后缀名是.java。源文件通过<span class="hljs-keyword">jvm</span>虚拟机编译后会生成二进制字节码文件，后缀是.<span class="hljs-keyword">class</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">java的基本编程单元是类，基本存储单元是变量。<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230609220519656.png" alt="image-20230609220519656"></p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20190921/242025553_1569075361009_BA9669C5826A238ACEC0BD86755FA5DB" alt="img"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="category-chain-item">基础知识</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/Java/">#Java</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E6%8A%80%E6%9C%AF/">#技术</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>牛客-刷题</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/04/09/牛客-刷题/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年4月9日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年12月22日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/04/14/%E7%AE%97%E6%B3%95%E7%9B%9B%E5%AE%B4%EF%BC%9A%E7%BB%8F%E5%85%B8%E9%A2%98%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98%E7%AD%96%E7%95%A5/" title="算法盛宴：经典题解与实战策略">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法盛宴：经典题解与实战策略</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/04/09/%E9%BB%84%E9%87%91%E7%9F%BF%E5%B7%A5%E6%80%80%E6%97%A7%E7%89%88-%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="黄金矿工怀旧版-开发文档">
+                        <span class="hidden-mobile">黄金矿工怀旧版-开发文档</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

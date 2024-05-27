@@ -1,0 +1,953 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍛 熟练掌握git操作，尝试在GitHub中为开源项目作贡献">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git&#x2F;GitHub进阶学习">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/06/04/git-GitHub%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="🍛 熟练掌握git操作，尝试在GitHub中为开源项目作贡献">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/house3.jpg">
+<meta property="article:published_time" content="2023-06-04T14:23:54.000Z">
+<meta property="article:modified_time" content="2023-06-05T14:23:54.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="GitHUb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/house3.jpg">
+  
+  
+  
+  <title>git/GitHub进阶学习 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="git/GitHub进阶学习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-04 22:23" pubdate>
+          2023年6月4日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="git"
+        id="heading-ba9f11ecc3497d9993b933fdc2bd61e5" role="tab" data-toggle="collapse" href="#collapse-ba9f11ecc3497d9993b933fdc2bd61e5"
+        aria-expanded="true"
+      >
+        git
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-ba9f11ecc3497d9993b933fdc2bd61e5"
+           role="tabpanel" aria-labelledby="heading-ba9f11ecc3497d9993b933fdc2bd61e5">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="GitHUb"
+        id="heading-38acf961bffdd01be3f16f1f7df6a237" role="tab" data-toggle="collapse" href="#collapse-38acf961bffdd01be3f16f1f7df6a237"
+        aria-expanded="true"
+      >
+        GitHUb
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-38acf961bffdd01be3f16f1f7df6a237"
+           role="tabpanel" aria-labelledby="heading-38acf961bffdd01be3f16f1f7df6a237">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/04/git-GitHub%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" title="git/GitHub进阶学习"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">git/GitHub进阶学习</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">git/GitHub进阶学习</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：1 年前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="git-GitHub进阶学习"><a href="#git-GitHub进阶学习" class="headerlink" title="git/GitHub进阶学习"></a>git/GitHub进阶学习</h1><ul>
+<li><h5 id="第一次学习git还是过年前后做瑞吉外卖时学的，也总结过Git基础的笔记"><a href="#第一次学习git还是过年前后做瑞吉外卖时学的，也总结过Git基础的笔记" class="headerlink" title="第一次学习git还是过年前后做瑞吉外卖时学的，也总结过Git基础的笔记"></a>第一次学习git还是过年前后做瑞吉外卖时学的，也总结过Git基础的笔记</h5></li>
+<li><h5 id="后来做用户中心、伙伴匹配等项目时也学会了将本地代码提交至Gitee-GitHub的远程仓库，但对git的使用也仅限于此"><a href="#后来做用户中心、伙伴匹配等项目时也学会了将本地代码提交至Gitee-GitHub的远程仓库，但对git的使用也仅限于此" class="headerlink" title="后来做用户中心、伙伴匹配等项目时也学会了将本地代码提交至Gitee/GitHub的远程仓库，但对git的使用也仅限于此"></a>后来做用户中心、伙伴匹配等项目时也学会了将本地代码提交至Gitee/GitHub的远程仓库，但对git的使用也仅限于此</h5></li>
+<li><h5 id="昨天跟着鱼皮兄学到了在GitHub上如何优雅地在线查看别人项目的代码甚至在线运行，激起了我要持续学习GitHub的兴趣"><a href="#昨天跟着鱼皮兄学到了在GitHub上如何优雅地在线查看别人项目的代码甚至在线运行，激起了我要持续学习GitHub的兴趣" class="headerlink" title="昨天跟着鱼皮兄学到了在GitHub上如何优雅地在线查看别人项目的代码甚至在线运行，激起了我要持续学习GitHub的兴趣"></a>昨天跟着鱼皮兄学到了在GitHub上如何优雅地在线查看别人项目的代码甚至在线运行，激起了我要持续学习GitHub的兴趣</h5></li>
+<li><h5 id="今天康文昌的git-GitHub教学，简直是醍醐灌顶，有感而发，在此记录："><a href="#今天康文昌的git-GitHub教学，简直是醍醐灌顶，有感而发，在此记录：" class="headerlink" title="今天康文昌的git/GitHub教学，简直是醍醐灌顶，有感而发，在此记录："></a>今天康文昌的git/GitHub教学，简直是醍醐灌顶，有感而发，在此记录：</h5></li>
+</ul>
+<h2 id="本地git的基本操作"><a href="#本地git的基本操作" class="headerlink" title="本地git的基本操作"></a>本地git的基本操作</h2><ul>
+<li><h5 id="以下操作均可在VS-Code中操作（已集成git基础命令）"><a href="#以下操作均可在VS-Code中操作（已集成git基础命令）" class="headerlink" title="以下操作均可在VS Code中操作（已集成git基础命令）"></a>以下操作均可在VS Code中操作（已集成git基础命令）</h5></li>
+<li><h5 id="初始化用户和邮箱"><a href="#初始化用户和邮箱" class="headerlink" title="初始化用户和邮箱"></a>初始化用户和邮箱</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c">git config --global user.name <span class="hljs-string">&quot;用户名&quot;</span><br>git config --global user.email <span class="hljs-string">&quot;用户邮箱&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="本地初始化一个仓库"><a href="#本地初始化一个仓库" class="headerlink" title="本地初始化一个仓库"></a>本地初始化一个仓库</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git init<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="将文件修改添加至暂存区"><a href="#将文件修改添加至暂存区" class="headerlink" title="将文件修改添加至暂存区"></a>将文件修改添加至暂存区</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git add .c<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="提交暂存区内的修改记录"><a href="#提交暂存区内的修改记录" class="headerlink" title="提交暂存区内的修改记录"></a>提交暂存区内的修改记录</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git commit -m <span class="hljs-string">&quot;fix(member):memory&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录"></a>查看提交记录</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git <span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="硬回退至某一次提交版本"><a href="#硬回退至某一次提交版本" class="headerlink" title="硬回退至某一次提交版本"></a>硬回退至某一次提交版本</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git reset --hard 提交记录id<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git branch 分支名<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="选择分支"><a href="#选择分支" class="headerlink" title="选择分支"></a>选择分支</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git checkout 分支名<br></code></pre></td></tr></table></figure>
+
+<h2 id="git链接远程仓库"><a href="#git链接远程仓库" class="headerlink" title="git链接远程仓库"></a>git链接远程仓库</h2><ul>
+<li><h5 id="注册并登录GitHub就不多说了，新建一个仓库test"><a href="#注册并登录GitHub就不多说了，新建一个仓库test" class="headerlink" title="注册并登录GitHub就不多说了，新建一个仓库test"></a>注册并登录GitHub就不多说了，新建一个仓库test</h5></li>
+<li><h5 id="链接至远程仓库（注：origin仅为仓库名，可自定义）"><a href="#链接至远程仓库（注：origin仅为仓库名，可自定义）" class="headerlink" title="链接至远程仓库（注：origin仅为仓库名，可自定义）"></a>链接至远程仓库（注：origin仅为仓库名，可自定义）</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git remote add origin 仓库地址<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="设置主分支（默认分支）"><a href="#设置主分支（默认分支）" class="headerlink" title="设置主分支（默认分支）"></a>设置主分支（默认分支）</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git branch -M main<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="执行更新，并提交至远程仓库"><a href="#执行更新，并提交至远程仓库" class="headerlink" title="执行更新，并提交至远程仓库"></a>执行更新，并提交至远程仓库</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">git add .<br>git commit -m <span class="hljs-string">&quot;fix(member):memory&quot;</span><br>git push origin <br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="注：这里可能会出现以下几个问题："><a href="#注：这里可能会出现以下几个问题：" class="headerlink" title="注：这里可能会出现以下几个问题："></a>注：这里可能会出现以下几个问题：</h5></li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">问题一：<br>————————————————<br>warning: HTTPS connections may <span class="hljs-keyword">not</span> be secure. See <span class="hljs-keyword">https</span>://aka.ms/gcm/tlsverify <span class="hljs-keyword">for</span> more information.<br>To <span class="hljs-keyword">https</span>://github.com/deng<span class="hljs-number">-2022</span>/test.git<br> ! [rejected]        main -&gt; main (fetch <span class="hljs-keyword">first</span>)<br>error: failed <span class="hljs-built_in">to</span> push some refs <span class="hljs-built_in">to</span> <span class="hljs-string">&#x27;https://github.com/deng-2022/test.git&#x27;</span><br>hint: Updates were rejected because <span class="hljs-keyword">the</span> remote <span class="hljs-keyword">contains</span> work that you <span class="hljs-built_in">do</span><br>hint: <span class="hljs-keyword">not</span> have locally. This is usually caused <span class="hljs-keyword">by</span> another repository pushing<br>hint: <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> same ref. You may want <span class="hljs-built_in">to</span> <span class="hljs-keyword">first</span> integrate <span class="hljs-keyword">the</span> remote changes<br>hint: (e.g., <span class="hljs-string">&#x27;git pull ...&#x27;</span>) <span class="hljs-keyword">before</span> pushing again.<br>hint: See <span class="hljs-keyword">the</span> <span class="hljs-string">&#x27;Note about fast-forwards&#x27;</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;git push --help&#x27;</span> <span class="hljs-keyword">for</span> details.<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="总结原因以及解决办法如下："><a href="#总结原因以及解决办法如下：" class="headerlink" title="总结原因以及解决办法如下："></a>总结原因以及解决办法如下：</h5></li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">报错的原因是因为，每个仓库都有一个分支，也可以理解为大仓库里的小仓库，我们只是跟线上远程仓库有了关联，但没有跟线上远程仓库的某个分支关联，所以我们没法提交<br><br>在终端输入 git pull --rebase origin master 即可跟刚创建的线上远程仓库的默认分支master关联<br>这时再执行一下 git push -u origin master 即可将我们的项目文件上传到关联的线上远程文件中<br>————————————————<br>原文链接：https://blog.csdn.net/weixin<span class="hljs-emphasis">_52641692/article/details/130230537</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="关联线上远程仓库默认分支"><a href="#关联线上远程仓库默认分支" class="headerlink" title="关联线上远程仓库默认分支"></a>关联线上远程仓库默认分支</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git pull --rebase origin main<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="提交项目文件至相关联的远程仓库分支中"><a href="#提交项目文件至相关联的远程仓库分支中" class="headerlink" title="提交项目文件至相关联的远程仓库分支中"></a>提交项目文件至相关联的远程仓库分支中</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git push -u origin main<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">问题二：<br>————————————————<br>这个我目前没遇到过，但问题描述是SSL证书过期之类的，总之就是本地的SSL证书有问题<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="执行以下命令即可："><a href="#执行以下命令即可：" class="headerlink" title="执行以下命令即可："></a>执行以下命令即可：</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">git config --global http.sslverify <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="参与GitHub开源项目"><a href="#参与GitHub开源项目" class="headerlink" title="参与GitHub开源项目"></a>参与GitHub开源项目</h3><ul>
+<li><h5 id="这个我在此简述一下吧，操作的多了就会熟练的："><a href="#这个我在此简述一下吧，操作的多了就会熟练的：" class="headerlink" title="这个我在此简述一下吧，操作的多了就会熟练的："></a>这个我在此简述一下吧，操作的多了就会熟练的：</h5></li>
+<li><h5 id="在开源项目中点击点击Fork，把项目拉取到自己的仓库中，执行修改并提交至自己的远程仓库分支中，再远程链接到开源项目仓库地址，回到开源项目中点击Pull-requests-gt-new-pull-request-gt-compare-across-forks，选择自己对应的仓库分支，create-pull-request即可提交修改，恭喜你，已经完成了第一次向开源项目贡献代码"><a href="#在开源项目中点击点击Fork，把项目拉取到自己的仓库中，执行修改并提交至自己的远程仓库分支中，再远程链接到开源项目仓库地址，回到开源项目中点击Pull-requests-gt-new-pull-request-gt-compare-across-forks，选择自己对应的仓库分支，create-pull-request即可提交修改，恭喜你，已经完成了第一次向开源项目贡献代码" class="headerlink" title="在开源项目中点击点击Fork，把项目拉取到自己的仓库中，执行修改并提交至自己的远程仓库分支中，再远程链接到开源项目仓库地址，回到开源项目中点击Pull requests -&gt; new pull request -&gt; compare across forks，选择自己对应的仓库分支，create pull request即可提交修改，恭喜你，已经完成了第一次向开源项目贡献代码"></a>在开源项目中点击点击Fork，把项目拉取到自己的仓库中，执行修改并提交至自己的远程仓库分支中，再远程链接到开源项目仓库地址，回到开源项目中点击Pull requests -&gt; new pull request -&gt; compare across forks，选择自己对应的仓库分支，create pull request即可提交修改，恭喜你，已经完成了第一次向开源项目贡献代码</h5></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c">git clone https:<span class="hljs-comment">//github.com/deng-2022/re01.git .</span><br>git remote add upstream https:<span class="hljs-comment">//github.com/midorg-com/re01.git</span><br>git checkout -b memory<br>git add .<br>git commit -m <span class="hljs-string">&quot;add(momber): memory&quot;</span><br>git push -u origin memory<br></code></pre></td></tr></table></figure>
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/git/" class="category-chain-item">git</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/git/GitHUb/" class="category-chain-item">GitHUb</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/git/">#git</a>
+      
+        <a href="/deng-2022/blog_2/tags/GitHUb/">#GitHUb</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>git/GitHub进阶学习</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/06/04/git-GitHub进阶学习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年6月5日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/07/%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%B8%AD%E6%93%8D%E4%BD%9C%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" title="注册表中操作右键菜单">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">注册表中操作右键菜单</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/04/%E6%8F%AD%E7%A7%98%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF%E4%B9%8B%E8%B7%AF%EF%BC%9A%E6%B5%81%E7%A8%8B%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="揭秘项目部署上线之路：流程、挑战与解决方案">
+                        <span class="hidden-mobile">揭秘项目部署上线之路：流程、挑战与解决方案</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

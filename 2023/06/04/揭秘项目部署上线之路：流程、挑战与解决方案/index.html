@@ -1,0 +1,1449 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍝 经验分享和实用建议，助你解决部署上线难题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="揭秘项目部署上线之路：流程、挑战与解决方案">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/06/04/%E6%8F%AD%E7%A7%98%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF%E4%B9%8B%E8%B7%AF%EF%BC%9A%E6%B5%81%E7%A8%8B%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="🍝 经验分享和实用建议，助你解决部署上线难题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/cat3.jpg">
+<meta property="article:published_time" content="2023-06-04T11:59:32.000Z">
+<meta property="article:modified_time" content="2024-03-26T08:38:13.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="项目">
+<meta property="article:tag" content="开发经验">
+<meta property="article:tag" content="项目部署">
+<meta property="article:tag" content="网站">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/cat3.jpg">
+  
+  
+  
+  <title>揭秘项目部署上线之路：流程、挑战与解决方案 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="揭秘项目部署上线之路：流程、挑战与解决方案"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-04 19:59" pubdate>
+          2023年6月4日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+        aria-expanded="true"
+      >
+        项目
+        <span class="list-group-count">(6)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="开发经验"
+        id="heading-bfd19ce0478d81a44ceb5a9a1aa94202" role="tab" data-toggle="collapse" href="#collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+        aria-expanded="false"
+      >
+        开发经验
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+           role="tabpanel" aria-labelledby="heading-bfd19ce0478d81a44ceb5a9a1aa94202">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/03/17/Memory%20%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83%E7%B3%BB%E7%BB%9F-%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="Memory 用户中心中心-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Memory 用户中心中心-开发文档</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/20/Typora%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/" title="美轮美奂的文档艺术：Typora的使用技巧和实践"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">美轮美奂的文档艺术：Typora的使用技巧和实践</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/02/PicMemories%20%E5%A3%81%E7%BA%B8%E5%88%86%E4%BA%AB%E5%B0%8F%E7%A8%8B%E5%BA%8F%20-%20%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="PicMemories-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">PicMemories-开发文档</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/07/TaskMemories%20-%20%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="TaskMemories-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">TaskMemories-开发文档</span>
+        </a>
+      
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Elasticsearch"
+        id="heading-45e23a169652aaf95ce80da844f3df0d" role="tab" data-toggle="collapse" href="#collapse-45e23a169652aaf95ce80da844f3df0d"
+        aria-expanded="false"
+      >
+        Elasticsearch
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-45e23a169652aaf95ce80da844f3df0d"
+           role="tabpanel" aria-labelledby="heading-45e23a169652aaf95ce80da844f3df0d">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Logstash"
+        id="heading-65859d7d6b0c6a5327b8f0b0c09653ad" role="tab" data-toggle="collapse" href="#collapse-65859d7d6b0c6a5327b8f0b0c09653ad"
+        aria-expanded="false"
+      >
+        Logstash
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-65859d7d6b0c6a5327b8f0b0c09653ad"
+           role="tabpanel" aria-labelledby="heading-65859d7d6b0c6a5327b8f0b0c09653ad">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Kibana"
+        id="heading-5228fdd6f613af63fc73ee7c02ef8fb5" role="tab" data-toggle="collapse" href="#collapse-5228fdd6f613af63fc73ee7c02ef8fb5"
+        aria-expanded="false"
+      >
+        Kibana
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-5228fdd6f613af63fc73ee7c02ef8fb5"
+           role="tabpanel" aria-labelledby="heading-5228fdd6f613af63fc73ee7c02ef8fb5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/26/MemorySearch%20%E5%BF%86%E6%90%9C%E9%98%81-%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="MemorySearch 忆搜阁-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">MemorySearch 忆搜阁-开发文档</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目部署"
+        id="heading-50be5e3b1697e929a38352262896962e" role="tab" data-toggle="collapse" href="#collapse-50be5e3b1697e929a38352262896962e"
+        aria-expanded="true"
+      >
+        项目部署
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-50be5e3b1697e929a38352262896962e"
+           role="tabpanel" aria-labelledby="heading-50be5e3b1697e929a38352262896962e">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="开发经验"
+        id="heading-bfd19ce0478d81a44ceb5a9a1aa94202" role="tab" data-toggle="collapse" href="#collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+        aria-expanded="true"
+      >
+        开发经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+           role="tabpanel" aria-labelledby="heading-bfd19ce0478d81a44ceb5a9a1aa94202">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="网站"
+        id="heading-beb6c0bd8a66cea600c8ce40167eeb57" role="tab" data-toggle="collapse" href="#collapse-beb6c0bd8a66cea600c8ce40167eeb57"
+        aria-expanded="true"
+      >
+        网站
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-beb6c0bd8a66cea600c8ce40167eeb57"
+           role="tabpanel" aria-labelledby="heading-beb6c0bd8a66cea600c8ce40167eeb57">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/04/%E6%8F%AD%E7%A7%98%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF%E4%B9%8B%E8%B7%AF%EF%BC%9A%E6%B5%81%E7%A8%8B%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="揭秘项目部署上线之路：流程、挑战与解决方案"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">揭秘项目部署上线之路：流程、挑战与解决方案</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">揭秘项目部署上线之路：流程、挑战与解决方案</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：2 个月前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/cat3.jpg" alt="每一片落叶都承载着岁月的痕迹，而飘落的瞬间，也是新生的开始。"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li><h5 id="本文介绍部署项目的常用方法，以及详细的实操流程"><a href="#本文介绍部署项目的常用方法，以及详细的实操流程" class="headerlink" title="本文介绍部署项目的常用方法，以及详细的实操流程"></a>本文介绍部署项目的常用方法，以及详细的实操流程</h5></li>
+<li><h5 id="均以我个人开发的伙伴匹配系统为例，体验如何快速部署项目"><a href="#均以我个人开发的伙伴匹配系统为例，体验如何快速部署项目" class="headerlink" title="均以我个人开发的伙伴匹配系统为例，体验如何快速部署项目"></a>均以我个人开发的伙伴匹配系统为例，体验如何快速部署项目</h5></li>
+</ul>
+<h1 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h1><h2 id="本地-IDEA-部署"><a href="#本地-IDEA-部署" class="headerlink" title="本地 IDEA 部署"></a>本地 IDEA 部署</h2><p>使用 maven 打个 war 包，报了一连串的错误：<strong>（2024/03/26早）</strong></p>
+<ol>
+<li>IDEA maven 未配置好，配置一下就行</li>
+<li>有依赖下载失败，换了新的版本解决了</li>
+<li>测试用例有错误，打包时直接忽略掉测试用例就行</li>
+<li>Cannot access defaults field of Properties问题，看下面</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mzp520lf/article/details/126247543">Cannot access defaults field of Properties问题的解决-CSDN博客</a></p>
+<pre><code class="hljs">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+            &lt;version&gt;3.3.1&lt;/version&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+<p>有必要图文总结下这方面的经验了。</p>
+<p>maven 打包、本地起 tomcat 服务器</p>
+<h2 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h2><ul>
+<li><h5 id="要部署项目到线上，首先就要配置多环境：测试环境（test）、开发环境（development）、生产环境（production）等"><a href="#要部署项目到线上，首先就要配置多环境：测试环境（test）、开发环境（development）、生产环境（production）等" class="headerlink" title="要部署项目到线上，首先就要配置多环境：测试环境（test）、开发环境（development）、生产环境（production）等"></a>要部署项目到线上，首先就要配置多环境：测试环境（test）、开发环境（development）、生产环境（production）等</h5></li>
+</ul>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><ul>
+<li><h5 id="在使用-vite-构建工具构建的前端框架中，项目的启动环境是由启动命令来区分的"><a href="#在使用-vite-构建工具构建的前端框架中，项目的启动环境是由启动命令来区分的" class="headerlink" title="在使用 vite 构建工具构建的前端框架中，项目的启动环境是由启动命令来区分的"></a>在使用 vite 构建工具构建的前端框架中，项目的启动环境是由启动命令来区分的</h5></li>
+<li><h5 id="我们在全局请求拦截器下，输出打印变量：import-meta-env-MODE，如下："><a href="#我们在全局请求拦截器下，输出打印变量：import-meta-env-MODE，如下：" class="headerlink" title="我们在全局请求拦截器下，输出打印变量：import.meta.env.MODE，如下："></a>我们在全局请求拦截器下，输出打印变量：import.meta.env.MODE，如下：</h5></li>
+</ul>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs tsx">myAxios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<br>  <span class="hljs-keyword">function</span> (<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">env</span>.<span class="hljs-property">MODE</span>);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`我他妈发请求了<span class="hljs-subst">$&#123;config&#125;</span>`</span>);<br>    <span class="hljs-comment">// 在发送请求之前做些什么</span><br>    <span class="hljs-keyword">return</span> config;<br>  &#125;,<br>  <span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) &#123;<br>    <span class="hljs-comment">// 对请求错误做些什么</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error);<br>  &#125;<br>);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="使用如下命令启动项目（本地启动）："><a href="#使用如下命令启动项目（本地启动）：" class="headerlink" title="使用如下命令启动项目（本地启动）："></a>使用如下命令启动项目（本地启动）：</h5></li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">npm <span class="hljs-built_in">run</span> dev<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729160617495.png" alt="image-20230729160617495"></p>
+<ul>
+<li><h5 id="可以看到在本地启动项目时，项目的启动环境为开发环境（development）"><a href="#可以看到在本地启动项目时，项目的启动环境为开发环境（development）" class="headerlink" title="可以看到在本地启动项目时，项目的启动环境为开发环境（development）"></a>可以看到在本地启动项目时，项目的启动环境为开发环境（development）</h5></li>
+<li><h5 id="执行以下命令来构建、打包项目，打包完成之后，项目目录下会出现一个-dist-目录，里面就是打包构建完成的项目代码："><a href="#执行以下命令来构建、打包项目，打包完成之后，项目目录下会出现一个-dist-目录，里面就是打包构建完成的项目代码：" class="headerlink" title="执行以下命令来构建、打包项目，打包完成之后，项目目录下会出现一个 dist 目录，里面就是打包构建完成的项目代码："></a>执行以下命令来构建、打包项目，打包完成之后，项目目录下会出现一个 dist 目录，里面就是打包构建完成的项目代码：</h5></li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">npm <span class="hljs-built_in">run</span> build<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729161011059.png" alt="image-20230729161011059"></p>
+<ul>
+<li><h5 id="在该目录下，执行以下命令启动项目："><a href="#在该目录下，执行以下命令启动项目：" class="headerlink" title="在该目录下，执行以下命令启动项目："></a>在该目录下，执行以下命令启动项目：</h5></li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">serve</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="注意，serve是一个启动项目的工具，可以使用以下命令安装："><a href="#注意，serve是一个启动项目的工具，可以使用以下命令安装：" class="headerlink" title="注意，serve是一个启动项目的工具，可以使用以下命令安装："></a>注意，serve是一个启动项目的工具，可以使用以下命令安装：</h5></li>
+</ul>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> i -g serve<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="serve成功启动打包好的项目之后，如图所示："><a href="#serve成功启动打包好的项目之后，如图所示：" class="headerlink" title="serve成功启动打包好的项目之后，如图所示："></a>serve成功启动打包好的项目之后，如图所示：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729161424548.png" alt="image-20230729161424548"></p>
+<ul>
+<li><h5 id="可以看到，启动构建好的项目时，项目的启动环境为开发环境（production）"><a href="#可以看到，启动构建好的项目时，项目的启动环境为开发环境（production）" class="headerlink" title="可以看到，启动构建好的项目时，项目的启动环境为开发环境（production）"></a>可以看到，启动构建好的项目时，项目的启动环境为开发环境（production）</h5></li>
+<li><h5 id="所以我们可以在全局请求拦截器中，可以实现：根据不同的项目环境，去请求不同的后端地址："><a href="#所以我们可以在全局请求拦截器中，可以实现：根据不同的项目环境，去请求不同的后端地址：" class="headerlink" title="所以我们可以在全局请求拦截器中，可以实现：根据不同的项目环境，去请求不同的后端地址："></a>所以我们可以在全局请求拦截器中，可以实现：根据不同的项目环境，去请求不同的后端地址：</h5></li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">const</span> myAxios = axios.<span class="hljs-title function_">create</span>(&#123;<br>  <span class="hljs-comment">// baseURL: &quot;http://localhost:8082/api&quot;,</span><br>  <span class="hljs-attr">baseURL</span>:<br>    <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">env</span>.<span class="hljs-property">MODE</span> === <span class="hljs-string">&quot;production&quot;</span><br>      ? <span class="hljs-string">&quot;http://120.55.62.195:8081/api&quot;</span><br>      : <span class="hljs-string">&quot;http://localhost:8081/api&quot;</span>,<br>  <span class="hljs-attr">withCredentials</span>: <span class="hljs-literal">true</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这就是前端项目的多环境配置了（2023-07-29午）"><a href="#这就是前端项目的多环境配置了（2023-07-29午）" class="headerlink" title="这就是前端项目的多环境配置了（2023/07/29午）"></a>这就是前端项目的多环境配置了<strong>（2023/07/29午）</strong></h5></li>
+<li><h5 id="补充：Ant-Design-Pro也是我们常用的前端react框架，其多环境配置与vite构建的vue框架十分相似"><a href="#补充：Ant-Design-Pro也是我们常用的前端react框架，其多环境配置与vite构建的vue框架十分相似" class="headerlink" title="补充：Ant Design Pro也是我们常用的前端react框架，其多环境配置与vite构建的vue框架十分相似"></a>补充：Ant Design Pro也是我们常用的前端react框架，其多环境配置与vite构建的vue框架十分相似</h5></li>
+<li><h5 id="二者的区别仅在于存储项目启动环境的变量名称不同："><a href="#二者的区别仅在于存储项目启动环境的变量名称不同：" class="headerlink" title="二者的区别仅在于存储项目启动环境的变量名称不同："></a>二者的区别仅在于存储项目启动环境的变量名称不同：</h5></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs react">export const errorConfig: RequestConfig = &#123;<br>  baseURL:<br>    process.env.NODE_ENV === &#x27;production&#x27; ? &#x27;http://120.55.62.195:8101&#x27; : &#x27;http://localhost:8101&#x27;,<br>  withCredentials: true,<br>    ..............<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>这里再附上 <code>Ant Design Vue</code> 的多环境配置：<strong>（2023/12/25早）</strong></li>
+</ul>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">const</span> instance = axios.<span class="hljs-title function_">create</span>(&#123;<br>    <span class="hljs-comment">// baseURL: &quot;http://localhost:8081/api&quot;,</span><br>    <span class="hljs-attr">baseURL</span>:<br>        process.<span class="hljs-property">env</span>.<span class="hljs-property">NODE_ENV</span> === <span class="hljs-string">&#x27;production&#x27;</span> ? <span class="hljs-string">&#x27;http://120.55.62.195:8101&#x27;</span> : <span class="hljs-string">&#x27;http://localhost:8101&#x27;</span>,<br>    <span class="hljs-attr">withCredentials</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">timeout</span>: <span class="hljs-number">10000</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><ul>
+<li><h5 id="我这个项目是基于SpringBoot开发的，后端多环境配置十分方便"><a href="#我这个项目是基于SpringBoot开发的，后端多环境配置十分方便" class="headerlink" title="我这个项目是基于SpringBoot开发的，后端多环境配置十分方便"></a>我这个项目是基于SpringBoot开发的，后端多环境配置十分方便</h5></li>
+<li><h5 id="「快学springboot」SpringBoot多环境配置文件-掘金-juejin-cn"><a href="#「快学springboot」SpringBoot多环境配置文件-掘金-juejin-cn" class="headerlink" title="「快学springboot」SpringBoot多环境配置文件 - 掘金 (juejin.cn)"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903872729726990">「快学springboot」SpringBoot多环境配置文件 - 掘金 (juejin.cn)</a></h5></li>
+<li><h5 id="只需要新增多个不同环境的配置文件，将来部署并启动项目时，只需指定启动环境即可"><a href="#只需要新增多个不同环境的配置文件，将来部署并启动项目时，只需指定启动环境即可" class="headerlink" title="只需要新增多个不同环境的配置文件，将来部署并启动项目时，只需指定启动环境即可"></a>只需要新增多个不同环境的配置文件，将来部署并启动项目时，只需指定启动环境即可</h5></li>
+<li><h5 id="不同环境的配置文件需要不同的文件后缀名来区分，如下图所示："><a href="#不同环境的配置文件需要不同的文件后缀名来区分，如下图所示：" class="headerlink" title="不同环境的配置文件需要不同的文件后缀名来区分，如下图所示："></a>不同环境的配置文件需要不同的文件后缀名来区分，如下图所示：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725123005384.png" alt="image-20230725123005384"></p>
+<ul>
+<li><h5 id="其中，application-yaml用来存放各配置文件中的公共配置，其余各环境配置文件中，主要有区别的有以下两点："><a href="#其中，application-yaml用来存放各配置文件中的公共配置，其余各环境配置文件中，主要有区别的有以下两点：" class="headerlink" title="其中，application.yaml用来存放各配置文件中的公共配置，其余各环境配置文件中，主要有区别的有以下两点："></a>其中，application.yaml用来存放各配置文件中的公共配置，其余各环境配置文件中，主要有区别的有以下两点：</h5><ol>
+<li><h5 id="依赖的环境地址"><a href="#依赖的环境地址" class="headerlink" title="依赖的环境地址"></a>依赖的环境地址</h5><ul>
+<li>数据库地址</li>
+<li>缓存地址</li>
+<li>消息队列地址</li>
+<li>项目端口号</li>
+</ul>
+</li>
+<li><h5 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h5></li>
+</ol>
+</li>
+<li><h5 id="下面给出我在不同环境下的配置文件内容："><a href="#下面给出我在不同环境下的配置文件内容：" class="headerlink" title="下面给出我在不同环境下的配置文件内容："></a>下面给出我在不同环境下的配置文件内容：</h5></li>
+<li><h5 id="application-yaml（公共配置）"><a href="#application-yaml（公共配置）" class="headerlink" title="application.yaml（公共配置）"></a>application.yaml（公共配置）</h5></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-comment"># Project name</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">user-center</span><br>  <span class="hljs-comment"># DataSource Config</span><br><span class="hljs-comment">#  datasource:</span><br>  <span class="hljs-comment">#    driver-class-name: com.mysql.cj.jdbc.Driver</span><br>  <span class="hljs-comment">#    url: jdbc:mysql://localhost:3306/memory</span><br>  <span class="hljs-comment">#    username: root</span><br>  <span class="hljs-comment">#    password: Dw990831</span><br>  <span class="hljs-comment"># session 失效时间(分钟)</span><br>  <span class="hljs-attr">session:</span><br>    <span class="hljs-attr">timeout:</span> <span class="hljs-number">86640</span><br>    <span class="hljs-attr">store-type:</span> <span class="hljs-string">redis</span><br>  <span class="hljs-comment"># redis 配置</span><br><span class="hljs-comment">#  redis:</span><br>  <span class="hljs-comment">#    port: 6379</span><br>  <span class="hljs-comment">#    host: localhost</span><br>  <span class="hljs-comment">#    database: 0</span><br>  <span class="hljs-comment"># 整合swagger</span><br>  <span class="hljs-attr">mvc:</span><br>    <span class="hljs-attr">pathmatch:</span><br>      <span class="hljs-attr">matching-strategy:</span> <span class="hljs-string">ANT_PATH_MATCHER</span><br><span class="hljs-comment">#  config:</span><br><span class="hljs-comment">#    activate:</span><br><span class="hljs-comment">#      on-profile: dev</span><br><br><span class="hljs-comment"># 端口</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span><br>  <span class="hljs-attr">servlet:</span><br>    <span class="hljs-attr">context-path:</span> <span class="hljs-string">/api</span><br><span class="hljs-comment">#    session:</span><br><span class="hljs-comment">#      cookie:</span><br><span class="hljs-comment">#        domain: localhost</span><br><br><span class="hljs-attr">mybatis-plus:</span><br>  <span class="hljs-attr">global-config:</span><br>    <span class="hljs-comment"># 逻辑删除</span><br>    <span class="hljs-attr">db-config:</span><br>      <span class="hljs-attr">logic-delete-field:</span> <span class="hljs-string">isDelete</span> <span class="hljs-comment"># 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)</span><br>      <span class="hljs-attr">logic-delete-value:</span> <span class="hljs-number">1</span> <span class="hljs-comment"># 逻辑已删除值(默认为 1)</span><br>      <span class="hljs-attr">logic-not-delete-value:</span> <span class="hljs-number">0</span> <span class="hljs-comment"># 逻辑未删除值(默认为 0)</span><br>  <span class="hljs-comment"># 开启SQL查询日志</span><br>  <span class="hljs-attr">configuration:</span><br>    <span class="hljs-attr">log-impl:</span> <span class="hljs-string">org.apache.ibatis.logging.stdout.StdOutImpl</span><br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="application-dev-yaml（开发环境配置）"><a href="#application-dev-yaml（开发环境配置）" class="headerlink" title="application-dev.yaml（开发环境配置）"></a>application-dev.yaml（开发环境配置）</h5></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-comment"># Project name</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">user-center</span><br>  <span class="hljs-comment"># DataSource Config</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/memory</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">Dw990831</span><br>  <span class="hljs-comment"># session 失效时间(分钟)</span><br>  <span class="hljs-attr">session:</span><br>    <span class="hljs-attr">timeout:</span> <span class="hljs-number">86640</span><br>    <span class="hljs-attr">store-type:</span> <span class="hljs-string">redis</span><br>  <span class="hljs-comment"># redis 配置</span><br>  <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>    <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span><br>    <span class="hljs-attr">database:</span> <span class="hljs-number">0</span><br>  <span class="hljs-comment"># 整合swagger</span><br>  <span class="hljs-attr">mvc:</span><br>    <span class="hljs-attr">pathmatch:</span><br>      <span class="hljs-attr">matching-strategy:</span> <span class="hljs-string">ANT_PATH_MATCHER</span><br><span class="hljs-comment">#  config:</span><br><span class="hljs-comment">#    activate:</span><br><span class="hljs-comment">#      on-profile: dev</span><br><br><span class="hljs-comment"># 端口</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span><br>  <span class="hljs-attr">servlet:</span><br>    <span class="hljs-attr">context-path:</span> <span class="hljs-string">/api</span><br><span class="hljs-comment">#    session:</span><br><span class="hljs-comment">#      cookie:</span><br><span class="hljs-comment">#        domain: localhost</span><br><br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="application-prod-yaml（生产环境配置）"><a href="#application-prod-yaml（生产环境配置）" class="headerlink" title="application-prod.yaml（生产环境配置）"></a>application-prod.yaml（生产环境配置）</h5></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-comment"># Project name</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">user-center</span><br>  <span class="hljs-comment"># DataSource Config</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/memory</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">Dw990831</span><br>  <span class="hljs-comment"># session 失效时间(分钟)</span><br>  <span class="hljs-attr">session:</span><br>    <span class="hljs-attr">timeout:</span> <span class="hljs-number">86640</span><br>    <span class="hljs-attr">store-type:</span> <span class="hljs-string">redis</span><br>  <span class="hljs-comment"># redis 配置</span><br>  <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>    <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span><br>    <span class="hljs-attr">database:</span> <span class="hljs-number">0</span><br>  <span class="hljs-comment"># 整合swagger</span><br>  <span class="hljs-attr">mvc:</span><br>    <span class="hljs-attr">pathmatch:</span><br>      <span class="hljs-attr">matching-strategy:</span> <span class="hljs-string">ANT_PATH_MATCHER</span><br><span class="hljs-comment">#  config:</span><br><span class="hljs-comment">#    activate:</span><br><span class="hljs-comment">#      on-profile: dev</span><br><br><span class="hljs-comment"># 端口</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span><br>  <span class="hljs-attr">servlet:</span><br>    <span class="hljs-attr">context-path:</span> <span class="hljs-string">/api</span><br><span class="hljs-comment">#    session:</span><br><span class="hljs-comment">#      cookie:</span><br><span class="hljs-comment">#        domain: localhost</span><br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="有关各个配置文件的加载优先级，可以在这篇博客中详细了解："><a href="#有关各个配置文件的加载优先级，可以在这篇博客中详细了解：" class="headerlink" title="有关各个配置文件的加载优先级，可以在这篇博客中详细了解："></a>有关各个配置文件的加载优先级，可以在这篇博客中详细了解：</h5></li>
+</ul>
+<h4 id="直接启动"><a href="#直接启动" class="headerlink" title="直接启动"></a>直接启动</h4><ul>
+<li><h5 id="利用IDEA工具，检验在各个环境下能否正确启动项目"><a href="#利用IDEA工具，检验在各个环境下能否正确启动项目" class="headerlink" title="利用IDEA工具，检验在各个环境下能否正确启动项目"></a>利用IDEA工具，检验在各个环境下能否正确启动项目</h5></li>
+<li><h5 id="这里有个问题，如果配置了多环境，直接run-debug项目会报如下错误："><a href="#这里有个问题，如果配置了多环境，直接run-debug项目会报如下错误：" class="headerlink" title="这里有个问题，如果配置了多环境，直接run/debug项目会报如下错误："></a>这里有个问题，如果配置了多环境，直接run/debug项目会报如下错误：</h5></li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">***************************<br>APPLICATION FAILED TO START<br>***************************<br><br>Description:<br><br>Failed <span class="hljs-built_in">to</span> configure <span class="hljs-keyword">a</span> DataSource: <span class="hljs-string">&#x27;url&#x27;</span> attribute is <span class="hljs-keyword">not</span> specified <span class="hljs-keyword">and</span> no embedded datasource could be configured.<br><br>Reason: Failed <span class="hljs-built_in">to</span> determine <span class="hljs-keyword">a</span> suitable driver class<br><br><br>Action:<br><br>Consider <span class="hljs-keyword">the</span> following:<br>	If you want <span class="hljs-keyword">an</span> embedded database (H2, HSQL <span class="hljs-keyword">or</span> Derby), please <span class="hljs-built_in">put</span> <span class="hljs-keyword">it</span> <span class="hljs-keyword">on</span> <span class="hljs-title">the</span> <span class="hljs-title">classpath</span>.<br>	If you have database settings <span class="hljs-built_in">to</span> be loaded <span class="hljs-built_in">from</span> <span class="hljs-keyword">a</span> particular profile you may need <span class="hljs-built_in">to</span> activate <span class="hljs-keyword">it</span> (no profiles are currently active).<br><br>Disconnected <span class="hljs-built_in">from</span> <span class="hljs-keyword">the</span> target VM, address: <span class="hljs-string">&#x27;127.0.0.1:8686&#x27;</span>, transport: <span class="hljs-string">&#x27;socket&#x27;</span><br><br>Process finished <span class="hljs-keyword">with</span> exit code <span class="hljs-number">1</span><br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这是由于检测到多环境配置文件，需要具体指定项目在那个环境下启动，IDEA内可以如下操作："><a href="#这是由于检测到多环境配置文件，需要具体指定项目在那个环境下启动，IDEA内可以如下操作：" class="headerlink" title="这是由于检测到多环境配置文件，需要具体指定项目在那个环境下启动，IDEA内可以如下操作："></a>这是由于检测到多环境配置文件，需要具体指定项目在那个环境下启动，IDEA内可以如下操作：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230704001332322.png" alt="image-20230704001332322"></p>
+<ul>
+<li><h5 id="如上图所示，在指定启动环境后，我们的项目在prod（生产环境）下启动成功了"><a href="#如上图所示，在指定启动环境后，我们的项目在prod（生产环境）下启动成功了" class="headerlink" title="如上图所示，在指定启动环境后，我们的项目在prod（生产环境）下启动成功了"></a>如上图所示，在指定启动环境后，我们的项目在prod（生产环境）下启动成功了</h5></li>
+</ul>
+<h4 id="运行jar包"><a href="#运行jar包" class="headerlink" title="运行jar包"></a>运行jar包</h4><ul>
+<li><h5 id="这里我们不在直接运行项目，而是先将项目打包成jar包，再运行jar包来启动项目"><a href="#这里我们不在直接运行项目，而是先将项目打包成jar包，再运行jar包来启动项目" class="headerlink" title="这里我们不在直接运行项目，而是先将项目打包成jar包，再运行jar包来启动项目"></a>这里我们不在直接运行项目，而是先将项目打包成jar包，再运行jar包来启动项目</h5></li>
+<li><h5 id="我们借助ODEA封装的Maven打包工具，一键打包，如下图所示："><a href="#我们借助ODEA封装的Maven打包工具，一键打包，如下图所示：" class="headerlink" title="我们借助ODEA封装的Maven打包工具，一键打包，如下图所示："></a>我们借助ODEA封装的Maven打包工具，一键打包，如下图所示：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703222202638.png" alt="image-20230703222202638"></p>
+<ul>
+<li><h5 id="项目打包成功后，生成一个target目录，jar包就在该目录下，执行以下命令运行jar包来启动项目（IDEA-命令行下均可）："><a href="#项目打包成功后，生成一个target目录，jar包就在该目录下，执行以下命令运行jar包来启动项目（IDEA-命令行下均可）：" class="headerlink" title="项目打包成功后，生成一个target目录，jar包就在该目录下，执行以下命令运行jar包来启动项目（IDEA/命令行下均可）："></a>项目打包成功后，生成一个target目录，jar包就在该目录下，执行以下命令运行jar包来启动项目（IDEA/命令行下均可）：</h5></li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">java</span> -jar .\user-center-backend-<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>-SNAPSHOT.jar --spring.profiles.active=prod<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230704002107558.png" alt="image-20230704002107558"></p>
+<ul>
+<li><h5 id="如上图所示，项目在prod（生产环境下）启动成功"><a href="#如上图所示，项目在prod（生产环境下）启动成功" class="headerlink" title="如上图所示，项目在prod（生产环境下）启动成功"></a>如上图所示，项目在prod（生产环境下）启动成功</h5></li>
+<li><h5 id="至此，后端多环境配置完成（2023-07-04晚）"><a href="#至此，后端多环境配置完成（2023-07-04晚）" class="headerlink" title="至此，后端多环境配置完成（2023/07/04晚）"></a>至此，后端多环境配置完成（2023/07/04晚）</h5></li>
+</ul>
+<h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><ul>
+<li><h5 id="我们完成了项目的多环境配置，并在本地检验了配置的正确性，那么接下来就要进行项目的部署上线了"><a href="#我们完成了项目的多环境配置，并在本地检验了配置的正确性，那么接下来就要进行项目的部署上线了" class="headerlink" title="我们完成了项目的多环境配置，并在本地检验了配置的正确性，那么接下来就要进行项目的部署上线了"></a>我们完成了项目的多环境配置，并在本地检验了配置的正确性，那么接下来就要进行项目的部署上线了</h5></li>
+<li><h5 id="部署上线当然需要服务器了，常见的作法当然是租用一台云服务器了"><a href="#部署上线当然需要服务器了，常见的作法当然是租用一台云服务器了" class="headerlink" title="部署上线当然需要服务器了，常见的作法当然是租用一台云服务器了"></a>部署上线当然需要服务器了，常见的作法当然是租用一台云服务器了</h5></li>
+<li><h5 id="国内很多提供云服务的厂商：阿里云、腾讯云、百度云、亚马逊云、华为云等等，我们这里选用阿里云的ECS云服务器"><a href="#国内很多提供云服务的厂商：阿里云、腾讯云、百度云、亚马逊云、华为云等等，我们这里选用阿里云的ECS云服务器" class="headerlink" title="国内很多提供云服务的厂商：阿里云、腾讯云、百度云、亚马逊云、华为云等等，我们这里选用阿里云的ECS云服务器"></a>国内很多提供云服务的厂商：阿里云、腾讯云、百度云、亚马逊云、华为云等等，我们这里选用阿里云的ECS云服务器</h5></li>
+<li><h5 id="这台云服务器的相关宝塔面板的安装、云数据库的配置均已完成，详见《宝塔面板：解放手动配置，轻松管理你的服务器》"><a href="#这台云服务器的相关宝塔面板的安装、云数据库的配置均已完成，详见《宝塔面板：解放手动配置，轻松管理你的服务器》" class="headerlink" title="这台云服务器的相关宝塔面板的安装、云数据库的配置均已完成，详见《宝塔面板：解放手动配置，轻松管理你的服务器》"></a>这台云服务器的相关宝塔面板的安装、云数据库的配置均已完成，详见《宝塔面板：解放手动配置，轻松管理你的服务器》</h5></li>
+<li><h5 id="下面我们正式进行项目的上线、部署"><a href="#下面我们正式进行项目的上线、部署" class="headerlink" title="下面我们正式进行项目的上线、部署"></a>下面我们正式进行项目的上线、部署</h5></li>
+</ul>
+<h3 id="原生部署"><a href="#原生部署" class="headerlink" title="原生部署"></a>原生部署</h3><ul>
+<li><h5 id="这种部署方式很繁琐，从项目的打包到部署，所有的工具、依赖以及相关配置都是纯人工进行的，吃力不讨好"><a href="#这种部署方式很繁琐，从项目的打包到部署，所有的工具、依赖以及相关配置都是纯人工进行的，吃力不讨好" class="headerlink" title="这种部署方式很繁琐，从项目的打包到部署，所有的工具、依赖以及相关配置都是纯人工进行的，吃力不讨好"></a>这种部署方式很繁琐，从项目的打包到部署，所有的工具、依赖以及相关配置都是纯人工进行的，吃力不讨好</h5></li>
+<li><h5 id="所以不建议使用这种方式进行部署项目，不过日后可以考虑操作一遍，再附上详细教程（2023-07-25午）"><a href="#所以不建议使用这种方式进行部署项目，不过日后可以考虑操作一遍，再附上详细教程（2023-07-25午）" class="headerlink" title="所以不建议使用这种方式进行部署项目，不过日后可以考虑操作一遍，再附上详细教程（2023/07/25午）"></a>所以不建议使用这种方式进行部署项目，不过日后可以考虑操作一遍，再附上详细教程（2023/07/25午）</h5></li>
+</ul>
+<h3 id="宝塔面板部署"><a href="#宝塔面板部署" class="headerlink" title="宝塔面板部署"></a>宝塔面板部署</h3><h4 id="后端部署"><a href="#后端部署" class="headerlink" title="后端部署"></a>后端部署</h4><ul>
+<li><h5 id="还是之前讲过的，部署项目首先要做的，便是正确配置该项目依赖的环境地址，将本地地址改为线上地址："><a href="#还是之前讲过的，部署项目首先要做的，便是正确配置该项目依赖的环境地址，将本地地址改为线上地址：" class="headerlink" title="还是之前讲过的，部署项目首先要做的，便是正确配置该项目依赖的环境地址，将本地地址改为线上地址："></a>还是之前讲过的，部署项目首先要做的，便是正确配置该项目依赖的环境地址，将本地地址改为线上地址：</h5><ul>
+<li>数据库地址</li>
+<li>缓存地址</li>
+<li>消息队列地址</li>
+<li>项目端口号</li>
+</ul>
+</li>
+<li><h5 id="打包项目，可以手动打包，也可以利用IDEA工具，方便快捷，最终生成一个jar包："><a href="#打包项目，可以手动打包，也可以利用IDEA工具，方便快捷，最终生成一个jar包：" class="headerlink" title="打包项目，可以手动打包，也可以利用IDEA工具，方便快捷，最终生成一个jar包："></a>打包项目，可以手动打包，也可以利用IDEA工具，方便快捷，最终生成一个jar包：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725124235955.png" alt="image-20230725124235955"></p>
+<ul>
+<li><h5 id="成功登录到宝塔面板，在指定路径下上传刚刚打包好的-jar-包："><a href="#成功登录到宝塔面板，在指定路径下上传刚刚打包好的-jar-包：" class="headerlink" title="成功登录到宝塔面板，在指定路径下上传刚刚打包好的 jar 包："></a>成功登录到宝塔面板，在指定路径下上传刚刚打包好的 jar 包：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725124828787.png" alt="image-20230725124828787"></p>
+<ul>
+<li><h5 id="添加部署Java项目："><a href="#添加部署Java项目：" class="headerlink" title="添加部署Java项目："></a>添加部署Java项目：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725125307600.png" alt="image-20230725125307600"></p>
+<ul>
+<li><h5 id="选择项目的jar包路径，设置项目端口、项目jdk路径，编写项目执行命令（端口号、启动环境）"><a href="#选择项目的jar包路径，设置项目端口、项目jdk路径，编写项目执行命令（端口号、启动环境）" class="headerlink" title="选择项目的jar包路径，设置项目端口、项目jdk路径，编写项目执行命令（端口号、启动环境）"></a>选择项目的jar包路径，设置项目端口、项目jdk路径，编写项目执行命令（端口号、启动环境）</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725125535362.png" alt="image-20230725125535362"></p>
+<ul>
+<li><h5 id="点击提交即可看到该项目已经在指定端口处成功运行"><a href="#点击提交即可看到该项目已经在指定端口处成功运行" class="headerlink" title="点击提交即可看到该项目已经在指定端口处成功运行"></a>点击提交即可看到该项目已经在指定端口处成功运行</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725220040763.png" alt="image-20230725220040763"></p>
+<ul>
+<li><h5 id="这里如果运行不成功的话，检查项目执行命令是否正确（端口号、启动环境），再者就是检查-jdk是否成功安装、线上资源地址配置是否正确"><a href="#这里如果运行不成功的话，检查项目执行命令是否正确（端口号、启动环境），再者就是检查-jdk是否成功安装、线上资源地址配置是否正确" class="headerlink" title="这里如果运行不成功的话，检查项目执行命令是否正确（端口号、启动环境），再者就是检查 jdk是否成功安装、线上资源地址配置是否正确"></a>这里如果运行不成功的话，检查项目执行命令是否正确（端口号、启动环境），再者就是检查 jdk是否成功安装、线上资源地址配置是否正确</h5></li>
+<li><h5 id="有关阿里云服务器安装-JDK-和完成相关环境配置的内容，以及线上资源地址的配置流程、注意事项，详见《宝塔面板：解放手动配置，轻松管理你的服务器》"><a href="#有关阿里云服务器安装-JDK-和完成相关环境配置的内容，以及线上资源地址的配置流程、注意事项，详见《宝塔面板：解放手动配置，轻松管理你的服务器》" class="headerlink" title="有关阿里云服务器安装 JDK 和完成相关环境配置的内容，以及线上资源地址的配置流程、注意事项，详见《宝塔面板：解放手动配置，轻松管理你的服务器》"></a>有关阿里云服务器安装 JDK 和完成相关环境配置的内容，以及线上资源地址的配置流程、注意事项，详见《宝塔面板：解放手动配置，轻松管理你的服务器》</h5></li>
+<li><h5 id="至此，伙伴匹配系统的后端部署成功"><a href="#至此，伙伴匹配系统的后端部署成功" class="headerlink" title="至此，伙伴匹配系统的后端部署成功"></a>至此，伙伴匹配系统的后端部署成功</h5></li>
+</ul>
+<h4 id="前端部署"><a href="#前端部署" class="headerlink" title="前端部署"></a>前端部署</h4><ul>
+<li><h5 id="在宝塔面板中，上传刚刚构建打包好的dist目录："><a href="#在宝塔面板中，上传刚刚构建打包好的dist目录：" class="headerlink" title="在宝塔面板中，上传刚刚构建打包好的dist目录："></a>在宝塔面板中，上传刚刚构建打包好的dist目录：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729163007957.png" alt="image-20230729163007957"></p>
+<ul>
+<li><h5 id="上传成功后，在PHP项目下添加站点，填写可访问的服务器公网IP及其端口，或者一个可访问的域名，正确设置项目根目录路径："><a href="#上传成功后，在PHP项目下添加站点，填写可访问的服务器公网IP及其端口，或者一个可访问的域名，正确设置项目根目录路径：" class="headerlink" title="上传成功后，在PHP项目下添加站点，填写可访问的服务器公网IP及其端口，或者一个可访问的域名，正确设置项目根目录路径："></a>上传成功后，在PHP项目下添加站点，填写可访问的服务器公网IP及其端口，或者一个可访问的域名，正确设置项目根目录路径：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729162838485.png" alt="image-20230729162838485"></p>
+<ul>
+<li><h5 id="点击提交即可，宝塔面板已经自动启动了该项目，非常方便快捷高效"><a href="#点击提交即可，宝塔面板已经自动启动了该项目，非常方便快捷高效" class="headerlink" title="点击提交即可，宝塔面板已经自动启动了该项目，非常方便快捷高效"></a>点击提交即可，宝塔面板已经自动启动了该项目，非常方便快捷高效</h5></li>
+<li><h5 id="注意这里的端口号，一定要在对应服务器和宝塔面板中开放该端口号"><a href="#注意这里的端口号，一定要在对应服务器和宝塔面板中开放该端口号" class="headerlink" title="注意这里的端口号，一定要在对应服务器和宝塔面板中开放该端口号"></a>注意这里的端口号，一定要在对应服务器和宝塔面板中开放该端口号</h5></li>
+<li><h5 id="至此，前端项目部署完成，一定要注意后端项目中，对新的前端请求地址作允许跨域请求处理："><a href="#至此，前端项目部署完成，一定要注意后端项目中，对新的前端请求地址作允许跨域请求处理：" class="headerlink" title="至此，前端项目部署完成，一定要注意后端项目中，对新的前端请求地址作允许跨域请求处理："></a>至此，前端项目部署完成，一定要注意后端项目中，对新的前端请求地址作允许跨域请求处理：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729163602095.png" alt="image-20230729163602095"></p>
+<ul>
+<li><h5 id="至此，Memory-伙伴匹配项目部署完成：（2023-07-29午）"><a href="#至此，Memory-伙伴匹配项目部署完成：（2023-07-29午）" class="headerlink" title="至此，Memory-伙伴匹配项目部署完成：（2023/07/29午）"></a>至此，Memory-伙伴匹配项目部署完成：（2023/07/29午）</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729163807623.png" alt="image-20230729163807623"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729163821713.png" alt="image-20230729163821713"></p>
+<h3 id="Docker容器部署"><a href="#Docker容器部署" class="headerlink" title="Docker容器部署"></a>Docker容器部署</h3><h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><h3 id="java和javac版本不一致"><a href="#java和javac版本不一致" class="headerlink" title="java和javac版本不一致"></a>java和javac版本不一致</h3><ul>
+<li><h5 id="项目打包后，运行jar包报如下错误："><a href="#项目打包后，运行jar包报如下错误：" class="headerlink" title="项目打包后，运行jar包报如下错误："></a>项目打包后，运行jar包报如下错误：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703232318658.png" alt="image-20230703232318658"></p>
+<ul>
+<li><h5 id="这个问题很常见，是java和javac版本不一致导致的"><a href="#这个问题很常见，是java和javac版本不一致导致的" class="headerlink" title="这个问题很常见，是java和javac版本不一致导致的"></a>这个问题很常见，是java和javac版本不一致导致的</h5></li>
+<li><h5 id="我们可以尝试检查一下java和javac版本，分别在命令行下输入以下两条命令："><a href="#我们可以尝试检查一下java和javac版本，分别在命令行下输入以下两条命令：" class="headerlink" title="我们可以尝试检查一下java和javac版本，分别在命令行下输入以下两条命令："></a>我们可以尝试检查一下java和javac版本，分别在命令行下输入以下两条命令：</h5></li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">java -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">javac -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="经查询，发现java版本为8，javac版本为11，为什么会这样呢？"><a href="#经查询，发现java版本为8，javac版本为11，为什么会这样呢？" class="headerlink" title="经查询，发现java版本为8，javac版本为11，为什么会这样呢？"></a>经查询，发现java版本为8，javac版本为11，为什么会这样呢？</h5></li>
+<li><h5 id="我们配置的环境变量是没有问题的，只需要把path变量下的-JAVA-HOME-bin变量上移到第一行，即可解决这个问题"><a href="#我们配置的环境变量是没有问题的，只需要把path变量下的-JAVA-HOME-bin变量上移到第一行，即可解决这个问题" class="headerlink" title="我们配置的环境变量是没有问题的，只需要把path变量下的%JAVA_HOME%/bin变量上移到第一行，即可解决这个问题"></a>我们配置的环境变量是没有问题的，只需要把path变量下的%JAVA_HOME%/bin变量上移到第一行，即可解决这个问题</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703232403934.png" alt="image-20230703232403934"></p>
+<ul>
+<li><h5 id="再次查看java和javac版本，发现版本一致，效果如下："><a href="#再次查看java和javac版本，发现版本一致，效果如下：" class="headerlink" title="再次查看java和javac版本，发现版本一致，效果如下："></a>再次查看java和javac版本，发现版本一致，效果如下：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703232639048.png" alt="image-20230703232639048"></p>
+<ul>
+<li><h5 id="到这里本应该结束了，但是我发现命令行下运行jar包已经没问题了，项目启动成功，但IDEA环境下却仍启动失败"><a href="#到这里本应该结束了，但是我发现命令行下运行jar包已经没问题了，项目启动成功，但IDEA环境下却仍启动失败" class="headerlink" title="到这里本应该结束了，但是我发现命令行下运行jar包已经没问题了，项目启动成功，但IDEA环境下却仍启动失败"></a>到这里本应该结束了，但是我发现命令行下运行jar包已经没问题了，项目启动成功，但IDEA环境下却仍启动失败</h5></li>
+<li><h5 id="原因是这样的：即使我们成功修改了-jdk-版本，但是在IDEA环境下，每个项目使用的-jdk-版本仍可能未改变"><a href="#原因是这样的：即使我们成功修改了-jdk-版本，但是在IDEA环境下，每个项目使用的-jdk-版本仍可能未改变" class="headerlink" title="原因是这样的：即使我们成功修改了 jdk 版本，但是在IDEA环境下，每个项目使用的 jdk 版本仍可能未改变"></a>原因是这样的：即使我们成功修改了 jdk 版本，但是在IDEA环境下，每个项目使用的 jdk 版本仍可能未改变</h5></li>
+<li><h5 id="如下图所示："><a href="#如下图所示：" class="headerlink" title="如下图所示："></a>如下图所示：</h5></li>
+<li><h5 id="我们可以在此修改项目所使用的-jdk-版本，使之与全局-jdk-版本一致"><a href="#我们可以在此修改项目所使用的-jdk-版本，使之与全局-jdk-版本一致" class="headerlink" title="我们可以在此修改项目所使用的 jdk 版本，使之与全局 jdk 版本一致"></a>我们可以在此修改项目所使用的 jdk 版本，使之与全局 jdk 版本一致</h5></li>
+</ul>
+<h3 id="线上MySQL数据库和Redis的安装配置"><a href="#线上MySQL数据库和Redis的安装配置" class="headerlink" title="线上MySQL数据库和Redis的安装配置"></a>线上MySQL数据库和Redis的安装配置</h3><ul>
+<li><h5 id="我们一直在反复强调，项目部署中，最重要的当属线上资源地址的配置，而常用的MySQL数据库和Redis配置则更加重要"><a href="#我们一直在反复强调，项目部署中，最重要的当属线上资源地址的配置，而常用的MySQL数据库和Redis配置则更加重要" class="headerlink" title="我们一直在反复强调，项目部署中，最重要的当属线上资源地址的配置，而常用的MySQL数据库和Redis配置则更加重要"></a>我们一直在反复强调，项目部署中，最重要的当属线上资源地址的配置，而常用的MySQL数据库和Redis配置则更加重要</h5></li>
+<li><h5 id="我们常用的项目部署经常采用宝塔Linux部署方案，所以这部分内容会详细讲解在该方案下的MySQL数据库和Redis配置的要点"><a href="#我们常用的项目部署经常采用宝塔Linux部署方案，所以这部分内容会详细讲解在该方案下的MySQL数据库和Redis配置的要点" class="headerlink" title="我们常用的项目部署经常采用宝塔Linux部署方案，所以这部分内容会详细讲解在该方案下的MySQL数据库和Redis配置的要点"></a>我们常用的项目部署经常采用宝塔Linux部署方案，所以这部分内容会详细讲解在该方案下的MySQL数据库和Redis配置的要点</h5></li>
+<li><h5 id="这里的介绍比较冗长和细致，所以我认为将这部分内容同样将收录在《宝塔面板：解放手动配置，轻松管理你的服务器》一文中"><a href="#这里的介绍比较冗长和细致，所以我认为将这部分内容同样将收录在《宝塔面板：解放手动配置，轻松管理你的服务器》一文中" class="headerlink" title="这里的介绍比较冗长和细致，所以我认为将这部分内容同样将收录在《宝塔面板：解放手动配置，轻松管理你的服务器》一文中"></a>这里的介绍比较冗长和细致，所以我认为将这部分内容同样将收录在《宝塔面板：解放手动配置，轻松管理你的服务器》一文中</h5></li>
+</ul>
+<h3 id="宝塔安装配置MySQL"><a href="#宝塔安装配置MySQL" class="headerlink" title="宝塔安装配置MySQL"></a>宝塔安装配置MySQL</h3><ul>
+<li><h5 id="今天从早到晚，花了整整一天时间，成功部署了伙伴匹配系统的后端，时间大多花在了MySQL和Redis的安装配置上了"><a href="#今天从早到晚，花了整整一天时间，成功部署了伙伴匹配系统的后端，时间大多花在了MySQL和Redis的安装配置上了" class="headerlink" title="今天从早到晚，花了整整一天时间，成功部署了伙伴匹配系统的后端，时间大多花在了MySQL和Redis的安装配置上了"></a>今天从早到晚，花了整整一天时间，成功部署了伙伴匹配系统的后端，时间大多花在了MySQL和Redis的安装配置上了</h5></li>
+<li><h5 id="有关项目部署的详细流程，可以在《揭秘项目部署上线之路：流程、挑战与解决方案》一文中了解"><a href="#有关项目部署的详细流程，可以在《揭秘项目部署上线之路：流程、挑战与解决方案》一文中了解" class="headerlink" title="有关项目部署的详细流程，可以在《揭秘项目部署上线之路：流程、挑战与解决方案》一文中了解"></a>有关项目部署的详细流程，可以在《揭秘项目部署上线之路：流程、挑战与解决方案》一文中了解</h5></li>
+<li><h5 id="宝塔面板安装MySQL是很简单的：在软件商店挑选安装对应版本的MySQL即可"><a href="#宝塔面板安装MySQL是很简单的：在软件商店挑选安装对应版本的MySQL即可" class="headerlink" title="宝塔面板安装MySQL是很简单的：在软件商店挑选安装对应版本的MySQL即可"></a>宝塔面板安装MySQL是很简单的：在软件商店挑选安装对应版本的MySQL即可</h5></li>
+<li><h5 id="然后新建数据库："><a href="#然后新建数据库：" class="headerlink" title="然后新建数据库："></a>然后新建数据库：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725222303061.png" alt="image-20230725222303061"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725222507233.png" alt="image-20230725222507233"></p>
+<ul>
+<li><h5 id="注意这里新增数据库的选项：数据库名、用户名、密码、访问权限和所属服务器"><a href="#注意这里新增数据库的选项：数据库名、用户名、密码、访问权限和所属服务器" class="headerlink" title="注意这里新增数据库的选项：数据库名、用户名、密码、访问权限和所属服务器"></a>注意这里新增数据库的选项：数据库名、用户名、密码、访问权限和所属服务器</h5></li>
+<li><h5 id="这里的所属服务器默认只能选本地服务器，即你所使用的这台计算机"><a href="#这里的所属服务器默认只能选本地服务器，即你所使用的这台计算机" class="headerlink" title="这里的所属服务器默认只能选本地服务器，即你所使用的这台计算机"></a>这里的所属服务器默认只能选本地服务器，即你所使用的这台计算机</h5></li>
+<li><h5 id="那我希望将这个数据库添加至我的这台云服务器上，与项目配置保持一致，保证将来项目部署上线时的正常访问"><a href="#那我希望将这个数据库添加至我的这台云服务器上，与项目配置保持一致，保证将来项目部署上线时的正常访问" class="headerlink" title="那我希望将这个数据库添加至我的这台云服务器上，与项目配置保持一致，保证将来项目部署上线时的正常访问"></a>那我希望将这个数据库添加至我的这台云服务器上，与项目配置保持一致，保证将来项目部署上线时的正常访问</h5></li>
+<li><h5 id="那我们开始着手添加远程服务器吧："><a href="#那我们开始着手添加远程服务器吧：" class="headerlink" title="那我们开始着手添加远程服务器吧："></a>那我们开始着手添加远程服务器吧：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725223340042.png" alt="image-20230725223340042"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725223447990.png" alt="image-20230725223447990"></p>
+<ul>
+<li><h5 id="注意这里的管理员名称和管理员密码，管理员名称默认是root，而密码是登录MySQL时使用的密码："><a href="#注意这里的管理员名称和管理员密码，管理员名称默认是root，而密码是登录MySQL时使用的密码：" class="headerlink" title="注意这里的管理员名称和管理员密码，管理员名称默认是root，而密码是登录MySQL时使用的密码："></a>注意这里的管理员名称和管理员密码，管理员名称默认是root，而密码是登录MySQL时使用的密码：</h5></li>
+<li><h5 id="我们可以在这里查看和修改管理员密码："><a href="#我们可以在这里查看和修改管理员密码：" class="headerlink" title="我们可以在这里查看和修改管理员密码："></a>我们可以在这里查看和修改管理员密码：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725223657368.png" alt="image-20230725223657368"></p>
+<ul>
+<li><h5 id="就是在这里，我在云服务器和面板都开放了3306端口的前提下，添加远程服务器的时候，这玩意儿一直报错："><a href="#就是在这里，我在云服务器和面板都开放了3306端口的前提下，添加远程服务器的时候，这玩意儿一直报错：" class="headerlink" title="就是在这里，我在云服务器和面板都开放了3306端口的前提下，添加远程服务器的时候，这玩意儿一直报错："></a>就是在这里，我在云服务器和面板都开放了3306端口的前提下，添加远程服务器的时候，这玩意儿一直报错：</h5></li>
+</ul>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Access</span> denied <span class="hljs-keyword">for</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;root&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> (<span class="hljs-keyword">using</span> <span class="hljs-keyword">password</span>: YES)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="我上网查过很多相关资料，得到了最终解决方案："><a href="#我上网查过很多相关资料，得到了最终解决方案：" class="headerlink" title="我上网查过很多相关资料，得到了最终解决方案："></a>我上网查过很多相关资料，得到了最终解决方案：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725224215340.png" alt="image-20230725224215340"></p>
+<ul>
+<li><h5 id="上面是这个报错出现的原因，简单来说就是你输入的的用户名、密码无误，但全新安装的MySQL默认没有授予给任何用户登录权限"><a href="#上面是这个报错出现的原因，简单来说就是你输入的的用户名、密码无误，但全新安装的MySQL默认没有授予给任何用户登录权限" class="headerlink" title="上面是这个报错出现的原因，简单来说就是你输入的的用户名、密码无误，但全新安装的MySQL默认没有授予给任何用户登录权限"></a>上面是这个报错出现的原因，简单来说就是你输入的的用户名、密码无误，但全新安装的MySQL默认没有授予给任何用户登录权限</h5></li>
+<li><h5 id="其实这个问题很常见，解决办法很简单，依次执行以下命令："><a href="#其实这个问题很常见，解决办法很简单，依次执行以下命令：" class="headerlink" title="其实这个问题很常见，解决办法很简单，依次执行以下命令："></a>其实这个问题很常见，解决办法很简单，依次执行以下命令：</h5></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;password&#x27; PASSWORD EXPIRE NEVER; #修改加密规则<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;password&#x27;; #更新一下用户的密码<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">FLUSH PRIVILEGES; #刷新权限<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">alter user &#x27;root&#x27;@&#x27;localhost&#x27; identified by &#x27;123fzw&#x27;; #重置密码<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这时，就可以顺利添加上远程服务器了"><a href="#这时，就可以顺利添加上远程服务器了" class="headerlink" title="这时，就可以顺利添加上远程服务器了"></a>这时，就可以顺利添加上远程服务器了</h5></li>
+<li><h5 id="我们在本地使用-SQLyog-工具来尝试连接下该MySQL数据库："><a href="#我们在本地使用-SQLyog-工具来尝试连接下该MySQL数据库：" class="headerlink" title="我们在本地使用 SQLyog 工具来尝试连接下该MySQL数据库："></a>我们在本地使用 SQLyog 工具来尝试连接下该MySQL数据库：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725230240618.png" alt="image-20230725230240618"></p>
+<ul>
+<li><h5 id="这里就不用多讲了吧，填写正确的连接名、服务器地址、用户名、密码、端口号，尝试连接："><a href="#这里就不用多讲了吧，填写正确的连接名、服务器地址、用户名、密码、端口号，尝试连接：" class="headerlink" title="这里就不用多讲了吧，填写正确的连接名、服务器地址、用户名、密码、端口号，尝试连接："></a>这里就不用多讲了吧，填写正确的连接名、服务器地址、用户名、密码、端口号，尝试连接：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725230421085.png" alt="image-20230725230421085"></p>
+<ul>
+<li><h5 id="连接成功！至此，宝塔安装MySQL的全流程已经讲述完毕（2023-07-25晚）"><a href="#连接成功！至此，宝塔安装MySQL的全流程已经讲述完毕（2023-07-25晚）" class="headerlink" title="连接成功！至此，宝塔安装MySQL的全流程已经讲述完毕（2023/07/25晚）"></a>连接成功！至此，宝塔安装MySQL的全流程已经讲述完毕（2023/07/25晚）</h5></li>
+</ul>
+<h3 id="宝塔安装配置Redis"><a href="#宝塔安装配置Redis" class="headerlink" title="宝塔安装配置Redis"></a>宝塔安装配置Redis</h3><ul>
+<li><h5 id="宝塔安装Redis也很简单，在软件商店里找到对应版本的Redis即可一键安装并成功启动"><a href="#宝塔安装Redis也很简单，在软件商店里找到对应版本的Redis即可一键安装并成功启动" class="headerlink" title="宝塔安装Redis也很简单，在软件商店里找到对应版本的Redis即可一键安装并成功启动"></a>宝塔安装Redis也很简单，在软件商店里找到对应版本的Redis即可一键安装并成功启动</h5></li>
+<li><h5 id="我要讲述的是，在Java项目部署过程中，遇到的有关远程服务器Redis配置有误而造成的项目部署失败的问题"><a href="#我要讲述的是，在Java项目部署过程中，遇到的有关远程服务器Redis配置有误而造成的项目部署失败的问题" class="headerlink" title="我要讲述的是，在Java项目部署过程中，遇到的有关远程服务器Redis配置有误而造成的项目部署失败的问题"></a>我要讲述的是，在Java项目部署过程中，遇到的有关远程服务器Redis配置有误而造成的项目部署失败的问题</h5></li>
+<li><h5 id="我在使用宝塔面板的网站服务多次部署Java项目无果后，尝试在终端手动部署，结果发现这样的报错："><a href="#我在使用宝塔面板的网站服务多次部署Java项目无果后，尝试在终端手动部署，结果发现这样的报错：" class="headerlink" title="我在使用宝塔面板的网站服务多次部署Java项目无果后，尝试在终端手动部署，结果发现这样的报错："></a>我在使用宝塔面板的网站服务多次部署Java项目无果后，尝试在终端手动部署，结果发现这样的报错：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725232807932.png" alt="image-20230725232807932"></p>
+<ul>
+<li><h5 id="这里给出项目中的Redis配置："><a href="#这里给出项目中的Redis配置：" class="headerlink" title="这里给出项目中的Redis配置："></a>这里给出项目中的Redis配置：</h5></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># redis 配置</span><br><span class="hljs-attr">redis:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>  <span class="hljs-attr">host:</span> <span class="hljs-number">120.55</span><span class="hljs-number">.62</span><span class="hljs-number">.195</span><br>  <span class="hljs-attr">database:</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="看报错信息确定，由于项目中的Redis配置根本不存在，导致Redis访问失败，项目跑不起来，那就在宝塔安装一个Redis就行了"><a href="#看报错信息确定，由于项目中的Redis配置根本不存在，导致Redis访问失败，项目跑不起来，那就在宝塔安装一个Redis就行了" class="headerlink" title="看报错信息确定，由于项目中的Redis配置根本不存在，导致Redis访问失败，项目跑不起来，那就在宝塔安装一个Redis就行了"></a>看报错信息确定，由于项目中的Redis配置根本不存在，导致Redis访问失败，项目跑不起来，那就在宝塔安装一个Redis就行了</h5></li>
+<li><h5 id="在成功安装了-Redis-后，我尝试添加远程服务器："><a href="#在成功安装了-Redis-后，我尝试添加远程服务器：" class="headerlink" title="在成功安装了 Redis 后，我尝试添加远程服务器："></a>在成功安装了 Redis 后，我尝试添加远程服务器：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725231458585.png" alt="image-20230725231458585"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725231536404.png" alt="image-20230725231536404"></p>
+<ul>
+<li><h5 id="在输入正确的服务器地址、数据库端口和密码后，尝试连接，却提示这样的报错："><a href="#在输入正确的服务器地址、数据库端口和密码后，尝试连接，却提示这样的报错：" class="headerlink" title="在输入正确的服务器地址、数据库端口和密码后，尝试连接，却提示这样的报错："></a>在输入正确的服务器地址、数据库端口和密码后，尝试连接，却提示这样的报错：</h5></li>
+</ul>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">[ERR] AUTH &lt;<span class="hljs-keyword">password</span>&gt; <span class="hljs-keyword">called</span> <span class="hljs-keyword">without</span> <span class="hljs-keyword">any</span> <span class="hljs-keyword">password</span> configured <span class="hljs-keyword">for</span> the <span class="hljs-keyword">default</span> <span class="hljs-keyword">user</span>. Are you sure your <span class="hljs-keyword">configuration</span> <span class="hljs-keyword">is</span> correct?<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="什么意思呢？当然是全新安装的Redis默认是不设置连接密码的，而我正在尝试使用用户名、密码连接Redis"><a href="#什么意思呢？当然是全新安装的Redis默认是不设置连接密码的，而我正在尝试使用用户名、密码连接Redis" class="headerlink" title="什么意思呢？当然是全新安装的Redis默认是不设置连接密码的，而我正在尝试使用用户名、密码连接Redis"></a>什么意思呢？当然是全新安装的Redis默认是不设置连接密码的，而我正在尝试使用用户名、密码连接Redis</h5></li>
+<li><h5 id="那就着手进行Redis的具体配置了："><a href="#那就着手进行Redis的具体配置了：" class="headerlink" title="那就着手进行Redis的具体配置了："></a>那就着手进行Redis的具体配置了：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725232027635.png" alt="image-20230725232027635"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725232127791.png" alt="image-20230725232127791"></p>
+<ul>
+<li><h5 id="如上图所示，配置可访问Redis的IP限制、绑定端口、设置密码等等，再进行添加远程服务器，成功添加"><a href="#如上图所示，配置可访问Redis的IP限制、绑定端口、设置密码等等，再进行添加远程服务器，成功添加" class="headerlink" title="如上图所示，配置可访问Redis的IP限制、绑定端口、设置密码等等，再进行添加远程服务器，成功添加"></a>如上图所示，配置可访问Redis的IP限制、绑定端口、设置密码等等，再进行添加远程服务器，成功添加</h5></li>
+<li><h5 id="既然远程服务器配置完成了，此时在宝塔面板再次部署项目肯定会出错：因为我们设置了Redis连接密码，而项目中仍未配置"><a href="#既然远程服务器配置完成了，此时在宝塔面板再次部署项目肯定会出错：因为我们设置了Redis连接密码，而项目中仍未配置" class="headerlink" title="既然远程服务器配置完成了，此时在宝塔面板再次部署项目肯定会出错：因为我们设置了Redis连接密码，而项目中仍未配置"></a>既然远程服务器配置完成了，此时在宝塔面板再次部署项目肯定会出错：因为我们设置了Redis连接密码，而项目中仍未配置</h5></li>
+<li><h5 id="那么回到项目源码中，配置-Redis-和-RedissonConfig："><a href="#那么回到项目源码中，配置-Redis-和-RedissonConfig：" class="headerlink" title="那么回到项目源码中，配置 Redis 和 RedissonConfig："></a>那么回到项目源码中，配置 Redis 和 RedissonConfig：</h5></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># redis 配置</span><br><span class="hljs-attr">redis:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>  <span class="hljs-attr">host:</span> <span class="hljs-number">120.55</span><span class="hljs-number">.62</span><span class="hljs-number">.195</span><br>  <span class="hljs-attr">database:</span> <span class="hljs-number">0</span><br>  <span class="hljs-attr">password:</span> <span class="hljs-string">Dw990831</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java">**<br> * <span class="hljs-meta">@author</span> 邓哈哈<br> * <span class="hljs-number">2023</span>/<span class="hljs-number">4</span>/<span class="hljs-number">18</span> <span class="hljs-number">20</span>:<span class="hljs-number">36</span><br> * Function: Redisson 配置<br> * Version <span class="hljs-number">1.0</span><br> */<br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ConfigurationProperties(prefix = &quot;spring.redis&quot;)</span><br><span class="hljs-meta">@Data</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RedissionConfig</span> &#123;<br>    <span class="hljs-keyword">private</span> String host;<br><br>    <span class="hljs-keyword">private</span> String port;<br><br>    <span class="hljs-keyword">private</span> String password;<br><br>    <span class="hljs-keyword">private</span> Integer database;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> RedissonClient <span class="hljs-title function_">redissonClient</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// 1. 创建配置</span><br>        <span class="hljs-type">Config</span> <span class="hljs-variable">config</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Config</span>();<br>        <span class="hljs-type">String</span> <span class="hljs-variable">redisAddress</span> <span class="hljs-operator">=</span> String.format(<span class="hljs-string">&quot;redis://%s:%s&quot;</span>, host, port);<br>        <span class="hljs-comment">//  使用单个Redis，没有开集群 useClusterServers()  设置地址和使用库</span><br>        config.useSingleServer().setAddress(redisAddress).setDatabase(database).setPassword(password);<br>        <span class="hljs-comment">// 2. 创建实例</span><br>        <span class="hljs-keyword">return</span> Redisson.create(config);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="再次打包项目，上传jar包，重新部署项目："><a href="#再次打包项目，上传jar包，重新部署项目：" class="headerlink" title="再次打包项目，上传jar包，重新部署项目："></a>再次打包项目，上传jar包，重新部署项目：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230725233621645.png" alt="image-20230725233621645"></p>
+<ul>
+<li><h5 id="成功部署伙伴匹配系统后端！太感动了（2023-07-25晚）"><a href="#成功部署伙伴匹配系统后端！太感动了（2023-07-25晚）" class="headerlink" title="成功部署伙伴匹配系统后端！太感动了（2023/07/25晚）"></a>成功部署伙伴匹配系统后端！太感动了（2023/07/25晚）</h5></li>
+</ul>
+<h2 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h2><p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703223656991.png" alt="image-20230703223656991"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703223749102.png" alt="image-20230703223749102"></p>
+<ul>
+<li><h5 id="相关问题可以看以下博客了解："><a href="#相关问题可以看以下博客了解：" class="headerlink" title="相关问题可以看以下博客了解："></a>相关问题可以看以下博客了解：</h5></li>
+<li><h5 id="71条消息-Exception-in-thread-“main“-java-lang-UnsupportedClassVersionError解决办法-Timothy-Liuu的博客-CSDN博客"><a href="#71条消息-Exception-in-thread-“main“-java-lang-UnsupportedClassVersionError解决办法-Timothy-Liuu的博客-CSDN博客" class="headerlink" title="(71条消息) Exception in thread “main“ java.lang.UnsupportedClassVersionError解决办法_Timothy_Liuu的博客-CSDN博客"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/Timothy_Liu0114/article/details/109035134">(71条消息) Exception in thread “main“ java.lang.UnsupportedClassVersionError解决办法_Timothy_Liuu的博客-CSDN博客</a></h5></li>
+<li><h5 id="71条消息-Exception-in-thread-“main“-java-lang-UnsupportedClassVersionError-易嗨的博客-CSDN博客"><a href="#71条消息-Exception-in-thread-“main“-java-lang-UnsupportedClassVersionError-易嗨的博客-CSDN博客" class="headerlink" title="(71条消息) Exception in thread “main“ java.lang.UnsupportedClassVersionError:_易嗨的博客-CSDN博客"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46470205/article/details/128245221">(71条消息) Exception in thread “main“ java.lang.UnsupportedClassVersionError:_易嗨的博客-CSDN博客</a></h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729144926636.png" alt="image-20230729144926636"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729144947816.png" alt="image-20230729144947816"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230729145013296.png" alt="image-20230729145013296"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" class="category-chain-item">项目部署</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="category-chain-item">开发经验</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/%E7%BD%91%E7%AB%99/" class="category-chain-item">网站</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/%E9%A1%B9%E7%9B%AE/">#项目</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">#开发经验</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">#项目部署</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E7%BD%91%E7%AB%99/">#网站</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>揭秘项目部署上线之路：流程、挑战与解决方案</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/06/04/揭秘项目部署上线之路：流程、挑战与解决方案/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年3月26日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/04/git-GitHub%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" title="git/GitHub进阶学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">git/GitHub进阶学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/03/%E6%88%91%E7%9A%84%E7%BC%96%E7%A8%8B%E4%B9%8B%E6%97%85%EF%BC%9A%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%8E%E6%88%90%E9%95%BF%E7%BB%8F%E5%8E%86/" title="我的编程之旅：大学学习记录与成长经历">
+                        <span class="hidden-mobile">我的编程之旅：大学学习记录与成长经历</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

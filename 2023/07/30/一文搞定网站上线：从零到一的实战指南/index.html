@@ -1,0 +1,998 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🥃 从本地环境到线上部署，逐步解析网站上线的全过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一文搞定网站上线：从零到一的实战指南">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/07/30/%E4%B8%80%E6%96%87%E6%90%9E%E5%AE%9A%E7%BD%91%E7%AB%99%E4%B8%8A%E7%BA%BF%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E7%9A%84%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="🥃 从本地环境到线上部署，逐步解析网站上线的全过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/cloud.jpg">
+<meta property="article:published_time" content="2023-07-30T09:03:47.000Z">
+<meta property="article:modified_time" content="2023-12-15T05:31:31.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="经验">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/cloud.jpg">
+  
+  
+  
+  <title>一文搞定网站上线：从零到一的实战指南 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="一文搞定网站上线：从零到一的实战指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-30 17:03" pubdate>
+          2023年7月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="网站"
+        id="heading-beb6c0bd8a66cea600c8ce40167eeb57" role="tab" data-toggle="collapse" href="#collapse-beb6c0bd8a66cea600c8ce40167eeb57"
+        aria-expanded="true"
+      >
+        网站
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-beb6c0bd8a66cea600c8ce40167eeb57"
+           role="tabpanel" aria-labelledby="heading-beb6c0bd8a66cea600c8ce40167eeb57">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="true"
+      >
+        经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/07/30/%E4%B8%80%E6%96%87%E6%90%9E%E5%AE%9A%E7%BD%91%E7%AB%99%E4%B8%8A%E7%BA%BF%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E7%9A%84%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" title="一文搞定网站上线：从零到一的实战指南"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">一文搞定网站上线：从零到一的实战指南</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">一文搞定网站上线：从零到一的实战指南</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：5 个月前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li><h5 id="如何快速上线一个网站，让别人能访问？"><a href="#如何快速上线一个网站，让别人能访问？" class="headerlink" title="如何快速上线一个网站，让别人能访问？"></a>如何快速上线一个网站，让别人能访问？</h5></li>
+</ul>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="静态网站"><a href="#静态网站" class="headerlink" title="静态网站"></a>静态网站</h2><h3 id="CodeOpen"><a href="#CodeOpen" class="headerlink" title="CodeOpen"></a>CodeOpen</h3><ul>
+<li><h5 id="在线写HTML-CSS-JS代码，即时查看效果："><a href="#在线写HTML-CSS-JS代码，即时查看效果：" class="headerlink" title="在线写HTML+CSS+JS代码，即时查看效果："></a>在线写HTML+CSS+JS代码，即时查看效果：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230730231243469.png" alt="image-20230730231243469"></p>
+<ul>
+<li><h5 id="在视图选项中，选择-Full-Page-View-还可以开启新网页查看（需验证邮箱）："><a href="#在视图选项中，选择-Full-Page-View-还可以开启新网页查看（需验证邮箱）：" class="headerlink" title="在视图选项中，选择 Full Page View 还可以开启新网页查看（需验证邮箱）："></a>在视图选项中，选择 Full Page View 还可以开启新网页查看（需验证邮箱）：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230730231501126.png" alt="image-20230730231501126"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230730231155766.png" alt="image-20230730231155766"></p>
+<ul>
+<li><h5 id="你可以复制这个网址，发送给你的好朋友，大家都能看到你的网站了"><a href="#你可以复制这个网址，发送给你的好朋友，大家都能看到你的网站了" class="headerlink" title="你可以复制这个网址，发送给你的好朋友，大家都能看到你的网站了"></a>你可以复制这个网址，发送给你的好朋友，大家都能看到你的网站了</h5></li>
+</ul>
+<h3 id="Vercel"><a href="#Vercel" class="headerlink" title="Vercel"></a>Vercel</h3><h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><blockquote>
+<p>🔥 详情可见《大道至简：快速搭建博客与文档站点的终极指南2.0》中的 <code>Vdoing 文档站点部署</code>（2023/12/15午）</p>
+</blockquote>
+<ul>
+<li>Github 不想多说，太他妈吃网速了，访问慢不说，好不容易推送成功，还老是显示部署失败，发了十几条邮箱信息都没咋注意：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231128175139846.png" alt="image-20231128175139846">    </p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231128175234867.png" alt="image-20231128175234867"></p>
+<ul>
+<li><p>呐，上面就是 Github Pages 服务了，太卡了，部署不了，不过网速好的话是没有问题的<strong>（2023/11/28晚）</strong></p>
+</li>
+<li><p>这里放一个部署成功的案例吧，是我第一次成功部署的个人网站：<a target="_blank" rel="noopener" href="https://deng-2022.github.io/Memory/">回忆如初 (deng-2022.github.io)</a></p>
+</li>
+</ul>
+<h3 id="Gitee-Pages"><a href="#Gitee-Pages" class="headerlink" title="Gitee Pages"></a>Gitee Pages</h3><ul>
+<li>新建一个仓库，开启 Pages 服务</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230909142132664.png" alt="image-20230909142132664"></p>
+<ul>
+<li>将本地的静态网页代码上传至仓库，<strong>注意页面文件命名为index.html</strong></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230909142249799.png" alt="image-20230909142249799"></p>
+<ul>
+<li>更新 Gitee Pages 服务，访问网站</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230909142140015.png" alt="image-20230909142140015"></p>
+<ul>
+<li><h5 id="现在就可以分享这个网址，让别人欣赏你的网页了"><a href="#现在就可以分享这个网址，让别人欣赏你的网页了" class="headerlink" title="现在就可以分享这个网址，让别人欣赏你的网页了~"></a>现在就可以分享这个网址，让别人欣赏你的网页了~</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230909142430828.png" alt="image-20230909142430828"></p>
+<h3 id="七牛云"><a href="#七牛云" class="headerlink" title="七牛云"></a>七牛云</h3><ul>
+<li><h5 id="注册登录七牛云，在空间管理下，可以查看空间占用情况："><a href="#注册登录七牛云，在空间管理下，可以查看空间占用情况：" class="headerlink" title="注册登录七牛云，在空间管理下，可以查看空间占用情况："></a>注册登录七牛云，在空间管理下，可以查看空间占用情况：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230731184047632.png" alt="image-20230731184047632"></p>
+<ul>
+<li><h5 id="创建一个空间，直接上传文件："><a href="#创建一个空间，直接上传文件：" class="headerlink" title="创建一个空间，直接上传文件："></a>创建一个空间，直接上传文件：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230731183945926.png" alt="image-20230731183945926"></p>
+<ul>
+<li><h5 id="还可以把它当做图床，上传喜欢的图片："><a href="#还可以把它当做图床，上传喜欢的图片：" class="headerlink" title="还可以把它当做图床，上传喜欢的图片："></a>还可以把它当做图床，上传喜欢的图片：</h5></li>
+<li><p><a target="_blank" rel="noopener" href="http://ry2s7czdf.hd-bkt.clouddn.com/imgs/wallpaper/girl3.jpg">http://ry2s7czdf.hd-bkt.clouddn.com/imgs/wallpaper/girl3.jpg</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://ry2s7czdf.hd-bkt.clouddn.com/imgs/wallpaper/girl4.jpg">http://ry2s7czdf.hd-bkt.clouddn.com/imgs/wallpaper/girl4.jpg</a></p>
+</li>
+<li><h5 id="也可以快速部署静态页面："><a href="#也可以快速部署静态页面：" class="headerlink" title="也可以快速部署静态页面："></a>也可以快速部署静态页面：</h5></li>
+<li><h5 id="我的第一个网站：http-ry2s7czdf-hd-bkt-clouddn-com-paper-memory-intro-index-html"><a href="#我的第一个网站：http-ry2s7czdf-hd-bkt-clouddn-com-paper-memory-intro-index-html" class="headerlink" title="我的第一个网站：http://ry2s7czdf.hd-bkt.clouddn.com/paper/memory-intro/index.html"></a>我的第一个网站：<a target="_blank" rel="noopener" href="http://ry2s7czdf.hd-bkt.clouddn.com/paper/memory-intro/index.html">http://ry2s7czdf.hd-bkt.clouddn.com/paper/memory-intro/index.html</a></h5></li>
+</ul>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><blockquote>
+<p>🥣 推荐阅读：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2028983?from=15425">nginx配置静态静态资源服务器-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+</blockquote>
+<ul>
+<li>之前尝试了 Nginx 的反向代理和负载均衡，了解了相关配置，今天尝试一下使用 Nginx 部署静态网站</li>
+</ul>
+<h4 id="Nginx-的下载安装"><a href="#Nginx-的下载安装" class="headerlink" title="Nginx 的下载安装"></a>Nginx 的下载安装</h4><ul>
+<li>有关 Nginx 的详细的下载安装步骤，可以在《Nginx 入门指南：理解、配置和优化》一文中了解学习</li>
+</ul>
+<blockquote>
+<p>🥣 这里仅给出 windows 版本的下载地址：</p>
+<p>Nginx官网下载：<a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">nginx: download</a></p>
+</blockquote>
+<h4 id="准备静态页面文件"><a href="#准备静态页面文件" class="headerlink" title="准备静态页面文件"></a>准备静态页面文件</h4><ul>
+<li>使用 HTML + CSS 编写一个简单的静态页面，这边静态文件已经准备好了</li>
+<li>在 <code>nginx.exe</code> 同级目录下，新建一个文件夹 memory，并将编写好的静态文件放入该文件夹中</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215133850996.png" alt="image-20231215133850996"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215133938861.png" alt="image-20231215133938861"></p>
+<h4 id="做好相关配置"><a href="#做好相关配置" class="headerlink" title="做好相关配置"></a>做好相关配置</h4><ul>
+<li>在 nginx.conf 同级目录下，新建一个 memory.conf 配置文件：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215131207907.png" alt="image-20231215131207907"></p>
+<ul>
+<li>在 memory.conf配置文件中，作如下配置：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215131236902.png" alt="image-20231215131236902"></p>
+<h4 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h4><ul>
+<li>在 <code>nginx</code> 目录下，执行以下命令：</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">nginx -t</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>看到如下结果，则说明 nginx.conf 配置文件配置无误</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215131354326.png" alt="image-20231215131354326"></p>
+<h4 id="启动-Nginx，部署页面"><a href="#启动-Nginx，部署页面" class="headerlink" title="启动 Nginx，部署页面"></a>启动 Nginx，部署页面</h4><ul>
+<li>在 <code>nginx</code> 目录下，继续执行以下命令，启动 <code>nginx</code>：</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">nginx</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215131311759.png" alt="image-20231215131311759"></p>
+<h4 id="访问静态网站"><a href="#访问静态网站" class="headerlink" title="访问静态网站"></a>访问静态网站</h4><ul>
+<li>根据 memory.conf 配置文件中的配置内容，使用<strong>本机 ip 地址</strong> + <strong>目的端口号</strong>访问：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215131620046.png" alt="image-20231215131620046"></p>
+<ul>
+<li>访问成功，使用 Nginx 部署静态页面成功！<strong>（2023/12/15午）</strong></li>
+</ul>
+<h4 id="查询本机-IP-地址"><a href="#查询本机-IP-地址" class="headerlink" title="查询本机 IP 地址"></a>查询本机 IP 地址</h4><ul>
+<li><h4 id="可以观察到，上面访问-Nginx-部署的静态网页时，使用了-192-168-152-1-的-IP-地址"><a href="#可以观察到，上面访问-Nginx-部署的静态网页时，使用了-192-168-152-1-的-IP-地址" class="headerlink" title="可以观察到，上面访问 Nginx 部署的静态网页时，使用了 192.168.152.1 的 IP 地址"></a>可以观察到，上面访问 Nginx 部署的静态网页时，使用了 <code>192.168.152.1</code> 的 IP 地址</h4></li>
+<li><h4 id="其实这里也可以使用-localhost-代替该-IP-地址，也能实现本机访问该静态网站"><a href="#其实这里也可以使用-localhost-代替该-IP-地址，也能实现本机访问该静态网站" class="headerlink" title="其实这里也可以使用 localhost 代替该 IP 地址，也能实现本机访问该静态网站"></a>其实这里也可以使用 <code>localhost</code> 代替该 IP 地址，也能实现本机访问该静态网站</h4></li>
+</ul>
+<blockquote>
+<p>🔥 那么这个 IP 地址可以怎样查询呢？</p>
+</blockquote>
+<ul>
+<li>我使用了我最近使用 <code>Python</code> 开发的 <code>MemoryTools</code> 工具集软件中的 <code>本机信息查询</code> 功能，查询得到的 IP 地址如下：</li>
+</ul>
+<p> <img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215132138775.png" alt="image-20231215132138775"></p>
+<ul>
+<li>还可以在管理员模式命令行中，执行 <code>ipconfig</code> 命令查询得到：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215132316268.png" alt="image-20231215132316268"></p>
+<ul>
+<li>可以发现，使用以上两种方法查询得到的 ip 地址是不相同的，这说明一台主机对应的 ip 地址并<strong>不一定是唯一的</strong></li>
+<li>一台主机中可能有多张网卡，而<strong>每张网卡对应各自的唯一的 ip 地址</strong>（如下图所示）：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231215132717925.png" alt="image-20231215132717925"></p>
+<ul>
+<li>可以参考下 <code>文心一言</code> 的回答：<strong>（2023/12/15午）</strong></li>
+</ul>
+<blockquote>
+<p><strong>是的，每个网卡通常对应一个IP地址</strong>。</p>
+<p>但是也有例外情况，例如家用路由器，1张物理网卡，五个网口但是有两个IP地址。</p>
+<p>家用路由器lan侧和wan侧各有一个网卡，但是它给集成到一张物理网卡里了（不管它是芯片设计上集成还是直接用的虚拟网卡，反正就是集成了）。</p>
+<p>然后lan侧还相当于串上了个二层交换机，lan侧四个网口都是一个IP地址，wan侧那个网口自己一个ip地址。</p>
+</blockquote>
+<h2 id="动态网站"><a href="#动态网站" class="headerlink" title="动态网站"></a>动态网站</h2><h3 id="云服务器"><a href="#云服务器" class="headerlink" title="云服务器"></a>云服务器</h3><ul>
+<li><h5 id="试用云服务器部署上线网站是最稳定的，详细的部署流程，请转至《揭秘项目部署上线之路：流程、挑战与解决方案》"><a href="#试用云服务器部署上线网站是最稳定的，详细的部署流程，请转至《揭秘项目部署上线之路：流程、挑战与解决方案》" class="headerlink" title="试用云服务器部署上线网站是最稳定的，详细的部署流程，请转至《揭秘项目部署上线之路：流程、挑战与解决方案》"></a>试用云服务器部署上线网站是最稳定的，详细的部署流程，请转至《揭秘项目部署上线之路：流程、挑战与解决方案》</h5></li>
+</ul>
+<h3 id="Webify"><a href="#Webify" class="headerlink" title="Webify"></a>Webify</h3>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/%E7%BD%91%E7%AB%99/" class="category-chain-item">网站</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E7%BD%91%E7%AB%99/%E7%BB%8F%E9%AA%8C/" class="category-chain-item">经验</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/%E7%BB%8F%E9%AA%8C/">#经验</a>
+      
+        <a href="/deng-2022/blog_2/tags/blog/">#blog</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>一文搞定网站上线：从零到一的实战指南</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/07/30/一文搞定网站上线：从零到一的实战指南/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月30日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年12月15日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/07/30/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB%EF%BC%9A%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97%E4%B8%8E%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/" title="小程序开发经验分享：踩坑指南与技巧总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">小程序开发经验分享：踩坑指南与技巧总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/07/21/%E6%B5%B4%E7%81%AB%E9%87%8D%E7%94%9F%EF%BC%9A%E4%BB%8E%E6%8C%AB%E8%B4%A5%E5%88%B0%E6%88%90%E5%8A%9F%EF%BC%8C%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%9A%84%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E8%A7%A3%E5%86%B3%E4%B9%8B%E9%81%93/" title="浴火重生：从挫败到成功，前端框架的疑难杂症解决之道">
+                        <span class="hidden-mobile">浴火重生：从挫败到成功，前端框架的疑难杂症解决之道</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

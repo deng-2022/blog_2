@@ -1,0 +1,1428 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🥘 随风而起，引领接口调用新纪元，让 Spring Boot SDK 成为你的制胜法宝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="琴瑟和鸣：定制化 Spring Boot Starter，让你的接口调用如行云流水般自然">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/08/05/%E7%90%B4%E7%91%9F%E5%92%8C%E9%B8%A3%EF%BC%9A%E5%AE%9A%E5%88%B6%E5%8C%96%20Spring%20Boot%20Starter%EF%BC%8C%E8%AE%A9%E4%BD%A0%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A6%82%E8%A1%8C%E4%BA%91%E6%B5%81%E6%B0%B4%E8%88%AC%E8%87%AA%E7%84%B6/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="🥘 随风而起，引领接口调用新纪元，让 Spring Boot SDK 成为你的制胜法宝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/table.jpg">
+<meta property="article:published_time" content="2023-08-05T09:35:36.000Z">
+<meta property="article:modified_time" content="2024-01-17T14:01:12.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="经验">
+<meta property="article:tag" content="SpringBoot">
+<meta property="article:tag" content="项目">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/table.jpg">
+  
+  
+  
+  <title>琴瑟和鸣：定制化 Spring Boot Starter，让你的接口调用如行云流水般自然 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="琴瑟和鸣：定制化 Spring Boot Starter，让你的接口调用如行云流水般自然"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-05 17:35" pubdate>
+          2023年8月5日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="SpringBoot"
+        id="heading-c8428a45869e78fb361ed20b9c23b0a8" role="tab" data-toggle="collapse" href="#collapse-c8428a45869e78fb361ed20b9c23b0a8"
+        aria-expanded="true"
+      >
+        SpringBoot
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-c8428a45869e78fb361ed20b9c23b0a8"
+           role="tabpanel" aria-labelledby="heading-c8428a45869e78fb361ed20b9c23b0a8">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Maven"
+        id="heading-9115c10980645c41313f244ac1a377f7" role="tab" data-toggle="collapse" href="#collapse-9115c10980645c41313f244ac1a377f7"
+        aria-expanded="false"
+      >
+        Maven
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-9115c10980645c41313f244ac1a377f7"
+           role="tabpanel" aria-labelledby="heading-9115c10980645c41313f244ac1a377f7">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="false"
+      >
+        经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+        aria-expanded="false"
+      >
+        项目
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/24/Maven%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%EF%BC%9A%E4%BC%98%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E4%B8%8E%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" title="Maven奇技淫巧：优化项目构建与性能调优"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Maven奇技淫巧：优化项目构建与性能调优</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Mybatis"
+        id="heading-dcfb60bf74123650041eacb77b10c116" role="tab" data-toggle="collapse" href="#collapse-dcfb60bf74123650041eacb77b10c116"
+        aria-expanded="false"
+      >
+        Mybatis
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-dcfb60bf74123650041eacb77b10c116"
+           role="tabpanel" aria-labelledby="heading-dcfb60bf74123650041eacb77b10c116">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Redis"
+        id="heading-e111446745a1825b862f8727ae63bce4" role="tab" data-toggle="collapse" href="#collapse-e111446745a1825b862f8727ae63bce4"
+        aria-expanded="false"
+      >
+        Redis
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-e111446745a1825b862f8727ae63bce4"
+           role="tabpanel" aria-labelledby="heading-e111446745a1825b862f8727ae63bce4">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="阿里云OSS"
+        id="heading-a4bd7c032dc05684f30d3c80c60cf16e" role="tab" data-toggle="collapse" href="#collapse-a4bd7c032dc05684f30d3c80c60cf16e"
+        aria-expanded="false"
+      >
+        阿里云OSS
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-a4bd7c032dc05684f30d3c80c60cf16e"
+           role="tabpanel" aria-labelledby="heading-a4bd7c032dc05684f30d3c80c60cf16e">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="接口文档"
+        id="heading-062d05a45d82ada305bd81b164f6df02" role="tab" data-toggle="collapse" href="#collapse-062d05a45d82ada305bd81b164f6df02"
+        aria-expanded="false"
+      >
+        接口文档
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-062d05a45d82ada305bd81b164f6df02"
+           role="tabpanel" aria-labelledby="heading-062d05a45d82ada305bd81b164f6df02">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="false"
+      >
+        经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+        aria-expanded="false"
+      >
+        项目
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/07/06/%E5%87%A4%E5%87%B0%E6%B6%85%E6%A7%83%EF%BC%9ASpring%20Boot%20%E5%BC%80%E5%8F%91%E4%B9%8B%E8%B7%AF%E4%B8%8A%E7%9A%84%E5%9D%8E%E5%9D%B7%E4%B8%8E%E6%88%90%E9%95%BF/" title="凤凰涅槃：Spring Boot 开发之路上的坎坷与成长"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">凤凰涅槃：Spring Boot 开发之路上的坎坷与成长</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="false"
+      >
+        经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+        aria-expanded="false"
+      >
+        项目
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/23/SpringBoot%E7%AC%AC%E4%B8%89%E6%96%B9%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5%EF%BC%9A%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" title="SpringBoot第三方服务开发实践：版本兼容性和依赖管理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">SpringBoot第三方服务开发实践：版本兼容性和依赖管理</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+        aria-expanded="true"
+      >
+        项目
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="true"
+      >
+        经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/08/05/%E7%90%B4%E7%91%9F%E5%92%8C%E9%B8%A3%EF%BC%9A%E5%AE%9A%E5%88%B6%E5%8C%96%20Spring%20Boot%20Starter%EF%BC%8C%E8%AE%A9%E4%BD%A0%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A6%82%E8%A1%8C%E4%BA%91%E6%B5%81%E6%B0%B4%E8%88%AC%E8%87%AA%E7%84%B6/" title="琴瑟和鸣：定制化 Spring Boot Starter，让你的接口调用如行云流水般自然"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">琴瑟和鸣：定制化 Spring Boot Starter，让你的接口调用如行云流水般自然</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">琴瑟和鸣：定制化 Spring Boot Starter，让你的接口调用如行云流水般自然</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：4 个月前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="破冰"><a href="#破冰" class="headerlink" title="破冰"></a>破冰</h1><ul>
+<li><h5 id="在-SpringBoot中-着手开发一个stater，简要介绍-SDK-的开发流程"><a href="#在-SpringBoot中-着手开发一个stater，简要介绍-SDK-的开发流程" class="headerlink" title="在 SpringBoot中 着手开发一个stater，简要介绍 SDK 的开发流程"></a>在 SpringBoot中 着手开发一个stater，简要介绍 SDK 的开发流程</h5></li>
+<li><p>🍖 推荐阅读：</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/user/4418284437647447/posts">Elijasmine 的个人主页 - 文章 - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7242516121768919099">SpringBoot系列（一） SpringBoot启动流程 - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7299859799780442163">面试题：谈谈Spring用到了哪些设计模式？ - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7149896017574363166?searchId=20231216093625F1EE1B24D23A01FB5501">SpringBoot的starter到底是什么？ - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7210601680554246202?searchId=20231216093625F1EE1B24D23A01FB5501">阿里一面：说一说Java、Spring、Dubbo三者SPI机制的原理和区别 - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7222507980444287035?searchId=20231216093625F1EE1B24D23A01FB5501">三分钟了解springBoot 之spring.factories扩展机制 - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c63b8d1dead8?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes">springboot 自定义starter的过程以及遇到的问题 - 简书 (jianshu.com)</a></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="自定义-Starter"><a href="#自定义-Starter" class="headerlink" title="自定义 Starter"></a>自定义 Starter</h2><ul>
+<li>之前我们开发过 memory-client-sdk 接口调用 SDK，但是不够完善，今天在保持原有功能不变的情况下，重构该 SDK：<strong>（2024/01/08晚）</strong></li>
+</ul>
+<h3 id="新建-Spring-Boot-项目"><a href="#新建-Spring-Boot-项目" class="headerlink" title="新建 Spring Boot 项目"></a>新建 Spring Boot 项目</h3><ul>
+<li>新建 Spring Boot 项目 <code>memory-client-spring-boot-starter</code>:</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.memory<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>memory-client-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="依赖配置"><a href="#依赖配置" class="headerlink" title="依赖配置"></a>依赖配置</h3><ul>
+<li>在 <code>pom.xml</code> 文件下，新增如下依赖：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>s<br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>spring-boot-configuration-processor</code> 在自定义 Spring Boot Starter 时的作用主要是生成配置元数据、提供代码提示和自动补全，以及确保配置属性的正确解析：<ul>
+<li><strong>生成配置元数据</strong>：该依赖会根据在项目中定义的带有 <code>@ConfigurationProperties</code> 注解的类，在 <code>META-INF</code> 文件夹下生成 <code>spring-configuration-metadata.json</code> 文件。这个文件是一种元数据文件，其中包含了关于配置属性的信息，如属性名称、类型、默认值等。这些信息可以用于在IDE中编辑配置文件时提供代码提示和自动补全等功能。</li>
+<li><strong>提供代码提示和自动补全</strong>：当你在IDE中编辑配置文件时，由于 <code>spring-boot-configuration-processor</code> 生成的元数据，IDE 会提供代码提示和自动补全功能。这使得在编写配置文件时更加方便，降低了因拼写错误或配置项不正确而导致的错误。</li>
+<li><strong>确保配置属性的正确解析</strong>：<code>spring-boot-configuration-processor</code> 在编译时会对带有 <code>@ConfigurationProperties</code> 注解的类进行处理，确保配置属性能够被正确地解析和绑定。这对于自定义的 Starter 来说非常重要，因为正确的解析和绑定配置属性是保证 Starter 功能正常的前提。</li>
+</ul>
+</li>
+<li>注意，新建的 Spring Boot 项目的<code>pom.xml</code>文件下，都会有<code>build标签</code>，记得移除 👇：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 移除该内容 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">excludes</span>&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">exclude</span>&gt;</span><br>                            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                        <span class="hljs-tag">&lt;/<span class="hljs-name">exclude</span>&gt;</span><br>                    <span class="hljs-tag">&lt;/<span class="hljs-name">excludes</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">target</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="新增配置文件类"><a href="#新增配置文件类" class="headerlink" title="新增配置文件类"></a>新增配置文件类</h3><ul>
+<li>在 properties 目录下，新增配置文件类 MemoryClientProperties：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ConfigurationProperties(prefix = &quot;memory.client&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MemoryClientProperties</span> &#123;<br>    <span class="hljs-keyword">private</span> String accessKey;<br>    <span class="hljs-keyword">private</span> String secretKey;<br><br>    <span class="hljs-comment">// 省略 Getter()、Setter() 方法</span><br>    ..............................<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>@ConfigurationProperties</code>注解能够自动获取 application.properties 配置文件中前缀为 <code>spring.girlfriend</code> 节点下 <code>message</code>属性的内容</li>
+</ul>
+<h3 id="新增功能接口"><a href="#新增功能接口" class="headerlink" title="新增功能接口"></a>新增功能接口</h3><ul>
+<li>在 service 目录下，新增功能接口 MemoryClientService，用来实现对各个接口发起调用：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MemoryClientService</span> &#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 获取随机名言</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> words 名言类型</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 随机名言</span><br><span class="hljs-comment">     */</span><br>    String <span class="hljs-title function_">getRandomWord</span><span class="hljs-params">(Words words)</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 获取随机壁纸</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> picture 壁纸类型</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 壁纸名言</span><br><span class="hljs-comment">     */</span><br>    String <span class="hljs-title function_">getPictureListByType</span><span class="hljs-params">(Picture picture)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="新增功能接口实现类"><a href="#新增功能接口实现类" class="headerlink" title="新增功能接口实现类"></a>新增功能接口实现类</h3><ul>
+<li>在 service/impl 目录下，新增功能接口实现类 MemoryClientServiceImpl，用来实现对各个接口发起调用：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 获取随机名言</span><br><span class="hljs-comment">   *</span><br><span class="hljs-comment">   * <span class="hljs-doctag">@param</span> words 名言类型</span><br><span class="hljs-comment">   * <span class="hljs-doctag">@return</span> 随机名言</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getRandomWord</span><span class="hljs-params">(Words words)</span> &#123;<br>      <span class="hljs-type">String</span> <span class="hljs-variable">json</span> <span class="hljs-operator">=</span> JSONUtil.toJsonStr(words);<br>      <span class="hljs-keyword">return</span> HttpRequest.post(GATEWAY_HOST + <span class="hljs-string">&quot;/api/words/one/random&quot;</span>)<br>              .addHeaders(getHeaderMap(json))<br>              .body(json)<br>              .execute()<br>              .body();<br>  &#125;<br><br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 获取随机壁纸</span><br><span class="hljs-comment">   *</span><br><span class="hljs-comment">   * <span class="hljs-doctag">@param</span> picture 壁纸类型</span><br><span class="hljs-comment">   * <span class="hljs-doctag">@return</span> 壁纸名言</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getPictureListByType</span><span class="hljs-params">(Picture picture)</span> &#123;<br>      <span class="hljs-type">String</span> <span class="hljs-variable">json</span> <span class="hljs-operator">=</span> JSONUtil.toJsonStr(picture);<br>      <span class="hljs-keyword">return</span> HttpRequest.post(GATEWAY_HOST + <span class="hljs-string">&quot;/api/wallpaper/list/page/vo&quot;</span>)<br>              .addHeaders(getHeaderMap(json))<br>              .body(json)<br>              .execute()<br>              .body();<br>  &#125;<br>  <br>  <span class="hljs-comment">// 省略其他接口调用方法</span><br>  .................................<br></code></pre></td></tr></table></figure>
+
+<h3 id="新增自动配置类"><a href="#新增自动配置类" class="headerlink" title="新增自动配置类"></a>新增自动配置类</h3><ul>
+<li>新增自动配置类 MemoryClientAutoConfiguration，实现自动化配置功能：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ConditionalOnClass(MemoryClientService.class)</span><br><span class="hljs-meta">@EnableConfigurationProperties(MemoryClientProperties.class)</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MemoryClientAutoConfiguration</span> &#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-meta">@ConditionalOnMissingBean</span><br>    <span class="hljs-keyword">public</span> MemoryClientService <span class="hljs-title function_">memoryClientService</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MemoryClientServiceImpl</span>();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>简单介绍下这几个注解的作用：<ul>
+<li><code>@Configuration</code>: 标注类为一个配置类，让 spring 去扫描它；</li>
+<li>@ConditionalOnClass<code>：条件注解，只有在 </code>classpath<code> 路径下存在指定 class 文件时，才会实例化 Bean</code> </li>
+<li>@EnableConfigurationProperties<code>：使指定配置类生效；</code></li>
+<li>@Bean<code>: 创建一个实例类注入到 Spring Ioc 容器中；</code></li>
+<li>@ConditionalOnMissingBean`：条件注解，意思是，仅当 Ioc 容器不存在指定类型的 Bean 时，才会创建 Bean。</li>
+</ul>
+</li>
+</ul>
+<h3 id="配置自动装配类路径"><a href="#配置自动装配类路径" class="headerlink" title="配置自动装配类路径"></a>配置自动装配类路径</h3><ul>
+<li><p>配置自动装配的类的路径，这样 Spring Boot 会在启动时，自动会去查找指定文件 <code>/META-INF/spring.factories</code>，若有，就会根据配置的类的全路径去自动化配置：</p>
+</li>
+<li><p>在 Spring Boot 2.x 中，在 resource/META-INF/spring.factories 文件下，添加如下配置来标记自动配置类：</p>
+</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">org<span class="hljs-selector-class">.springframework</span><span class="hljs-selector-class">.boot</span><span class="hljs-selector-class">.autoconfigure</span>.EnableAutoConfiguration=com<span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.starter3</span>.NameAutoConfiguration<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>而在 Spring Boot 3.x 中，在 resource/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports 文件下，添加如下配置：</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">com<span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.starter3</span>.NameAutoConfiguration<br></code></pre></td></tr></table></figure>
+
+<h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><ul>
+<li>是将 <code>girl-friend-spring-boot-starter</code> 打成 <code>jar</code> 包，放到本地的 <code>maven</code> 仓库中去在项目根路径下执行 maven 命令：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn clean install<br></code></pre></td></tr></table></figure>
+
+<h3 id="引用自定义-Starter"><a href="#引用自定义-Starter" class="headerlink" title="引用自定义 Starter"></a>引用自定义 Starter</h3><ul>
+<li>在需要引入 <code>memory-client-spring-boot-starter</code> 接口调用功能的 <code>Spring Boot 项目</code>中的 <code>pom.xml</code>文件中，导入依赖：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.memory<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>memory-client-sdk<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>resouce</code>目录下的<code>application.yaml</code>配置文件下，添加如下配置：</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">memory-api:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">access-key:</span> <span class="hljs-string">memory</span><br>    <span class="hljs-attr">secret-key:</span> <span class="hljs-number">12345678</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>注入 <code>MemoryClientService</code>，可以对任一接口服务发起调用：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Resource</span><br><span class="hljs-keyword">private</span> MemoryClientService memoryClientService;<br><br> <span class="hljs-comment">// 随机名言</span><br>com.memory.client.model.<span class="hljs-type">Words</span> <span class="hljs-variable">words</span> <span class="hljs-operator">=</span> gson.fromJson(userRequestParams, com.memory.client.model.Words.class);<br>result = memoryClientService.getRandomWord(words);<br><br><span class="hljs-comment">// 随机壁纸</span><br>com.memory.client.model.<span class="hljs-type">Picture</span> <span class="hljs-variable">picture</span> <span class="hljs-operator">=</span> gson.fromJson(userRequestParams, com.memory.client.model.Picture.class);<br>result = memoryClientService.getPictureListByType(picture);<br><br>............................<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><ul>
+<li><h5 id="开发一个stater只要做到："><a href="#开发一个stater只要做到：" class="headerlink" title="开发一个stater只要做到："></a>开发一个stater只要做到：</h5><ul>
+<li>构建项目，初始化依赖</li>
+<li>编写接口方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="着手开发"><a href="#着手开发" class="headerlink" title="着手开发"></a>着手开发</h2><ul>
+<li><h5 id="新建一个项目，项目依赖中勾选如下依赖，如图所示："><a href="#新建一个项目，项目依赖中勾选如下依赖，如图所示：" class="headerlink" title="新建一个项目，项目依赖中勾选如下依赖，如图所示："></a>新建一个项目，项目依赖中勾选如下依赖，如图所示：</h5></li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Spring Configuration Processer</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230805173935211.png" alt="image-20230805173935211"></p>
+<ul>
+<li><h5 id="移除build，否则会报错（可选择性移除test依赖）："><a href="#移除build，否则会报错（可选择性移除test依赖）：" class="headerlink" title="移除build，否则会报错（可选择性移除test依赖）："></a>移除build，否则会报错（可选择性移除test依赖）：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230805174043426.png" alt="image-20230805174043426"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230805174030412.png" alt="image-20230805174030412"></p>
+<ul>
+<li><h5 id="启动类："><a href="#启动类：" class="headerlink" title="启动类："></a>启动类：</h5></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ConfigurationProperties(&quot;memory-api.client&quot;)</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MemoryClientConfig</span> &#123;<br>    <span class="hljs-keyword">private</span> String access_key;<br>    <span class="hljs-keyword">private</span> String secret_key;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> MemoryClient <span class="hljs-title function_">memoryClient</span><span class="hljs-params">()</span>&#123;<br><span class="hljs-comment">//        return new MemoryClient(access_key,secret_key);</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MemoryClient</span>();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="resources-META-INF-spring-factories下："><a href="#resources-META-INF-spring-factories下：" class="headerlink" title="resources/META-INF/spring.factories下："></a>resources/META-INF/spring.factories下：</h5></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># spring boot starter</span><br><span class="hljs-string">org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.memory.clientsdk.MemoryClientConfig</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="构建为starter："><a href="#构建为starter：" class="headerlink" title="构建为starter："></a>构建为starter：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230805175422289.png" alt="image-20230805175422289"></p>
+<ul>
+<li><h5 id="我们可以使用这个starter了，导入依赖："><a href="#我们可以使用这个starter了，导入依赖：" class="headerlink" title="我们可以使用这个starter了，导入依赖："></a>我们可以使用这个starter了，导入依赖：</h5></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.memory<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>memory-client-sdk<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="yaml配置："><a href="#yaml配置：" class="headerlink" title="yaml配置："></a>yaml配置：</h5></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">memory-api:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">access-key:</span> <span class="hljs-string">memory</span><br>    <span class="hljs-attr">secret-key:</span> <span class="hljs-number">12345678</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h5></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MemoryClientApplicationTests</span> &#123;<br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> MemoryClient memoryClient;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">contextLoads</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;成功了&quot;</span>);<br>        memoryClient.getNameByGet(<span class="hljs-string">&quot;邓哈哈&quot;</span>);<br>        memoryClient.getNameByPost(<span class="hljs-string">&quot;邓嘻嘻&quot;</span>);<br><br>        <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(<span class="hljs-string">&quot;邓尼玛&quot;</span>);<br>        memoryClient.getUserByPost(user);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="踩坑经历"><a href="#踩坑经历" class="headerlink" title="踩坑经历"></a>踩坑经历</h2><ul>
+<li><h5 id="测试类上方要添加-SpringBootTest-注解"><a href="#测试类上方要添加-SpringBootTest-注解" class="headerlink" title="测试类上方要添加 @SpringBootTest 注解"></a>测试类上方要添加 @SpringBootTest 注解</h5></li>
+</ul>
+<h3 id="Spring-Boot-版本问题"><a href="#Spring-Boot-版本问题" class="headerlink" title="Spring Boot 版本问题"></a>Spring Boot 版本问题</h3><ul>
+<li>之前做这个，没有考虑到 Spring Boot 的版本问题<strong>（2024/01/08早）</strong></li>
+<li>在 Spring Boot 2.x 中，在 resource/META-INF/spring.factories 文件下，添加如下配置来标记自动配置类：</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">org<span class="hljs-selector-class">.springframework</span><span class="hljs-selector-class">.boot</span><span class="hljs-selector-class">.autoconfigure</span>.EnableAutoConfiguration=com<span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.starter3</span>.NameAutoConfiguration<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>而在 Spring Boot 3.x 中，在 resource/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports 文件下，添加如下配置：</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">com<span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.starter3</span>.NameAutoConfiguration<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>这里推荐阅读：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7195890214211534903?searchId=20240108082736FD8C05245197327FEAFF">SpringBoot自动装配原理+手写一个starter组件 - 掘金 (juejin.cn)</a></li>
+<li>官方文档也写得非常清楚：<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/2.5.12/reference/html/features.html#features.developing-auto-configuration">Spring Boot Features</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testcontainers.at-development-time.devtools">Core Features (spring.io)</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/SpringBoot/" class="category-chain-item">SpringBoot</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/SpringBoot/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/SpringBoot/%E9%A1%B9%E7%9B%AE/%E7%BB%8F%E9%AA%8C/" class="category-chain-item">经验</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/%E7%BB%8F%E9%AA%8C/">#经验</a>
+      
+        <a href="/deng-2022/blog_2/tags/SpringBoot/">#SpringBoot</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E9%A1%B9%E7%9B%AE/">#项目</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>琴瑟和鸣：定制化 Spring Boot Starter，让你的接口调用如行云流水般自然</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/08/05/琴瑟和鸣：定制化 Spring Boot Starter，让你的接口调用如行云流水般自然/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年8月5日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年1月17日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/08/07/TaskMemories%20-%20%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="TaskMemories-开发文档">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TaskMemories-开发文档</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/08/02/PicMemories%20%E5%A3%81%E7%BA%B8%E5%88%86%E4%BA%AB%E5%B0%8F%E7%A8%8B%E5%BA%8F%20-%20%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="PicMemories-开发文档">
+                        <span class="hidden-mobile">PicMemories-开发文档</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

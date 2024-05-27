@@ -1,0 +1,1308 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍹 详解npm、nvm和node的关联与使用方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置指南-掌握Node.js配置">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/06/24/%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97-%E6%8E%8C%E6%8F%A1Node-js%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="🍹 详解npm、nvm和node的关联与使用方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/sky3.jpg">
+<meta property="article:published_time" content="2023-06-24T01:23:56.000Z">
+<meta property="article:modified_time" content="2024-05-08T01:24:27.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="经验">
+<meta property="article:tag" content="包管理器">
+<meta property="article:tag" content="node">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/sky3.jpg">
+  
+  
+  
+  <title>配置指南-掌握Node.js配置 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="配置指南-掌握Node.js配置"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-24 09:23" pubdate>
+          2023年6月24日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="包管理器"
+        id="heading-e55b2a738f4ad9b5bf8e8afbe3c0e435" role="tab" data-toggle="collapse" href="#collapse-e55b2a738f4ad9b5bf8e8afbe3c0e435"
+        aria-expanded="true"
+      >
+        包管理器
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-e55b2a738f4ad9b5bf8e8afbe3c0e435"
+           role="tabpanel" aria-labelledby="heading-e55b2a738f4ad9b5bf8e8afbe3c0e435">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="node"
+        id="heading-36c4536996ca5615dcf9911f068786dc" role="tab" data-toggle="collapse" href="#collapse-36c4536996ca5615dcf9911f068786dc"
+        aria-expanded="true"
+      >
+        node
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-36c4536996ca5615dcf9911f068786dc"
+           role="tabpanel" aria-labelledby="heading-36c4536996ca5615dcf9911f068786dc">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="true"
+      >
+        经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/24/%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97-%E6%8E%8C%E6%8F%A1Node-js%E9%85%8D%E7%BD%AE/" title="配置指南-掌握Node.js配置"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">配置指南-掌握Node.js配置</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="false"
+      >
+        经验
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/07/02/%E7%90%86%E8%A7%A3npm%E3%80%81pnpm%E5%92%8Cyarn%EF%BC%9A%E9%80%89%E5%87%BA%E6%9C%80%E9%80%82%E5%90%88%E4%BD%A0%E7%9A%84%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" title="理解npm、pnpm和yarn：选出最适合你的包管理器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">理解npm、pnpm和yarn：选出最适合你的包管理器</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">配置指南-掌握Node.js配置</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：20 天前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h1><h5 id="本文通过简要介绍npm、nvm和node的关系以及它们对于开发者的重要作用，帮助读者理解和配置这些工具"><a href="#本文通过简要介绍npm、nvm和node的关系以及它们对于开发者的重要作用，帮助读者理解和配置这些工具" class="headerlink" title="本文通过简要介绍npm、nvm和node的关系以及它们对于开发者的重要作用，帮助读者理解和配置这些工具"></a>本文通过简要介绍npm、nvm和node的关系以及它们对于开发者的重要作用，帮助读者理解和配置这些工具</h5><h5 id="在我的日常开发过程中，使用到很多前端开发工具、构建工具（如vite-cli）、打包工具（如webpack），这些工具通常需要通过npm进行安装"><a href="#在我的日常开发过程中，使用到很多前端开发工具、构建工具（如vite-cli）、打包工具（如webpack），这些工具通常需要通过npm进行安装" class="headerlink" title="在我的日常开发过程中，使用到很多前端开发工具、构建工具（如vite-cli）、打包工具（如webpack），这些工具通常需要通过npm进行安装"></a>在我的日常开发过程中，使用到很多前端开发工具、构建工具（如vite-cli）、打包工具（如webpack），这些工具通常需要通过npm进行安装</h5><h5 id="我还使用到许多的后端前沿框架、容器（如Docker）和各类数据库驱动服务（如MongoDB），这些框架通常使用npm进行安装和管理"><a href="#我还使用到许多的后端前沿框架、容器（如Docker）和各类数据库驱动服务（如MongoDB），这些框架通常使用npm进行安装和管理" class="headerlink" title="我还使用到许多的后端前沿框架、容器（如Docker）和各类数据库驱动服务（如MongoDB），这些框架通常使用npm进行安装和管理"></a>我还使用到许多的后端前沿框架、容器（如Docker）和各类数据库驱动服务（如MongoDB），这些框架通常使用npm进行安装和管理</h5><h5 id="总的来说，Node-js环境在前端开发、后端开发、构建工具、自动化测试、静态代码分析等方面都有广泛的应用。它为开发者提供了大量的工具和框架，使得开发更加高效和便利"><a href="#总的来说，Node-js环境在前端开发、后端开发、构建工具、自动化测试、静态代码分析等方面都有广泛的应用。它为开发者提供了大量的工具和框架，使得开发更加高效和便利" class="headerlink" title="总的来说，Node.js环境在前端开发、后端开发、构建工具、自动化测试、静态代码分析等方面都有广泛的应用。它为开发者提供了大量的工具和框架，使得开发更加高效和便利"></a>总的来说，Node.js环境在前端开发、后端开发、构建工具、自动化测试、静态代码分析等方面都有广泛的应用。它为开发者提供了大量的工具和框架，使得开发更加高效和便利</h5><h5 id="总的来说，Node-js环境是非常重要的，我们当然不会将以上涉及到的庞大的知识体系逐一讲解，我们将要学习的，是Node-js的基础配置，为我们以后的开发打下坚实的基础"><a href="#总的来说，Node-js环境是非常重要的，我们当然不会将以上涉及到的庞大的知识体系逐一讲解，我们将要学习的，是Node-js的基础配置，为我们以后的开发打下坚实的基础" class="headerlink" title="总的来说，Node.js环境是非常重要的，我们当然不会将以上涉及到的庞大的知识体系逐一讲解，我们将要学习的，是Node.js的基础配置，为我们以后的开发打下坚实的基础"></a>总的来说，Node.js环境是非常重要的，我们当然不会将以上涉及到的庞大的知识体系逐一讲解，我们将要学习的，是Node.js的基础配置，为我们以后的开发打下坚实的基础</h5><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h4 id="什么是Node-js："><a href="#什么是Node-js：" class="headerlink" title="什么是Node.js："></a>什么是Node.js：</h4><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">Node</span><span class="hljs-operator">.</span><span class="hljs-variable">js</span>是一个基于<span class="hljs-variable">Chrome</span> <span class="hljs-variable">V8</span>引擎的<span class="hljs-variable">JavaScript</span>运行环境。它允许开发者使用<span class="hljs-variable">JavaScript</span>来构建服务器端的高性能应用程序。它提供了一种非阻塞、事件驱动的编程模型，使得处理并发、<span class="hljs-built_in">I</span><span class="hljs-operator">/</span><span class="hljs-built_in">O</span>密集型的任务变得更加高效和可扩展。通过<span class="hljs-variable">Node</span><span class="hljs-operator">.</span><span class="hljs-variable">js</span>，开发者可以使用熟悉的<span class="hljs-variable">JavaScript</span>语言来构建快速、可靠的服务器端应用程序<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="我们还可以从其他相关资料中，了解到Node-js环境是什么样的，是用来干什么的"><a href="#我们还可以从其他相关资料中，了解到Node-js环境是什么样的，是用来干什么的" class="headerlink" title="我们还可以从其他相关资料中，了解到Node.js环境是什么样的，是用来干什么的"></a>我们还可以从其他相关资料中，了解到Node.js环境是什么样的，是用来干什么的</h5></li>
+<li><h5 id="Node-js：Node基础-51CTO博客-node-js是什么"><a href="#Node-js：Node基础-51CTO博客-node-js是什么" class="headerlink" title="Node.js：Node基础_51CTO博客_node.js是什么"></a><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15349906/5089930">Node.js：Node基础_51CTO博客_node.js是什么</a></h5></li>
+<li><h5 id="一篇文章搞定什么是nodeJs它和NPM关系与应用-掘金-juejin-cn"><a href="#一篇文章搞定什么是nodeJs它和NPM关系与应用-掘金-juejin-cn" class="headerlink" title="一篇文章搞定什么是nodeJs它和NPM关系与应用 - 掘金 (juejin.cn)"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7230683405544669243">一篇文章搞定什么是nodeJs它和NPM关系与应用 - 掘金 (juejin.cn)</a></h5></li>
+</ul>
+<h4 id="什么是npm："><a href="#什么是npm：" class="headerlink" title="什么是npm："></a>什么是npm：</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">npm是<span class="hljs-keyword">Node</span> <span class="hljs-title">Package</span> Manager的缩写，是一个用于Node.js项目的包管理工具。它是世界上最大的包管理器，拥有数量庞大的开放源码软件包和模块供开发者使用。通过npm，开发者可以方便地安装、更新和管理项目所需的依赖包，以及运行和测试脚本。<br></code></pre></td></tr></table></figure>
+
+<h4 id="什么是nvm："><a href="#什么是nvm：" class="headerlink" title="什么是nvm："></a>什么是nvm：</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">nvm是<span class="hljs-keyword">Node</span> <span class="hljs-title">Version</span> Manager的缩写，它是一个工具，允许你在同一台机器上安装和管理多个Node.js版本。nvm使得开发者可以轻松切换不同的Node.js版本，而无需手动安装和配置每个版本。这对于开发者来说非常有用，因为不同的项目可能需要不同的Node.js版本，nvm可以帮助开发者更好地管理这些版本。<br></code></pre></td></tr></table></figure>
+
+<h4 id="nvm、npm和Node-js的关系："><a href="#nvm、npm和Node-js的关系：" class="headerlink" title="nvm、npm和Node.js的关系："></a>nvm、npm和Node.js的关系：</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">nvm是<span class="hljs-keyword">Node</span> <span class="hljs-title">Version</span> Manager的缩写，它是一个工具，允许你在同一台机器上安装和管理多个Node.js版本。这对于开发者来说非常重要，因为不同的项目可能需要不同的Node.js版本，nvm允许你在这些项目之间轻松切换，而无需手动安装和配置每个版本<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Node</span>.</span></span>js则是这两个工具的基础，它提供了一个JavaScript运行环境，使得开发者可以在服务器端构建高性能的应用程序。npm和nvm作为与<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Node</span>.</span></span>js紧密相关的工具，为开发者提供了更好的开发和管理环境。<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这上面说的真他妈官方，总结起来就一句话："><a href="#这上面说的真他妈官方，总结起来就一句话：" class="headerlink" title="这上面说的真他妈官方，总结起来就一句话："></a>这上面说的真他妈官方，总结起来就一句话：</h5></li>
+<li><h5 id="Node-js是一种开发环境，npm是一种包管理工具，管理Node-js项目所需依赖包；nvm是一种版本管理工具，可以管理多个不同的Node-js版本，这就是三者的联系"><a href="#Node-js是一种开发环境，npm是一种包管理工具，管理Node-js项目所需依赖包；nvm是一种版本管理工具，可以管理多个不同的Node-js版本，这就是三者的联系" class="headerlink" title="Node.js是一种开发环境，npm是一种包管理工具，管理Node.js项目所需依赖包；nvm是一种版本管理工具，可以管理多个不同的Node.js版本，这就是三者的联系"></a>Node.js是一种开发环境，npm是一种包管理工具，管理Node.js项目所需依赖包；nvm是一种版本管理工具，可以管理多个不同的Node.js版本，这就是三者的联系</h5></li>
+</ul>
+<h2 id="Node-js的配置"><a href="#Node-js的配置" class="headerlink" title="Node.js的配置"></a>Node.js的配置</h2><ul>
+<li><h5 id="有关Node-js的安装配置有两种，我们可以单独下载并配置，这样做的好处是快捷方便，但是将来要更换其版本就会较为繁琐"><a href="#有关Node-js的安装配置有两种，我们可以单独下载并配置，这样做的好处是快捷方便，但是将来要更换其版本就会较为繁琐" class="headerlink" title="有关Node.js的安装配置有两种，我们可以单独下载并配置，这样做的好处是快捷方便，但是将来要更换其版本就会较为繁琐"></a>有关Node.js的安装配置有两种，我们可以单独下载并配置，这样做的好处是快捷方便，但是将来要更换其版本就会较为繁琐</h5></li>
+<li><h5 id="另一种方法是使用nvm统一管理，更加轻松方便切换不同的Node-js版本，推荐使用这种方法"><a href="#另一种方法是使用nvm统一管理，更加轻松方便切换不同的Node-js版本，推荐使用这种方法" class="headerlink" title="另一种方法是使用nvm统一管理，更加轻松方便切换不同的Node.js版本，推荐使用这种方法"></a>另一种方法是使用nvm统一管理，更加轻松方便切换不同的Node.js版本，推荐使用这种方法</h5></li>
+<li><h5 id="接下来相关下载安装配置均在windows系统上执行，因为本人在Linux系统上使用Node-js环境较少，有机会可以学习下"><a href="#接下来相关下载安装配置均在windows系统上执行，因为本人在Linux系统上使用Node-js环境较少，有机会可以学习下" class="headerlink" title="接下来相关下载安装配置均在windows系统上执行，因为本人在Linux系统上使用Node.js环境较少，有机会可以学习下"></a>接下来相关下载安装配置均在windows系统上执行，因为本人在Linux系统上使用Node.js环境较少，有机会可以学习下</h5></li>
+</ul>
+<h4 id="单独配置"><a href="#单独配置" class="headerlink" title="单独配置"></a>单独配置</h4><ul>
+<li><h5 id="官网下载node-js：https-nodejs-org-zh-cn-download"><a href="#官网下载node-js：https-nodejs-org-zh-cn-download" class="headerlink" title="官网下载node.js：https://nodejs.org/zh-cn/download/"></a>官网下载node.js：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">https://nodejs.org/zh-cn/download/</a></h5></li>
+<li><h5 id="本地解压安装，查看node目录结构："><a href="#本地解压安装，查看node目录结构：" class="headerlink" title="本地解压安装，查看node目录结构："></a>本地解压安装，查看node目录结构：</h5></li>
+</ul>
+<img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624212110319.png" alt="image-20230624212110319" style="zoom: 67%;" />
+
+<ul>
+<li><h5 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h5></li>
+<li><h5 id="注意，这里要配置两个环境变量：node的根目录、根目录下的node-global路径"><a href="#注意，这里要配置两个环境变量：node的根目录、根目录下的node-global路径" class="headerlink" title="注意，这里要配置两个环境变量：node的根目录、根目录下的node_global路径"></a>注意，这里要配置两个环境变量：node的根目录、根目录下的node_global路径</h5></li>
+</ul>
+<img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624212320737.png" alt="image-20230624212320737" style="zoom: 80%;" />
+
+<hr>
+<img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624212541131.png" alt="image-20230624212541131" style="zoom: 80%;" />
+
+<ul>
+<li><h5 id="配置的时候细心点就行了，大功告成"><a href="#配置的时候细心点就行了，大功告成" class="headerlink" title="配置的时候细心点就行了，大功告成"></a>配置的时候细心点就行了，大功告成</h5></li>
+</ul>
+<h4 id="使用nvm统一管理（推荐）"><a href="#使用nvm统一管理（推荐）" class="headerlink" title="使用nvm统一管理（推荐）"></a>使用nvm统一管理（推荐）</h4><ul>
+<li><h5 id="其实就是比单独配置多了两步：官网下载nvm、配置nvm根目录环境变量"><a href="#其实就是比单独配置多了两步：官网下载nvm、配置nvm根目录环境变量" class="headerlink" title="其实就是比单独配置多了两步：官网下载nvm、配置nvm根目录环境变量"></a>其实就是比单独配置多了两步：官网下载nvm、配置nvm根目录环境变量</h5></li>
+<li><h5 id="官网下载nvm：-https-github-com-coreybutler-nvm-windows-releases"><a href="#官网下载nvm：-https-github-com-coreybutler-nvm-windows-releases" class="headerlink" title="官网下载nvm： https://github.com/coreybutler/nvm-windows/releases"></a>官网下载nvm： <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></h5></li>
+<li><h5 id="本地解压安装，查看nvm目录结构："><a href="#本地解压安装，查看nvm目录结构：" class="headerlink" title="本地解压安装，查看nvm目录结构："></a>本地解压安装，查看nvm目录结构：</h5></li>
+</ul>
+<img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624213113061.png" alt="image-20230624213113061" style="zoom: 67%;" />
+
+<ul>
+<li><h5 id="配置环境变量-1"><a href="#配置环境变量-1" class="headerlink" title="配置环境变量"></a>配置环境变量</h5></li>
+</ul>
+<img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624213419870.png" alt="image-20230624213419870" style="zoom:80%;" />
+
+<hr>
+<img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624213519238.png" alt="image-20230624213519238" style="zoom: 80%;" />
+
+<ul>
+<li><h5 id="下载安装、配置环境变量还是非常简单的"><a href="#下载安装、配置环境变量还是非常简单的" class="headerlink" title="下载安装、配置环境变量还是非常简单的"></a>下载安装、配置环境变量还是非常简单的</h5></li>
+</ul>
+<h2 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h2><ul>
+<li><h5 id="刚才我们讲到如何配置环境变量，那么我们为什么要这样配置环境变量？Node-js下的目录结构又是怎样的呢？"><a href="#刚才我们讲到如何配置环境变量，那么我们为什么要这样配置环境变量？Node-js下的目录结构又是怎样的呢？" class="headerlink" title="刚才我们讲到如何配置环境变量，那么我们为什么要这样配置环境变量？Node.js下的目录结构又是怎样的呢？"></a>刚才我们讲到如何配置环境变量，那么我们为什么要这样配置环境变量？Node.js下的目录结构又是怎样的呢？</h5></li>
+<li><h5 id="解决了这些问题，就能更好地理解Node-js的作用，拓展相关解决问题的思路"><a href="#解决了这些问题，就能更好地理解Node-js的作用，拓展相关解决问题的思路" class="headerlink" title="解决了这些问题，就能更好地理解Node.js的作用，拓展相关解决问题的思路"></a>解决了这些问题，就能更好地理解Node.js的作用，拓展相关解决问题的思路</h5></li>
+<li><h5 id="接下来我们就来了解下目录下个文件的作用"><a href="#接下来我们就来了解下目录下个文件的作用" class="headerlink" title="接下来我们就来了解下目录下个文件的作用"></a>接下来我们就来了解下目录下个文件的作用</h5></li>
+<li><h5 id="Node-js学习：基本目录结构-灰信网（软件开发博客聚合）-freesion-com"><a href="#Node-js学习：基本目录结构-灰信网（软件开发博客聚合）-freesion-com" class="headerlink" title="Node.js学习：基本目录结构 - 灰信网（软件开发博客聚合） (freesion.com)"></a><a target="_blank" rel="noopener" href="https://www.freesion.com/article/55271140990/">Node.js学习：基本目录结构 - 灰信网（软件开发博客聚合） (freesion.com)</a></h5></li>
+<li><h5 id="日后补充。。。"><a href="#日后补充。。。" class="headerlink" title="日后补充。。。"></a>日后补充。。。</h5></li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
+<li><h5 id="使用nvm来管理多个不同版本node-js还是很爽的，那我们了解一下常见的nvm相关命令吧"><a href="#使用nvm来管理多个不同版本node-js还是很爽的，那我们了解一下常见的nvm相关命令吧" class="headerlink" title="使用nvm来管理多个不同版本node.js还是很爽的，那我们了解一下常见的nvm相关命令吧"></a>使用nvm来管理多个不同版本node.js还是很爽的，那我们了解一下常见的nvm相关命令吧</h5></li>
+<li><h5 id="nvm常用命令：nvm常用命令-切换node版本-简书-jianshu-com"><a href="#nvm常用命令：nvm常用命令-切换node版本-简书-jianshu-com" class="headerlink" title="nvm常用命令：nvm常用命令 切换node版本 - 简书 (jianshu.com)"></a>nvm常用命令：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4c5375895298">nvm常用命令 切换node版本 - 简书 (jianshu.com)</a></h5></li>
+<li><h5 id="我经常使用的就这几个："><a href="#我经常使用的就这几个：" class="headerlink" title="我经常使用的就这几个："></a>我经常使用的就这几个：</h5></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">node -v    					   <span class="hljs-comment">#查看node版本 </span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm -v     				       <span class="hljs-comment">#查看npm版本 </span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm -v	                       <span class="hljs-comment">#查看nvm版本 </span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm list					   <span class="hljs-comment">#查看已安装的node版本号</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm list available			   <span class="hljs-comment">#查看可安装的node版本</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm install 【版本号】			<span class="hljs-comment">#安装指定版本的node</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm use 【版本号】				<span class="hljs-comment">#使用指定版本的node</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm uninstall 【版本号】			<span class="hljs-comment">#卸载指定版本的node</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm config get registry			   <span class="hljs-comment">#查看当前下载源</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm config <span class="hljs-built_in">set</span> registry http://registry,npm.taobao.org            <span class="hljs-comment">#设置下载源为淘宝源</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm config get prefix          <span class="hljs-comment">#获取npm全局安装地址</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm config get cache           <span class="hljs-comment">#获取npm全局缓存位置</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm config <span class="hljs-built_in">set</span> prefix <span class="hljs-string">&quot;D:\softWare\nvm\nvm\v16.19.0\node_global&quot;</span>   <span class="hljs-comment">#修改npm全局安装位置</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm config <span class="hljs-built_in">set</span> cache <span class="hljs-string">&quot;D:\softWare\nvm\nvm\v16.19.0\node_cache&quot;</span>     <span class="hljs-comment">#修改npm全局缓存位置</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn config get registry			   <span class="hljs-comment">#查看当前下载源</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn config <span class="hljs-built_in">set</span> registry https://registry.yarnpkg.com	<span class="hljs-comment">#淘宝源</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn config <span class="hljs-built_in">set</span> registry https://registry.npmmirror.com		<span class="hljs-comment">#源</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li></li>
+<li><h5 id="查看node、npm、nvm版本"><a href="#查看node、npm、nvm版本" class="headerlink" title="查看node、npm、nvm版本"></a>查看node、npm、nvm版本</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624180830876.png" alt="image-20230624180830876"></p>
+<ul>
+<li><h5 id="这也是检验node、npm、nvm是否配置成功的方法"><a href="#这也是检验node、npm、nvm是否配置成功的方法" class="headerlink" title="这也是检验node、npm、nvm是否配置成功的方法"></a>这也是检验node、npm、nvm是否配置成功的方法</h5></li>
+<li><h5 id="查看已安装的node版本号"><a href="#查看已安装的node版本号" class="headerlink" title="查看已安装的node版本号"></a>查看已安装的node版本号</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624204645046.png" alt="image-20230624204645046"></p>
+<ul>
+<li><h5 id="查看可安装的node版本，并安装最新版"><a href="#查看可安装的node版本，并安装最新版" class="headerlink" title="查看可安装的node版本，并安装最新版"></a>查看可安装的node版本，并安装最新版</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230704145801954.png" alt="image-20230704145801954"></p>
+<ul>
+<li><h5 id="使用指定版本的node"><a href="#使用指定版本的node" class="headerlink" title="使用指定版本的node"></a>使用指定版本的node</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230704150100145.png" alt="image-20230704150100145"></p>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="Linux-安装Node-js"><a href="#Linux-安装Node-js" class="headerlink" title="Linux 安装Node.js"></a>Linux 安装Node.js</h2><blockquote>
+<p>2024年5月8日</p>
+</blockquote>
+<p>可以参考这个博客</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/aahwj/article/details/132819154">Linux系统下Node.js的安装步骤_linux 安装node.js-CSDN博客</a></p>
+<h3 id="方法一：源码安装"><a href="#方法一：源码安装" class="headerlink" title="方法一：源码安装"></a>方法一：源码安装</h3><p>在这个网站下找到需要安装的 Node.js 版本：<a target="_blank" rel="noopener" href="https://nodejs.org/dist/"><strong>Index of /dist/ (nodejs.org)</strong></a></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240508091758904.png" alt="image-20240508091758904"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240508091845574.png" alt="image-20240508091845574"></p>
+<p>像这样，找到 18.16.1 版本的，直接点进去：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240508091735062.png" alt="image-20240508091735062"></p>
+<p>右键选择复制链接，复制好的链接是这样的：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">https</span>://nodejs.org/dist/v18.<span class="hljs-number">16</span>.<span class="hljs-number">1</span>/node-v18.<span class="hljs-number">16</span>.<span class="hljs-number">1</span>-linux-x64.tar.gz<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240508091959976.png" alt="image-20240508091959976"></p>
+<p>打开终端，输入 wget 下载命令，下载刚找到的 Node.js 包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://nodejs.org/dist/v18.16.1/node-v18.16.1-linux-x64.tar.gz<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240508092325681.png" alt="image-20240508092325681"></p>
+<p>呐，等待下载完成即可。</p>
+<p>解压下载完成的压缩包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -xzvf node-v18.16.1-linux-x64.tar.gz<br></code></pre></td></tr></table></figure>
+
+<h3 id="方法二：一键安装"><a href="#方法二：一键安装" class="headerlink" title="方法二：一键安装"></a>方法二：一键安装</h3><p><strong>直接在终端执行以下命令</strong>，等待安装即可，速度很快的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo yum install nodejs<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240508093750956.png" alt="image-20240508093750956"></p>
+<p>查看下 nodejs 版本，可以看到已经安装成功了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">node -v<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240508093853686.png" alt="image-20240508093853686"></p>
+<p>如何选择<strong>安装指定版本呢</strong>？需要了解到：</p>
+<p><code>yum</code>（Yellowdog Updater Modified）是 Red Hat、CentOS 和其他基于 RPM 的 Linux 发行版上的包管理器，它通常不提供直接安装特定软件版本的功能。<code>yum</code> 通常只管理其软件仓库中提供的软件包，这些仓库中的软件包可能不是最新的，或者只包含有限版本的集合。</p>
+<p>要安装特定版本的 Node.js，你可以使用<strong>以下方法之一</strong></p>
+<h3 id="方法三：通过NVM安装"><a href="#方法三：通过NVM安装" class="headerlink" title="方法三：通过NVM安装"></a>方法三：通过NVM安装</h3><p>NVM 是一个允许你安装和管理多个 Node.js 版本的工具。首先，你需要安装 NVM，然后使用 NVM 来安装和切换不同版本的 Node.js。</p>
+<p>安装 NVM 的典型命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash  <br><span class="hljs-comment"># 或者  </span><br>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash<br></code></pre></td></tr></table></figure>
+
+<p>安装完 NVM 后，你可以使用以下命令来安装特定版本的 Node.js：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm install 14.17.0  <span class="hljs-comment"># 安装 Node.js 14.17.0 版本  </span><br>nvm use 14.17.0       <span class="hljs-comment"># 使用 Node.js 14.17.0 版本</span><br></code></pre></td></tr></table></figure>
+
+<p>请注意，你需要将版本号（如 <code>14.17.0</code>）替换为你想要安装的 Node.js 版本。</p>
+<h2 id="Linux-安装-Git"><a href="#Linux-安装-Git" class="headerlink" title="Linux 安装 Git"></a>Linux 安装 Git</h2><p>直接一键安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install git<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240508163916752.png" alt="image-20240508163916752"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yasinawolaopo/article/details/121032317">linux ubuntu的su: Authentication failure问题 &amp; sudo passwd输入密码时,总是提示sorry,try again问题（笔记）_sudo输入密码显示对不起请重试-CSDN博客</a></p>
+<h2 id="踩坑经历"><a href="#踩坑经历" class="headerlink" title="踩坑经历"></a>踩坑经历</h2><h3 id="settings-txt文件错误"><a href="#settings-txt文件错误" class="headerlink" title="settings.txt文件错误"></a>settings.txt文件错误</h3><ul>
+<li><h5 id="我在重新配置环境变量以后，再次执行-nvm-v-命令，发现了这个错误："><a href="#我在重新配置环境变量以后，再次执行-nvm-v-命令，发现了这个错误：" class="headerlink" title="我在重新配置环境变量以后，再次执行 nvm -v 命令，发现了这个错误："></a>我在重新配置环境变量以后，再次执行 nvm -v 命令，发现了这个错误：</h5></li>
+</ul>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">ERROR </span>open \settings.txt: The system cannot find the file specified<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="出错原因及解决办法：-67条消息-nvm报错：-ERROR-open-settings-txt-The-system-cannot-find-the-file-specified-CamphorBloom的博客-CSDN博客"><a href="#出错原因及解决办法：-67条消息-nvm报错：-ERROR-open-settings-txt-The-system-cannot-find-the-file-specified-CamphorBloom的博客-CSDN博客" class="headerlink" title="出错原因及解决办法：(67条消息) nvm报错： ERROR open \settings.txt: The system cannot find the file specified_CamphorBloom的博客-CSDN博客"></a>出错原因及解决办法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45719444/article/details/126432836">(67条消息) nvm报错： ERROR open \settings.txt: The system cannot find the file specified_CamphorBloom的博客-CSDN博客</a></h5></li>
+<li><h5 id="就是找到nvm根目录下的settings-txt文件，修改其中内容如下图所示："><a href="#就是找到nvm根目录下的settings-txt文件，修改其中内容如下图所示：" class="headerlink" title="就是找到nvm根目录下的settings.txt文件，修改其中内容如下图所示："></a>就是找到nvm根目录下的settings.txt文件，修改其中内容如下图所示：</h5></li>
+<li><p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624205943293.png" alt="image-20230624205943293"></p>
+</li>
+</ul>
+<hr>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230624205604711.png" alt="image-20230624205604711"></p>
+<ul>
+<li><h5 id="其实还是上面提到的：重新配置nvm及node环境变量以后，记着同步这个settings-txt文件"><a href="#其实还是上面提到的：重新配置nvm及node环境变量以后，记着同步这个settings-txt文件" class="headerlink" title="其实还是上面提到的：重新配置nvm及node环境变量以后，记着同步这个settings.txt文件"></a>其实还是上面提到的：重新配置nvm及node环境变量以后，记着同步这个settings.txt文件</h5></li>
+</ul>
+<h3 id="修改node版本无效"><a href="#修改node版本无效" class="headerlink" title="修改node版本无效"></a>修改node版本无效</h3><ul>
+<li><h5 id="当你的nvm管理多个不同版本的node时，如果版本切换之后无效，则可能的原因是由于之前配置环境变量时，把node的路径写死了。重新配置环境变量的路径后即可切换版本生效"><a href="#当你的nvm管理多个不同版本的node时，如果版本切换之后无效，则可能的原因是由于之前配置环境变量时，把node的路径写死了。重新配置环境变量的路径后即可切换版本生效" class="headerlink" title="当你的nvm管理多个不同版本的node时，如果版本切换之后无效，则可能的原因是由于之前配置环境变量时，把node的路径写死了。重新配置环境变量的路径后即可切换版本生效"></a>当你的nvm管理多个不同版本的node时，如果版本切换之后无效，则可能的原因是由于之前配置环境变量时，把node的路径写死了。重新配置环境变量的路径后即可切换版本生效</h5></li>
+</ul>
+<h3 id="node版本过高-过低"><a href="#node版本过高-过低" class="headerlink" title="node版本过高/过低"></a>node版本过高/过低</h3><ul>
+<li><h5 id="没错，node版本过高-过低都会引发问题，不过这里并不是特指一个问题，而是各种程序运行时，所需node环境不同"><a href="#没错，node版本过高-过低都会引发问题，不过这里并不是特指一个问题，而是各种程序运行时，所需node环境不同" class="headerlink" title="没错，node版本过高/过低都会引发问题，不过这里并不是特指一个问题，而是各种程序运行时，所需node环境不同"></a>没错，node版本过高/过低都会引发问题，不过这里并不是特指一个问题，而是各种程序运行时，所需node环境不同</h5></li>
+<li><h5 id="我这里举两个我遇到的案例："><a href="#我这里举两个我遇到的案例：" class="headerlink" title="我这里举两个我遇到的案例："></a>我这里举两个我遇到的案例：</h5></li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">在本地启动VuePress文档站点服务时，由于<span class="hljs-keyword">node</span><span class="hljs-title">版本过高，启动失败</span><br><span class="hljs-title">我将node</span>版本从<span class="hljs-number">18.16</span>.<span class="hljs-number">1</span>修改至<span class="hljs-number">16.19</span>.<span class="hljs-number">0</span>后，成功解决问题<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">在安装配置VitePress文档站点的hope主题时，由于<span class="hljs-keyword">node</span><span class="hljs-title">版本过低，安装失败</span><br><span class="hljs-title">我将node</span>版本从<span class="hljs-number">16.19</span>.<span class="hljs-number">0</span>修改至<span class="hljs-number">18.16</span>.<span class="hljs-number">1</span>后，成功解决问题<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这里也能比较出VuePress站点生成器相较于VitePress，是有点落后了"><a href="#这里也能比较出VuePress站点生成器相较于VitePress，是有点落后了" class="headerlink" title="这里也能比较出VuePress站点生成器相较于VitePress，是有点落后了"></a>这里也能比较出VuePress站点生成器相较于VitePress，是有点落后了</h5></li>
+<li><h5 id="有关详细案例还请移步至文章：《大道至简：快速搭建博客与文档站点的终极指南1-0》"><a href="#有关详细案例还请移步至文章：《大道至简：快速搭建博客与文档站点的终极指南1-0》" class="headerlink" title="有关详细案例还请移步至文章：《大道至简：快速搭建博客与文档站点的终极指南1.0》"></a>有关详细案例还请移步至文章：《大道至简：快速搭建博客与文档站点的终极指南1.0》</h5></li>
+<li><h5 id="这里其实涉及到一个兼容性问题，不同的程序需要的或者说兼容的node环境是不一样的，"><a href="#这里其实涉及到一个兼容性问题，不同的程序需要的或者说兼容的node环境是不一样的，" class="headerlink" title="这里其实涉及到一个兼容性问题，不同的程序需要的或者说兼容的node环境是不一样的，"></a>这里其实涉及到一个兼容性问题，不同的程序需要的或者说兼容的node环境是不一样的，</h5></li>
+<li><h5 id="以我的经验来看，看情况按需修改node版本以适应不同需求即可，没有特别好的办法"><a href="#以我的经验来看，看情况按需修改node版本以适应不同需求即可，没有特别好的办法" class="headerlink" title="以我的经验来看，看情况按需修改node版本以适应不同需求即可，没有特别好的办法"></a>以我的经验来看，看情况按需修改node版本以适应不同需求即可，没有特别好的办法</h5></li>
+<li><h5 id="当node版本过高时，可能会遇到难以预料的错误（这一点我深有体会）。即使你下载的是LTS（长期支持版），但高版本的node总会出现莫名的问题，此时必须切换至低版本的node，即可能出现如下报错："><a href="#当node版本过高时，可能会遇到难以预料的错误（这一点我深有体会）。即使你下载的是LTS（长期支持版），但高版本的node总会出现莫名的问题，此时必须切换至低版本的node，即可能出现如下报错：" class="headerlink" title="当node版本过高时，可能会遇到难以预料的错误（这一点我深有体会）。即使你下载的是LTS（长期支持版），但高版本的node总会出现莫名的问题，此时必须切换至低版本的node，即可能出现如下报错："></a>当node版本过高时，可能会遇到难以预料的错误（这一点我深有体会）。即使你下载的是LTS（长期支持版），但高版本的node总会出现莫名的问题，此时必须切换至低版本的node，即可能出现如下报错：</h5></li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">node:internal<span class="hljs-regexp">/crypto/</span>hash:<span class="hljs-number">71</span> <span class="hljs-keyword">this</span>[kHandle] = <span class="hljs-keyword">new</span> _Hash(algorithm, xofLen)；<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="高版本node报错解决方法：解决方法-胡八一-的博客-CSDN博客"><a href="#高版本node报错解决方法：解决方法-胡八一-的博客-CSDN博客" class="headerlink" title="高版本node报错解决方法：解决方法_胡八一 的博客-CSDN博客"></a>高版本node报错解决方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44732146/article/details/129041176">解决方法_胡八一 的博客-CSDN博客</a></h5></li>
+</ul>
+<h3 id="淘宝镜像出问题"><a href="#淘宝镜像出问题" class="headerlink" title="淘宝镜像出问题"></a>淘宝镜像出问题</h3><ul>
+<li><h5 id="最近使用npm-install时，出现以下报错：（2023-08-01早）"><a href="#最近使用npm-install时，出现以下报错：（2023-08-01早）" class="headerlink" title="最近使用npm install时，出现以下报错：（2023/08/01早）"></a>最近使用npm install时，出现以下报错：（2023/08/01早）</h5></li>
+</ul>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">[##################] \ reify:typescript: timing reifyNode:node_modules/@babel/parser Completed <span class="hljs-keyword">in</span> <span class="hljs-number">291</span>ms<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这是因为npm默认的镜像设置为了淘宝镜像，这镜像老出毛病，修改npm镜像为官方镜像即可："><a href="#这是因为npm默认的镜像设置为了淘宝镜像，这镜像老出毛病，修改npm镜像为官方镜像即可：" class="headerlink" title="这是因为npm默认的镜像设置为了淘宝镜像，这镜像老出毛病，修改npm镜像为官方镜像即可："></a>这是因为npm默认的镜像设置为了淘宝镜像，这镜像老出毛病，修改npm镜像为官方镜像即可：</h5></li>
+</ul>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tcl">npm <span class="hljs-keyword">set</span> <span class="hljs-keyword">registry</span> https://<span class="hljs-keyword">registry</span>.npmjs.org/<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43991241/article/details/124164067">(87条消息) npm install 卡在了 reify:rxjs: timing reifyNode，出现 gyp ERR find Python、gyp ERR find VS_reify:rxjs卡了然后报错_坐等夕阳落time的博客-CSDN博客</a></li>
+</ul>
+<h3 id="yarn安装失败"><a href="#yarn安装失败" class="headerlink" title="yarn安装失败"></a>yarn安装失败</h3><ul>
+<li><h5 id="最近在开发-PicMemories-壁纸分享小程序，想着给开发一个后台管理员页面，正好借用下API接口开放平台的-Ant-Design-Pro框架"><a href="#最近在开发-PicMemories-壁纸分享小程序，想着给开发一个后台管理员页面，正好借用下API接口开放平台的-Ant-Design-Pro框架" class="headerlink" title="最近在开发 PicMemories 壁纸分享小程序，想着给开发一个后台管理员页面，正好借用下API接口开放平台的 Ant Design Pro框架"></a>最近在开发 PicMemories 壁纸分享小程序，想着给开发一个后台管理员页面，正好借用下API接口开放平台的 Ant Design Pro框架</h5></li>
+<li><h5 id="结果在使用-umi-router-进行页面跳转时，安装依赖老是失败"><a href="#结果在使用-umi-router-进行页面跳转时，安装依赖老是失败" class="headerlink" title="结果在使用 umi/router 进行页面跳转时，安装依赖老是失败"></a>结果在使用 umi/router 进行页面跳转时，安装依赖老是失败</h5></li>
+<li><h5 id="我跟着官网操作，一直报错，执行以下命令也不显示-umi-版本：（2023-08-08晚）"><a href="#我跟着官网操作，一直报错，执行以下命令也不显示-umi-版本：（2023-08-08晚）" class="headerlink" title="我跟着官网操作，一直报错，执行以下命令也不显示 umi 版本：（2023/08/08晚）"></a>我跟着官网操作，一直报错，执行以下命令也不显示 umi 版本：（2023/08/08晚）</h5></li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">umi -v</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>官网：<a target="_blank" rel="noopener" href="https://v2.umijs.org/zh/guide/navigate-between-pages.html#%E5%A3%B0%E6%98%8E%E5%BC%8F">在页面间跳转 | UmiJS</a></p>
+</li>
+<li><h5 id="然后我就看到报错信息，问了一下AI，那大聪明教我添加环境变量，让yarn生效即可（？！）"><a href="#然后我就看到报错信息，问了一下AI，那大聪明教我添加环境变量，让yarn生效即可（？！）" class="headerlink" title="然后我就看到报错信息，问了一下AI，那大聪明教我添加环境变量，让yarn生效即可（？！）"></a>然后我就看到报错信息，问了一下AI，那大聪明教我添加环境变量，让yarn生效即可（？！）</h5></li>
+<li><p>我还真照做了：</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230808193118974.png" alt="image-20230808193118974"></p>
+<ul>
+<li><h5 id="结果当然是后来的各种命令都是在执行过程中，各种报错，如："><a href="#结果当然是后来的各种命令都是在执行过程中，各种报错，如：" class="headerlink" title="结果当然是后来的各种命令都是在执行过程中，各种报错，如："></a>结果当然是后来的各种命令都是在执行过程中，各种报错，如：</h5></li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">yarn <span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">yarn <span class="hljs-literal">start</span>:dev			<span class="hljs-comment">#启动项目</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="把那个环境变量删除了，又出现了这么个错误："><a href="#把那个环境变量删除了，又出现了这么个错误：" class="headerlink" title="把那个环境变量删除了，又出现了这么个错误："></a>把那个环境变量删除了，又出现了这么个错误：</h5></li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">info</span> There appears <span class="hljs-keyword">to</span> be trouble with your<span class="hljs-built_in"> network </span>connection. Retrying<span class="hljs-built_in">..</span>.<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这个是真恶心，我改了镜像源还是无效："><a href="#这个是真恶心，我改了镜像源还是无效：" class="headerlink" title="这个是真恶心，我改了镜像源还是无效："></a>这个是真恶心，我改了镜像源还是无效：</h5></li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">yarn<span class="hljs-built_in"> config </span><span class="hljs-built_in">get</span> registry			   #查看当前下载源<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">yarn config set registry https:<span class="hljs-comment">//registry.yarnpkg.com	#淘宝源</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">yarn config set registry https:<span class="hljs-comment">//registry.npmmirror.com		#源</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012970287/article/details/131100890">前端npm, yarn, pnpm下载速度太慢，设置国内镜像源的几种方式，让其速度飞起来_pnpm 镜像_一枚码农404的博客-CSDN博客</a></p>
+</li>
+<li><h5 id="两天后，终于找到了解决办法：（2023-08-08晚）"><a href="#两天后，终于找到了解决办法：（2023-08-08晚）" class="headerlink" title="两天后，终于找到了解决办法：（2023/08/08晚）"></a>两天后，终于找到了解决办法：（2023/08/08晚）</h5></li>
+<li><h5 id="直接放原文了，以后再整理吧："><a href="#直接放原文了，以后再整理吧：" class="headerlink" title="直接放原文了，以后再整理吧："></a>直接放原文了，以后再整理吧：</h5></li>
+<li><h5 id="info-There-appears-to-be-trouble-with-your-network-connection-Retrying…-泡椒猪肝的博客-CSDN博客"><a href="#info-There-appears-to-be-trouble-with-your-network-connection-Retrying…-泡椒猪肝的博客-CSDN博客" class="headerlink" title="info There appears to be trouble with your network connection. Retrying…_泡椒猪肝的博客-CSDN博客"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45538576/article/details/109526717">info There appears to be trouble with your network connection. Retrying…_泡椒猪肝的博客-CSDN博客</a></h5></li>
+<li><h5 id="总之，这样执行完命令之后，我重新执行了以下命令，发现成功了："><a href="#总之，这样执行完命令之后，我重新执行了以下命令，发现成功了：" class="headerlink" title="总之，这样执行完命令之后，我重新执行了以下命令，发现成功了："></a>总之，这样执行完命令之后，我重新执行了以下命令，发现成功了：</h5></li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">yarn <span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="然后我又在新拉取下来-API项目下执行了该命令，结果报错了："><a href="#然后我又在新拉取下来-API项目下执行了该命令，结果报错了：" class="headerlink" title="然后我又在新拉取下来 API项目下执行了该命令，结果报错了："></a>然后我又在新拉取下来 API项目下执行了该命令，结果报错了：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230808194524015.png" alt="image-20230808194524015"></p>
+<ul>
+<li><h5 id="看报错信息，把config-config-ts下的-requestRecord删除就行了，也不知道抽什么风了"><a href="#看报错信息，把config-config-ts下的-requestRecord删除就行了，也不知道抽什么风了" class="headerlink" title="看报错信息，把config/config.ts下的 requestRecord删除就行了，也不知道抽什么风了"></a>看报错信息，把config/config.ts下的 requestRecord删除就行了，也不知道抽什么风了</h5></li>
+</ul>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs tsx"><span class="hljs-attr">openAPI</span>: [<br>   &#123;<br>     <span class="hljs-attr">requestLibPath</span>: <span class="hljs-string">&quot;import &#123; request &#125; from &#x27;@umijs/max&#x27;&quot;</span>,<br>     <span class="hljs-attr">schemaPath</span>: <span class="hljs-string">&#x27;http://localhost:8101/api//v2/api-docs&#x27;</span>,<br>     <span class="hljs-attr">projectName</span>: <span class="hljs-string">&#x27;memory-api&#x27;</span>,<br>   &#125;,<br> ],<br> <span class="hljs-attr">mfsu</span>: &#123;<br>   <span class="hljs-attr">strategy</span>: <span class="hljs-string">&#x27;normal&#x27;</span>,<br> &#125;,<br> <span class="hljs-attr">requestRecord</span>: &#123;&#125;,<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="问题完美解决，项目成功启动了"><a href="#问题完美解决，项目成功启动了" class="headerlink" title="问题完美解决，项目成功启动了"></a>问题完美解决，项目成功启动了</h5></li>
+</ul>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><ul>
+<li><h5 id="还要注意的是，修改环境变量配置后，有时候在短时间内是不会生效的，这个坑我踩过好多遍了，我的经验是要等待3-5分钟才会生效的"><a href="#还要注意的是，修改环境变量配置后，有时候在短时间内是不会生效的，这个坑我踩过好多遍了，我的经验是要等待3-5分钟才会生效的" class="headerlink" title="还要注意的是，修改环境变量配置后，有时候在短时间内是不会生效的，这个坑我踩过好多遍了，我的经验是要等待3 - 5分钟才会生效的"></a>还要注意的是，修改环境变量配置后，有时候在短时间内是不会生效的，这个坑我踩过好多遍了，我的经验是要等待3 - 5分钟才会生效的</h5></li>
+<li><h5 id="还有就是你平时见到的像如下所示的报错，九成的概率是环境变量配置错误了，赶紧检查一下环境变量吧"><a href="#还有就是你平时见到的像如下所示的报错，九成的概率是环境变量配置错误了，赶紧检查一下环境变量吧" class="headerlink" title="还有就是你平时见到的像如下所示的报错，九成的概率是环境变量配置错误了，赶紧检查一下环境变量吧"></a>还有就是你平时见到的像如下所示的报错，九成的概率是环境变量配置错误了，赶紧检查一下环境变量吧</h5></li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">nvm/npm/<span class="hljs-keyword">node</span><span class="hljs-title">/hexo</span>不是内部或外部命令<br></code></pre></td></tr></table></figure>
+
+<h3 id="VuePress-搭建-Blog-启动失败"><a href="#VuePress-搭建-Blog-启动失败" class="headerlink" title="VuePress 搭建 Blog 启动失败"></a>VuePress 搭建 Blog 启动失败</h3><ul>
+<li><h5 id="最初还以为是-node-js-版本问题，结果是-modules-目录构建有问题（2023-11-25晚）"><a href="#最初还以为是-node-js-版本问题，结果是-modules-目录构建有问题（2023-11-25晚）" class="headerlink" title="最初还以为是 node.js 版本问题，结果是 modules 目录构建有问题（2023/11/25晚）"></a>最初还以为是 node.js 版本问题，结果是 modules 目录构建有问题（2023/11/25晚）</h5></li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231126003630708.png" alt="image-20231126003630708"></p>
+<ul>
+<li>解决了，<strong>方案如下</strong>：</li>
+<li>删除目录下的 modules 目录，执行以下命令重新构建 modules 目录：</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">yarn <span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>再次尝试启动 blog，<strong>启动成功</strong>：</li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231126004435021.png" alt="image-20231126004435021"></p>
+<h2 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h2><h3 id="pnpm全局安装无效"><a href="#pnpm全局安装无效" class="headerlink" title="pnpm全局安装无效"></a>pnpm全局安装无效</h3><ul>
+<li><h5 id="在配置vuepress文档站点的主题时，需要用到pnpm包管理器来安装执行命令，于是想了解npm、pnpm、yarn的区别和安装方法"><a href="#在配置vuepress文档站点的主题时，需要用到pnpm包管理器来安装执行命令，于是想了解npm、pnpm、yarn的区别和安装方法" class="headerlink" title="在配置vuepress文档站点的主题时，需要用到pnpm包管理器来安装执行命令，于是想了解npm、pnpm、yarn的区别和安装方法"></a>在配置vuepress文档站点的主题时，需要用到pnpm包管理器来安装执行命令，于是想了解npm、pnpm、yarn的区别和安装方法</h5></li>
+<li><h5 id="关于这块的详细内容，可以在《理解npm、pnpm和yarn：选出最适合你的包管理器》一文中了解"><a href="#关于这块的详细内容，可以在《理解npm、pnpm和yarn：选出最适合你的包管理器》一文中了解" class="headerlink" title="关于这块的详细内容，可以在《理解npm、pnpm和yarn：选出最适合你的包管理器》一文中了解"></a>关于这块的详细内容，可以在《理解npm、pnpm和yarn：选出最适合你的包管理器》一文中了解</h5></li>
+<li><h5 id="这里我介绍下我遇到的pnpm全局安装后，pnpm命令仍不生效的问题"><a href="#这里我介绍下我遇到的pnpm全局安装后，pnpm命令仍不生效的问题" class="headerlink" title="这里我介绍下我遇到的pnpm全局安装后，pnpm命令仍不生效的问题"></a>这里我介绍下我遇到的pnpm全局安装后，pnpm命令仍不生效的问题</h5></li>
+<li><h5 id="我在使用如下命令进行全局安装pnpm包管理器后，仍然报错：‘pnpm‘-不是内部或外部命令，也不是可运行的程序或批处理文件"><a href="#我在使用如下命令进行全局安装pnpm包管理器后，仍然报错：‘pnpm‘-不是内部或外部命令，也不是可运行的程序或批处理文件" class="headerlink" title="我在使用如下命令进行全局安装pnpm包管理器后，仍然报错：‘pnpm‘ 不是内部或外部命令，也不是可运行的程序或批处理文件"></a>我在使用如下命令进行全局安装pnpm包管理器后，仍然报错：‘pnpm‘ 不是内部或外部命令，也不是可运行的程序或批处理文件</h5></li>
+</ul>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> i -g pnpm<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这其实是因为在我们配置了nvm后，没有修改npm全局安装地址，导致pnpm没有安装在nvm管理下的Node-js目录下"><a href="#这其实是因为在我们配置了nvm后，没有修改npm全局安装地址，导致pnpm没有安装在nvm管理下的Node-js目录下" class="headerlink" title="这其实是因为在我们配置了nvm后，没有修改npm全局安装地址，导致pnpm没有安装在nvm管理下的Node.js目录下"></a>这其实是因为在我们配置了nvm后，没有修改npm全局安装地址，导致pnpm没有安装在nvm管理下的Node.js目录下</h5></li>
+<li><h5 id="这样就导致了我们在nvm管理下，配置的Node-js环境变量未对pnpm生效"><a href="#这样就导致了我们在nvm管理下，配置的Node-js环境变量未对pnpm生效" class="headerlink" title="这样就导致了我们在nvm管理下，配置的Node.js环境变量未对pnpm生效"></a>这样就导致了我们在nvm管理下，配置的Node.js环境变量未对pnpm生效</h5></li>
+<li><h5 id="这里涉及到Node-js环境变量的配置相关知识，详情可在上文-Node-js的配置一栏中了解"><a href="#这里涉及到Node-js环境变量的配置相关知识，详情可在上文-Node-js的配置一栏中了解" class="headerlink" title="这里涉及到Node.js环境变量的配置相关知识，详情可在上文 Node.js的配置一栏中了解"></a>这里涉及到Node.js环境变量的配置相关知识，详情可在上文 Node.js的配置一栏中了解</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703094859712.png" alt="image-20230703094859712"></p>
+<ul>
+<li><h5 id="如上图所示，npm默认状态下，pnpm全局安装在了-D-softWare-node-node-global下，导致在nvm管理下，配置的Node-js环境变量未对pnpm生效"><a href="#如上图所示，npm默认状态下，pnpm全局安装在了-D-softWare-node-node-global下，导致在nvm管理下，配置的Node-js环境变量未对pnpm生效" class="headerlink" title="如上图所示，npm默认状态下，pnpm全局安装在了 D:\softWare\node\node_global下，导致在nvm管理下，配置的Node.js环境变量未对pnpm生效"></a>如上图所示，npm默认状态下，pnpm全局安装在了 D:\softWare\node\node_global下，导致在nvm管理下，配置的Node.js环境变量未对pnpm生效</h5></li>
+<li><h5 id="解决方法很简单，修改npm默认全局安装地址，将pnpm安装在已配置好的Node-js环境变量目录下即可"><a href="#解决方法很简单，修改npm默认全局安装地址，将pnpm安装在已配置好的Node-js环境变量目录下即可" class="headerlink" title="解决方法很简单，修改npm默认全局安装地址，将pnpm安装在已配置好的Node.js环境变量目录下即可"></a>解决方法很简单，修改npm默认全局安装地址，将pnpm安装在已配置好的Node.js环境变量目录下即可</h5></li>
+<li><h5 id="执行以下命令，修改npm默认全局安装地址为在nvm管理下的Node-js目录下的node-global下"><a href="#执行以下命令，修改npm默认全局安装地址为在nvm管理下的Node-js目录下的node-global下" class="headerlink" title="执行以下命令，修改npm默认全局安装地址为在nvm管理下的Node.js目录下的node_global下"></a>执行以下命令，修改npm默认全局安装地址为在nvm管理下的Node.js目录下的node_global下</h5></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs swift">npm config <span class="hljs-keyword">set</span> <span class="hljs-keyword">prefix</span> <span class="hljs-string">&quot;D:\softWare<span class="hljs-subst">\n</span>vm<span class="hljs-subst">\n</span>vm\v16.19.0<span class="hljs-subst">\n</span>ode_global&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="在此执行全局安装pnpm，可以看到pnpm已成功安装在nvm管理下的Node-js目录下的node-global下了"><a href="#在此执行全局安装pnpm，可以看到pnpm已成功安装在nvm管理下的Node-js目录下的node-global下了" class="headerlink" title="在此执行全局安装pnpm，可以看到pnpm已成功安装在nvm管理下的Node.js目录下的node_global下了"></a>在此执行全局安装pnpm，可以看到pnpm已成功安装在nvm管理下的Node.js目录下的node_global下了</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703095616776.png"></p>
+<ul>
+<li><h5 id="执行以下命令，查看pnpm版本，结果如图所示："><a href="#执行以下命令，查看pnpm版本，结果如图所示：" class="headerlink" title="执行以下命令，查看pnpm版本，结果如图所示："></a>执行以下命令，查看pnpm版本，结果如图所示：</h5></li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pnpm -v</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230703100054233.png" alt="image-20230703100054233"></p>
+<ul>
+<li><h5 id="显然，pnpm全局安装完成，可以正常使用"><a href="#显然，pnpm全局安装完成，可以正常使用" class="headerlink" title="显然，pnpm全局安装完成，可以正常使用"></a>显然，pnpm全局安装完成，可以正常使用</h5></li>
+<li><h5 id="当然，有关pnpm常用命令和使用规范，可在《理解npm、pnpm和yarn：选出最适合你的包管理器》一文中详细了解到"><a href="#当然，有关pnpm常用命令和使用规范，可在《理解npm、pnpm和yarn：选出最适合你的包管理器》一文中详细了解到" class="headerlink" title="当然，有关pnpm常用命令和使用规范，可在《理解npm、pnpm和yarn：选出最适合你的包管理器》一文中详细了解到"></a>当然，有关pnpm常用命令和使用规范，可在《理解npm、pnpm和yarn：选出最适合你的包管理器》一文中详细了解到</h5></li>
+<li><h5 id="有关设置npm默认全局安装地址的详情，可看这篇博客："><a href="#有关设置npm默认全局安装地址的详情，可看这篇博客：" class="headerlink" title="有关设置npm默认全局安装地址的详情，可看这篇博客："></a>有关设置npm默认全局安装地址的详情，可看这篇博客：</h5></li>
+<li><h5 id="71条消息-查找npm默认全局安装地址、缓存位置及设置安装地址、缓存位置-npm-缓存位置-俺是老王的博客-CSDN博客"><a href="#71条消息-查找npm默认全局安装地址、缓存位置及设置安装地址、缓存位置-npm-缓存位置-俺是老王的博客-CSDN博客" class="headerlink" title="(71条消息) 查找npm默认全局安装地址、缓存位置及设置安装地址、缓存位置_npm 缓存位置_俺是老王的博客-CSDN博客"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37600506/article/details/121067302">(71条消息) 查找npm默认全局安装地址、缓存位置及设置安装地址、缓存位置_npm 缓存位置_俺是老王的博客-CSDN博客</a></h5></li>
+<li><h5 id="查找npm默认全局安装地址、缓存位置及设置安装地址、缓存位置"><a href="#查找npm默认全局安装地址、缓存位置及设置安装地址、缓存位置" class="headerlink" title="查找npm默认全局安装地址、缓存位置及设置安装地址、缓存位置"></a>查找npm默认全局安装地址、缓存位置及设置安装地址、缓存位置</h5></li>
+</ul>
+<h3 id="修改node版本"><a href="#修改node版本" class="headerlink" title="修改node版本"></a>修改node版本</h3><ul>
+<li><h5 id="使用nvm管理不同版本的node后，修改npm版本时要注意以下几点："><a href="#使用nvm管理不同版本的node后，修改npm版本时要注意以下几点：" class="headerlink" title="使用nvm管理不同版本的node后，修改npm版本时要注意以下几点："></a>使用nvm管理不同版本的node后，修改npm版本时要注意以下几点：</h5><ol>
+<li><h5 id="修改可能会失效，这是因为环境变量写死了上个一个node版本了，修改NODE-PATH路径即可"><a href="#修改可能会失效，这是因为环境变量写死了上个一个node版本了，修改NODE-PATH路径即可" class="headerlink" title="修改可能会失效，这是因为环境变量写死了上个一个node版本了，修改NODE_PATH路径即可"></a>修改可能会失效，这是因为环境变量写死了上个一个node版本了，修改NODE_PATH路径即可</h5></li>
+<li><h5 id="npm全局安装路径也要注意同步修改，改成新版本下的node-global目录下"><a href="#npm全局安装路径也要注意同步修改，改成新版本下的node-global目录下" class="headerlink" title="npm全局安装路径也要注意同步修改，改成新版本下的node_global目录下"></a>npm全局安装路径也要注意同步修改，改成新版本下的node_global目录下</h5></li>
+<li><h5 id="检查原node环境下的构建工具、包管理工具是否成功安装"><a href="#检查原node环境下的构建工具、包管理工具是否成功安装" class="headerlink" title="检查原node环境下的构建工具、包管理工具是否成功安装"></a>检查原node环境下的构建工具、包管理工具是否成功安装</h5></li>
+</ol>
+</li>
+<li><h5 id="第二个错误我就犯过，没有及时修改全局安装路径，导致安装pnpm后，pnpm又失效了"><a href="#第二个错误我就犯过，没有及时修改全局安装路径，导致安装pnpm后，pnpm又失效了" class="headerlink" title="第二个错误我就犯过，没有及时修改全局安装路径，导致安装pnpm后，pnpm又失效了"></a>第二个错误我就犯过，没有及时修改全局安装路径，导致安装pnpm后，pnpm又失效了</h5></li>
+<li><h5 id="第三个要特别注意，新的node环境下可能没有原node环境下的构建-包管理工具，当你在新node环境下使用这些工具时，会报如下错误："><a href="#第三个要特别注意，新的node环境下可能没有原node环境下的构建-包管理工具，当你在新node环境下使用这些工具时，会报如下错误：" class="headerlink" title="第三个要特别注意，新的node环境下可能没有原node环境下的构建/包管理工具，当你在新node环境下使用这些工具时，会报如下错误："></a>第三个要特别注意，新的node环境下可能没有原node环境下的构建/包管理工具，当你在新node环境下使用这些工具时，会报如下错误：</h5></li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-strong">***</span>既不是外部命令，也不是可执行的内部命令<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="很常见的问题，确认Node-js环境变量配置无误后，执行npm全局安装该工具即可："><a href="#很常见的问题，确认Node-js环境变量配置无误后，执行npm全局安装该工具即可：" class="headerlink" title="很常见的问题，确认Node.js环境变量配置无误后，执行npm全局安装该工具即可："></a>很常见的问题，确认Node.js环境变量配置无误后，执行npm全局安装该工具即可：</h5></li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">npm i -g <span class="hljs-strong">***</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="这就是修改node版本时，需要注意的要点及如何解决可能出现的相关问题"><a href="#这就是修改node版本时，需要注意的要点及如何解决可能出现的相关问题" class="headerlink" title="这就是修改node版本时，需要注意的要点及如何解决可能出现的相关问题"></a>这就是修改node版本时，需要注意的要点及如何解决可能出现的相关问题</h5></li>
+</ul>
+<h3 id="Linux-一键安装-Node-js-环境"><a href="#Linux-一键安装-Node-js-环境" class="headerlink" title="Linux 一键安装 Node.js 环境"></a>Linux 一键安装 Node.js 环境</h3><ul>
+<li>在 Linux 系统中，可以使用以下命令安装最新版本的 Node.js：<strong>（2023/11/26午）</strong></li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">curl</span> -<span class="hljs-built_in">sL</span> https:<span class="hljs-comment">//deb.nodesource.com/setup_current_lts.x | sudo -E bash -</span><br><span class="hljs-symbol">sudo</span> apt-<span class="hljs-meta">get</span> install -y nodejs<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在 macOS 系统中，可以使用 Homebrew 安装最新版本的 Node.js：</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">bash复制代码<br>brew install <span class="hljs-keyword">node</span><span class="hljs-title">@latest</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/xaiolele/article/details/124930382">Linux安装nodejs 命令方法_linux安装node18_xaiolele的博客-CSDN博客</a></li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li><h5 id="Node-js的配置还是比较容易的，有机会的话，后续会持续更新进阶的Node-js的配置教学"><a href="#Node-js的配置还是比较容易的，有机会的话，后续会持续更新进阶的Node-js的配置教学" class="headerlink" title="Node.js的配置还是比较容易的，有机会的话，后续会持续更新进阶的Node.js的配置教学"></a>Node.js的配置还是比较容易的，有机会的话，后续会持续更新进阶的Node.js的配置教学</h5></li>
+<li><h5 id="非常感谢您能够阅读到这里，感谢您对本人的支持！"><a href="#非常感谢您能够阅读到这里，感谢您对本人的支持！" class="headerlink" title="非常感谢您能够阅读到这里，感谢您对本人的支持！"></a>非常感谢您能够阅读到这里，感谢您对本人的支持！</h5></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" class="category-chain-item">包管理器</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/node/" class="category-chain-item">node</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/node/%E7%BB%8F%E9%AA%8C/" class="category-chain-item">经验</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/%E7%BB%8F%E9%AA%8C/">#经验</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/">#包管理器</a>
+      
+        <a href="/deng-2022/blog_2/tags/node/">#node</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>配置指南-掌握Node.js配置</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/06/24/配置指南-掌握Node-js配置/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年5月8日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/24/%E5%A4%A7%E9%81%93%E8%87%B3%E7%AE%80%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%8E%E6%96%87%E6%A1%A3%E7%AB%99%E7%82%B9%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%972.0/" title="大道至简：快速搭建博客与文档站点的终极指南2.0">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">大道至简：快速搭建博客与文档站点的终极指南2.0</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/22/AI%20%E5%AE%9E%E8%B7%B5%E4%B8%AD%E7%9A%84%E6%B4%9E%E8%A7%81%EF%BC%9A%E6%88%91%E7%9A%84%20AI%20%E4%B9%8B%E6%97%85/" title="AI实践中的洞见：我的AI之旅">
+                        <span class="hidden-mobile">AI实践中的洞见：我的AI之旅</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

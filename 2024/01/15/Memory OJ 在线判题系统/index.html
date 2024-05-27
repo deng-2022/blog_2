@@ -1,0 +1,1096 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="技术选型架构设计编码开发前端很好啊，前后端项目模板跑起来了：   2024年5月5日  框架构建安装 | Vue CLI (vuejs.org) Arco Design Vue 12345678910111213&lt;template&gt;  &lt;BasicLayout &#x2F;&gt;&lt;&#x2F;template&gt;&lt;style&gt;&lt;&#x2F;style&gt;&lt;script&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Memory OJ 在线判题系统">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2024/01/15/Memory%20OJ%20%E5%9C%A8%E7%BA%BF%E5%88%A4%E9%A2%98%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="技术选型架构设计编码开发前端很好啊，前后端项目模板跑起来了：   2024年5月5日  框架构建安装 | Vue CLI (vuejs.org) Arco Design Vue 12345678910111213&lt;template&gt;  &lt;BasicLayout &#x2F;&gt;&lt;&#x2F;template&gt;&lt;style&gt;&lt;&#x2F;style&gt;&lt;script&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/room04142.jpg">
+<meta property="article:published_time" content="2024-01-15T14:18:01.000Z">
+<meta property="article:modified_time" content="2024-02-27T11:37:25.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="项目">
+<meta property="article:tag" content="RabbitMQ">
+<meta property="article:tag" content="开发经验">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/room04142.jpg">
+  
+  
+  
+  <title>Memory OJ 在线判题系统 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Memory OJ 在线判题系统"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-15 22:18" pubdate>
+          2024年1月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          18k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          47 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="RabbitMQ"
+        id="heading-7eaa993723e57b3bfc99923c196e2e17" role="tab" data-toggle="collapse" href="#collapse-7eaa993723e57b3bfc99923c196e2e17"
+        aria-expanded="true"
+      >
+        RabbitMQ
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-7eaa993723e57b3bfc99923c196e2e17"
+           role="tabpanel" aria-labelledby="heading-7eaa993723e57b3bfc99923c196e2e17">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+        aria-expanded="true"
+      >
+        项目
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="开发经验"
+        id="heading-bfd19ce0478d81a44ceb5a9a1aa94202" role="tab" data-toggle="collapse" href="#collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+        aria-expanded="true"
+      >
+        开发经验
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+           role="tabpanel" aria-labelledby="heading-bfd19ce0478d81a44ceb5a9a1aa94202">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/10/03/Memory%20BI%E6%99%BA%E8%83%BD%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0-%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="Memory BI 智能分析平台-开发文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Memory BI 智能分析平台-开发文档</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2024/01/15/Memory%20OJ%20%E5%9C%A8%E7%BA%BF%E5%88%A4%E9%A2%98%E7%B3%BB%E7%BB%9F/" title="Memory OJ 在线判题系统"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Memory OJ 在线判题系统</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Memory OJ 在线判题系统</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：3 个月前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><h1 id="编码开发"><a href="#编码开发" class="headerlink" title="编码开发"></a>编码开发</h1><h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>很好啊，前后端项目模板跑起来了：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240117230852510.png" alt="image-20240117230852510"></p>
+<blockquote>
+<p>2024年5月5日</p>
+</blockquote>
+<h3 id="框架构建"><a href="#框架构建" class="headerlink" title="框架构建"></a>框架构建</h3><p><a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/installation.html">安装 | Vue CLI (vuejs.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://arco.design/vue/docs/start">Arco Design Vue</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;BasicLayout /&gt;<br>&lt;/template&gt;<br><br>&lt;style&gt;&lt;/style&gt;<br>&lt;script&gt;<br>import BasicLayout from &quot;@/layouts/BasicLayout&quot;;<br><br>export default &#123;<br>  components: &#123; BasicLayout &#125;,<br>&#125;;<br>&lt;/script&gt;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;GlobalHeader /&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>import GlobalHeader from &quot;@/components/GlobalHeader&quot;;<br><br>export default &#123;<br>  name: &quot;BasicLayout&quot;,<br>  components: &#123; GlobalHeader &#125;,<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div&gt;&lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>export default &#123;<br>  name: &quot;GlobalHeader&quot;,<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240505172201305.png" alt="image-20240505172201305"></p>
+<h3 id="路由跳转"><a href="#路由跳转" class="headerlink" title="路由跳转"></a>路由跳转</h3><p>router 下的 index.ts：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; createRouter, createWebHistory &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue-router&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; routes &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/router/routes&quot;</span>;<br><br><span class="hljs-keyword">const</span> router = <span class="hljs-title function_">createRouter</span>(&#123;<br>  <span class="hljs-attr">history</span>: <span class="hljs-title function_">createWebHistory</span>(process.<span class="hljs-property">env</span>.<span class="hljs-property">BASE_URL</span>),<br>  routes,<br>&#125;);<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> router;<br><br></code></pre></td></tr></table></figure>
+
+<p>router 下的 router.ts：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">RouteRecordRaw</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue-router&quot;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">HomeView</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/views/HomeView.vue&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">routes</span>: <span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">RouteRecordRaw</span>&gt; = [<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;/&quot;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;首页&quot;</span>,<br>    <span class="hljs-attr">component</span>: <span class="hljs-title class_">HomeView</span>,<br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;/about&quot;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;关于&quot;</span>,<br>    <span class="hljs-comment">// route level code-splitting</span><br>    <span class="hljs-comment">// this generates a separate chunk (about.[hash].js) for this route</span><br>    <span class="hljs-comment">// which is lazy-loaded when the route is visited.</span><br>    <span class="hljs-attr">component</span>: <span class="hljs-function">() =&gt;</span><br>      <span class="hljs-keyword">import</span>(<span class="hljs-comment">/* webpackChunkName: &quot;about&quot; */</span> <span class="hljs-string">&quot;../views/AboutView.vue&quot;</span>),<br>  &#125;,<br>];<br><br></code></pre></td></tr></table></figure>
+
+<p>动态导航栏：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;a-menu<br>     mode=&quot;horizontal&quot;<br>     :selected-keys=&quot;selectedKeys&quot;<br>     @menu-item-click=&quot;doMenuClick&quot;<br>   &gt;<br>     &lt;a-menu-item<br>       key=&quot;0&quot;<br>       :style=&quot;&#123; padding: 0, marginRight: &#x27;38px&#x27; &#125;&quot;<br>       disabled<br>     &gt;<br>       &lt;div class=&quot;title-bar&quot;&gt;<br>         &lt;img class=&quot;logo&quot; src=&quot;../assets/oj-logo.svg&quot; /&gt;<br>         &lt;div class=&quot;title&quot;&gt;OJ&lt;/div&gt;<br>       &lt;/div&gt;<br>     &lt;/a-menu-item&gt;<br>     &lt;a-menu-item v-for=&quot;item in routes&quot; :key=&quot;item.path&quot;&gt;<br>       &#123;&#123; item.name &#125;&#125;<br>     &lt;/a-menu-item&gt;<br>   &lt;/a-menu&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; ref &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; useRouter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue-router&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; routes &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/router/routes&quot;</span>;<br><br><span class="hljs-keyword">const</span> router = <span class="hljs-title function_">useRouter</span>();<br><span class="hljs-comment">// 默认主页</span><br><span class="hljs-keyword">const</span> selectedKeys = <span class="hljs-title function_">ref</span>([<span class="hljs-string">&quot;/&quot;</span>]);<br><br><span class="hljs-comment">// 路由跳转后，更新选中的菜单项</span><br>router.<span class="hljs-title function_">afterEach</span>(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, failure</span>) =&gt;</span> &#123;<br>  selectedKeys.<span class="hljs-property">value</span> = [to.<span class="hljs-property">path</span>];<br>&#125;);<br><br><span class="hljs-comment">// 跳转路由</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">doMenuClick</span> = (<span class="hljs-params">key: <span class="hljs-built_in">string</span></span>) =&gt; &#123;<br>  router.<span class="hljs-title function_">push</span>(&#123;<br>    <span class="hljs-attr">path</span>: key,<br>  &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><strong>效果如下：</strong></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240505180151544.png" alt="image-20240505180151544"></p>
+<h3 id="全局状态管理"><a href="#全局状态管理" class="headerlink" title="全局状态管理"></a>全局状态管理</h3><p><a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex/blob/main/examples/classic/shopping-cart/store/index.js">vuex/examples/classic/shopping-cart/store/index.js at main · vuejs/vuex (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84-store">开始 | Vuex (vuejs.org)</a></p>
+<p>store 下的 user.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// initial state</span><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">StoreOptions</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vuex&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">namespaced</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">state</span>: <span class="hljs-function">() =&gt;</span> (&#123;<br>    <span class="hljs-attr">loginUser</span>: &#123;<br>      <span class="hljs-attr">userName</span>: <span class="hljs-string">&quot;未登录&quot;</span>,<br>    &#125;,<br>  &#125;),<br>  <span class="hljs-attr">actions</span>: &#123;<br>    <span class="hljs-keyword">async</span> <span class="hljs-title function_">getLoginUser</span>(<span class="hljs-params">&#123; commit, state &#125;, payload</span>) &#123;<br>      <span class="hljs-title function_">commit</span>(<span class="hljs-string">&quot;updateUser&quot;</span>, &#123; <span class="hljs-attr">userName</span>: <span class="hljs-string">&quot;memory&quot;</span> &#125;);<br>    &#125;,<br>  &#125;,<br>  <span class="hljs-attr">mutations</span>: &#123;<br>    <span class="hljs-title function_">updateUser</span>(<span class="hljs-params">state, payload</span>) &#123;<br>      state.<span class="hljs-property">loginUser</span> = payload;<br>    &#125;,<br>  &#125;,<br>&#125; <span class="hljs-keyword">as</span> <span class="hljs-title class_">StoreOptions</span>&lt;<span class="hljs-built_in">any</span>&gt;;<br><br></code></pre></td></tr></table></figure>
+
+<p>index.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; createStore &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vuex&quot;</span>;<br><span class="hljs-keyword">import</span> user <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/store/user&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">createStore</span>(&#123;<br>  <span class="hljs-attr">state</span>: &#123;&#125;,<br>  <span class="hljs-attr">getters</span>: &#123;&#125;,<br>  <span class="hljs-attr">mutations</span>: &#123;&#125;,<br>  <span class="hljs-attr">actions</span>: &#123;&#125;,<br>  <span class="hljs-attr">modules</span>: &#123;<br>    user,<br>  &#125;,<br>&#125;);<br><br></code></pre></td></tr></table></figure>
+
+<p>main.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> store <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./store&quot;</span>;<br><br><span class="hljs-title function_">createApp</span>(<span class="hljs-title class_">App</span>).<span class="hljs-title function_">use</span>(<span class="hljs-title class_">ArcoVue</span>).<span class="hljs-title function_">use</span>(store).<span class="hljs-title function_">use</span>(router).<span class="hljs-title function_">mount</span>(<span class="hljs-string">&quot;#app&quot;</span>);<br><br></code></pre></td></tr></table></figure>
+
+<p><strong>store 原理（执行流程）</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 使用 store</span><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  store.<span class="hljs-title function_">dispatch</span>(<span class="hljs-string">&quot;user/getLoginUser&quot;</span>, &#123;<br>    <span class="hljs-attr">userName</span>: <span class="hljs-string">&quot;回忆如初&quot;</span>,<br>  &#125;);<br>&#125;, <span class="hljs-number">3000</span>);<br></code></pre></td></tr></table></figure>
+
+<p>这样引入 store，执行 dispatch方法，根据 actions 下的路径，提供参数，执行 mutations 下的方法。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-attr">actions</span>: &#123;<br>    <span class="hljs-keyword">async</span> <span class="hljs-title function_">getLoginUser</span>(<span class="hljs-params">&#123; commit, state &#125;, payload</span>) &#123;<br>      <span class="hljs-title function_">commit</span>(<span class="hljs-string">&quot;updateUser&quot;</span>, payload);<br>    &#125;,<br>  &#125;,<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-attr">mutations</span>: &#123;<br>   <span class="hljs-title function_">updateUser</span>(<span class="hljs-params">state, payload</span>) &#123;<br>     state.<span class="hljs-property">loginUser</span> = payload;<br>   &#125;,<br> &#125;,<br></code></pre></td></tr></table></figure>
+
+<p>mutations 改变了 state 的值，根据传入的参数改变了。</p>
+<p>我们尝试在页面获取 store 值，并展示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;a-col flex=&quot;100px&quot;&gt;<br>    &lt;div&gt;<br>      &#123;&#123; store.state.user?.loginUser?.userName ?? &quot;未登录&quot; &#125;&#125;<br>    &lt;/div&gt;<br>  &lt;/a-col&gt;<br></code></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240505182741049.png" alt="image-20240505182741049"></p>
+<p>另外，action 这里可以写死，不接受参数：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-attr">actions</span>: &#123;<br>    <span class="hljs-keyword">async</span> <span class="hljs-title function_">getLoginUser</span>(<span class="hljs-params">&#123; commit, state &#125;, payload</span>) &#123;<br>      <span class="hljs-title function_">commit</span>(<span class="hljs-string">&quot;updateUser&quot;</span>, &#123; <span class="hljs-attr">userName</span>: <span class="hljs-string">&quot;memory&quot;</span> &#125;);<br>    &#125;,<br>  &#125;,<br></code></pre></td></tr></table></figure>
+
+<h3 id="全局权限管理"><a href="#全局权限管理" class="headerlink" title="全局权限管理"></a>全局权限管理</h3><p>关键在于这段逻辑，App.vue 下：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/router&quot;</span>;<br><span class="hljs-keyword">import</span> store <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/store&quot;</span>;<br><br>router.<span class="hljs-title function_">beforeEach</span>(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> &#123;<br>  <span class="hljs-comment">// 仅管理员可见，判断当前用户是否有权限</span><br>  <span class="hljs-keyword">if</span> (to.<span class="hljs-property">meta</span>?.<span class="hljs-property">access</span> === <span class="hljs-string">&quot;canAdmin&quot;</span>) &#123;<br>    <span class="hljs-keyword">if</span> (store.<span class="hljs-property">state</span>.<span class="hljs-property">user</span>?.<span class="hljs-property">loginUser</span>?.<span class="hljs-property">role</span> !== <span class="hljs-string">&quot;admin&quot;</span>) &#123;<br>      <span class="hljs-title function_">next</span>(<span class="hljs-string">&quot;/noAuth&quot;</span>);<br>      <span class="hljs-keyword">return</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-title function_">next</span>();<br>&#125;);<br><br></code></pre></td></tr></table></figure>
+
+<p>设置路由访问权限，必须为管理员可见：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ts">&#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;/auth&quot;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;管理员可见&quot;</span>,<br>    <span class="hljs-attr">component</span>: <span class="hljs-title class_">AuthView</span>,<br>    <span class="hljs-attr">meta</span>: &#123;<br>      <span class="hljs-attr">access</span>: <span class="hljs-string">&quot;canAdmin&quot;</span>,<br>    &#125;,<br>  &#125;,<br></code></pre></td></tr></table></figure>
+
+<p>默认用户权限，测试用：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-attr">state</span>: <span class="hljs-function">() =&gt;</span> (&#123;<br>  <span class="hljs-attr">loginUser</span>: &#123;<br>    <span class="hljs-attr">userName</span>: <span class="hljs-string">&quot;未登录&quot;</span>,<br>    <span class="hljs-attr">role</span>: <span class="hljs-string">&quot;admin&quot;</span>,<br>  &#125;,<br>&#125;),<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240505190305372.png" alt="image-20240505190305372"></p>
+<p>我们发现能正常跳转页面，但这样做：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// 使用 store</span><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  store.<span class="hljs-title function_">dispatch</span>(<span class="hljs-string">&quot;user/getLoginUser&quot;</span>, &#123;<br>    <span class="hljs-attr">userName</span>: <span class="hljs-string">&quot;回忆如初&quot;</span>,<br>    <span class="hljs-attr">role</span>: <span class="hljs-string">&quot;noAdmin&quot;</span>,<br>  &#125;);<br>&#125;, <span class="hljs-number">3000</span>);<br></code></pre></td></tr></table></figure>
+
+<p>三秒过后，该用户不是管理员权限，访问一个管理员可见的页面，直接重定向：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240505190310211.png" alt="image-20240505190310211"></p>
+<h3 id="隐藏菜单"><a href="#隐藏菜单" class="headerlink" title="隐藏菜单"></a>隐藏菜单</h3><p>构造通用的导航栏组件，根据配置控制菜单栏的显隐</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ts">&#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;/hide&quot;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;隐藏页面&quot;</span>,<br>    <span class="hljs-attr">component</span>: noAuthView,<br>    <span class="hljs-attr">meta</span>: &#123;<br>      <span class="hljs-attr">hideInMenu</span>: <span class="hljs-literal">true</span>,<br>    &#125;,<br>  &#125;,<br></code></pre></td></tr></table></figure>
+
+<p>过滤，仅展示显示在菜单上的路由数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;a-menu-item v-for=&quot;item in visibleRoutes&quot; :key=&quot;item.path&quot;&gt;<br>         &#123;&#123; item.name &#125;&#125;<br>       &lt;/a-menu-item&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; routes &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/router/routes&quot;</span>;<br><br><span class="hljs-comment">// 展示在菜单上的路由数组</span><br><span class="hljs-keyword">const</span> visibleRoutes = routes.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> !item.<span class="hljs-property">meta</span>?.<span class="hljs-property">hideInmenu</span>;<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>除了 <strong>根据配置权限隐藏菜单</strong>，还需要根据用户权限，只有具有相关权限的用户，才能看到该菜单。</p>
+<p>检测用户权限：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> <span class="hljs-variable constant_">ACCESS_ENUM</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/access/accessEnum&quot;</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 检查权限（判断当前登录用户是否具有某个权限）</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> loginUser 当前登录用户</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> needAccess 需要有的权限</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> boolean 有无权限</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">checkAccess</span> = (<span class="hljs-params">loginUser: <span class="hljs-built_in">any</span>, needAccess = ACCESS_ENUM.NOT_LOGIN</span>) =&gt; &#123;<br>  <span class="hljs-comment">// 获取当前登录用户具有的权限（如果没有 loginUser，则表示未登录）</span><br>  <span class="hljs-keyword">const</span> loginUserAccess = loginUser?.<span class="hljs-property">userRole</span> ?? <span class="hljs-variable constant_">ACCESS_ENUM</span>.<span class="hljs-property">NOT_LOGIN</span>;<br>  <span class="hljs-keyword">if</span> (needAccess === <span class="hljs-variable constant_">ACCESS_ENUM</span>.<span class="hljs-property">NOT_LOGIN</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br>  <span class="hljs-comment">// 如果用户登录才能访问</span><br>  <span class="hljs-keyword">if</span> (needAccess === <span class="hljs-variable constant_">ACCESS_ENUM</span>.<span class="hljs-property">USER</span>) &#123;<br>    <span class="hljs-comment">// 如果用户没登录，那么表示无权限</span><br>    <span class="hljs-keyword">if</span> (loginUserAccess === <span class="hljs-variable constant_">ACCESS_ENUM</span>.<span class="hljs-property">NOT_LOGIN</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">// 如果需要管理员权限</span><br>  <span class="hljs-keyword">if</span> (needAccess === <span class="hljs-variable constant_">ACCESS_ENUM</span>.<span class="hljs-property">ADMIN</span>) &#123;<br>    <span class="hljs-comment">// 如果不为管理员，表示无权限</span><br>    <span class="hljs-keyword">if</span> (loginUserAccess !== <span class="hljs-variable constant_">ACCESS_ENUM</span>.<span class="hljs-property">ADMIN</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> checkAccess;<br><br></code></pre></td></tr></table></figure>
+
+<p>使用计算属性，使得用户信息发生变更时，触发菜单栏的重新渲染，。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// 展示在菜单上的路由数组</span><br><span class="hljs-keyword">const</span> visibleRoutes = <span class="hljs-title function_">computed</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> routes.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// 根据配置过滤菜单</span><br>    <span class="hljs-keyword">if</span> (item.<span class="hljs-property">meta</span>?.<span class="hljs-property">hideInmenu</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    <span class="hljs-comment">//根据用户权限过滤菜单</span><br>    <span class="hljs-keyword">if</span> (<br>      !<span class="hljs-title function_">checkAccess</span>(store.<span class="hljs-property">state</span>.<span class="hljs-property">user</span>?.<span class="hljs-property">loginUser</span>, item.<span class="hljs-property">meta</span>?.<span class="hljs-property">access</span> <span class="hljs-keyword">as</span> <span class="hljs-built_in">string</span>)<br>    ) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="全局项目入口"><a href="#全局项目入口" class="headerlink" title="全局项目入口"></a>全局项目入口</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> <span class="hljs-title function_">doInit</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;项目全局入口&quot;</span>);<br>&#125;;<br><br><span class="hljs-title function_">onMounted</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-title function_">doInit</span>();<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="库表设计"><a href="#库表设计" class="headerlink" title="库表设计"></a>库表设计</h2><p>题目表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 题目表</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> if <span class="hljs-keyword">not</span> <span class="hljs-keyword">exists</span> question<br>(<br>    id          <span class="hljs-type">bigint</span> auto_increment comment <span class="hljs-string">&#x27;id&#x27;</span> <span class="hljs-keyword">primary</span> key,<br>    title       <span class="hljs-type">varchar</span>(<span class="hljs-number">512</span>)                       <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;标题&#x27;</span>,<br>    content     text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;内容&#x27;</span>,<br>    tags        <span class="hljs-type">varchar</span>(<span class="hljs-number">1024</span>)                      <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;标签列表（json 数组）&#x27;</span>,<br>    answer      text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;题目答案&#x27;</span>,<br>    submitNum   <span class="hljs-type">int</span>      <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;题目提交数&#x27;</span>,<br>    acceptedNum <span class="hljs-type">int</span>      <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;题目通过数&#x27;</span>,<br>    judgeCase   text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;判题用例（json 数组）&#x27;</span>,<br>    judgeConfig text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;判题配置（json 对象）&#x27;</span>,<br>    thumbNum    <span class="hljs-type">int</span>      <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;点赞数&#x27;</span>,<br>    favourNum   <span class="hljs-type">int</span>      <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;收藏数&#x27;</span>,<br>    userId      <span class="hljs-type">bigint</span>                             <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;创建用户 id&#x27;</span>,<br>    createTime  datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;创建时间&#x27;</span>,<br>    updateTime  datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">on</span> <span class="hljs-keyword">update</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> comment <span class="hljs-string">&#x27;更新时间&#x27;</span>,<br>    isDelete    tinyint  <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;是否删除&#x27;</span>,<br>    index idx_userId (userId)<br>    ) comment <span class="hljs-string">&#x27;题目&#x27;</span> <span class="hljs-keyword">collate</span> <span class="hljs-operator">=</span> utf8mb4_unicode_ci;<br></code></pre></td></tr></table></figure>
+
+<p>数据库字段存 json 字符串，便于扩展：<strong>判题用例</strong>、<strong>判题配置</strong>、<strong>判题信息</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 题目配置</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JudgeConfig</span> &#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 时间限制（ms）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> Long timeLimit;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 内存限制（KB）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> Long memoryLimit;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 堆栈限制（KB）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> Long stackLimit;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 题目用例</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JudgeCase</span> &#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 输入用例</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> String input;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 输出用例</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> String output;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>题目提交表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 题目提交表</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> if <span class="hljs-keyword">not</span> <span class="hljs-keyword">exists</span> question_submit<br>(<br>    id         <span class="hljs-type">bigint</span> auto_increment comment <span class="hljs-string">&#x27;id&#x27;</span> <span class="hljs-keyword">primary</span> key,<br>    <span class="hljs-keyword">language</span>   <span class="hljs-type">varchar</span>(<span class="hljs-number">128</span>)                       <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;编程语言&#x27;</span>,<br>    code       text                               <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;用户代码&#x27;</span>,<br>    judgeInfo  text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;判题信息（json 对象）&#x27;</span>,<br>    status     <span class="hljs-type">int</span>      <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;判题状态（0 - 待判题、1 - 判题中、2 - 成功、3 - 失败）&#x27;</span>,<br>    questionId <span class="hljs-type">bigint</span>                             <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;题目 id&#x27;</span>,<br>    userId     <span class="hljs-type">bigint</span>                             <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;创建用户 id&#x27;</span>,<br>    createTime datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;创建时间&#x27;</span>,<br>    updateTime datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">on</span> <span class="hljs-keyword">update</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> comment <span class="hljs-string">&#x27;更新时间&#x27;</span>,<br>    isDelete   tinyint  <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;是否删除&#x27;</span>,<br>    index idx_questionId (questionId),<br>    index idx_userId (userId)<br>    ) comment <span class="hljs-string">&#x27;题目提交&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="枚举类构建"><a href="#枚举类构建" class="headerlink" title="枚举类构建"></a>枚举类构建</h2><p>构建枚举类：<strong>判题信息</strong>、<strong>判题状态</strong>、<strong>编程语言</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">JudgeInfoMessageEnum</span> &#123;<br><br>    ACCEPTED(<span class="hljs-string">&quot;成功&quot;</span>, <span class="hljs-string">&quot;Accepted&quot;</span>),<br>    WRONG_ANSWER(<span class="hljs-string">&quot;答案错误&quot;</span>, <span class="hljs-string">&quot;Wrong Answer&quot;</span>),<br>    COMPILE_ERROR(<span class="hljs-string">&quot;Compile Error&quot;</span>, <span class="hljs-string">&quot;编译错误&quot;</span>),<br>    MEMORY_LIMIT_EXCEEDED(<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;内存溢出&quot;</span>),<br>    TIME_LIMIT_EXCEEDED(<span class="hljs-string">&quot;Time Limit Exceeded&quot;</span>, <span class="hljs-string">&quot;超时&quot;</span>),<br>    PRESENTATION_ERROR(<span class="hljs-string">&quot;Presentation Error&quot;</span>, <span class="hljs-string">&quot;展示错误&quot;</span>),<br>    WAITING(<span class="hljs-string">&quot;Waiting&quot;</span>, <span class="hljs-string">&quot;等待中&quot;</span>),<br>    OUTPUT_LIMIT_EXCEEDED(<span class="hljs-string">&quot;Output Limit Exceeded&quot;</span>, <span class="hljs-string">&quot;输出溢出&quot;</span>),<br>    DANGEROUS_OPERATION(<span class="hljs-string">&quot;Dangerous Operation&quot;</span>, <span class="hljs-string">&quot;危险操作&quot;</span>),<br>    RUNTIME_ERROR(<span class="hljs-string">&quot;Runtime Error&quot;</span>, <span class="hljs-string">&quot;运行错误&quot;</span>),<br>    SYSTEM_ERROR(<span class="hljs-string">&quot;System Error&quot;</span>, <span class="hljs-string">&quot;系统错误&quot;</span>);<br>    <br>    ..............................<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">QuestionSubmitLanguageEnum</span> &#123;<br><br>    JAVA(<span class="hljs-string">&quot;java&quot;</span>, <span class="hljs-string">&quot;java&quot;</span>),<br>    CPLUSPLUS(<span class="hljs-string">&quot;cpp&quot;</span>, <span class="hljs-string">&quot;cpp&quot;</span>),<br>    GOLANG(<span class="hljs-string">&quot;go&quot;</span>, <span class="hljs-string">&quot;go&quot;</span>);<br>    <br>    .............................<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">QuestionSubmitStatusEnum</span> &#123;<br><br>    <span class="hljs-comment">// 0 - 待判题、1 - 判题中、2 - 成功、3 - 失败</span><br>    WAITING(<span class="hljs-string">&quot;等待中&quot;</span>, <span class="hljs-number">0</span>),<br>    RUNNING(<span class="hljs-string">&quot;判题中&quot;</span>, <span class="hljs-number">1</span>),<br>    SUCCEED(<span class="hljs-string">&quot;成功&quot;</span>, <span class="hljs-number">2</span>),<br>    FAILED(<span class="hljs-string">&quot;失败&quot;</span>, <span class="hljs-number">3</span>);<br>    <br>    ...............................<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>校验题目是否合法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 校验题目是否合法</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> question</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> add</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">validQuestion</span><span class="hljs-params">(Question question, <span class="hljs-type">boolean</span> add)</span> &#123;<br>    <span class="hljs-keyword">if</span> (question == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BusinessException</span>(ErrorCode.PARAMS_ERROR);<br>    &#125;<br>    <span class="hljs-type">String</span> <span class="hljs-variable">title</span> <span class="hljs-operator">=</span> question.getTitle();<br>    <span class="hljs-type">String</span> <span class="hljs-variable">content</span> <span class="hljs-operator">=</span> question.getContent();<br>    <span class="hljs-type">String</span> <span class="hljs-variable">tags</span> <span class="hljs-operator">=</span> question.getTags();<br>    <span class="hljs-type">String</span> <span class="hljs-variable">answer</span> <span class="hljs-operator">=</span> question.getAnswer();<br>    <span class="hljs-type">String</span> <span class="hljs-variable">judgeCase</span> <span class="hljs-operator">=</span> question.getJudgeCase();<br>    <span class="hljs-type">String</span> <span class="hljs-variable">judgeConfig</span> <span class="hljs-operator">=</span> question.getJudgeConfig();<br>    <span class="hljs-comment">// 创建时，参数不能为空</span><br>    <span class="hljs-keyword">if</span> (add) &#123;<br>        ThrowUtils.throwIf(StringUtils.isAnyBlank(title, content, tags), ErrorCode.PARAMS_ERROR);<br>    &#125;<br>    <span class="hljs-comment">// 有参数则校验</span><br>    <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(title) &amp;&amp; title.length() &gt; <span class="hljs-number">80</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BusinessException</span>(ErrorCode.PARAMS_ERROR, <span class="hljs-string">&quot;标题过长&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(content) &amp;&amp; content.length() &gt; <span class="hljs-number">8192</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BusinessException</span>(ErrorCode.PARAMS_ERROR, <span class="hljs-string">&quot;内容过长&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(answer) &amp;&amp; answer.length() &gt; <span class="hljs-number">8192</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BusinessException</span>(ErrorCode.PARAMS_ERROR, <span class="hljs-string">&quot;答案过长&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(judgeCase) &amp;&amp; judgeCase.length() &gt; <span class="hljs-number">8192</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BusinessException</span>(ErrorCode.PARAMS_ERROR, <span class="hljs-string">&quot;判题用例过长&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(judgeConfig) &amp;&amp; judgeConfig.length() &gt; <span class="hljs-number">8192</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BusinessException</span>(ErrorCode.PARAMS_ERROR, <span class="hljs-string">&quot;判题配置过长&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>QuestionVO 封装了脱敏 Question 的题目答案 answer 和判题用例 judgeCase 字段，以下是包装类 QuestionVO 和原类Question 的字段属性对比：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * 标签列表</span><br><span class="hljs-comment">  */</span><br> <span class="hljs-keyword">private</span> List&lt;String&gt; tags;<br><br> <span class="hljs-comment">/**</span><br><span class="hljs-comment">  * 判题配置（json 对象）</span><br><span class="hljs-comment">  */</span><br> <span class="hljs-keyword">private</span> JudgeConfig judgeConfig;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 标签列表（json 数组）</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-keyword">private</span> String tags;<br><br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 判题用例（json 数组）</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-keyword">private</span> String judgeCase;<br><br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 判题配置（json 对象）</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-keyword">private</span> String judgeConfig;<br></code></pre></td></tr></table></figure>
+
+<p>QuestionVO 内置了包装类与原对象互相转换的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 对象转包装类</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> question</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> QuestionVO <span class="hljs-title function_">objToVo</span><span class="hljs-params">(Question question)</span> &#123;<br>        <span class="hljs-keyword">if</span> (question == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>        <span class="hljs-type">QuestionVO</span> <span class="hljs-variable">questionVO</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QuestionVO</span>();<br>        BeanUtils.copyProperties(question, questionVO);<br>        <span class="hljs-comment">// 转题目标签为 List</span><br>        List&lt;String&gt; tagList = JSONUtil.toList(question.getTags(), String.class);<br>        questionVO.setTags(tagList);<br>        <span class="hljs-comment">// 转判题配置为 JudgeConfig 对象</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">judgeConfigStr</span> <span class="hljs-operator">=</span> question.getJudgeConfig();<br>        questionVO.setJudgeConfig(JSONUtil.toBean(judgeConfigStr, JudgeConfig.class));<br>        <span class="hljs-keyword">return</span> questionVO;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 包装类转对象</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> questionVO</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Question <span class="hljs-title function_">voToObj</span><span class="hljs-params">(QuestionVO questionVO)</span> &#123;<br>    <span class="hljs-keyword">if</span> (questionVO == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>    <span class="hljs-type">Question</span> <span class="hljs-variable">question</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Question</span>();<br>    BeanUtils.copyProperties(questionVO, question);<br>    <span class="hljs-comment">// 转题目标签为 json 数组</span><br>    List&lt;String&gt; tagList = questionVO.getTags();<br>    <span class="hljs-keyword">if</span> (tagList != <span class="hljs-literal">null</span>) &#123;<br>        question.setTags(JSONUtil.toJsonStr(tagList));<br>    &#125;<br>    <span class="hljs-comment">// 转判题配置为 json 对象</span><br>    <span class="hljs-type">JudgeConfig</span> <span class="hljs-variable">voJudgeConfig</span> <span class="hljs-operator">=</span> questionVO.getJudgeConfig();<br>    <span class="hljs-keyword">if</span> (voJudgeConfig != <span class="hljs-literal">null</span>) &#123;<br>        question.setJudgeConfig(JSONUtil.toJsonStr(voJudgeConfig));<br>    &#125;<br>    <span class="hljs-keyword">return</span> question;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>封装查询请求参数 QuestionQueryRequest，封装获取查询包装类，动态判断用户根据哪些字段查询：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 拼接查询条件</span><br>     queryWrapper.like(StringUtils.isNotBlank(title), <span class="hljs-string">&quot;title&quot;</span>, title);<br>     queryWrapper.like(StringUtils.isNotBlank(content), <span class="hljs-string">&quot;content&quot;</span>, content);<br>     queryWrapper.like(StringUtils.isNotBlank(answer), <span class="hljs-string">&quot;answer&quot;</span>, answer);<br>     <span class="hljs-keyword">if</span> (CollectionUtils.isNotEmpty(tags)) &#123;<br>         <span class="hljs-keyword">for</span> (String tag : tags) &#123;<br>             queryWrapper.like(<span class="hljs-string">&quot;tags&quot;</span>, <span class="hljs-string">&quot;\&quot;&quot;</span> + tag + <span class="hljs-string">&quot;\&quot;&quot;</span>);<br>         &#125;<br>     &#125;<br>     queryWrapper.eq(ObjectUtils.isNotEmpty(id), <span class="hljs-string">&quot;id&quot;</span>, id);<br>     queryWrapper.eq(ObjectUtils.isNotEmpty(userId), <span class="hljs-string">&quot;userId&quot;</span>, userId);<br>     queryWrapper.eq(<span class="hljs-string">&quot;isDelete&quot;</span>, <span class="hljs-literal">false</span>);<br>     queryWrapper.orderBy(SqlUtils.validSortField(sortField), sortOrder.equals(CommonConstant.SORT_ORDER_ASC),<br>             sortField);<br>     <span class="hljs-keyword">return</span> queryWrapper;<br></code></pre></td></tr></table></figure>
+
+<h3 id="阶段性总结"><a href="#阶段性总结" class="headerlink" title="阶段性总结"></a>阶段性总结</h3><p>通用的的业务校验流程：</p>
+<ul>
+<li><p>添加新题目，进行类成员变量字段 -&gt; json 的转换，封装了 validQuestion 方法判断参数是否合法。为新题目设置 userId 等字段属性，执行 SQL 语句插入该新纪录并校验是否执行成功。</p>
+</li>
+<li><p>删除题目，封装 DeleteRequest 删除请求参数，携带删除题目 id，首先根据题目 id 查询数据库，判断该题目是否存在；根据查询得到的题目记录的 userId，判断执行该操作的用户是否为出题用户或者管理员，否则不予执行删除操作。执行 SQL 语句删除记录并校验是否执行成功。</p>
+</li>
+<li><p>更新题目（管理员），进行类成员变量字段 -&gt; json 的转换，封装了 validQuestion 方法判断参数是否合法。在更新题目记录之前，根据题目 id 检查该题目是否存在，再执行 SQL 语句更新该记录并校验是否执行成功。</p>
+</li>
+<li><p>编辑题目（普通用户），在管理员更新题目信息中，添加了用户信息校验，只有出题用户和管理员可编辑：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">User</span> <span class="hljs-variable">loginUser</span> <span class="hljs-operator">=</span> userService.getLoginUser(request);<br>     <span class="hljs-type">long</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> questionEditRequest.getId();<br>     <span class="hljs-comment">// 判断是否存在</span><br>     <span class="hljs-type">Question</span> <span class="hljs-variable">oldQuestion</span> <span class="hljs-operator">=</span> questionService.getById(id);<br>     ThrowUtils.throwIf(oldQuestion == <span class="hljs-literal">null</span>, ErrorCode.NOT_FOUND_ERROR);<br>     <span class="hljs-comment">// 仅本人或管理员可编辑</span><br>     <span class="hljs-keyword">if</span> (!oldQuestion.getUserId().equals(loginUser.getId()) &amp;&amp; !userService.isAdmin(loginUser)) &#123;<br>         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BusinessException</span>(ErrorCode.NO_AUTH_ERROR);<br>     &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>根据 id 获取题目，校验用户是否为本人或管理员，否则拿不到题目信息</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isAdmin</span><span class="hljs-params">(User user)</span> &#123;<br>       <span class="hljs-keyword">return</span> user != <span class="hljs-literal">null</span> &amp;&amp; UserRoleEnum.ADMIN.getValue().equals(user.getUserRole());<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>根据 id 获取题目信息（脱敏），并关联查询用户信息</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">return</span> ResultUtils.success(questionService.getQuestionVO(question, request));<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> QuestionVO <span class="hljs-title function_">getQuestionVO</span><span class="hljs-params">(Question question, HttpServletRequest request)</span> &#123;<br>      <span class="hljs-type">QuestionVO</span> <span class="hljs-variable">questionVO</span> <span class="hljs-operator">=</span> QuestionVO.objToVo(question);<br>      <span class="hljs-comment">// 1. 关联查询用户信息</span><br>      <span class="hljs-type">Long</span> <span class="hljs-variable">userId</span> <span class="hljs-operator">=</span> question.getUserId();<br>      <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>      <span class="hljs-keyword">if</span> (userId != <span class="hljs-literal">null</span> &amp;&amp; userId &gt; <span class="hljs-number">0</span>) &#123;<br>          user = userService.getById(userId);<br>      &#125;<br>      <span class="hljs-type">UserVO</span> <span class="hljs-variable">userVO</span> <span class="hljs-operator">=</span> userService.getUserVO(user);<br>      questionVO.setUserVO(userVO);<br>      <span class="hljs-keyword">return</span> questionVO;<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>封装查询请求参数类 QuestionQueryRequest，封装获取查询包装类方法 getQueryWrapper，批量分页获取题目列表（脱敏），并关联查询用户信息：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">Page&lt;Question&gt; questionPage = questionService.page(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Page</span>&lt;&gt;(current, size),<br>              questionService.getQueryWrapper(questionQueryRequest));<br>      <span class="hljs-keyword">return</span> ResultUtils.success(questionService.getQuestionVOPage(questionPage, request));<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 1. 关联查询用户信息</span><br>  Set&lt;Long&gt; userIdSet = questionList.stream().map(Question::getUserId).collect(Collectors.toSet());<br>  Map&lt;Long, List&lt;User&gt;&gt; userIdUserListMap = userService.listByIds(userIdSet).stream()<br>          .collect(Collectors.groupingBy(User::getId));<br>  <span class="hljs-comment">// 填充信息</span><br>  List&lt;QuestionVO&gt; questionVOList = questionList.stream().map(question -&gt; &#123;<br>      <span class="hljs-type">QuestionVO</span> <span class="hljs-variable">questionVO</span> <span class="hljs-operator">=</span> QuestionVO.objToVo(question);<br>      <span class="hljs-type">Long</span> <span class="hljs-variable">userId</span> <span class="hljs-operator">=</span> question.getUserId();<br>      <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>      <span class="hljs-keyword">if</span> (userIdUserListMap.containsKey(userId)) &#123;<br>          user = userIdUserListMap.get(userId).get(<span class="hljs-number">0</span>);<br>      &#125;<br>      questionVO.setUserVO(userService.getUserVO(user));<br>      <span class="hljs-keyword">return</span> questionVO;<br>  &#125;).collect(Collectors.toList());<br>  questionVOPage.setRecords(questionVOList);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>获取用户创建的题目列表，基本同上，查询请求参数 QuestionQueryRequest 携带该用户信息：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">User</span> <span class="hljs-variable">loginUser</span> <span class="hljs-operator">=</span> userService.getLoginUser(request);<br>        questionQueryRequest.setUserId(loginUser.getId());<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>简单的获取所有题目信息列表，仅管理员可用</li>
+<li>用户提交题目，封装提交题目请求参数 QuestionSubmitAddRequest，判断编程语言是否合法、题目是否存在，直接存入题目提交信息，再异步执行判题服务：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">QuestionSubmit</span> <span class="hljs-variable">questionSubmit</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QuestionSubmit</span>();<br>        questionSubmit.setUserId(userId);<br>        questionSubmit.setQuestionId(questionId);<br>        questionSubmit.setCode(questionSubmitAddRequest.getCode());<br>        questionSubmit.setLanguage(language);<br>        <span class="hljs-comment">// 设置初始状态</span><br>        questionSubmit.setStatus(QuestionSubmitStatusEnum.WAITING.getValue());<br>        questionSubmit.setJudgeInfo(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>);<br>        <span class="hljs-type">boolean</span> <span class="hljs-variable">save</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.save(questionSubmit);<br>        <span class="hljs-keyword">if</span> (!save)&#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BusinessException</span>(ErrorCode.SYSTEM_ERROR, <span class="hljs-string">&quot;数据插入失败&quot;</span>);<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Long</span> <span class="hljs-variable">questionSubmitId</span> <span class="hljs-operator">=</span> questionSubmit.getId();<br>      <span class="hljs-comment">// 执行判题服务</span><br>      CompletableFuture.runAsync(() -&gt; &#123;<br>          judgeService.doJudge(questionSubmitId);<br>      &#125;);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>封装提交题目查询参数 QuestionSubmitQueryRequest，分页查询已提交的题目，只有提交者本人和管理员才可以看到提交代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 脱敏：仅本人和管理员能看见自己（提交 userId 和登录用户 id 不同）提交的代码</span><br>        <span class="hljs-type">long</span> <span class="hljs-variable">userId</span> <span class="hljs-operator">=</span> loginUser.getId();<br>        <span class="hljs-comment">// 处理脱敏</span><br>        <span class="hljs-keyword">if</span> (userId != questionSubmit.getUserId() &amp;&amp; !userService.isAdmin(loginUser)) &#123;<br>            questionSubmitVO.setCode(<span class="hljs-literal">null</span>);<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>分页查询已提交题目列表：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 封装用户相关信息</span><br>       List&lt;QuestionSubmitVO&gt; questionSubmitVOList = questionSubmitList.stream()<br>               .map(questionSubmit -&gt; getQuestionSubmitVO(questionSubmit, loginUser))<br>               .collect(Collectors.toList());<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2024年5月4日</p>
+</blockquote>
+<p>核心功能：提交代码，权限校验；代码沙箱，判题服务；判题规则，结果比对验证；任务调度</p>
+<p>核心业务流程：时序图</p>
+<h2 id="报错解决指南"><a href="#报错解决指南" class="headerlink" title="报错解决指南"></a>报错解决指南</h2><h3 id="前端生成请求接口后报错"><a href="#前端生成请求接口后报错" class="headerlink" title="前端生成请求接口后报错"></a>前端生成请求接口后报错</h3><p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240201115405878.png" alt="image-20240201115405878"></p>
+<p>这是因为 OpenAPI 生成的请求接口是这样的：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * getLoginUser</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@returns</span> BaseResponse_LoginUserVO_ OK</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@throws</span> <span class="hljs-variable">ApiError</span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">getLoginUserUsingGet</span>(): <span class="hljs-title class_">CancelablePromise</span>&lt;<span class="hljs-title class_">BaseResponse</span>_LoginUserVO_&gt; &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">__request</span>(<span class="hljs-title class_">OpenAPI</span>, &#123;<br>        <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span>,<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/api/user/get/login&#x27;</span>,<br>        <span class="hljs-attr">errors</span>: &#123;<br>            <span class="hljs-number">401</span>: <span class="hljs-string">`Unauthorized`</span>,<br>            <span class="hljs-number">403</span>: <span class="hljs-string">`Forbidden`</span>,<br>            <span class="hljs-number">404</span>: <span class="hljs-string">`Not Found`</span>,<br>        &#125;,<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>修改 OpenAPIConfig 即可：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240201115824731.png" alt="image-20240201115824731"></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">OpenAPI</span>: <span class="hljs-title class_">OpenAPIConfig</span> = &#123;<br>    <span class="hljs-attr">BASE</span>: <span class="hljs-string">&#x27;http://localhost:8101/&#x27;</span>,<br>    <span class="hljs-attr">VERSION</span>: <span class="hljs-string">&#x27;1.0&#x27;</span>,<br>    <span class="hljs-attr">WITH_CREDENTIALS</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">CREDENTIALS</span>: <span class="hljs-string">&#x27;include&#x27;</span>,<br>    <span class="hljs-attr">TOKEN</span>: <span class="hljs-literal">undefined</span>,<br>    <span class="hljs-attr">USERNAME</span>: <span class="hljs-literal">undefined</span>,<br>    <span class="hljs-attr">PASSWORD</span>: <span class="hljs-literal">undefined</span>,<br>    <span class="hljs-attr">HEADERS</span>: <span class="hljs-literal">undefined</span>,<br>    <span class="hljs-attr">ENCODE_PATH</span>: <span class="hljs-literal">undefined</span>,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/RabbitMQ/" class="category-chain-item">RabbitMQ</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/RabbitMQ/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/RabbitMQ/%E9%A1%B9%E7%9B%AE/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="category-chain-item">开发经验</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/%E9%A1%B9%E7%9B%AE/">#项目</a>
+      
+        <a href="/deng-2022/blog_2/tags/RabbitMQ/">#RabbitMQ</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">#开发经验</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Memory OJ 在线判题系统</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2024/01/15/Memory OJ 在线判题系统/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年1月15日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年2月27日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2024/01/17/%E7%A0%B4%E8%8C%A7%E6%88%90%E8%9D%B6%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA%E7%8B%AC%E5%85%B7%E5%8C%A0%E5%BF%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E6%A1%86%E6%9E%B6/" title="破茧成蝶：从零开始构建独具匠心前端项目框架">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">破茧成蝶：从零开始构建独具匠心前端项目框架</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2024/01/05/%E5%B2%81%E6%9C%88%E5%A6%82%E6%AD%8C%EF%BC%9A%E6%88%91%E7%9A%84%E4%BA%BA%E7%94%9F%E5%9B%9E%E5%BF%86%E5%BD%95/" title="岁月如歌：我的人生回忆录">
+                        <span class="hidden-mobile">岁月如歌：我的人生回忆录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

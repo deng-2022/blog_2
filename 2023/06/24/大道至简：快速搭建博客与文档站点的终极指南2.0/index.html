@@ -1,0 +1,1576 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍦 从零开始，带你快速入门，生成精美文档站点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大道至简：快速搭建博客与文档站点的终极指南2.0">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/06/24/%E5%A4%A7%E9%81%93%E8%87%B3%E7%AE%80%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%8E%E6%96%87%E6%A1%A3%E7%AB%99%E7%82%B9%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%972.0/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="🍦 从零开始，带你快速入门，生成精美文档站点">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/sleep.jpg">
+<meta property="article:published_time" content="2023-06-24T04:59:24.000Z">
+<meta property="article:modified_time" content="2024-05-10T05:47:37.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="经验">
+<meta property="article:tag" content="Blogs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/sleep.jpg">
+  
+  
+  
+  <title>大道至简：快速搭建博客与文档站点的终极指南2.0 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="大道至简：快速搭建博客与文档站点的终极指南2.0"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-24 12:59" pubdate>
+          2023年6月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          17k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          43 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="经验"
+        id="heading-32a8e000e928e6dc255876d9fc0178b3" role="tab" data-toggle="collapse" href="#collapse-32a8e000e928e6dc255876d9fc0178b3"
+        aria-expanded="true"
+      >
+        经验
+        <span class="list-group-count">(7)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-32a8e000e928e6dc255876d9fc0178b3"
+           role="tabpanel" aria-labelledby="heading-32a8e000e928e6dc255876d9fc0178b3">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Blog"
+        id="heading-be8df1f28c0abc85a0ed0c6860e5d832" role="tab" data-toggle="collapse" href="#collapse-be8df1f28c0abc85a0ed0c6860e5d832"
+        aria-expanded="false"
+      >
+        Blog
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-be8df1f28c0abc85a0ed0c6860e5d832"
+           role="tabpanel" aria-labelledby="heading-be8df1f28c0abc85a0ed0c6860e5d832">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Docs"
+        id="heading-a3907cd461d8739aa3266047bc4b8c0c" role="tab" data-toggle="collapse" href="#collapse-a3907cd461d8739aa3266047bc4b8c0c"
+        aria-expanded="false"
+      >
+        Docs
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-a3907cd461d8739aa3266047bc4b8c0c"
+           role="tabpanel" aria-labelledby="heading-a3907cd461d8739aa3266047bc4b8c0c">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/05/27/%E5%A4%A7%E9%81%93%E8%87%B3%E7%AE%80%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%8E%E6%96%87%E6%A1%A3%E7%AB%99%E7%82%B9%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%971.0/" title="大道至简：快速搭建博客与文档站点的终极指南1.0"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">大道至简：快速搭建博客与文档站点的终极指南1.0</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Linux"
+        id="heading-edc9f0a5a5d57797bf68e37364743831" role="tab" data-toggle="collapse" href="#collapse-edc9f0a5a5d57797bf68e37364743831"
+        aria-expanded="false"
+      >
+        Linux
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-edc9f0a5a5d57797bf68e37364743831"
+           role="tabpanel" aria-labelledby="heading-edc9f0a5a5d57797bf68e37364743831">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="宝塔面板安装教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">宝塔面板安装教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%EF%BC%9A%E8%A7%A3%E6%94%BE%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="宝塔面板：解放手动配置，轻松管理你的服务器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">宝塔面板：解放手动配置，轻松管理你的服务器</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="SpringBoot"
+        id="heading-c8428a45869e78fb361ed20b9c23b0a8" role="tab" data-toggle="collapse" href="#collapse-c8428a45869e78fb361ed20b9c23b0a8"
+        aria-expanded="false"
+      >
+        SpringBoot
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-c8428a45869e78fb361ed20b9c23b0a8"
+           role="tabpanel" aria-labelledby="heading-c8428a45869e78fb361ed20b9c23b0a8">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="WebSocket"
+        id="heading-45edc1b96407d9d213dd1135962a32a0" role="tab" data-toggle="collapse" href="#collapse-45edc1b96407d9d213dd1135962a32a0"
+        aria-expanded="false"
+      >
+        WebSocket
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-45edc1b96407d9d213dd1135962a32a0"
+           role="tabpanel" aria-labelledby="heading-45edc1b96407d9d213dd1135962a32a0">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="实时通信"
+        id="heading-60007a28c719f04273eb55e0d8b0d250" role="tab" data-toggle="collapse" href="#collapse-60007a28c719f04273eb55e0d8b0d250"
+        aria-expanded="false"
+      >
+        实时通信
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-60007a28c719f04273eb55e0d8b0d250"
+           role="tabpanel" aria-labelledby="heading-60007a28c719f04273eb55e0d8b0d250">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/09/13/%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BD%BF%E7%94%A8%20Spring%20Boot%20%E9%9B%86%E6%88%90%20WebSocket%20%E5%AE%9E%E7%8E%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" title="实战指南：使用 Spring Boot 集成 WebSocket 实现前后端实时通信"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">实战指南：使用 Spring Boot 集成 WebSocket 实现前后端实时通信</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="文档站点生成"
+        id="heading-bec1410d37e10a04abf5418a2fbe7242" role="tab" data-toggle="collapse" href="#collapse-bec1410d37e10a04abf5418a2fbe7242"
+        aria-expanded="true"
+      >
+        文档站点生成
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-bec1410d37e10a04abf5418a2fbe7242"
+           role="tabpanel" aria-labelledby="heading-bec1410d37e10a04abf5418a2fbe7242">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Blog"
+        id="heading-be8df1f28c0abc85a0ed0c6860e5d832" role="tab" data-toggle="collapse" href="#collapse-be8df1f28c0abc85a0ed0c6860e5d832"
+        aria-expanded="true"
+      >
+        Blog
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-be8df1f28c0abc85a0ed0c6860e5d832"
+           role="tabpanel" aria-labelledby="heading-be8df1f28c0abc85a0ed0c6860e5d832">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/24/%E5%A4%A7%E9%81%93%E8%87%B3%E7%AE%80%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%8E%E6%96%87%E6%A1%A3%E7%AB%99%E7%82%B9%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%972.0/" title="大道至简：快速搭建博客与文档站点的终极指南2.0"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">大道至简：快速搭建博客与文档站点的终极指南2.0</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="站点配置"
+        id="heading-fe7455365087e71d4eae986298cfe438" role="tab" data-toggle="collapse" href="#collapse-fe7455365087e71d4eae986298cfe438"
+        aria-expanded="false"
+      >
+        站点配置
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-fe7455365087e71d4eae986298cfe438"
+           role="tabpanel" aria-labelledby="heading-fe7455365087e71d4eae986298cfe438">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Blog"
+        id="heading-be8df1f28c0abc85a0ed0c6860e5d832" role="tab" data-toggle="collapse" href="#collapse-be8df1f28c0abc85a0ed0c6860e5d832"
+        aria-expanded="false"
+      >
+        Blog
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-be8df1f28c0abc85a0ed0c6860e5d832"
+           role="tabpanel" aria-labelledby="heading-be8df1f28c0abc85a0ed0c6860e5d832">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/06/26/%E5%A4%A7%E9%81%93%E8%87%B3%E7%AE%80%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%8E%E6%96%87%E6%A1%A3%E7%AB%99%E7%82%B9%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%973-0/" title="大道至简：快速搭建博客与文档站点的终极指南3.0"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">大道至简：快速搭建博客与文档站点的终极指南3.0</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="表达"
+        id="heading-4c454216db3f190289572e8d57246bef" role="tab" data-toggle="collapse" href="#collapse-4c454216db3f190289572e8d57246bef"
+        aria-expanded="false"
+      >
+        表达
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-4c454216db3f190289572e8d57246bef"
+           role="tabpanel" aria-labelledby="heading-4c454216db3f190289572e8d57246bef">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/11/18/%E5%80%BE%E8%AF%89%E5%BF%83%E5%A3%B0%EF%BC%8C%E6%B2%9F%E9%80%9A%E4%B9%8B%E9%81%93%EF%BC%9A%E4%BA%BA%E9%99%85%E4%BA%A4%E5%BE%80%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E6%8A%80%E5%B7%A7/" title="倾诉心声，沟通之道：人际交往中的表达技巧"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">倾诉心声，沟通之道：人际交往中的表达技巧</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">大道至简：快速搭建博客与文档站点的终极指南2.0</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：18 天前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/sleep.jpg" alt="每一个梦想都值得我们去追逐，无论多远，都要坚持到底。"></p>
+<h1 id="破冰"><a href="#破冰" class="headerlink" title="破冰"></a>破冰</h1><p>对Gitee进行简介，介绍其作为开源托管平台的优势和受欢迎程度</p>
+<p>提出使用Gitee来托管静态网站的需求和好处</p>
+<h1 id="思维碰撞"><a href="#思维碰撞" class="headerlink" title="思维碰撞"></a>思维碰撞</h1><h2 id="云服务器部署-Hexo-博客"><a href="#云服务器部署-Hexo-博客" class="headerlink" title="云服务器部署 Hexo 博客"></a>云服务器部署 Hexo 博客</h2><blockquote>
+<p>2024年5月7日</p>
+</blockquote>
+<p>上上周六下午突然发现 Gitee Pages 失效了，等了快半个月官方仍没有发任何公告或通知。今天看到消息，估计官方计划关闭个人账户下的 Gitee Pages 服务，只保留企业版的。</p>
+<p>我是不能坐以待毙了，赶紧学一学如何部署 Hexo 博客网站到云服务器上，正好去年十一月份买的阿里云服务器闲置着没地方用呢。</p>
+<h3 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/everwin/articles/17629280.html">Hexo 博客搭建并发布到云服务器 - 我如云影君如梦 - 博客园 (cnblogs.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cpJa3/p/17300305.html">在云服务器上搭建hexo博客（亲测可用） - 菲尼克斯交警 - 博客园 (cnblogs.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c7ef460c5ca7">Hexo部署到云服务器 - 简书 (jianshu.com)</a></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240507175017346.png" alt="image-20240507175017346"></p>
+<p>Nginx 启动报错，卸载重新安装还是一样。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_72926030/article/details/134887455">Linux上启动Nginx失败：Job for nginx.service failed because the control process exited with error code-CSDN博客</a></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240507180743235.png" alt="image-20240507180743235"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dndjjdi/article/details/135015583">Linux启动nginx失败_linux nginx 无法启动-CSDN博客</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nginx -t	<span class="hljs-comment"># 查看Nginx 配置文件</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240507181321362.png" alt="image-20240507181321362"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">kill</span> pid	<span class="hljs-comment"># 杀死一个进程</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240507181910116.png" alt="image-20240507181910116"></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/659665414">重启nginx报错：Job for nginx.service failed because the control process exited with error code. - 知乎 (zhihu.com)</a></p>
+<p><strong>奇了怪了，端口未被占用，配置文件也无误，为什么还是启动不了呢，我越发觉得有意思起来了。</strong></p>
+<p>诶？</p>
+<p>突然显示服务器连接失败，我又重新远程登录进来：依次执行五步操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl status nginx	<span class="hljs-comment"># 查看 nginx 状态</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ps -ef | grep nginx	<span class="hljs-comment"># 查看nginx相关进程</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">kill</span> 400147	<span class="hljs-comment"># 杀死进程</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nginx -t	<span class="hljs-comment"># 配置文件检验</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start nginx	<span class="hljs-comment"># 启动nginx </span><br></code></pre></td></tr></table></figure>
+
+<p><strong>执行完这五步，在此查看 Nginx 状态，发现竟然启动成功了。</strong></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240507182535296.png" alt="image-20240507182535296"></p>
+<p>有点奇怪，难道是这个服务器太久没用了，需要时间磨合嘛。不管怎么说，Nginx 起来了，今天晚上回去研究下怎么用云服务器部署<strong>个人博客网站。</strong></p>
+<h2 id="Github-部署-Hexo-博客"><a href="#Github-部署-Hexo-博客" class="headerlink" title="Github 部署 Hexo 博客"></a>Github 部署 Hexo 博客</h2><blockquote>
+<p>2024年5月10日</p>
+</blockquote>
+<p>以下一整块都算是踩坑记录，这里就不单拎出来做标题了，下面是 <strong>Github 部署博客的详细过程（包括踩坑）</strong>：</p>
+<p>推荐阅读：<strong>可能是最好的部署教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43187818/article/details/104468721">安装Hexo博客并部署到GitHub或云服务器（细节教程，越过各种坑）-CSDN博客</a></strong></p>
+<p>在 config.yml 文件下，配置好远程 Github 仓库：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">git@github.com:deng-2022/deng-2022.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">main</span><br></code></pre></td></tr></table></figure>
+
+<p>一直显示推送错误：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509133447437.png" alt="image-20240509133447437"></p>
+<p>跟着好多博客教程，我正常完成了<strong>远程仓库的搭建</strong>、 <strong>ssh 密钥对的配置</strong>，但仍一直出现上面的报错：</p>
+<p>测试 Github 是否能正常网络连接：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -v git@github.com<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/I_HOPE_SOAR/article/details/120890926">ssh -T git@github kex_exchange_identification: Connection closed by remote host-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2114329">Github：通过sshkey的方式拉取代码报错kex_exchange_identification: Connection closed by remote-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/577623855">Github备份代码出现kex_exchange_identification: Connection closed by remote host - 知乎 (zhihu.com)</a></p>
+<p>[git push报错 ! <a target="_blank" rel="noopener" href="https://blog.51cto.com/lexsaints/2806334">remote rejected] master -＞ master (push declined due to email privacy restrictions)_51CTO博客_git push报错remote rejected</a></p>
+<p>我尝试测试下<strong>直接推送 .deploy_git 目录下的文件到 Github</strong>，结果这样也不行：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240510090106558.png" alt="image-20240510090106558"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509133008505.png" alt="image-20240509133008505"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509133029958.png" alt="image-20240509133029958"></p>
+<p>看来不是 Hexo 和 Github 仓库配置问题，而是要推送的代码和文件有问题。这个信息显示这些文件中包含了阿里云 AccessKey，可能会有泄露风险，所以阻止了这次代码推送。</p>
+<p>已经过去三天，昨天有阿里云客服打来电话，今天登录后又看到阿里云给我发来了告警信息：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240510090503496.png" alt="image-20240510090503496"></p>
+<p>我想起来这是为什么了，那是因为我两天前根据这个博客教程，尝试在云服务器上部署个人博客。</p>
+<p>那具体采用什么解决方法呢？早知道先搞 Github 部署了，现在直接推送代码还受到阿里云限制了。</p>
+<p>没什么特殊操作，我选了第三项。</p>
+<p>不过我忘了多会儿推上去的代码，是昨天下午嘛？刚刚突然发现代码昨天提交成功，现在博客也能正常访问了。</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240510174603918.png" alt="image-20240510174603918"></p>
+<p>Github 托管博客地址：<a target="_blank" rel="noopener" href="https://deng-2022.github.io/">Memory’s blog (deng-2022.github.io)</a></p>
+<h2 id="AtomGit-托管"><a href="#AtomGit-托管" class="headerlink" title="AtomGit 托管"></a>AtomGit 托管</h2><blockquote>
+<p>2024年5月9日</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/oschina/git-osc/issues/I9NGES?from=project-issue">给大伙推个提供静态托管的平台 AtomGit · Issue #I9NGES · 开源中国/Gitee Feedback - Gitee.com</a></p>
+<p>今天逛 Gitee 开源中国社区，看到了最新有效的 Hexo 静态博客站点托管解决方案，感觉可以尝试一下。</p>
+<p>平台网址：<a target="_blank" rel="noopener" href="https://passport.atomgit.com/login?app_id=62d7a0ebaf95bdacf74fc6b9&protocol=oidc&finish_login_url=/interaction/oidc/b37b5001-48d4-4f2c-b7d0-2ffda4d50635/login&login_page_context=">开放原子开发者用户中心 (atomgit.com)</a>，一个开放<strong>开源原子基金会</strong>相关平台。</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509173810801.png" alt="image-20240509173810801"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509173837912.png" alt="image-20240509173837912"></p>
+<p>还是很好用的，可以同步 Gitee 账号下的仓库，不过要求输入 Gitee 私人令牌。</p>
+<h3 id="Gitee-创建私人令牌"><a href="#Gitee-创建私人令牌" class="headerlink" title="Gitee 创建私人令牌"></a>Gitee 创建私人令牌</h3><p>那么怎么<strong>拿到私人令牌呢</strong>？</p>
+<p>官方提供：<a target="_blank" rel="noopener" href="https://gitee.com/help/articles/4336#article-header8">仓库镜像管理 （ Gitee &lt;-&gt; Github 双向同步） - Gitee.com</a></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509162647683.png" alt="image-20240509162647683"></p>
+<p>可以看到我去年使用 Gitee 作为图床存储图片时，是进行过这步操作的，只不过连我自己都忘了。</p>
+<p>教程很好看懂，步骤写的很明确操作也没难度。拿到唯一的 Gitee 私人令牌（当然可以同时有多个令牌），<strong>要妥善保存好</strong>。</p>
+<h3 id="安装-Pages-服务"><a href="#安装-Pages-服务" class="headerlink" title="安装 Pages 服务"></a>安装 Pages 服务</h3><p>在 <strong>AutoGit 仓库</strong>下安装 Pages 托管服务：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509162339945.png" alt="image-20240509162339945"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509164434312.png" alt="image-20240509164434312"></p>
+<p>因为 Gitee 仓库下的博客站点代码是完整的，这里直接启动 Pages 服务就能开启访问。第一次访问应该是需要缓冲时间，等了有十分钟博客才能正常加载图文。（<strong>大部分图片都上传到了 Gitee 图床，这个托管网站下无法展示，只能展示本地配置的静态图片。</strong>）</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240509180920771.png" alt="image-20240509180920771"></p>
+<p>推送最新内容成功，<strong>最新个人博客站点：<a target="_blank" rel="noopener" href="https://deng-2022.atomgit.net/blog">[Memory’s Blog]</a></strong></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509172503261.png" alt="image-20240509172503261"></p>
+<p>根据配置文件，默认推送到 main 分支，注意同步更改一下 Paegs 托管分支才能看到最新博客。</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240509172739987.png" alt="image-20240509172739987"></p>
+<p>blog 下的 _config.yml 文件内容编辑：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">git@atomgit.com:deng-2022/blog.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">main</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
+<p>2024年5月9日</p>
+</blockquote>
+<p>待解决的问题：</p>
+<ul>
+<li>图片都不能正常显示，都在 Gitee 图床上，短时间内不好解决。</li>
+<li>AutoGit 仓库下多</li>
+</ul>
+<h2 id="Vuepress-文档站点-部署"><a href="#Vuepress-文档站点-部署" class="headerlink" title="Vuepress 文档站点 部署"></a>Vuepress 文档站点 部署</h2><p>🔥 推荐阅读：<strong>（2023/11/28晚）</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45415736/article/details/130194399">vuepress打包部署到Gitee Pages访问页面出现样式丢失_De Ja Vu 幻觉记忆的博客-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/guide/getting-started.html#manual-installation">Getting Started | VuePress (vuejs.org)</a></li>
+<li><a target="_blank" rel="noopener" href="http://caibaojian.com/vuepress/guide/getting-started.html#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85">VuePress起步 - VuePress中文网 (caibaojian.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/zh/guide/getting-started.html">快速上手 | VuePress (vuejs.org)</a></li>
+</ul>
+<h3 id="快速搭建"><a href="#快速搭建" class="headerlink" title="快速搭建"></a>快速搭建</h3><ul>
+<li>哎，全局安装 Vuepress 不支持了，本来挺好用的：</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp">yarn <span class="hljs-keyword">init</span> / npm <span class="hljs-keyword">init</span><br>yarn <span class="hljs-keyword">global</span> <span class="hljs-keyword">add</span> vuepress / npm install -g vuepress<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>直接在 Github 下载了官方文档源码，呃，还是局部安装吧</li>
+</ul>
+<blockquote>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/vuejs/vuepress/tree/v1.9.10">vuejs/vuepress at v1.9.10 (github.com)</a></p>
+</blockquote>
+<ul>
+<li>拉取代码后执行依次以下命令，即可成功在本地部署文档站点：</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake">yarn <span class="hljs-keyword">install</span><br>yarn dev<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>效果如下：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231127233627342.png" alt="image-20231127233627342"></p>
+<ul>
+<li>这两天在研究这个 Vuepress，感觉比 VitePress 更成熟、更好用</li>
+<li>等我把局部安装的配置搞清楚之后，再来此处作详细记录<strong>（2023/11/27晚）</strong></li>
+</ul>
+<h3 id="配置详解"><a href="#配置详解" class="headerlink" title="配置详解"></a>配置详解</h3><h4 id="侧边栏配置"><a href="#侧边栏配置" class="headerlink" title="侧边栏配置"></a>侧边栏配置</h4><ul>
+<li>这里着重详解下 Vuepress 文档站点的侧边栏配置，官方文档在这方面的编写实在是有点含糊不清 <strong>（2023/12/06晚）</strong></li>
+</ul>
+<blockquote>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/zh/theme/default-theme-config.html#%E4%BE%A7%E8%BE%B9%E6%A0%8F">默认主题配置 | VuePress (vuejs.org)</a></p>
+</blockquote>
+<ul>
+<li>不同页面显示不同的侧边栏</li>
+<li>侧边栏分组</li>
+<li>分组可折叠？？？</li>
+<li>侧边栏展示标题深度</li>
+<li>两个全局配置：活动标题链接（默认开启）和展开所有标题链接（默认关闭）</li>
+<li>自动生成侧边栏：.js 配置方式 + .md 配置方式，后者更灵活，能配置标题</li>
+<li>禁用侧边栏</li>
+</ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li><p>这里先回答之前的<strong>两个傻逼的问题</strong>：<strong>（2023/12/06晚）</strong></p>
+<blockquote>
+<p>🤡 选中导航栏后，默认为第一个子文件，也就是说，导航栏下没有默认 README.md 页面</p>
+</blockquote>
+<ul>
+<li>这是什么意思呢？就是这个意思：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231206222316398.png" alt="image-20231206222316398"></p>
+<ul>
+<li>这不就很简单？<strong>配置好导航栏菜单的跳转</strong>就可以了：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">nav</span>: [<br>    &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;首页&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/&quot;</span> &#125;,<br>    &#123;<br>      <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;指南&quot;</span>,<br>      <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/52d5c3/&quot;</span>,<br>      <span class="hljs-attr">items</span>: [<br>        &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;简介&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/52d5c3/&quot;</span> &#125;,<br>        &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;安装&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/a2f161/&quot;</span> &#125;,<br>        &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;快速开始&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/793dcb/&quot;</span> &#125;,<br>        &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;返回响应码&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/2f674a/&quot;</span> &#125;,<br>        &#123;<br>          <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;API接口&quot;</span>,<br>          <span class="hljs-attr">items</span>: [<br>            &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;随机壁纸&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/8dfab5/&quot;</span> &#125;,<br>            &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;随机名言&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/dd027d/&quot;</span> &#125;,<br>            &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;天气查询&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/2b8e22/&quot;</span> &#125;,<br>            &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;获取IP信息归属地&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/0fc1d2/&quot;</span> &#125;,<br>          ],<br>        &#125;,<br>      ],<br>    &#125;,<br>   .......................<br>  ],<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>🤡 显示文章的右侧目录</p>
+</blockquote>
+<ul>
+<li>大哥，想什么呢，官网文档都没实现呢，不过有插件可以实现，没有成功过：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/dingshaohua/p/16618802.html">vuepress右侧小目录 二级目录 右侧锚点 模拟Docusaurus效果 - 丁少华 - 博客园 (cnblogs.com)</a></li>
+<li>要想做个右侧目录，那就使用 <code>Vdoing</code> 吧</li>
+</ul>
+</li>
+</ul>
+<h3 id="Gitee-部署"><a href="#Gitee-部署" class="headerlink" title="Gitee 部署"></a>Gitee 部署</h3><ul>
+<li>部署之前肯定要有 Gitee 远程仓库吧，创建一个新仓库，这里<strong>新仓库名</strong>就叫 <code>VuepressDocs3</code>了<strong>（2023/11/28晚）</strong></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231128173007530.png" alt="image-20231128173007530"></p>
+<ul>
+<li>在 <code>.vuepress/config.js</code>下，<strong>作如下配置</strong>：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Mem-API 开发者文档&quot;</span>,<br>  <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;🚀为简化开发而生&quot;</span>,<br>  <span class="hljs-attr">base</span>: <span class="hljs-string">&quot;/vuepress-docs3/&quot;</span>,<br>  <span class="hljs-attr">head</span>: [[<span class="hljs-string">&quot;link&quot;</span>, &#123; <span class="hljs-attr">rel</span>: <span class="hljs-string">&quot;icon&quot;</span>, <span class="hljs-attr">href</span>: <span class="hljs-string">`favicon.png`</span> &#125;]],<br>  <span class="hljs-attr">themeConfig</span>: &#123;<br>    <span class="hljs-comment">// 主题设置</span><br>    <span class="hljs-attr">logo</span>: <span class="hljs-string">&quot;/favicon.png&quot;</span>,<br>    <span class="hljs-attr">nav</span>: [ ...<br>    ],<br>    <span class="hljs-attr">sidebar</span>: &#123; ...<br>    &#125;,<br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这里注意，base 的值对应的是将要部署的 Gitee 仓库地址，看清楚上面<strong>新仓库的地址</strong>：<code>vuepress-docs3</code></p>
+</li>
+<li><p>执行以下命令，打包：</p>
+</li>
+</ul>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">yarn docs:<span class="hljs-keyword">build</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>然后你就会神奇的发现，.vuepress 目录下多了一个 dist 文件夹，这就是打包好的静态网站文件了</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231128173335872.png" alt="image-20231128173335872"></p>
+<ul>
+<li>把 <code>dist</code> 下的文件远程推送到指定 Gitee 远程仓库中，开启 GiteePages 服务：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231128173500061.png" alt="image-20231128173500061"></p>
+<ul>
+<li>大功告成，直接访问即可：<a target="_blank" rel="noopener" href="https://deng-2022.gitee.io/vuepress-docs3/">Mem-API 开发者文档 (gitee.io)</a></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231128173533059.png" alt="image-20231128173533059"></p>
+<h3 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h3><ul>
+<li>踩过的坑算很多了，这里一并提一下：<strong>（2023/11/28晚）</strong></li>
+</ul>
+<blockquote>
+<p>2023/11/26晚</p>
+<p>了解到了 Vuepress 的 <code>全局安装</code>（不支持了）、<code>局部安装</code> 和 <code>直接通过第三方主题安装</code>，并了解了相关配置</p>
+<h5 id="总结来讲，这晚尝试了下-Vuepress-站点的简单配置，还没开始部署"><a href="#总结来讲，这晚尝试了下-Vuepress-站点的简单配置，还没开始部署" class="headerlink" title="总结来讲，这晚尝试了下 Vuepress 站点的简单配置，还没开始部署"></a>总结来讲，这晚尝试了下 Vuepress 站点的简单配置，还没开始部署</h5></blockquote>
+<ul>
+<li><p>妈的，搞了一晚上 Vuepress ，好像没啥成果，但我总得记录一些东西吧：</p>
+<ul>
+<li><p>部署 Vuepress 文档站点：原生（全局安装、局部安装） / 第三方主题 </p>
+</li>
+<li><p>局部安装，好多东西还得自己配置，我哪来的闲心</p>
+</li>
+<li><p>全局安装的话，他奶奶的，执行命令还不起作用</p>
+</li>
+<li><p>第三方主题，感觉很不亲切</p>
+</li>
+<li><p>尝试部署 Github，大体上成功了，但是打包完成后执有问题，现在本地部署也出现问题了</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>2023/11/27晚</p>
+</blockquote>
+<ul>
+<li>也就睡前半个多小时，简单地搞了搞，发现在 Github 上可以直接拉官方代码，实现全局安装</li>
+</ul>
+<blockquote>
+<h5 id="🚀-下载地址：vuejs-vuepress-at-v1-9-10-github-com"><a href="#🚀-下载地址：vuejs-vuepress-at-v1-9-10-github-com" class="headerlink" title="🚀 下载地址：vuejs/vuepress at v1.9.10 (github.com)"></a>🚀 下载地址：<a target="_blank" rel="noopener" href="https://github.com/vuejs/vuepress/tree/v1.9.10">vuejs/vuepress at v1.9.10 (github.com)</a></h5></blockquote>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231127233627342.png" alt="image-20231127233627342"></p>
+<ul>
+<li>还想着在这个基础上修修改改，做个文档站点，不过真的复杂，看看了解即可，在这个基础上做改动太不实际了，直接劝退</li>
+<li> 那就用前天晚上的成果，直接着手部署了：Github / Gitee</li>
+</ul>
+<blockquote>
+<p>🍻 推荐阅读：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45415736/article/details/130194399">vuepress打包部署到Gitee Pages访问页面出现样式丢失_De Ja Vu 幻觉记忆的博客-CSDN博客</a></p>
+</blockquote>
+<ul>
+<li>Github 不想多说，太他妈吃网速了，访问慢不说，好不容易推送成功，还老是显示部署失败，发了十几条邮箱信息都没咋注意：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231128175139846.png" alt="image-20231128175139846">    </p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231128175234867.png" alt="image-20231128175234867"></p>
+<ul>
+<li>呐，上面就是 Github Pages 服务了，太卡了，部署不了，不过网速好的话是没有问题的<strong>（2023/11/28晚）</strong></li>
+</ul>
+<h2 id="Vdoing-文档站点-部署"><a href="#Vdoing-文档站点-部署" class="headerlink" title="Vdoing 文档站点 部署"></a>Vdoing 文档站点 部署</h2><h3 id="快速搭建-1"><a href="#快速搭建-1" class="headerlink" title="快速搭建"></a>快速搭建</h3><ul>
+<li>拉取官方 demo<strong>（2023/12/06晚）</strong></li>
+</ul>
+<blockquote>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://doc.xugaoyi.com/pages/793dcb/#%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8">快速上手 | vuepress-theme-vdoing (xugaoyi.com)</a></p>
+</blockquote>
+<ul>
+<li>如下，直接按照官方文档的步骤，<strong>拉取官方文档站点预设 demo</strong>（这一步不用作过多详细解释了，看官方文档就行）：</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231206214916590.png" alt="image-20231206214916590"></p>
+<ul>
+<li>拉取成功，简单看一下<strong>目录结构</strong>（官网提供），最重要的配置文件就是 <code>docs/.vuepress/config.js</code>  配置文件了：</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs stylus">.<br>├── <span class="hljs-selector-class">.github</span>   (可选，GitHub 相关文件)<br>│   ├── workflows<br>│   │   ├── baiduPush<span class="hljs-selector-class">.yml</span> (可选，百度定时自动推送)<br>│   │   └── ci<span class="hljs-selector-class">.yml</span> (可选，自动部署)<br>├── docs (必须，不要修改文件夹名称)<br>│   ├── <span class="hljs-selector-class">.vuepress</span> （同官方，查看：https:<span class="hljs-comment">//vuepress.vuejs.org/zh/guide/directory-structure.html#目录结构）</span><br>│   ├── @pages (可选，自动生成的文件夹，存放分类页、标签页、归档页)<br>│   ├── _posts (可选，专门存放碎片化博客文章的文件夹)<br>│   ├── &lt;结构化目录&gt;<br>│   └── index<span class="hljs-selector-class">.md</span> (首页)<br>├── vdoing (可选，本地的vdoing主题)<br>├── utils  (可选，vdoing主题使用的node工具)<br>│   ├── modules<br>│   ├── config<span class="hljs-selector-class">.yml</span> (可选，批量操作front matter配置)<br>│   ├── editFrontmatter<span class="hljs-selector-class">.js</span> (可选，批量操作front matter工具)<br>├── baiduPush<span class="hljs-selector-class">.sh</span> (可选，百度推送命令脚本)<br>├── deploy<span class="hljs-selector-class">.sh</span> (可选，部署命令脚本)<br>│<br>└── package.json<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="简单修改配置："><a href="#简单修改配置：" class="headerlink" title="简单修改配置："></a>简单修改配置：</h5></li>
+<li><p>基本上所有配置官方都已经替我们做好了，我们要做的仅仅是改改 <code>网站标题</code>、<code>导航栏</code>、<code>侧边栏</code>，然后把博文替换成自己的就行</p>
+</li>
+<li><p>简单甩出我的配置，仅供参考，详细的配置这里不作过多介绍，需要靠自己慢慢摸索<strong>（2023/12/06晚）</strong></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> baiduCode = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./config/baiduCode.js&quot;</span>); <span class="hljs-comment">// 百度统计hm码</span><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">theme</span>: <span class="hljs-string">&quot;vdoing&quot;</span>, <span class="hljs-comment">// 使用依赖包主题</span><br>  <span class="hljs-comment">// theme: require.resolve(&#x27;../../vdoing&#x27;), // 使用本地主题 (先将vdoing主题文件下载到本地：https://github.com/xugaoyi/vuepress-theme-vdoing)</span><br>  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Memory-API-接口开放平台&quot;</span>,<br>  <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;🚀为简化开发而生&quot;</span>,<br>  <span class="hljs-attr">base</span>: <span class="hljs-string">&quot;/vdoing-doc/&quot;</span>, <span class="hljs-comment">// 默认&#x27;/&#x27;。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 &quot;/bar/&quot;,（否则页面将失去样式等文件）</span><br>  <span class="hljs-comment">// 主题配置</span><br>  <span class="hljs-attr">themeConfig</span>: &#123;<br>    <span class="hljs-attr">nav</span>: [<br>      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;首页&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/&quot;</span> &#125;,<br>      &#123;<br>        <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;指南&quot;</span>,<br>        <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/52d5c3/&quot;</span>,<br>        <span class="hljs-attr">items</span>: [<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;简介&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/52d5c3/&quot;</span> &#125;,<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;安装&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/a2f161/&quot;</span> &#125;,<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;快速开始&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/793dcb/&quot;</span> &#125;,<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;返回响应码&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/2f674a/&quot;</span> &#125;,<br>          &#123;<br>            <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;API接口&quot;</span>,<br>            <span class="hljs-attr">items</span>: [<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;随机壁纸&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/8dfab5/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;随机名言&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/dd027d/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;天气查询&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/2b8e22/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;获取IP信息归属地&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/0fc1d2/&quot;</span> &#125;,<br>            ],<br>          &#125;,<br>        ],<br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;配置&quot;</span>,<br>        <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/ce175c/&quot;</span>,<br>        <span class="hljs-attr">items</span>: [&#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;使用配置&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/ce175c/&quot;</span> &#125;],<br>      &#125;,<br>      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;案例&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/5d571c/&quot;</span> &#125;,<br>      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;问答&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/9cc27d/&quot;</span> &#125;,<br>      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;赞助&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/1b12ed/&quot;</span> &#125;,<br>    ],<br>    <span class="hljs-attr">sidebarDepth</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">// 侧边栏显示深度，默认1，最大2（显示到h3标题）</span><br>    <span class="hljs-attr">logo</span>: <span class="hljs-string">&quot;/img/logo.png&quot;</span>, <span class="hljs-comment">// 导航栏logo</span><br>    <span class="hljs-attr">repo</span>: <span class="hljs-string">&quot;xugaoyi/vuepress-theme-vdoing&quot;</span>, <span class="hljs-comment">// 导航栏右侧生成Github链接</span><br>    <span class="hljs-attr">searchMaxSuggestions</span>: <span class="hljs-number">10</span>, <span class="hljs-comment">// 搜索结果显示最大数</span><br>    <span class="hljs-attr">lastUpdated</span>: <span class="hljs-string">&quot;上次更新&quot;</span>, <span class="hljs-comment">// 更新的时间，及前缀文字   string | boolean (取值为git提交时间)</span><br><br>    <span class="hljs-comment">// 以下配置是Vdoing主题改动的和新增的配置</span><br>    <span class="hljs-attr">sidebar</span>: &#123; <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;structuring&quot;</span>, <span class="hljs-attr">collapsable</span>: <span class="hljs-literal">false</span> &#125;, <span class="hljs-comment">// 侧边栏  &#x27;structuring&#x27; | &#123; mode: &#x27;structuring&#x27;, collapsable: Boolean&#125; | &#x27;auto&#x27; | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为&#x27;structuring&#x27;,将无法使用目录页</span><br><br>    <span class="hljs-comment">// sidebarOpen: false, // 初始状态是否打开侧边栏，默认true</span><br>    <span class="hljs-attr">updateBar</span>: &#123;<br>      <span class="hljs-comment">// 最近更新栏</span><br>      <span class="hljs-attr">showToArticle</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 显示到文章页底部，默认true</span><br>      <span class="hljs-comment">// moreArticle: &#x27;/archives&#x27; // “更多文章”跳转的页面，默认&#x27;/archives&#x27;</span><br>    &#125;,<br>    <span class="hljs-comment">// titleBadge: false, // 文章标题前的图标是否显示，默认true</span><br>    <span class="hljs-comment">// titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标</span><br>    <span class="hljs-comment">//   &#x27;图标地址1&#x27;,</span><br>    <span class="hljs-comment">//   &#x27;图标地址2&#x27;</span><br>    <span class="hljs-comment">// ],</span><br><br>    <span class="hljs-attr">pageStyle</span>: <span class="hljs-string">&quot;line&quot;</span>, <span class="hljs-comment">// 页面风格，可选值：&#x27;card&#x27;卡片 | &#x27;line&#x27; 线（未设置bodyBgImg时才生效）， 默认&#x27;card&#x27;。 说明：card时背景显示灰色衬托出卡片样式，line时背景显示纯色，并且部分模块带线条边框</span><br><br>    <span class="hljs-comment">// contentBgStyle: 1,</span><br><br>    <span class="hljs-attr">category</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。</span><br>    <span class="hljs-attr">tag</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。</span><br>    <span class="hljs-comment">// archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。</span><br><br>    <span class="hljs-attr">author</span>: &#123;<br>      <span class="hljs-comment">// 文章默认的作者信息，可在md文件中单独配置此信息 String | &#123;name: String, href: String&#125;</span><br>      <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Evan Xu&quot;</span>, <span class="hljs-comment">// 必需</span><br>      <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;https://github.com/xugaoyi&quot;</span>, <span class="hljs-comment">// 可选的</span><br>    &#125;,<br>    <span class="hljs-attr">social</span>: &#123;<br>      <span class="hljs-comment">// 社交图标，显示于博主信息栏和页脚栏</span><br>      <span class="hljs-comment">// iconfontCssFile: &#x27;//at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css&#x27;, // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自由添加</span><br>      <span class="hljs-attr">icons</span>: [<br>        &#123;<br>          <span class="hljs-attr">iconClass</span>: <span class="hljs-string">&quot;icon-youjian&quot;</span>,<br>          <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;发邮件&quot;</span>,<br>          <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;mailto:894072666@qq.com&quot;</span>,<br>        &#125;,<br>        &#123;<br>          <span class="hljs-attr">iconClass</span>: <span class="hljs-string">&quot;icon-github&quot;</span>,<br>          <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;GitHub&quot;</span>,<br>          <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;https://github.com/xugaoyi&quot;</span>,<br>        &#125;,<br>        &#123;<br>          <span class="hljs-attr">iconClass</span>: <span class="hljs-string">&quot;icon-erji&quot;</span>,<br>          <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;听音乐&quot;</span>,<br>          <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;https://music.163.com/#/playlist?id=755597173&quot;</span>,<br>        &#125;,<br>      ],<br>    &#125;,<br>    <span class="hljs-attr">footer</span>: &#123;<br>      <span class="hljs-comment">// 页脚信息</span><br>      <span class="hljs-attr">createYear</span>: <span class="hljs-number">2019</span>, <span class="hljs-comment">// 博客创建年份</span><br>      <span class="hljs-attr">copyrightInfo</span>: <span class="hljs-string">&quot;Evan Xu | MIT License&quot;</span>, <span class="hljs-comment">// 博客版权信息，支持a标签</span><br>    &#125;,<br>  &#125;,<br><br>  <span class="hljs-comment">// 插件</span><br>  <span class="hljs-attr">plugins</span>: [<br>    [<span class="hljs-string">&quot;fulltext-search&quot;</span>], <span class="hljs-comment">// 全文搜索</span><br><br>    [<br>      <span class="hljs-string">&quot;vuepress-plugin-baidu-tongji&quot;</span>, <span class="hljs-comment">// 百度统计</span><br>      &#123;<br>        <span class="hljs-attr">hm</span>: baiduCode || <span class="hljs-string">&quot;01293bffa6c3962016c08ba685c79d78&quot;</span>,<br>      &#125;,<br>    ],<br><br>    [<br>      <span class="hljs-string">&quot;one-click-copy&quot;</span>,<br>      &#123;<br>        <span class="hljs-comment">// 代码块复制按钮</span><br>        <span class="hljs-attr">copySelector</span>: [<br>          <span class="hljs-string">&#x27;div[class*=&quot;language-&quot;] pre&#x27;</span>,<br>          <span class="hljs-string">&#x27;div[class*=&quot;aside-code&quot;] aside&#x27;</span>,<br>        ], <span class="hljs-comment">// String or Array</span><br>        <span class="hljs-attr">copyMessage</span>: <span class="hljs-string">&quot;复制成功&quot;</span>, <span class="hljs-comment">// default is &#x27;Copy successfully and then paste it for use.&#x27;</span><br>        <span class="hljs-attr">duration</span>: <span class="hljs-number">1000</span>, <span class="hljs-comment">// prompt message display time.</span><br>        <span class="hljs-attr">showInMobile</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// whether to display on the mobile side, default: false.</span><br>      &#125;,<br>    ],<br>    [<br>      <span class="hljs-string">&quot;demo-block&quot;</span>,<br>      &#123;<br>        <span class="hljs-comment">// demo演示模块 https://github.com/xiguaxigua/vuepress-plugin-demo-block</span><br>        <span class="hljs-attr">settings</span>: &#123;<br>          <span class="hljs-comment">// jsLib: [&#x27;http://xxx&#x27;], // 在线示例(jsfiddle, codepen)中的js依赖</span><br>          <span class="hljs-comment">// cssLib: [&#x27;http://xxx&#x27;], // 在线示例中的css依赖</span><br>          <span class="hljs-comment">// vue: &#x27;https://jsd.cdn.zzko.cn/npm/vue/dist/vue.min.js&#x27;, // 在线示例中的vue依赖</span><br>          <span class="hljs-attr">jsfiddle</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否显示 jsfiddle 链接</span><br>          <span class="hljs-attr">codepen</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否显示 codepen 链接</span><br>          <span class="hljs-attr">horizontal</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否展示为横向样式</span><br>        &#125;,<br>      &#125;,<br>    ],<br>    [<br>      <span class="hljs-string">&quot;vuepress-plugin-zooming&quot;</span>, <span class="hljs-comment">// 放大图片</span><br>      &#123;<br>        <span class="hljs-attr">selector</span>: <span class="hljs-string">&quot;.theme-vdoing-content img:not(.no-zoom)&quot;</span>,<br>        <span class="hljs-attr">options</span>: &#123;<br>          <span class="hljs-attr">bgColor</span>: <span class="hljs-string">&quot;rgba(0,0,0,0.6)&quot;</span>,<br>        &#125;,<br>      &#125;,<br>    ],<br>    [<br>      <span class="hljs-string">&quot;@vuepress/last-updated&quot;</span>, <span class="hljs-comment">// &quot;上次更新&quot;时间格式</span><br>      &#123;<br>        <span class="hljs-attr">transformer</span>: <span class="hljs-function">(<span class="hljs-params">timestamp, lang</span>) =&gt;</span> &#123;<br>          <span class="hljs-keyword">const</span> dayjs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dayjs&quot;</span>); <span class="hljs-comment">// https://day.js.org/</span><br>          <span class="hljs-keyword">return</span> <span class="hljs-title function_">dayjs</span>(timestamp).<span class="hljs-title function_">format</span>(<span class="hljs-string">&quot;YYYY/MM/DD, HH:mm:ss&quot;</span>);<br>        &#125;,<br>      &#125;,<br>    ],<br>  ],<br><br>  <span class="hljs-attr">markdown</span>: &#123;<br>    <span class="hljs-comment">// lineNumbers: true,</span><br>    <span class="hljs-attr">extractHeaders</span>: [<span class="hljs-string">&quot;h2&quot;</span>, <span class="hljs-string">&quot;h3&quot;</span>, <span class="hljs-string">&quot;h4&quot;</span>, <span class="hljs-string">&quot;h5&quot;</span>, <span class="hljs-string">&quot;h6&quot;</span>], <span class="hljs-comment">// 提取标题到侧边栏的级别，默认[&#x27;h2&#x27;, &#x27;h3&#x27;]</span><br>  &#125;,<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231206215939559.png" alt="image-20231206215939559"></p>
+<h3 id="Gitee-部署-1"><a href="#Gitee-部署-1" class="headerlink" title="Gitee 部署"></a>Gitee 部署</h3><ul>
+<li>部署流程跟上面 Vuepress 文档站点部署是一样样的：</li>
+</ul>
+<blockquote>
+<p>配置远程仓库地址 -&gt; 打包 -&gt; 推送至远程仓库 -&gt; 开启 Gitee Pages 服务</p>
+</blockquote>
+<ul>
+<li><p>值得注意的是，不论是执行 <code>yarn dev</code> 还是 <code>yarn build</code>，都会有<strong>这样的友好提示</strong>（这也是和 Vuepress 不同的地方）：<img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231206164726405.png" alt="image-20231206164726405"></p>
+</li>
+<li><p>按提示修改就行</p>
+</li>
+</ul>
+<h3 id="踩坑记录-1"><a href="#踩坑记录-1" class="headerlink" title="踩坑记录"></a>踩坑记录</h3><ul>
+<li>一晚上遇到好些个坑，在 <code>config.js</code> 配置文件中指定 <code>base</code> 路径并打包完成后，在 <code>dist</code> 目录下执行以下命令：</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">serve</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>结果是这样（样式丢失）：<strong>（2023/12/06晚）</strong></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231206165305532.png" alt="image-20231206165305532"></p>
+<ul>
+<li><p>这样是正常的，在推送 <code>dist</code> 目录下的文件到远程仓库的过程中，由于对 git 命令的不熟悉，一直<strong>被之前的提交记录所影响</strong></p>
+</li>
+<li><p>建议直接把打包后生成的 <code>dist</code> 目录<strong>剪切在一个干净的目录下</strong>，执行推送</p>
+</li>
+<li><h5 id="推送成功："><a href="#推送成功：" class="headerlink" title="推送成功："></a>推送成功：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231206221124915.png" alt="image-20231206221124915"></p>
+<ul>
+<li>开启 <code>Gitee Pages</code> 服务成功后，<strong>直接访问</strong>：<strong>（2023/12/06晚）</strong></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231206221217820.png" alt="image-20231206221217820"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231206213451379.png" alt="image-20231206213451379"></p>
+<h2 id="Vdoing-主题搭建文档站点"><a href="#Vdoing-主题搭建文档站点" class="headerlink" title="Vdoing 主题搭建文档站点"></a>Vdoing 主题搭建文档站点</h2><h3 id="Memory-Tools"><a href="#Memory-Tools" class="headerlink" title="Memory Tools"></a>Memory Tools</h3><ul>
+<li>今日，<code>Memory-Tools 开发者文档</code>基本完成！效果如下：<strong>（2032/12/19午）</strong></li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231219134202831.png" alt="image-20231219134202831"></p>
+<ul>
+<li>查看详情，可点击跳转：<a target="_blank" rel="noopener" href="http://localhost:8080/memory-tools-docs/">Memory-Tools 开发者文档</a></li>
+</ul>
+<h3 id="MemorySearch-忆搜阁"><a href="#MemorySearch-忆搜阁" class="headerlink" title="MemorySearch 忆搜阁"></a>MemorySearch 忆搜阁</h3><p>今日，基本完成 <code>MemorySearch 忆搜阁</code> 的文档编写和网站首页制作！</p>
+<p>网站首页使用 vuepress-theme-hope 主题：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240219110401147.png" alt="image-20240219110401147"></p>
+<p>开发文档使用 vdoing 主题：</p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240219110100681.png" alt="image-20240219110100681"></p>
+<p>使用 vdoing 主题搭建的 Vuepress 文档中，在 <code>config.js</code> 和 <code>index.md</code> 文件中，可分别修改文档<code>首页 LOGO</code> 和 <code>导航栏 LOGO</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">theme</span>: <span class="hljs-string">&quot;vdoing&quot;</span>, <span class="hljs-comment">// 使用依赖包主题</span><br>  <span class="hljs-comment">// theme: require.resolve(&#x27;../../vdoing&#x27;), // 使用本地主题 (先将vdoing主题文件下载到本地：https://github.com/xugaoyi/vuepress-theme-vdoing)</span><br>  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;MemorySearch 开发者文档&quot;</span>,<br>  <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;🚀为简化开发而生&quot;</span>,<br>  <span class="hljs-attr">base</span>: <span class="hljs-string">&quot;/memory-search-docs/&quot;</span>, <span class="hljs-comment">// 默认&#x27;/&#x27;。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 &quot;/bar/&quot;,（否则页面将失去样式等文件）</span><br>  <span class="hljs-comment">// 主题配置</span><br>  <span class="hljs-attr">themeConfig</span>: &#123;<br>    <span class="hljs-attr">nav</span>: [<br>      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;首页&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/&quot;</span> &#125;,<br>      &#123;<br>        <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;操作指南&quot;</span>,<br>        <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/52d5c3/&quot;</span>,<br>        <span class="hljs-attr">items</span>: [<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;概述&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/52d5c3/&quot;</span> &#125;,<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;系统设计&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/a2f161/&quot;</span> &#125;,<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;维护升级&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/793dcb/&quot;</span> &#125;,<br>          &#123;<br>            <span class="hljs-attr">items</span>: [<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;高效多元搜索&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/346f3e/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;互动创作平台&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/94778b/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;流量统计分析&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/c0261e/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;个人中心管理&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/8dfa99/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;资源全面管理&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/8dfab5/&quot;</span> &#125;,<br>            ],<br>          &#125;,<br>        ],<br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;学习收获&quot;</span>,<br>        <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/8dfad9/&quot;</span>,<br>        <span class="hljs-attr">items</span>: [<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;概览&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/8dfad9/&quot;</span> &#125;,<br>          &#123;<br>            <span class="hljs-attr">items</span>: [<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Ant Design Vue 脚手架&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/advjsj/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Vuepress 静态文档站点&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/vpjtwd/&quot;</span> &#125;,<br><br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;数据抓取&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/sjzq/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Elastic Stack 技术栈&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/esjsz/&quot;</span> &#125;,<br><br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;适配器模式&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/apqms/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;门面模式&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/mmms/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;注册器模式&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/zcqms/&quot;</span> &#125;,<br><br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;关键词语高亮&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/gjcygl/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;搜索词条建议&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/ssctjy/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;热门搜索统计&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/rmsstj/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;热门话题分析&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/rmhtfx/&quot;</span> &#125;,<br><br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Logstash 数据同步管道&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/lssjtbgd/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Canal 监控数据库流水&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/cjksjkls/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Kibana 数据监控面板&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/ksjjkmb/&quot;</span> &#125;,<br><br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;限流策略&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/xlcl/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Redis 缓存优化&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/rhcyh/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Knife4j &amp; Swagger 接口文档&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/ksjkwd/&quot;</span> &#125;,<br><br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;定时任务调度&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/dsrwdd/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;权限校验机制&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/qxjyjz/&quot;</span> &#125;,<br>              &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;异步编程支持&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/ybbczc/&quot;</span> &#125;,<br>            ],<br>          &#125;,<br>        ],<br>      &#125;,<br>      <span class="hljs-comment">// &#123; text: &quot;案例&quot;, link: &quot;/pages/5d571c/&quot; &#125;,</span><br>      &#123;<br>        <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;问题答疑&quot;</span>,<br>        <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/9cc27d/&quot;</span>,<br>        <span class="hljs-attr">items</span>: [<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;简介&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/9cc27d/&quot;</span> &#125;,<br>          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;常见问题与解答&quot;</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">&quot;/pages/9cc288/&quot;</span> &#125;,<br>        ],<br>      &#125;,<br>      <span class="hljs-comment">// &#123; text: &quot;赞助&quot;, link: &quot;/pages/1b12ed/&quot; &#125;,</span><br>    ],<br>    <span class="hljs-attr">sidebarDepth</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">// 侧边栏显示深度，默认1，最大2（显示到h3标题）</span><br>    <span class="hljs-attr">logo</span>: <span class="hljs-string">&quot;/img/logo.png&quot;</span>, <span class="hljs-comment">// 导航栏logo</span><br>    <span class="hljs-attr">repo</span>: <span class="hljs-string">&quot;xugaoyi/vuepress-theme-vdoing&quot;</span>, <span class="hljs-comment">// 导航栏右侧生成Github链接</span><br>    <span class="hljs-attr">searchMaxSuggestions</span>: <span class="hljs-number">10</span>, <span class="hljs-comment">// 搜索结果显示最大数</span><br>    <span class="hljs-attr">lastUpdated</span>: <span class="hljs-string">&quot;上次更新&quot;</span>, <span class="hljs-comment">// 更新的时间，及前缀文字   string | boolean (取值为git提交时间)</span><br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">home:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">heroImage:</span> <span class="hljs-string">/img/logo.png</span><br><span class="hljs-attr">heroText:</span> <span class="hljs-string">MemorySearch</span> <span class="hljs-string">开发者文档</span><br><span class="hljs-attr">tagline:</span> <span class="hljs-string">🚀为简化开发而生</span><br><span class="hljs-attr">actionText:</span> <span class="hljs-string">开始使用</span> <span class="hljs-string">→</span><br><span class="hljs-attr">actionLink:</span> <span class="hljs-string">/pages/52d5c3/</span><br><span class="hljs-attr">bannerBg:</span> <span class="hljs-string">none</span> <span class="hljs-comment"># auto =&gt; 网格纹背景(有bodyBgImg时无背景)，默认 | none =&gt; 无 | &#x27;大图地址&#x27; | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量</span><br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240219105642175.png" alt="image-20240219105642175"></p>
+<h2 id="严重问题"><a href="#严重问题" class="headerlink" title="严重问题"></a>严重问题</h2><blockquote>
+<p>2024年4月29日</p>
+</blockquote>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240429084945308.png" alt="image-20240429084945308"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240429085809381.png" alt="image-20240429085809381"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240429085813430.png" alt="image-20240429085813430"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20240429090001153.png" alt="image-20240429090001153"></p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="Gitee基础知识和使用"><a href="#Gitee基础知识和使用" class="headerlink" title="Gitee基础知识和使用"></a>Gitee基础知识和使用</h3><ul>
+<li>注册和创建Gitee账号</li>
+<li>创建新的仓库（Repository）</li>
+<li>了解仓库的组成和功能，例如分支、提交记录等</li>
+<li>熟悉仓库的基础操作，如上传和下载文件、提交和同步代码等</li>
+</ul>
+<h3 id="Gitee-Page服务简介"><a href="#Gitee-Page服务简介" class="headerlink" title="Gitee Page服务简介"></a>Gitee Page服务简介</h3><ul>
+<li>介绍Gitee的Page服务，它是什么以及它的作用</li>
+<li>解释Page服务的原理和运行机制</li>
+<li>简要介绍Page服务的特性，如自动部署、自定义域名等</li>
+</ul>
+<h3 id="托管静态网站的步骤和实践"><a href="#托管静态网站的步骤和实践" class="headerlink" title="托管静态网站的步骤和实践"></a>托管静态网站的步骤和实践</h3><ul>
+<li>准备网站目录和静态资源</li>
+<li>在Gitee仓库中创建和组织网站文件的结构</li>
+<li>配置Page服务并将网站部署到Gitee仓库</li>
+<li>详细说明自定义域名、HTTPS等高级配置选项</li>
+</ul>
+<h3 id="最佳实践和常见问题解答"><a href="#最佳实践和常见问题解答" class="headerlink" title="最佳实践和常见问题解答"></a>最佳实践和常见问题解答</h3><ul>
+<li>分享一些使用Gitee托管静态网站的最佳实践和技巧</li>
+<li>解答常见问题，如如何自动构建、如何更新网站内容等</li>
+</ul>
+<h3 id="Gitee托管"><a href="#Gitee托管" class="headerlink" title="Gitee托管"></a>Gitee托管</h3><p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230702152240718.png" alt="image-20230702152240718"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230702152844439.png" alt="image-20230702152844439"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230702152910555.png" alt="image-20230702152910555"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230702153051903.png" alt="image-20230702153051903"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230702153115901.png" alt="image-20230702153115901"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230702153134983.png" alt="image-20230702153134983"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20230702153211860.png" alt="image-20230702153211860"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>总结使用Gitee的Page服务托管静态网站的优势和便利性</li>
+<li>强调Gitee作为开源社区的重要性，并鼓励读者尝试使用Gitee进行项目和网站托管</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/%E7%BB%8F%E9%AA%8C/" class="category-chain-item">经验</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E7%BB%8F%E9%AA%8C/%E6%96%87%E6%A1%A3%E7%AB%99%E7%82%B9%E7%94%9F%E6%88%90/" class="category-chain-item">文档站点生成</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/%E7%BB%8F%E9%AA%8C/%E6%96%87%E6%A1%A3%E7%AB%99%E7%82%B9%E7%94%9F%E6%88%90/Blog/" class="category-chain-item">Blog</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/%E7%BB%8F%E9%AA%8C/">#经验</a>
+      
+        <a href="/deng-2022/blog_2/tags/Blogs/">#Blogs</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>大道至简：快速搭建博客与文档站点的终极指南2.0</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/06/24/大道至简：快速搭建博客与文档站点的终极指南2.0/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年5月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/24/%E4%BD%BF%E7%94%A8%20JSP%20%E6%9E%84%E5%BB%BA%20JavaWeb%20%E9%A1%B9%E7%9B%AE-%E4%BB%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%A7%E4%BD%9C%E4%B8%9A%E4%B8%BA%E4%BE%8B/" title="使用JSP构建JavaWeb项目--以数据库大作业为例">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用JSP构建JavaWeb项目--以数据库大作业为例</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/06/24/%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97-%E6%8E%8C%E6%8F%A1Node-js%E9%85%8D%E7%BD%AE/" title="配置指南-掌握Node.js配置">
+                        <span class="hidden-mobile">配置指南-掌握Node.js配置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

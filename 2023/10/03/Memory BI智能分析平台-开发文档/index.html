@@ -1,0 +1,1254 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/deng-2022/blog_2/img/fluid.png">
+  <link rel="icon" href="/deng-2022/blog_2/img/icon/dw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Memory">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🥂 Memory BI智能搜索平台开发基本流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Memory BI 智能分析平台-开发文档">
+<meta property="og:url" content="https://atomgit.com/deng-2022/blog_2/2023/10/03/Memory%20BI%E6%99%BA%E8%83%BD%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0-%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="Memory&#39;s blog">
+<meta property="og:description" content="🥂 Memory BI智能搜索平台开发基本流程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/winter2.jpg">
+<meta property="article:published_time" content="2023-10-03T01:51:22.000Z">
+<meta property="article:modified_time" content="2023-10-15T11:37:25.000Z">
+<meta property="article:author" content="Memory">
+<meta property="article:tag" content="项目">
+<meta property="article:tag" content="RabbitMQ">
+<meta property="article:tag" content="开发经验">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atomgit.com/deng-2022/blog_2/img/artical/winter2.jpg">
+  
+  
+  
+  <title>Memory BI 智能分析平台-开发文档 - Memory&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/deng-2022/blog_2/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/deng-2022/blog_2/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/deng-2022/blog_2/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"atomgit.com","root":"/deng-2022/blog_2/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/deng-2022/blog_2/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/deng-2022/blog_2/js/utils.js" ></script>
+  <script  src="/deng-2022/blog_2/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 75vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/deng-2022/blog_2/">
+      <strong>Memory&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/deng-2022/blog_2/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/deng-2022/blog_2/img/newBG/girl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Memory BI 智能分析平台-开发文档"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Memory
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-03 09:51" pubdate>
+          2023年10月3日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="RabbitMQ"
+        id="heading-7eaa993723e57b3bfc99923c196e2e17" role="tab" data-toggle="collapse" href="#collapse-7eaa993723e57b3bfc99923c196e2e17"
+        aria-expanded="true"
+      >
+        RabbitMQ
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-7eaa993723e57b3bfc99923c196e2e17"
+           role="tabpanel" aria-labelledby="heading-7eaa993723e57b3bfc99923c196e2e17">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+        aria-expanded="true"
+      >
+        项目
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="开发经验"
+        id="heading-bfd19ce0478d81a44ceb5a9a1aa94202" role="tab" data-toggle="collapse" href="#collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+        aria-expanded="true"
+      >
+        开发经验
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-bfd19ce0478d81a44ceb5a9a1aa94202"
+           role="tabpanel" aria-labelledby="heading-bfd19ce0478d81a44ceb5a9a1aa94202">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/deng-2022/blog_2/2023/10/03/Memory%20BI%E6%99%BA%E8%83%BD%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0-%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" title="Memory BI 智能分析平台-开发文档"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Memory BI 智能分析平台-开发文档</span>
+        </a>
+      
+    
+      
+      
+        <a href="/deng-2022/blog_2/2024/01/15/Memory%20OJ%20%E5%9C%A8%E7%BA%BF%E5%88%A4%E9%A2%98%E7%B3%BB%E7%BB%9F/" title="Memory OJ 在线判题系统"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Memory OJ 在线判题系统</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Memory BI 智能分析平台-开发文档</h1>
+            
+              <p class="note note-success">
+                
+                  
+                    本文最后更新于：7 个月前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h2><h3 id="前端框架搭建"><a href="#前端框架搭建" class="headerlink" title="前端框架搭建"></a>前端框架搭建</h3><h4 id="Ant-Design-Pro前端框架初始化"><a href="#Ant-Design-Pro前端框架初始化" class="headerlink" title="Ant Design Pro前端框架初始化"></a>Ant Design Pro前端框架初始化</h4><ul>
+<li>详情可见：《》</li>
+</ul>
+<h3 id="后端框架搭建"><a href="#后端框架搭建" class="headerlink" title="后端框架搭建"></a>后端框架搭建</h3><ul>
+<li><h5 id="修改数据库配置，修改启动端口，开启接口文档，测试登陆注册功能"><a href="#修改数据库配置，修改启动端口，开启接口文档，测试登陆注册功能" class="headerlink" title="修改数据库配置，修改启动端口，开启接口文档，测试登陆注册功能"></a>修改数据库配置，修改启动端口，开启接口文档，测试登陆注册功能</h5></li>
+</ul>
+<h2 id="day2"><a href="#day2" class="headerlink" title="day2"></a>day2</h2><h3 id="建立数据库表"><a href="#建立数据库表" class="headerlink" title="建立数据库表"></a>建立数据库表</h3><ul>
+<li>图表信息表</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> if <span class="hljs-keyword">not</span> <span class="hljs-keyword">exists</span> chart<br>(<br>    id         <span class="hljs-type">bigint</span> auto_increment comment <span class="hljs-string">&#x27;id&#x27;</span> <span class="hljs-keyword">primary</span> key,<br>    `name`       <span class="hljs-type">varchar</span>(<span class="hljs-number">128</span>)                       <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;图表名称&#x27;</span>,<br>    goal       text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;分析目标&#x27;</span>,<br>    chartData  text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;图表数据&#x27;</span>,<br>    chartType  <span class="hljs-type">varchar</span>(<span class="hljs-number">128</span>)                       <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;图表类型&#x27;</span>,<br>    genChart   text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;生成的图表数据&#x27;</span>,<br>    genResult  text                               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;生成的分析结论&#x27;</span>,<br>    userId     <span class="hljs-type">bigint</span>                             <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;创建用户 id&#x27;</span>,<br>    createTime datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;创建时间&#x27;</span>,<br>    updateTime datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;更新时间&#x27;</span>,<br>    isDelete   tinyint  <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;是否删除&#x27;</span><br><br>    ) comment <span class="hljs-string">&#x27;图表信息表&#x27;</span> <span class="hljs-keyword">collate</span> <span class="hljs-operator">=</span> utf8mb4_unicode_ci;<br></code></pre></td></tr></table></figure>
+
+<h3 id="分析Excel文件，获取数据"><a href="#分析Excel文件，获取数据" class="headerlink" title="分析Excel文件，获取数据"></a>分析Excel文件，获取数据</h3><ul>
+<li>简单地测试一把：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">File</span> <span class="hljs-variable">file</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br> <span class="hljs-keyword">try</span> &#123;<br>     file = ResourceUtils.getFile(<span class="hljs-string">&quot;classpath:test_excel.xlsx&quot;</span>);<br> &#125; <span class="hljs-keyword">catch</span> (FileNotFoundException e) &#123;<br>     e.printStackTrace();<br> &#125;<br> <span class="hljs-comment">// 读取数据</span><br> List&lt;Map&lt;Integer, String&gt;&gt; list = <span class="hljs-literal">null</span>;<br> <span class="hljs-keyword">try</span> &#123;<br>     list = EasyExcel.read(multipartFile.getInputStream())<br>             .excelType(ExcelTypeEnum.XLSX)<br>             .sheet()<br>             .headRowNumber(<span class="hljs-number">0</span>)<br>             .doReadSync();<br> &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);<br> &#125;<br> <span class="hljs-keyword">if</span> (CollUtil.isEmpty(list)) &#123;<br>     <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;<br> &#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="学习-BI-智能分析平台，让我更加拓宽了学习思路："><a href="#学习-BI-智能分析平台，让我更加拓宽了学习思路：" class="headerlink" title="学习 BI 智能分析平台，让我更加拓宽了学习思路："></a>学习 BI 智能分析平台，让我更加拓宽了学习思路：</h4><ul>
+<li><p>最近的Ant Design Pro前端框架初始化</p>
+</li>
+<li><p>系统领受了如何调用 AI 完成：根据用户提问，自动生成图表以及分析结论，这其中有很多值得学习的新知识：</p>
+<ul>
+<li><h5 id="提问-AI-的技巧（四个技巧）"><a href="#提问-AI-的技巧（四个技巧）" class="headerlink" title="提问 AI 的技巧（四个技巧）"></a>提问 AI 的技巧（四个技巧）</h5></li>
+<li><h5 id="如何在调用现有的-OpenAPI接口？（三种主流方法）"><a href="#如何在调用现有的-OpenAPI接口？（三种主流方法）" class="headerlink" title="如何在调用现有的 OpenAPI接口？（三种主流方法）"></a>如何在调用现有的 OpenAPI接口？（三种主流方法）</h5></li>
+</ul>
+</li>
+<li><h5 id="实现AI生成图表业务的基本流程：（2023-10-05晚）"><a href="#实现AI生成图表业务的基本流程：（2023-10-05晚）" class="headerlink" title="实现AI生成图表业务的基本流程：（2023/10/05晚）"></a>实现AI生成图表业务的基本流程：（2023/10/05晚）</h5><ul>
+<li>构造用户请求</li>
+<li><strong>调用鱼聪明 sdk</strong> 得到 AI 响应结果（<strong>指定生成内容的固定格式</strong>，如 <strong>Echarts</strong> 的图表代码格式）</li>
+<li>从响应结果中，<strong>取出需要的信息</strong></li>
+<li>保存图表到数据库，返回给前端进行展示</li>
+</ul>
+</li>
+<li><p>理解了 <strong>API 开放平台</strong>带来的便利，对其架构设计有了更深的理解</p>
+</li>
+<li><p>自定义 AI 助手，<strong>做好预设</strong>，能让生成结果更加准确、符合预期</p>
+</li>
+</ul>
+<h2 id="day3"><a href="#day3" class="headerlink" title="day3"></a>day3</h2><ul>
+<li><p>这里附上本期项目中使用到的 <strong>AI 模型地址</strong>：</p>
+</li>
+<li><h5 id="鱼聪明AI-做您强大的AI助手-yucongming-com"><a href="#鱼聪明AI-做您强大的AI助手-yucongming-com" class="headerlink" title="鱼聪明AI - 做您强大的AI助手 (yucongming.com)"></a><a target="_blank" rel="noopener" href="https://www.yucongming.com/model">鱼聪明AI - 做您强大的AI助手 (yucongming.com)</a></h5></li>
+</ul>
+<h3 id="构造用户请求"><a href="#构造用户请求" class="headerlink" title="构造用户请求"></a>构造用户请求</h3><ul>
+<li>我们需要对 AI 进行提问，让它生成符合我们预期的数据</li>
+<li>这里我们提下 <strong>提问 AI 的四个技巧</strong>：</li>
+</ul>
+<h3 id="提词技巧"><a href="#提词技巧" class="headerlink" title="提词技巧"></a>提词技巧</h3><ul>
+<li>持续输入，持续优化<strong>（2023/10/05早）</strong></li>
+<li>考虑到输入限制，进行数据压缩，把很长的内容提取关键词（也可以让AI完成）</li>
+<li>做预设：在系统层面做预设，一般要比在提问关键词中做预设效果要好</li>
+<li>除系统预设外，额外添加两条一问一答形式，相当于给AI提示</li>
+</ul>
+<h3 id="自定义预设"><a href="#自定义预设" class="headerlink" title="自定义预设"></a>自定义预设</h3><ul>
+<li><p>做好预设，能让生成结果更加准确、符合预期</p>
+</li>
+<li><h5 id="我在鱼聪明平台上，自定义了第一个-AI-助手，能够专门回答固定领域的问题："><a href="#我在鱼聪明平台上，自定义了第一个-AI-助手，能够专门回答固定领域的问题：" class="headerlink" title="我在鱼聪明平台上，自定义了第一个 AI 助手，能够专门回答固定领域的问题："></a>我在鱼聪明平台上，自定义了第一个 AI 助手，能够专门回答固定领域的问题：</h5></li>
+<li><p>我们对 <strong>自定义的AI小助手</strong>做好预设：</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231006195531671.png" alt="image-20231006195531671"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231006195551555.png" alt="image-20231006195551555"></p>
+<ul>
+<li><h5 id="如上，我们对该-AI-助手做好如上预设"><a href="#如上，我们对该-AI-助手做好如上预设" class="headerlink" title="如上，我们对该 AI 助手做好如上预设"></a>如上，我们对该 AI 助手做好如上预设</h5></li>
+<li><h5 id="实测结果令我非常满意：（2023-10-05晚）"><a href="#实测结果令我非常满意：（2023-10-05晚）" class="headerlink" title="实测结果令我非常满意：（2023/10/05晚）"></a>实测结果令我非常满意：（2023/10/05晚）</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231005210141145.png" alt="image-20231005210141145"></p>
+<h3 id="数据分析助手预设"><a href="#数据分析助手预设" class="headerlink" title="数据分析助手预设"></a>数据分析助手预设</h3><ul>
+<li><h5 id="Echarts-官网：Examples-Apache-ECharts"><a href="#Echarts-官网：Examples-Apache-ECharts" class="headerlink" title="Echarts 官网：Examples - Apache ECharts"></a>Echarts 官网：<a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/editor.html?c=line-simple">Examples - Apache ECharts</a></h5></li>
+<li><h5 id="预设如下："><a href="#预设如下：" class="headerlink" title="预设如下："></a>预设如下：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231006200036142.png" alt="image-20231006200036142"></p>
+<blockquote>
+<p>你是一个数据分析师和前端开发专家，接下来我会按照以下固定格式给你提供内容：<br>分析需求：<br>{数据分析的需求或目标}<br>原始数据：<br>{csv格式的原始数据，用,作为分隔符}<br>请根据这两部分内容，按照以下指定格式生成内容（此外不要输出任何多余的开头、结尾、注释）<br>【【【【【<br>{前端 Echarts V5 的 option 配置对象 js 代码，合理地将数据进行可视化，不要生成任何多余的内容，比如注释}<br>【【【【【<br>{明确的数据分析结论，越详细越好，不要生成多余的注释}</p>
+</blockquote>
+<ul>
+<li><h5 id="实测效果如下："><a href="#实测效果如下：" class="headerlink" title="实测效果如下："></a>实测效果如下：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231006200131460.png" alt="image-20231006200131460"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css">&#123;<br>xAxis: &#123;<br>type: <span class="hljs-string">&#x27;category&#x27;</span>,<br>data: [<span class="hljs-string">&#x27;1号&#x27;</span>, <span class="hljs-string">&#x27;2号&#x27;</span>, <span class="hljs-string">&#x27;3号&#x27;</span>, <span class="hljs-string">&#x27;4号&#x27;</span>]<br>&#125;,<br>yAxis: &#123;<br>type: <span class="hljs-string">&#x27;value&#x27;</span><br>&#125;,<br>series: [&#123;<br>type: <span class="hljs-string">&#x27;line&#x27;</span>,<br>data: [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">35</span>, <span class="hljs-number">17</span>]<br>&#125;]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="将生成的代码粘贴至-Echarts-示例页面下，图表生成正常，效果符合预期："><a href="#将生成的代码粘贴至-Echarts-示例页面下，图表生成正常，效果符合预期：" class="headerlink" title="将生成的代码粘贴至 Echarts 示例页面下，图表生成正常，效果符合预期："></a>将生成的代码粘贴至 Echarts 示例页面下，图表生成正常，效果符合预期：</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231006200502519.png" alt="image-20231006200502519"></p>
+<ul>
+<li>总之，提问 AI 的要点有三：<strong>做好预设</strong>、<strong>限制输出格式</strong>、<strong>指定示例问答</strong></li>
+</ul>
+<h3 id="调用-AI-的3种方式"><a href="#调用-AI-的3种方式" class="headerlink" title="调用 AI 的3种方式"></a>调用 AI 的3种方式</h3><blockquote>
+<h5 id="直接调用官方接口"><a href="#直接调用官方接口" class="headerlink" title="直接调用官方接口"></a>直接调用官方接口</h5><h5 id="使用云服务商提供的封装接口"><a href="#使用云服务商提供的封装接口" class="headerlink" title="使用云服务商提供的封装接口"></a>使用云服务商提供的封装接口</h5><h5 id="鱼聪明-AI-接口开放平台"><a href="#鱼聪明-AI-接口开放平台" class="headerlink" title="鱼聪明 AI 接口开放平台"></a>鱼聪明 AI 接口开放平台</h5></blockquote>
+<ul>
+<li><h5 id="我们使用-鱼聪明-的-开放接口调用-sdk，快速调用AI-接口"><a href="#我们使用-鱼聪明-的-开放接口调用-sdk，快速调用AI-接口" class="headerlink" title="我们使用 鱼聪明 的 开放接口调用 sdk，快速调用AI 接口"></a>我们使用 鱼聪明 的 开放接口调用 sdk，快速调用AI 接口</h5></li>
+<li><h5 id="sdk-下载地址：liyupi-yucongming-java-sdk-鱼聪明-AI-的-Java-SDK，几行代码使用-AI-助手能力！-github-com"><a href="#sdk-下载地址：liyupi-yucongming-java-sdk-鱼聪明-AI-的-Java-SDK，几行代码使用-AI-助手能力！-github-com" class="headerlink" title="sdk 下载地址：liyupi/yucongming-java-sdk: 鱼聪明 AI 的 Java SDK，几行代码使用 AI 助手能力！ (github.com)"></a>sdk 下载地址：<a target="_blank" rel="noopener" href="https://github.com/liyupi/yucongming-java-sdk">liyupi/yucongming-java-sdk: 鱼聪明 AI 的 Java SDK，几行代码使用 AI 助手能力！ (github.com)</a></h5></li>
+<li><h5 id="这个-sdk-的使用方式，在项目描述中描述的非常清晰，一行代码就能轻松调用鱼聪明-AI-服务！"><a href="#这个-sdk-的使用方式，在项目描述中描述的非常清晰，一行代码就能轻松调用鱼聪明-AI-服务！" class="headerlink" title="这个 sdk 的使用方式，在项目描述中描述的非常清晰，一行代码就能轻松调用鱼聪明 AI 服务！"></a>这个 sdk 的使用方式，在项目描述中描述的非常清晰，一行代码就能轻松调用鱼聪明 AI 服务！</h5></li>
+</ul>
+<h3 id="调用-AI-尝试"><a href="#调用-AI-尝试" class="headerlink" title="调用 AI 尝试"></a>调用 AI 尝试</h3><ul>
+<li>我们按照 sdk 的使用文档，写出如下示例代码：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.yucongming<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yucongming-java-sdk<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">yuapi:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">access-key:</span> <span class="hljs-string">****************</span><br>    <span class="hljs-attr">secret-key:</span> <span class="hljs-string">****************</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Resource</span><br><span class="hljs-keyword">private</span> YuCongMingClient client;<br><br><span class="hljs-type">DevChatRequest</span> <span class="hljs-variable">devChatRequest</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DevChatRequest</span>();<br>devChatRequest.setModelId(<span class="hljs-number">1709914748273168386L</span>);<br>devChatRequest.setMessage(<span class="hljs-string">&quot;我想介绍下我的新游戏，它是一种双人棋牌游戏&quot;</span>);<br><br>BaseResponse&lt;DevChatResponse&gt; response = client.doChat(devChatRequest);<br>System.out.println(response.getData());<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231006201523133.png" alt="image-20231006201523133"></p>
+<ul>
+<li><h5 id="调用成功"><a href="#调用成功" class="headerlink" title="调用成功"></a>调用成功</h5></li>
+<li><h5 id="这里不得不夸赞一句，鱼总写的-AI-开放平台-sdk-使用文档，简单明了，使用方便，赞！（2023-10-06晚）"><a href="#这里不得不夸赞一句，鱼总写的-AI-开放平台-sdk-使用文档，简单明了，使用方便，赞！（2023-10-06晚）" class="headerlink" title="这里不得不夸赞一句，鱼总写的 AI 开放平台 sdk 使用文档，简单明了，使用方便，赞！（2023/10/06晚）"></a>这里不得不夸赞一句，鱼总写的 AI 开放平台 sdk 使用文档，简单明了，使用方便，赞！（2023/10/06晚）</h5></li>
+</ul>
+<h3 id="调用AI，完成数据分析"><a href="#调用AI，完成数据分析" class="headerlink" title="调用AI，完成数据分析"></a>调用AI，完成数据分析</h3><ul>
+<li><p>着手完成这个功能，要考虑的还有很多：</p>
+<ul>
+<li>用户发起AI调用传递参数：图表名、分析需求、原始数据，并一一对这些参数进行合适的校验</li>
+<li>对用户的请求信息进行分析，组合成对话信息，远程调用 AI</li>
+<li>发起调用，指定 AI id、对话信息，等待返回结果</li>
+<li>封装返回结果：调用人、图表信息等，在前端页面进行展示</li>
+<li>生成的图表信息还应该存入数据库中持久化</li>
+</ul>
+</li>
+<li><h5 id="基本完成"><a href="#基本完成" class="headerlink" title="基本完成"></a>基本完成</h5></li>
+<li><p>数据分析基本完成</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 3.分析Excel图表，获取原始数据</span><br>      <span class="hljs-type">String</span> <span class="hljs-variable">excelToCsv</span> <span class="hljs-operator">=</span> ExcelUtils.excelToCsv(multipartFile);<br>      userInput.append(<span class="hljs-string">&quot;\n&quot;</span>)<br>              .append(<span class="hljs-string">&quot;分析需求:&quot;</span>).append(<span class="hljs-string">&quot;\n&quot;</span>)<br>              .append(goal).append(<span class="hljs-string">&quot;, &quot;</span>).append(<span class="hljs-string">&quot;请生成一张&quot;</span>).append(chartType).append(<span class="hljs-string">&quot;\n&quot;</span>)<br>              .append(<span class="hljs-string">&quot;原始数据:&quot;</span>).append(<span class="hljs-string">&quot;\n&quot;</span>)<br>              .append(excelToCsv);<br><br>      <span class="hljs-comment">// 4.执行AI接口调用</span><br>      <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> aiManager.doChat(AiConstant.BI_MODEL_ID, userInput.toString());<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="前端智能分析页面基本完成"><a href="#前端智能分析页面基本完成" class="headerlink" title="前端智能分析页面基本完成"></a>前端智能分析页面基本完成</h5></li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">genChartByAiUsingPOST</span>(params, &#123;&#125;, values.<span class="hljs-property">file</span>.<span class="hljs-property">file</span>.<span class="hljs-property">originFileObj</span>);<br>  <span class="hljs-keyword">if</span> (!res?.<span class="hljs-property">data</span>) &#123;<br>    message.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;分析失败&#x27;</span>);<br>  &#125;<br>  message.<span class="hljs-title function_">success</span>(<span class="hljs-string">&#x27;分析成功&#x27;</span>);<br>  <span class="hljs-keyword">const</span> chartOption = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(res?.<span class="hljs-property">data</span>?.<span class="hljs-property">genChart</span> ?? <span class="hljs-string">&#x27;&#x27;</span>);<br>  <span class="hljs-comment">// const chartOption = res.data.genChart</span><br>  <span class="hljs-keyword">if</span> (!chartOption) &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;图表代码解析错误&#x27;</span>)<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// 图表信息</span><br>    <span class="hljs-title function_">setChart</span>(res.<span class="hljs-property">data</span>);<br>    <span class="hljs-title function_">setOption</span>(chartOption);<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;Col span=&#123;12&#125;&gt;<br>    &lt;Card title=&quot;分析结论&quot;&gt;<br>      &#123;chart?.genResult ?? &lt;div&gt;请先在左侧进行提交&lt;/div&gt;&#125;<br>      &lt;Spin spinning=&#123;submitting&#125;/&gt;<br>    &lt;/Card&gt;<br>    &lt;Divider/&gt;<br>    &lt;Card title=&quot;可视化图表&quot;&gt;<br>      &#123;<br>        option ? &lt;ReactECharts option=&#123;option&#125;/&gt; : &lt;div&gt;请先在左侧进行提交&lt;/div&gt;<br>      &#125;<br>      &lt;Spin spinning=&#123;submitting&#125;/&gt;<br>    &lt;/Card&gt;<br>  &lt;/Col&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="效果如下：（2023-10-08午）"><a href="#效果如下：（2023-10-08午）" class="headerlink" title="效果如下：（2023/10/08午）"></a>效果如下：（2023/10/08午）</h5></li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231008152044907.png" alt="image-20231008152044907"></p>
+<h2 id="day4"><a href="#day4" class="headerlink" title="day4"></a>day4</h2><ul>
+<li><h5 id="优化后端逻辑，返回图表列表（2023-10-08晚）"><a href="#优化后端逻辑，返回图表列表（2023-10-08晚）" class="headerlink" title="优化后端逻辑，返回图表列表（2023/10/08晚）"></a>优化后端逻辑，返回图表列表（2023/10/08晚）</h5></li>
+<li><p>再次调试智能分析功能，正常返回：</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231008213944416.png" alt="image-20231008213944416"></p>
+<h3 id="图表列表页面"><a href="#图表列表页面" class="headerlink" title="图表列表页面"></a>图表列表页面</h3><ul>
+<li>快速编写请求，测试响应结果：</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> <span class="hljs-title function_">loadData</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; &#123;<br>   <span class="hljs-keyword">try</span> &#123;<br>     <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">listChartByPageUsingPOST</span>(searchParams);<br>     <span class="hljs-keyword">if</span> (res.<span class="hljs-property">data</span>) &#123;<br>       <span class="hljs-comment">// 获取图表列表</span><br>       <span class="hljs-title function_">setChartList</span>(res.<span class="hljs-property">data</span>?.<span class="hljs-property">records</span> ?? []);<br>       <span class="hljs-comment">// 获取总数</span><br>       <span class="hljs-title function_">setTotal</span>(res.<span class="hljs-property">data</span>?.<span class="hljs-property">total</span> ?? <span class="hljs-number">0</span>);<br>     &#125; <span class="hljs-keyword">else</span> &#123;<br>       message.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;获取我的图标失败&quot;</span>)<br>     &#125;<br>   &#125; <span class="hljs-keyword">catch</span> (<span class="hljs-attr">e</span>: <span class="hljs-built_in">any</span>) &#123;<br>     message.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;获取我的图标失败&quot;</span> + e.<span class="hljs-property">message</span>)<br>   &#125;<br> &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>监听 <strong>searchParams</strong> 变化，改变查询参数即可自动查询（<strong>比如切换页数，current改变</strong>）</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-title function_">loadData</span>();<br>&#125;, [searchParams]);<br></code></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231008220655471.png" alt="image-20231008220655471"></p>
+<ul>
+<li><p>简单的样式，效果如下：</p>
+</li>
+<li><h5 id="这里由于前几条Chart数据，不是JSON代码，导致前端-ECharts-渲染失败："><a href="#这里由于前几条Chart数据，不是JSON代码，导致前端-ECharts-渲染失败：" class="headerlink" title="这里由于前几条Chart数据，不是JSON代码，导致前端 ECharts 渲染失败："></a>这里由于前几条Chart数据，不是JSON代码，导致前端 ECharts 渲染失败：</h5></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css">&#123;<br>  xAxis: &#123;<br>    type: <span class="hljs-string">&#x27;category&#x27;</span>,<br>    data: [<span class="hljs-string">&#x27;1号&#x27;</span>, <span class="hljs-string">&#x27;2号&#x27;</span>, <span class="hljs-string">&#x27;3号&#x27;</span>, <span class="hljs-string">&#x27;4号&#x27;</span>, <span class="hljs-string">&#x27;5号&#x27;</span>, <span class="hljs-string">&#x27;6号&#x27;</span>, <span class="hljs-string">&#x27;7号&#x27;</span>]<br>  &#125;,<br>  yAxis: &#123;<br>    type: <span class="hljs-string">&#x27;value&#x27;</span><br>  &#125;,<br>  series: [&#123;<br>    data: [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">90</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>],<br>    type: <span class="hljs-string">&#x27;bar&#x27;</span><br>  &#125;]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231008222510291.png" alt="image-20231008222510291"></p>
+<ul>
+<li><h5 id="图表分页、添加搜索框、添加-loading-效果，根据-name-查询图表基本完成（2023-10-08晚）"><a href="#图表分页、添加搜索框、添加-loading-效果，根据-name-查询图表基本完成（2023-10-08晚）" class="headerlink" title="图表分页、添加搜索框、添加 loading 效果，根据 name 查询图表基本完成（2023/10/08晚）"></a>图表分页、添加搜索框、添加 loading 效果，根据 name 查询图表基本完成（2023/10/08晚）</h5></li>
+</ul>
+<h2 id="day5"><a href="#day5" class="headerlink" title="day5"></a>day5</h2><h3 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a>系统优化</h3><h3 id="文件校验"><a href="#文件校验" class="headerlink" title="文件校验"></a>文件校验</h3><ul>
+<li><p>我智能分析支持用户上传文件，如果用户上传一个超大的文件怎么办？比如 1000 G</p>
+<ul>
+<li>只要涉及到<strong>用户自主上传</strong>操作，一定要校验文件<strong>（图像）</strong></li>
+<li>校验：<ul>
+<li><strong>文件大小</strong></li>
+<li><strong>文件后缀</strong></li>
+<li><strong>文件内容</strong>（成本略高）</li>
+<li><strong>文件合规</strong>（敏感内容）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="校验文件大小和文件后缀（2023-10-11）"><a href="#校验文件大小和文件后缀（2023-10-11）" class="headerlink" title="校验文件大小和文件后缀（2023/10/11）"></a>校验文件大小和文件后缀（2023/10/11）</h5></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 允许上传的文件大小</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-type">long</span> <span class="hljs-variable">ONE_MB</span> <span class="hljs-operator">=</span> <span class="hljs-number">1024</span> * <span class="hljs-number">1024L</span>;<br><br><br>   <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 合法的文件后缀</span><br><span class="hljs-comment">    */</span><br>   List&lt;String&gt; VALID_FILE_SUFFIX_LIST = Arrays.asList(<span class="hljs-string">&quot;xlsx&quot;</span>, <span class="hljs-string">&quot;xls&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 3.1.校验文件</span><br>        <span class="hljs-comment">// 3.1.1.校验文件大小</span><br>        <span class="hljs-type">long</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> multipartFile.getSize();<br>        ThrowUtils.throwIf(size &gt; ONE_MB, ErrorCode.PARAMS_ERROR, <span class="hljs-string">&quot;文件超过 1M&quot;</span>);<br><br>        <span class="hljs-comment">// 3.1.2.校验文件后缀</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">originalFilename</span> <span class="hljs-operator">=</span> multipartFile.getOriginalFilename();<br>        <span class="hljs-type">String</span> <span class="hljs-variable">suffix</span> <span class="hljs-operator">=</span> FileUtil.getSuffix(originalFilename);<br>        ThrowUtils.throwIf(!VALID_FILE_SUFFIX_LIST.contains(suffix), ErrorCode.PARAMS_ERROR, <span class="hljs-string">&quot;文件后缀非法&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h3><h3 id="限流"><a href="#限流" class="headerlink" title="限流"></a>限流</h3><ul>
+<li><h5 id="面试必备：4种经典限流算法讲解-掘金-juejin-cn"><a href="#面试必备：4种经典限流算法讲解-掘金-juejin-cn" class="headerlink" title="面试必备：4种经典限流算法讲解 - 掘金 (juejin.cn)"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/6967742960540581918">面试必备：4种经典限流算法讲解 - 掘金 (juejin.cn)</a></h5></li>
+<li><h5 id="面试官：来，年轻人！请手撸5种常见限流算法！-Java填坑笔记-博客园-cnblogs-com"><a href="#面试官：来，年轻人！请手撸5种常见限流算法！-Java填坑笔记-博客园-cnblogs-com" class="headerlink" title="面试官：来，年轻人！请手撸5种常见限流算法！ - Java填坑笔记 - 博客园 (cnblogs.com)"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liqiangchn/p/14253924.html">面试官：来，年轻人！请手撸5种常见限流算法！ - Java填坑笔记 - 博客园 (cnblogs.com)</a></h5></li>
+<li><p>我们使用 <strong>Redisson</strong> 实现的<strong>令牌桶算法</strong>实现：<strong>调用智能分析接口时，限制单位时间内的调用次数</strong></p>
+</li>
+<li><p>引入依赖：</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.redisson<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>redisson<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.21.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>做好相关配置：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ConfigurationProperties(prefix = &quot;spring.redis&quot;)</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RedissionConfig</span> &#123;<br>    <span class="hljs-keyword">private</span> String host;<br><br>    <span class="hljs-keyword">private</span> String port;<br><br>    <span class="hljs-keyword">private</span> String password;<br><br>    <span class="hljs-keyword">private</span> Integer database;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> RedissonClient <span class="hljs-title function_">redissonClient</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// 1. 创建配置</span><br>        <span class="hljs-type">Config</span> <span class="hljs-variable">config</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Config</span>();<br>        <span class="hljs-type">String</span> <span class="hljs-variable">redisAddress</span> <span class="hljs-operator">=</span> String.format(<span class="hljs-string">&quot;redis://%s:%s&quot;</span>, host, port);<br>        <span class="hljs-comment">//  使用单个Redis，没有开集群 useClusterServers()  设置地址和使用库</span><br>        config.useSingleServer().setAddress(redisAddress).setDatabase(database).setPassword(password);<br>        <span class="hljs-comment">// 2. 创建实例</span><br>        <span class="hljs-keyword">return</span> Redisson.create(config);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">redis:</span><br>   <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>   <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span><br>   <span class="hljs-attr">database:</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>限流实现（区别不同的限流器，每个用户都分别拥有对应的限流器）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 限流实现</span><br><span class="hljs-comment">    *</span><br><span class="hljs-comment">    * <span class="hljs-doctag">@param</span> key 识别用户的key</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doRateLimit</span><span class="hljs-params">(String key)</span> &#123;<br>       <span class="hljs-comment">// 创建限流器</span><br>       <span class="hljs-type">RRateLimiter</span> <span class="hljs-variable">rateLimiter</span> <span class="hljs-operator">=</span> redissonClient.getRateLimiter(key);<br>       rateLimiter.trySetRate(RateType.OVERALL, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, RateIntervalUnit.SECONDS);<br>       <span class="hljs-comment">// 每当一个操作来了之后，请求一个令牌</span><br>       <span class="hljs-type">boolean</span> <span class="hljs-variable">canOp</span> <span class="hljs-operator">=</span> rateLimiter.tryAcquire(<span class="hljs-number">1</span>);<br>       <span class="hljs-comment">// 超出发放令牌数目，请求过于频繁</span><br>       ThrowUtils.throwIf(!canOp, ErrorCode.TOO_MANY_REQUEST);<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>简单测试，效果良好，测试结果如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br>   <span class="hljs-keyword">void</span> <span class="hljs-title function_">doRateLimit</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException &#123;<br>       <span class="hljs-type">String</span> <span class="hljs-variable">userId</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span>;<br>       <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span>; i++) &#123;<br>           redisLimiterManager.doRateLimit(userId);<br>           System.out.println(<span class="hljs-string">&quot;成功&quot;</span>);<br>       &#125;<br>       Thread.sleep(<span class="hljs-number">1000</span>);<br>       <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) &#123;<br>           redisLimiterManager.doRateLimit(userId);<br>           System.out.println(<span class="hljs-string">&quot;成功&quot;</span>);<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231011180516219.png" alt="image-20231011180516219"></p>
+<ul>
+<li>业务中使用限流器，实现调用智能分析接口时，<strong>限制单位时间内的调用次数</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 限流(限制用户的调用次数，以用户id为key，区分各个限流器)</span><br>redisLimiterManager.doRateLimit(<span class="hljs-string">&quot;genCharByAi_&quot;</span> + loginUser.getId());<br></code></pre></td></tr></table></figure>
+
+<h2 id="day6"><a href="#day6" class="headerlink" title="day6"></a>day6</h2><h3 id="系统问题分析"><a href="#系统问题分析" class="headerlink" title="系统问题分析"></a>系统问题分析</h3><ul>
+<li>问题场景：调用的服务处理能力有限，或者接口的处理时间 / 返回时间较长，就应该考虑异步化了</li>
+</ul>
+<ol>
+<li>用户等待的时间比较长：等待 AI 生成图表，AI 处理过程比较长</li>
+<li>业务服务器的处理能力有限，短时间内只能处理一个请求，请求过多，资源紧张导致 AI 处理不过来，严重时会导致服务器宕机，无法处理新的请求</li>
+</ol>
+<ul>
+<li>所以我们要实现 AI <strong>生成图表异步化</strong> <strong>（2023/10/15晚）</strong></li>
+</ul>
+<h3 id="异步化"><a href="#异步化" class="headerlink" title="异步化"></a>异步化</h3><ul>
+<li>同步：一件事做完，再做另一件事</li>
+<li>异步：第一件事不用做完，就可以开始做第二件事，等第一件事完成后，通知这件事做好了，进行后续处理就行</li>
+</ul>
+<h3 id="异步化后的业务流程"><a href="#异步化后的业务流程" class="headerlink" title="异步化后的业务流程"></a>异步化后的业务流程</h3><ul>
+<li><h5 id="简单回顾异步化前的业务流程："><a href="#简单回顾异步化前的业务流程：" class="headerlink" title="简单回顾异步化前的业务流程："></a>简单回顾异步化前的业务流程：</h5><ul>
+<li>用户填写表单，提交生成图表请求，在此页面等待结果返回</li>
+<li>服务器校验请求信息，调用第三方 AI 服务处理图表生成请求并返回响应结果，实现图表智能分析</li>
+<li>可以发现，在用户提交图表分析请求后，需持续等待服务器处理，直到服务器返回处理结果</li>
+</ul>
+</li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231016211833171.png" alt="image-20231016211833171"></p>
+<ul>
+<li><h5 id="异步化后的业务流程："><a href="#异步化后的业务流程：" class="headerlink" title="异步化后的业务流程："></a>异步化后的业务流程：</h5><ul>
+<li>用户提交生成图表请求</li>
+<li>服务器接受请求，立刻把图表信息保存在数据库中（作为一个任务）</li>
+<li>用户可以在图表管理页面查看所有图表的信息和图表状态（已生成的、生成中的、生成失败的）</li>
+<li>用户可以修改生成失败的图表信息，点击<strong>重新生成</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231016211813595.png" alt="image-20231016211813595"></p>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><h4 id="线程池的实现"><a href="#线程池的实现" class="headerlink" title="线程池的实现"></a>线程池的实现</h4><h4 id="线程池的参数"><a href="#线程池的参数" class="headerlink" title="线程池的参数"></a>线程池的参数</h4><h4 id="线程池的工作机制"><a href="#线程池的工作机制" class="headerlink" title="线程池的工作机制"></a>线程池的工作机制</h4><ul>
+<li>这部分内容我计划在新的博文中介绍，可以看这篇文章学习：</li>
+</ul>
+<blockquote>
+<p>🥣 推荐阅读：</p>
+<ul>
+<li><h5 id="Java-线程池详解-JavaGuide-Java面试-学习指南"><a href="#Java-线程池详解-JavaGuide-Java面试-学习指南" class="headerlink" title="Java 线程池详解 | JavaGuide(Java面试 + 学习指南)"></a><a target="_blank" rel="noopener" href="https://javaguide.cn/java/concurrent/java-thread-pool-summary.html">Java 线程池详解 | JavaGuide(Java面试 + 学习指南)</a></h5></li>
+</ul>
+</blockquote>
+<h3 id="简单测试，理解线程池工作流程"><a href="#简单测试，理解线程池工作流程" class="headerlink" title="简单测试，理解线程池工作流程"></a>简单测试，理解线程池工作流程</h3><h4 id="自定义线程池"><a href="#自定义线程池" class="headerlink" title="自定义线程池"></a>自定义线程池</h4><ul>
+<li>自定义线程池：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 自定义线程池</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ThreadPoolExecutorConfig</span> &#123;<br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> ThreadPoolExecutor <span class="hljs-title function_">threadPoolExecutor</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">ThreadFactory</span> <span class="hljs-variable">threadFactory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ThreadFactory</span>() &#123;<br>            <span class="hljs-comment">// 记录线程数</span><br>            <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> Thread <span class="hljs-title function_">newThread</span><span class="hljs-params">(<span class="hljs-meta">@NotNull</span> Runnable r)</span> &#123;<br>                <span class="hljs-type">Thread</span> <span class="hljs-variable">thread</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(r);<br>                thread.setName(<span class="hljs-string">&quot;线程&quot;</span> + count);<br>                count++;<br>                <span class="hljs-keyword">return</span> thread;<br>            &#125;<br>        &#125;;<br>        <span class="hljs-type">ThreadPoolExecutor</span> <span class="hljs-variable">threadPoolExecutor</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ThreadPoolExecutor</span><br>                (<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">100</span>,<br>                        TimeUnit.MINUTES, <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayBlockingQueue</span>&lt;&gt;(<span class="hljs-number">4</span>), threadFactory);<br>        <span class="hljs-keyword">return</span> threadPoolExecutor;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在代码中，首先定义了一个<strong>ThreadFactory接口的实现类</strong>，用于<strong>创建线程</strong>。<strong>（2023/10/15晚）</strong></li>
+<li>在<strong>newThread方法</strong>中，通过创建线程并设置名称的方式来<strong>实现线程的创建</strong>。每次创建线程时，都会使用一个计数器count，用于记录线程的数量，保证<strong>线程名称的唯一性</strong>。</li>
+<li>然后，使用ThreadPoolExecutor类创建一个<strong>线程池对象</strong>。括号内的参数依次为：<strong>核心线程数、最大线程数、线程空闲时间、时间单位、任务队列以及线程工厂</strong>。这些参数分别表示线程池的基本配置，如最小/最大线程数、线程空闲时间等。其中，任务队列使用了ArrayBlockingQueue，表示<strong>使用有界队列来存储线程任务</strong>。</li>
+<li>最后，<strong>将创建好的线程池对象返回</strong>，供其他地方进行调用和使用。</li>
+</ul>
+<h4 id="提交任务到线程池"><a href="#提交任务到线程池" class="headerlink" title="提交任务到线程池"></a>提交任务到线程池</h4><ul>
+<li>提交任务到线程池：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 任务队列测试 提交任务到线程池</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(&quot;/queue&quot;)</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">QueueController</span> &#123;<br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> ThreadPoolExecutor threadPoolExecutor;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/get&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">get</span><span class="hljs-params">()</span> &#123;<br>        HashMap&lt;String, Object&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> threadPoolExecutor.getQueue().size();<br>        map.put(<span class="hljs-string">&quot;队列长度&quot;</span>, size);<br>        <span class="hljs-type">long</span> <span class="hljs-variable">taskCount</span> <span class="hljs-operator">=</span> threadPoolExecutor.getTaskCount();<br>        map.put(<span class="hljs-string">&quot;任务总数&quot;</span>, taskCount);<br>        <span class="hljs-type">long</span> <span class="hljs-variable">completedTaskCount</span> <span class="hljs-operator">=</span> threadPoolExecutor.getCompletedTaskCount();<br>        map.put(<span class="hljs-string">&quot;已完成任务数&quot;</span>, completedTaskCount);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">activeCount</span> <span class="hljs-operator">=</span> threadPoolExecutor.getActiveCount();<br>        map.put(<span class="hljs-string">&quot;正在工作的线程数&quot;</span>, activeCount);<br>        <span class="hljs-keyword">return</span> JSONUtil.toJsonStr(map);<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/add&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(String name)</span> &#123;<br>        CompletableFuture.runAsync(() -&gt; &#123;<br>            log.info(Thread.currentThread().getName() + <span class="hljs-string">&quot;正在执行中&quot;</span>);<br>            <span class="hljs-keyword">try</span> &#123;<br>                Thread.sleep(<span class="hljs-number">600000</span>);<br>            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;, threadPoolExecutor);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这段代码是一个简单的示例，在<strong>Spring Boot中使用自定义的线程池</strong>。首先通过@Resource注解将之前配置好的线程池对象threadPoolExecutor注入进来，然后定义了<strong>两个接口方法：get和add</strong>。</p>
+</li>
+<li><p>在get方法中，通过调用线程池对象的不同方法，<strong>获取了线程池的一些状态信息</strong>，如<strong>队列长度、任务总数、已完成任务数和正在工作的线程数</strong>，并将这些信息封装进一个<strong>HashMap</strong>中，最后<strong>使用 JSONUtil.toJsonStr 方法将其转换成JSON格式的字符串</strong>返回。</p>
+</li>
+<li><p>在add方法中，使用 <strong>CompletableFuture.runAsync 方法来在线程池中执行一个任务</strong>。这里的任务是一个简单的代码块，通过log输出当前线程的名称，并休眠10分钟。通过将线程池对象threadPoolExecutor作为参数传递给runAsync方法，使得任务在该线程池中执行。</p>
+</li>
+<li><p>通过这段代码，我们可以在Spring Boot项目中方便地<strong>使用自定义的线程池，并对其进行状态监控和管理</strong>。<strong>（2023/10/15晚）</strong></p>
+</li>
+<li><p>由 ThreadPoolExecutorConfig 配置可知，我们自定义的线程池参数设置如下：</p>
+<ul>
+<li><h5 id="核心线程数：2"><a href="#核心线程数：2" class="headerlink" title="核心线程数：2"></a>核心线程数：2</h5></li>
+<li><h5 id="最大线程数：4"><a href="#最大线程数：4" class="headerlink" title="最大线程数：4"></a>最大线程数：4</h5></li>
+<li><h5 id="任务队列数：4"><a href="#任务队列数：4" class="headerlink" title="任务队列数：4"></a>任务队列数：4</h5></li>
+<li><h5 id="超时等待时间：未设置，默认拒绝"><a href="#超时等待时间：未设置，默认拒绝" class="headerlink" title="超时等待时间：未设置，默认拒绝"></a>超时等待时间：未设置，默认拒绝</h5></li>
+<li><h5 id="时间单位：秒（SECEND）"><a href="#时间单位：秒（SECEND）" class="headerlink" title="时间单位：秒（SECEND）"></a>时间单位：秒（SECEND）</h5></li>
+</ul>
+</li>
+<li><p>我们开始测试，依次添加任务，观察执行的线程数和任务队列数，详情如下：</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231015192743819.png" alt="image-20231015192743819"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231015192927650.png" alt="image-20231015192927650"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231015193033848.png" alt="image-20231015193033848"></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231015193106483.png" alt="image-20231015193106483"></p>
+<p><img src="https://gitee.com/deng-2022/pictures/raw/master/images/image-20231015193134223.png" alt="image-20231015193134223"></p>
+<ul>
+<li><p>简单描述一下测试情况吧：</p>
+<ul>
+<li>当<strong>正在运行的线程数未达到核心线程数阈值</strong>时，优先添加线程处理新任务</li>
+<li>当<strong>正在运行的线程数达到核心线程数阈值，但任务队列未满</strong>时，优先将任务放入任务队列中</li>
+<li>当<strong>任务队列放满后，但正在运行的线程数未达到最大线程数阈值</strong>时，优先添加线程处理新任务</li>
+<li>当<strong>正在运行的线程数达到最大线程数阈值后</strong>，采用合适的拒绝策略（这里我们采用默认的拒绝策略：直接扔掉这个任务）</li>
+</ul>
+</li>
+<li><h5 id="测试完成（2023-10-15晚）"><a href="#测试完成（2023-10-15晚）" class="headerlink" title="测试完成（2023/10/15晚）"></a>测试完成（2023/10/15晚）</h5></li>
+</ul>
+<h3 id="开发实现"><a href="#开发实现" class="headerlink" title="开发实现"></a>开发实现</h3><h4 id="库表设计"><a href="#库表设计" class="headerlink" title="库表设计"></a>库表设计</h4><ul>
+<li><strong>给 chart 表新增字段</strong>：<ul>
+<li><strong>任务状态字段</strong>（排队中、执行中、已完成、执行失败）</li>
+<li><strong>任务执行字段</strong>（记录任务执行过程中的一些信息，比如为何失败）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">status  <span class="hljs-type">varchar</span>(<span class="hljs-number">128</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">default</span> <span class="hljs-string">&#x27;wait&#x27;</span> comment <span class="hljs-string">&#x27;wait,running,succeed,failed&#x27;</span>,<br>execMessage text <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;执行信息&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<h4 id="流程梳理"><a href="#流程梳理" class="headerlink" title="流程梳理"></a>流程梳理</h4><ul>
+<li><p>用户发起智能分析请求后，先把生成的图表信息立刻保存到数据库中，然后<strong>提交该请求到任务队列</strong></p>
+</li>
+<li><p><strong>任务实现</strong>：先修改图表任务状态为“执行中”</p>
+<ul>
+<li>待执行完成后，修改为“已完成”、并保存执行结果</li>
+<li>若执行失败，状态修改为“失败”，记录任务失败信息</li>
+</ul>
+</li>
+<li><p>用户可以在图表管理界面<strong>查看所有图表</strong>（包括已生成的、生成中的、生成失败的）的信息和状态</p>
+</li>
+<li><h5 id="流程大致实现，明天再做优化，把该写的-todo-都完成了（2023-10-15晚）"><a href="#流程大致实现，明天再做优化，把该写的-todo-都完成了（2023-10-15晚）" class="headerlink" title="流程大致实现，明天再做优化，把该写的 todo 都完成了（2023/10/15晚）"></a>流程大致实现，明天再做优化，把该写的 todo 都完成了（2023/10/15晚）</h5></li>
+</ul>
+<h3 id="异步化实现"><a href="#异步化实现" class="headerlink" title="异步化实现"></a>异步化实现</h3><ul>
+<li>详细的业务代码在这里不作展示，可在代码仓库查看</li>
+<li>我们对照<strong>异步化后的业务流程图</strong>，简单梳理下代码逻辑：</li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231016211908520.png" alt="image-20231016211908520"></p>
+<h3 id="前端优化"><a href="#前端优化" class="headerlink" title="前端优化"></a>前端优化</h3><ul>
+<li><h5 id="图表列表可根据图表状态进行展示"><a href="#图表列表可根据图表状态进行展示" class="headerlink" title="图表列表可根据图表状态进行展示"></a>图表列表可根据图表状态进行展示</h5></li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231016211241966.png" alt="image-20231016211241966"></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20231016211150999.png" alt="image-20231016211150999"></p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
+<li><p>美观的首页</p>
+</li>
+<li><p>图表生成后，提供友好的提示：提交请求后、图表生成后（成功、失败、忙碌中）</p>
+</li>
+<li><h5 id="枚举图表状态"><a href="#枚举图表状态" class="headerlink" title="枚举图表状态"></a>枚举图表状态</h5></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/deng-2022/blog_2/categories/RabbitMQ/" class="category-chain-item">RabbitMQ</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/RabbitMQ/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  
+  
+    <span>></span>
+    
+  <a href="/deng-2022/blog_2/categories/RabbitMQ/%E9%A1%B9%E7%9B%AE/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="category-chain-item">开发经验</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/deng-2022/blog_2/tags/%E9%A1%B9%E7%9B%AE/">#项目</a>
+      
+        <a href="/deng-2022/blog_2/tags/RabbitMQ/">#RabbitMQ</a>
+      
+        <a href="/deng-2022/blog_2/tags/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">#开发经验</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Memory BI 智能分析平台-开发文档</div>
+      <div>https://atomgit.com/deng-2022/blog_2/2023/10/03/Memory BI智能分析平台-开发文档/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Memory</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年10月15日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/10/09/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%9A%E8%AE%A1%E5%88%92%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%80%9D%E6%83%B3%E8%9C%95%E5%8F%98%E7%9A%84%E8%A7%81%E8%AF%81/" title="个人成长之路：计划演进与思想蜕变的见证">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">个人成长之路：计划演进与思想蜕变的见证</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/deng-2022/blog_2/2023/09/22/%E6%8E%A2%E7%B4%A2%20GitHub%EF%BC%9A%E5%8F%82%E4%B8%8E%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%AD%A5%E9%AA%A4%E4%B8%8E%E6%8A%80%E5%B7%A7/" title="探索GitHub：参与开源项目的步骤与技巧">
+                        <span class="hidden-mobile">探索GitHub：参与开源项目的步骤与技巧</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>Memory | 个人文档站点</span> </a>
+<i class="iconfont icon-love"></i> <a href="https://hexo.fluid-dev.com/docs/guide/" target="_blank" rel="nofollow noopener"> <span>配置指南 | Hexo Fluid 用户手册</span> </a>   
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/deng-2022/blog_2/img/police_beian.png" alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/deng-2022/blog_2/js/events.js" ></script>
+<script  src="/deng-2022/blog_2/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/deng-2022/blog_2/js/local-search.js" ></script>
+
+  <script defer src="/deng-2022/blog_2/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/deng-2022/blog_2/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
